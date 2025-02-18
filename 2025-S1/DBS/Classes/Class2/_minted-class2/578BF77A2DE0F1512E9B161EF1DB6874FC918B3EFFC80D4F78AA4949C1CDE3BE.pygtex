@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{.}\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{department}\PYG{p}{.}\PYG{n}{dept\PYGZus{}name}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{department}
+\PYG{+w}{    }\PYG{k}{WHERE}
+\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{.}\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{department}\PYG{p}{.}\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{k}{AND}
+\PYG{+w}{        }\PYG{n}{deptartment}\PYG{p}{.}\PYG{n}{budget}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{  }\PYG{l+m+mi}{95000}\PYG{p}{;}
+\end{Verbatim}

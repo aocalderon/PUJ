@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+input\PYGZus{}relation\PYGZus{}1 \PYGZbs{}join\PYGZus{}\PYGZob{}cond\PYGZcb{} input\PYGZus{}relation\PYGZus{}2
+\end{Verbatim}

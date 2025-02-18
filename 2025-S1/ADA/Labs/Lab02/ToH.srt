@@ -1,0 +1,2200 @@
+1
+00:00:00,000 --> 00:00:02,490
+I mean honestly if this doesn't blow
+
+2
+00:00:02,490 --> 00:00:06,270
+your mind do you even have a soul the
+
+3
+00:00:06,270 --> 00:00:08,039
+towers of Hanoi problem is a classic
+
+4
+00:00:08,039 --> 00:00:09,900
+recursive problem that can cause endless
+
+5
+00:00:09,900 --> 00:00:12,179
+amounts of frustration when I first
+
+6
+00:00:12,179 --> 00:00:13,860
+encountered this problem it took me
+
+7
+00:00:13,860 --> 00:00:15,210
+several days to come up with the
+
+8
+00:00:15,210 --> 00:00:17,609
+solution and quite honestly I didn't
+
+9
+00:00:17,609 --> 00:00:19,199
+feel like I understood the solution
+
+10
+00:00:19,199 --> 00:00:21,210
+until after teaching it to many of my
+
+11
+00:00:21,210 --> 00:00:24,150
+former students years later the setup of
+
+12
+00:00:24,150 --> 00:00:25,380
+the problem is as follows
+
+13
+00:00:25,380 --> 00:00:28,080
+you have three rods one of the rods has
+
+14
+00:00:28,080 --> 00:00:30,210
+some number of discs of varying sizes
+
+15
+00:00:30,210 --> 00:00:33,030
+placed on it with the largest discs at
+
+16
+00:00:33,030 --> 00:00:34,739
+the bottom and the smallest discs at the
+
+17
+00:00:34,739 --> 00:00:37,590
+top your goal is to move these discs one
+
+18
+00:00:37,590 --> 00:00:39,570
+at a time to a particular destination
+
+19
+00:00:39,570 --> 00:00:42,829
+rod in the same configuration as a start
+
+20
+00:00:42,829 --> 00:00:45,059
+before you get ahead of yourself and
+
+21
+00:00:45,059 --> 00:00:46,890
+declare this problem trivial there is
+
+22
+00:00:46,890 --> 00:00:49,530
+one important catch at any point in the
+
+23
+00:00:49,530 --> 00:00:51,480
+process of moving this you are not
+
+24
+00:00:51,480 --> 00:00:54,570
+allowed to move a larger disk on top of
+
+25
+00:00:54,570 --> 00:00:57,300
+a smaller disk this rule is what makes
+
+26
+00:00:57,300 --> 00:00:58,680
+this problem significantly more
+
+27
+00:00:58,680 --> 00:01:01,379
+challenging to solve in this video we
+
+28
+00:01:01,379 --> 00:01:03,090
+will dive into the towers of Hanoi
+
+29
+00:01:03,090 --> 00:01:05,640
+problem in three distinct phases first
+
+30
+00:01:05,640 --> 00:01:06,750
+we'll approach it from the perspective
+
+31
+00:01:06,750 --> 00:01:09,119
+of a puzzle where we'll try to come up
+
+32
+00:01:09,119 --> 00:01:10,619
+with a strategy for various
+
+33
+00:01:10,619 --> 00:01:13,409
+configurations then we'll transfer the
+
+34
+00:01:13,409 --> 00:01:15,570
+strategy into a recursive program to
+
+35
+00:01:15,570 --> 00:01:17,460
+solve this problem for any number of
+
+36
+00:01:17,460 --> 00:01:20,159
+disks in this section I'll also show you
+
+37
+00:01:20,159 --> 00:01:22,020
+some helpful tricks to solve challenging
+
+38
+00:01:22,020 --> 00:01:23,790
+recursive problems like this one and
+
+39
+00:01:23,790 --> 00:01:26,369
+lastly we'll deconstruct the recursion
+
+40
+00:01:26,369 --> 00:01:28,350
+to understand what's really going on
+
+41
+00:01:28,350 --> 00:01:29,850
+underneath the hood with some nifty
+
+42
+00:01:29,850 --> 00:01:31,320
+animations that I'm pretty sure you
+
+43
+00:01:31,320 --> 00:01:32,820
+won't want to miss so make sure you
+
+44
+00:01:32,820 --> 00:01:35,729
+stick to the end of the video all right
+
+45
+00:01:35,729 --> 00:01:38,340
+let's get started let's focus first on
+
+46
+00:01:38,340 --> 00:01:40,320
+three this since the solutions to the
+
+47
+00:01:40,320 --> 00:01:42,930
+one disc and to discern two interesting
+
+48
+00:01:42,930 --> 00:01:45,780
+for analysis purposes I highly recommend
+
+49
+00:01:45,780 --> 00:01:48,390
+pausing the video and taking a second on
+
+50
+00:01:48,390 --> 00:01:50,549
+your own to see if you can find the set
+
+51
+00:01:50,549 --> 00:01:52,590
+of moves to get these three disks to the
+
+52
+00:01:52,590 --> 00:01:55,290
+rightmost rod our goal is to come up
+
+53
+00:01:55,290 --> 00:01:57,030
+with a general strategy for solving this
+
+54
+00:01:57,030 --> 00:01:59,549
+problem if you're like me your first
+
+55
+00:01:59,549 --> 00:02:02,250
+go-to strategy and any type of puzzle is
+
+56
+00:02:02,250 --> 00:02:04,290
+random guessing and honestly there's no
+
+57
+00:02:04,290 --> 00:02:06,270
+shame in that random guessing is the
+
+58
+00:02:06,270 --> 00:02:09,330
+oldest strategy in the books so if I'm
+
+59
+00:02:09,330 --> 00:02:11,190
+looking at this problem the first thing
+
+60
+00:02:11,190 --> 00:02:12,990
+I might try is to move
+
+61
+00:02:12,990 --> 00:02:16,050
+smallest disk to the middle rod and then
+
+62
+00:02:16,050 --> 00:02:17,700
+the next move is basically forced from
+
+63
+00:02:17,700 --> 00:02:20,100
+there I would move the green disc to the
+
+64
+00:02:20,100 --> 00:02:22,500
+rightmost rod since I can't move it to
+
+65
+00:02:22,500 --> 00:02:23,880
+the second rod because that would
+
+66
+00:02:23,880 --> 00:02:26,340
+violate the rules after that the next
+
+67
+00:02:26,340 --> 00:02:28,200
+move that makes the most sense is to try
+
+68
+00:02:28,200 --> 00:02:30,030
+and move the smallest disk to the
+
+69
+00:02:30,030 --> 00:02:33,210
+rightmost rod and at this point after I
+
+70
+00:02:33,210 --> 00:02:35,460
+finished completely destroying the order
+
+71
+00:02:35,460 --> 00:02:36,840
+of this problem with three random moves
+
+72
+00:02:36,840 --> 00:02:38,940
+I think it might be a good idea to
+
+73
+00:02:38,940 --> 00:02:41,430
+evaluate what I've done so far well
+
+74
+00:02:41,430 --> 00:02:43,640
+unfortunately it's not looking too good
+
+75
+00:02:43,640 --> 00:02:46,410
+it looks like we are a little bit stuck
+
+76
+00:02:46,410 --> 00:02:48,870
+because what we really want is the
+
+77
+00:02:48,870 --> 00:02:50,880
+bottom disk below the disks that we
+
+78
+00:02:50,880 --> 00:02:53,580
+currently have on the third rod what we
+
+79
+00:02:53,580 --> 00:02:55,590
+just did by random guessing seems to be
+
+80
+00:02:55,590 --> 00:02:57,330
+pretty counterproductive to that point
+
+81
+00:02:57,330 --> 00:03:00,420
+so at this point in the problem I might
+
+82
+00:03:00,420 --> 00:03:02,670
+decide okay I might just want to start
+
+83
+00:03:02,670 --> 00:03:06,960
+over and reevaluate but from this random
+
+84
+00:03:06,960 --> 00:03:08,340
+guessing experience we've learned one
+
+85
+00:03:08,340 --> 00:03:10,680
+important fact we need to first think
+
+86
+00:03:10,680 --> 00:03:12,780
+about moving the largest disk from the
+
+87
+00:03:12,780 --> 00:03:16,050
+first rod to the destination rod and if
+
+88
+00:03:16,050 --> 00:03:17,970
+we take this idea one step further
+
+89
+00:03:17,970 --> 00:03:19,950
+before we can even think about doing
+
+90
+00:03:19,950 --> 00:03:21,660
+that we're going to have to deal with
+
+91
+00:03:21,660 --> 00:03:24,270
+the top two disks and we have to deal
+
+92
+00:03:24,270 --> 00:03:26,100
+with them in a careful manner so we can
+
+93
+00:03:26,100 --> 00:03:28,230
+eventually move the largest disk to the
+
+94
+00:03:28,230 --> 00:03:30,390
+destination rod this means our only
+
+95
+00:03:30,390 --> 00:03:32,790
+option is that we have to find some way
+
+96
+00:03:32,790 --> 00:03:35,130
+to move the top two disks to the second
+
+97
+00:03:35,130 --> 00:03:37,440
+rod okay so now that we split our
+
+98
+00:03:37,440 --> 00:03:39,360
+problem into more reasonable subtasks
+
+99
+00:03:39,360 --> 00:03:41,850
+let's solve them one by one to move the
+
+100
+00:03:41,850 --> 00:03:44,640
+top two disks to rod two we first move
+
+101
+00:03:44,640 --> 00:03:46,830
+the smallest this to Rod three after
+
+102
+00:03:46,830 --> 00:03:48,990
+which we move the middle disc to rod two
+
+103
+00:03:48,990 --> 00:03:51,570
+and finish up the subtasks by moving the
+
+104
+00:03:51,570 --> 00:03:54,930
+smallest disk to rot two and now we are
+
+105
+00:03:54,930 --> 00:03:56,760
+free to move the largest disk to Rod
+
+106
+00:03:56,760 --> 00:04:00,360
+three all right so what's next well from
+
+107
+00:04:00,360 --> 00:04:01,500
+here the solution is actually pretty
+
+108
+00:04:01,500 --> 00:04:03,750
+clear we need to move the top two disks
+
+109
+00:04:03,750 --> 00:04:05,460
+from the second rod to the third rod now
+
+110
+00:04:05,460 --> 00:04:07,770
+and to achieve this we move the smallest
+
+111
+00:04:07,770 --> 00:04:09,930
+disk from the second rod to the first
+
+112
+00:04:09,930 --> 00:04:12,090
+draw to get another way we then move the
+
+113
+00:04:12,090 --> 00:04:14,370
+middle disk from the second rod to third
+
+114
+00:04:14,370 --> 00:04:16,950
+rod followed by the the final step of
+
+115
+00:04:16,950 --> 00:04:18,690
+moving the smallest disk to the
+
+116
+00:04:18,690 --> 00:04:21,089
+destination rod and there you go we've
+
+117
+00:04:21,089 --> 00:04:22,710
+just solved towers of nine for three
+
+118
+00:04:22,710 --> 00:04:24,220
+disks
+
+119
+00:04:24,220 --> 00:04:26,950
+he was a quick recap of what we did we
+
+120
+00:04:26,950 --> 00:04:29,020
+first found a way to move the top two
+
+121
+00:04:29,020 --> 00:04:31,480
+disks a second rod allowing us to then
+
+122
+00:04:31,480 --> 00:04:32,920
+move this largest disk to the
+
+123
+00:04:32,920 --> 00:04:35,290
+destination rod and after this we
+
+124
+00:04:35,290 --> 00:04:37,690
+finished off by moving the top two disks
+
+125
+00:04:37,690 --> 00:04:39,730
+from the middle rod to the destination
+
+126
+00:04:39,730 --> 00:04:42,670
+run okay so now let's go one step
+
+127
+00:04:42,670 --> 00:04:45,250
+further and see if we can solve this for
+
+128
+00:04:45,250 --> 00:04:47,500
+the N equals four case by utilizing a
+
+129
+00:04:47,500 --> 00:04:49,300
+similar strategy to what we've just
+
+130
+00:04:49,300 --> 00:04:51,850
+developed before I go through the steps
+
+131
+00:04:51,850 --> 00:04:54,040
+to solve this take a second to pause the
+
+132
+00:04:54,040 --> 00:04:55,780
+video and see if you can come up with
+
+133
+00:04:55,780 --> 00:04:58,390
+the steps on your own applying the
+
+134
+00:04:58,390 --> 00:05:00,430
+general strategy to this new problem we
+
+135
+00:05:00,430 --> 00:05:03,070
+want to now move the top three disks
+
+136
+00:05:03,070 --> 00:05:06,250
+from rod 1 to rod two how do we do this
+
+137
+00:05:06,250 --> 00:05:09,160
+well one interesting thing about solving
+
+138
+00:05:09,160 --> 00:05:11,140
+this problem is that it's basically like
+
+139
+00:05:11,140 --> 00:05:13,540
+ignoring the largest disk even exists
+
+140
+00:05:13,540 --> 00:05:16,390
+and solving a general three disk towers
+
+141
+00:05:16,390 --> 00:05:17,830
+of Hanoi problem we're now our
+
+142
+00:05:17,830 --> 00:05:20,770
+destination is the middle rod make sure
+
+143
+00:05:20,770 --> 00:05:22,240
+you take a second to understand the
+
+144
+00:05:22,240 --> 00:05:25,120
+mapping that we just did and looking at
+
+145
+00:05:25,120 --> 00:05:26,920
+the simpler problem we know how to solve
+
+146
+00:05:26,920 --> 00:05:29,110
+it now right we basically solved the
+
+147
+00:05:29,110 --> 00:05:31,240
+version of it earlier to solve this sub
+
+148
+00:05:31,240 --> 00:05:33,130
+problem we move the top two disks a
+
+149
+00:05:33,130 --> 00:05:35,740
+third rod we achieve this by moving the
+
+150
+00:05:35,740 --> 00:05:38,230
+top distance second rod the middle disk
+
+151
+00:05:38,230 --> 00:05:40,630
+to the third rod and finished off by
+
+152
+00:05:40,630 --> 00:05:42,790
+moving the top disk from the second rod
+
+153
+00:05:42,790 --> 00:05:45,400
+to the third rod this now makes way for
+
+154
+00:05:45,400 --> 00:05:47,890
+the largest disk moving into the desired
+
+155
+00:05:47,890 --> 00:05:50,770
+position and now to finish off the sub
+
+156
+00:05:50,770 --> 00:05:53,320
+problem we once again move the top two
+
+157
+00:05:53,320 --> 00:05:55,030
+disks but this time from the third rod
+
+158
+00:05:55,030 --> 00:05:57,669
+to the second rod this sub task breaks
+
+159
+00:05:57,669 --> 00:05:59,830
+down into moving the top disk to the
+
+160
+00:05:59,830 --> 00:06:02,110
+first rod followed by moving the second
+
+161
+00:06:02,110 --> 00:06:04,690
+disk to the second rod and ending with
+
+162
+00:06:04,690 --> 00:06:08,669
+moving the top disk from rod 1 to rod to
+
+163
+00:06:08,669 --> 00:06:11,350
+notice the logic that we used here was
+
+164
+00:06:11,350 --> 00:06:13,330
+essentially the same as what we did
+
+165
+00:06:13,330 --> 00:06:15,010
+earlier and this is something that'll be
+
+166
+00:06:15,010 --> 00:06:17,770
+immensely important going forward in a
+
+167
+00:06:17,770 --> 00:06:19,330
+sense this is where the recursion of
+
+168
+00:06:19,330 --> 00:06:22,180
+this problem really originates going
+
+169
+00:06:22,180 --> 00:06:24,280
+back to the for this problem we now move
+
+170
+00:06:24,280 --> 00:06:27,220
+the largest disk from the first rod to
+
+171
+00:06:27,220 --> 00:06:28,650
+the destination rod
+
+172
+00:06:28,650 --> 00:06:31,320
+and now following our earlier strategy
+
+173
+00:06:31,320 --> 00:06:33,780
+we now move the top three disks from the
+
+174
+00:06:33,780 --> 00:06:36,090
+second rod to the destination rod and
+
+175
+00:06:36,090 --> 00:06:38,340
+the pattern once again shows up this is
+
+176
+00:06:38,340 --> 00:06:39,990
+essentially the same three this problem
+
+177
+00:06:39,990 --> 00:06:42,690
+we solved many times now we move the top
+
+178
+00:06:42,690 --> 00:06:44,310
+two disks from the middle rod to the
+
+179
+00:06:44,310 --> 00:06:47,039
+first rod and to do this we move the top
+
+180
+00:06:47,039 --> 00:06:49,380
+disk for the second rod to the third rod
+
+181
+00:06:49,380 --> 00:06:51,600
+we then move the second disk from rod
+
+182
+00:06:51,600 --> 00:06:54,060
+number two to rod number one and we
+
+183
+00:06:54,060 --> 00:06:55,770
+finish this sub task by moving the top
+
+184
+00:06:55,770 --> 00:06:59,699
+disk to the first rod we then move the
+
+185
+00:06:59,699 --> 00:07:01,350
+third disk from the second rod to the
+
+186
+00:07:01,350 --> 00:07:03,750
+destination rod and our final sub task
+
+187
+00:07:03,750 --> 00:07:06,900
+is to move the top two disks from rod 1
+
+188
+00:07:06,900 --> 00:07:09,840
+to rot 3 once again we know how to do
+
+189
+00:07:09,840 --> 00:07:10,229
+this
+
+190
+00:07:10,229 --> 00:07:13,080
+we move the first disc from rod 1 to rod
+
+191
+00:07:13,080 --> 00:07:15,060
+to move the second disk to the
+
+192
+00:07:15,060 --> 00:07:17,250
+destination rod and finish off the whole
+
+193
+00:07:17,250 --> 00:07:19,770
+problem by moving our top disk to the
+
+194
+00:07:19,770 --> 00:07:22,050
+destination rod and that's the sequence
+
+195
+00:07:22,050 --> 00:07:24,330
+of steps for towers of Hanoi with for
+
+196
+00:07:24,330 --> 00:07:27,030
+this I know that was a lot so let's do a
+
+197
+00:07:27,030 --> 00:07:29,430
+quick overview of what we just did we
+
+198
+00:07:29,430 --> 00:07:31,740
+first moved the top three disks from rod
+
+199
+00:07:31,740 --> 00:07:34,620
+1 to rod two this required a couple of
+
+200
+00:07:34,620 --> 00:07:36,690
+intermediate steps where we first moved
+
+201
+00:07:36,690 --> 00:07:39,330
+the top two disks from brought one to
+
+202
+00:07:39,330 --> 00:07:42,240
+rod three next we move the third disk to
+
+203
+00:07:42,240 --> 00:07:44,190
+the middle rod and then finish the sub
+
+204
+00:07:44,190 --> 00:07:46,650
+task by moving the top two disks from
+
+205
+00:07:46,650 --> 00:07:49,349
+the last rod to the middle rod we then
+
+206
+00:07:49,349 --> 00:07:51,360
+move the largest disk to the destination
+
+207
+00:07:51,360 --> 00:07:54,630
+rod and lastly we finished by moving the
+
+208
+00:07:54,630 --> 00:07:57,030
+top three disks from the middle rod to
+
+209
+00:07:57,030 --> 00:07:59,039
+the destination rod which had the same
+
+210
+00:07:59,039 --> 00:08:01,110
+set of sub tasks we've encountered
+
+211
+00:08:01,110 --> 00:08:05,970
+several times so now that we have a
+
+212
+00:08:05,970 --> 00:08:08,010
+fairly good understanding of a strategy
+
+213
+00:08:08,010 --> 00:08:10,139
+for this problem let's now dive into a
+
+214
+00:08:10,139 --> 00:08:12,330
+formal problem statement we want to
+
+215
+00:08:12,330 --> 00:08:14,340
+write a function Hanoi that takes three
+
+216
+00:08:14,340 --> 00:08:18,449
+inputs and start and end and outputs a
+
+217
+00:08:18,449 --> 00:08:21,210
+sequence of steps to move n disks from
+
+218
+00:08:21,210 --> 00:08:23,639
+the start rod to the end rod here's a
+
+219
+00:08:23,639 --> 00:08:25,889
+quick example of an input and output so
+
+220
+00:08:25,889 --> 00:08:27,720
+that we understand how this problem
+
+221
+00:08:27,720 --> 00:08:28,930
+statement works
+
+222
+00:08:28,930 --> 00:08:32,020
+if we pass in N equals three start is
+
+223
+00:08:32,020 --> 00:08:33,760
+equal to one and n is equal to three
+
+224
+00:08:33,760 --> 00:08:36,070
+what that means is our start rod is in
+
+225
+00:08:36,070 --> 00:08:38,830
+rod number one and we have three disks
+
+226
+00:08:38,830 --> 00:08:41,529
+on that start rod our n rod is rod
+
+227
+00:08:41,529 --> 00:08:43,719
+number three and that's where this need
+
+228
+00:08:43,719 --> 00:08:46,060
+to reach for simplicity let's assume
+
+229
+00:08:46,060 --> 00:08:49,180
+that the start and end will always be
+
+230
+00:08:49,180 --> 00:08:51,370
+between one and three and that they will
+
+231
+00:08:51,370 --> 00:08:52,750
+never be equal to each other
+
+232
+00:08:52,750 --> 00:08:55,180
+let's also assume that n will always be
+
+233
+00:08:55,180 --> 00:08:57,130
+a positive integer so we won't have to
+
+234
+00:08:57,130 --> 00:08:59,440
+handle any weird edge cases for this
+
+235
+00:08:59,440 --> 00:09:01,720
+particular input the sequence of steps
+
+236
+00:09:01,720 --> 00:09:03,430
+that this function will output will look
+
+237
+00:09:03,430 --> 00:09:05,410
+like the following we've already gone
+
+238
+00:09:05,410 --> 00:09:07,000
+over how these steps are generated from
+
+239
+00:09:07,000 --> 00:09:09,459
+my strategy but here's a quick overview
+
+240
+00:09:09,459 --> 00:09:11,410
+of how the steps correspond to actual
+
+241
+00:09:11,410 --> 00:09:13,630
+movements of disks the basic
+
+242
+00:09:13,630 --> 00:09:16,630
+interpretation is that a pointing to B
+
+243
+00:09:16,630 --> 00:09:18,430
+means that we're going to move the top
+
+244
+00:09:18,430 --> 00:09:22,209
+disc from Brod a to rod B okay so how do
+
+245
+00:09:22,209 --> 00:09:23,830
+we get started on solving this problem
+
+246
+00:09:23,830 --> 00:09:25,570
+when I'm looking at any sort of
+
+247
+00:09:25,570 --> 00:09:27,250
+challenging problem I try to find the
+
+248
+00:09:27,250 --> 00:09:29,230
+easiest thing I can do to help me solve
+
+249
+00:09:29,230 --> 00:09:31,089
+the problem personally I've noticed that
+
+250
+00:09:31,089 --> 00:09:32,440
+there's definitely an intimidation
+
+251
+00:09:32,440 --> 00:09:34,810
+factor in tough problems like this and
+
+252
+00:09:34,810 --> 00:09:36,430
+knocking out something easy can help you
+
+253
+00:09:36,430 --> 00:09:39,070
+get over that initial intimidation one
+
+254
+00:09:39,070 --> 00:09:40,630
+of the easiest things we can do here is
+
+255
+00:09:40,630 --> 00:09:42,700
+to find a helper function that simply
+
+256
+00:09:42,700 --> 00:09:45,060
+prints a move in the appropriate format
+
+257
+00:09:45,060 --> 00:09:46,810
+defining this function is fairly
+
+258
+00:09:46,810 --> 00:09:48,610
+straightforward to do and looks like the
+
+259
+00:09:48,610 --> 00:09:51,459
+following so now that we got that either
+
+260
+00:09:51,459 --> 00:09:53,380
+way let's shift our focus over to the
+
+261
+00:09:53,380 --> 00:09:55,600
+main task we need to find a way to
+
+262
+00:09:55,600 --> 00:09:57,850
+programmatically generate a sequence of
+
+263
+00:09:57,850 --> 00:10:00,370
+steps for n disks we've already seen
+
+264
+00:10:00,370 --> 00:10:02,410
+many clues in our investigation that
+
+265
+00:10:02,410 --> 00:10:04,029
+point to the fact that we'll have to
+
+266
+00:10:04,029 --> 00:10:06,220
+solve this problem recursively but how
+
+267
+00:10:06,220 --> 00:10:07,959
+in the world can we come up with
+
+268
+00:10:07,959 --> 00:10:09,700
+something that works this is by no means
+
+269
+00:10:09,700 --> 00:10:12,070
+an easy problem and before we get into
+
+270
+00:10:12,070 --> 00:10:13,660
+that solution I want to take a quick
+
+271
+00:10:13,660 --> 00:10:16,510
+aside to go over an incredibly important
+
+272
+00:10:16,510 --> 00:10:19,800
+concept when solving recursive problems
+
+273
+00:10:19,800 --> 00:10:21,760
+whenever you have faced with a
+
+274
+00:10:21,760 --> 00:10:23,410
+challenging recursive problem there are
+
+275
+00:10:23,410 --> 00:10:25,060
+three key steps that you should follow
+
+276
+00:10:25,060 --> 00:10:27,450
+to make your life exponentially easier
+
+277
+00:10:27,450 --> 00:10:29,380
+these three tips have helped me
+
+278
+00:10:29,380 --> 00:10:31,060
+throughout my years of learning computer
+
+279
+00:10:31,060 --> 00:10:33,459
+science and save me a lot of pain the
+
+280
+00:10:33,459 --> 00:10:35,410
+first step when solving a general
+
+281
+00:10:35,410 --> 00:10:37,720
+recursive function f of n is to design a
+
+282
+00:10:37,720 --> 00:10:39,150
+solution that works
+
+283
+00:10:39,150 --> 00:10:42,270
+for F called on the input one this is
+
+284
+00:10:42,270 --> 00:10:44,760
+often referred to as your base case the
+
+285
+00:10:44,760 --> 00:10:46,140
+second step is the one that's the
+
+286
+00:10:46,140 --> 00:10:47,970
+hardest to accept but what we are going
+
+287
+00:10:47,970 --> 00:10:50,370
+to do is we're going to just go out on a
+
+288
+00:10:50,370 --> 00:10:52,740
+limb and assume that F called
+
+289
+00:10:52,740 --> 00:10:55,980
+on the input n minus 1 will work the
+
+290
+00:10:55,980 --> 00:10:58,680
+second step is often referred to as a
+
+291
+00:10:58,680 --> 00:11:01,470
+recursive leap of faith once we've made
+
+292
+00:11:01,470 --> 00:11:03,870
+this assumption we will then show how we
+
+293
+00:11:03,870 --> 00:11:07,350
+can define F called on n in a working
+
+294
+00:11:07,350 --> 00:11:09,240
+manner using the function calls to F on
+
+295
+00:11:09,240 --> 00:11:12,089
+n minus 1 here is some intuition for why
+
+296
+00:11:12,089 --> 00:11:14,550
+these 3 steps work think about solving
+
+297
+00:11:14,550 --> 00:11:16,740
+this recursive problem F of n as trying
+
+298
+00:11:16,740 --> 00:11:19,080
+to knock down n dominoes where you only
+
+299
+00:11:19,080 --> 00:11:22,260
+get to knock down the first domino you
+
+300
+00:11:22,260 --> 00:11:23,970
+want to show that the ant domina will
+
+301
+00:11:23,970 --> 00:11:25,890
+eventually be knocked down how do you do
+
+302
+00:11:25,890 --> 00:11:28,800
+this well you know that if you just have
+
+303
+00:11:28,800 --> 00:11:30,630
+one Domino it's obviously going to work
+
+304
+00:11:30,630 --> 00:11:32,070
+out because you can just knock it down
+
+305
+00:11:32,070 --> 00:11:35,520
+this is an analogy to step one from here
+
+306
+00:11:35,520 --> 00:11:37,470
+what you can do is just assume at some
+
+307
+00:11:37,470 --> 00:11:39,300
+point the N minus 1
+
+308
+00:11:39,300 --> 00:11:41,820
+Domino will eventually fall this is the
+
+309
+00:11:41,820 --> 00:11:45,029
+analogy to step 2 and now to guarantee
+
+310
+00:11:45,029 --> 00:11:47,910
+the ant Domino will fall we have to put
+
+311
+00:11:47,910 --> 00:11:49,950
+this download just close enough to the N
+
+312
+00:11:49,950 --> 00:11:50,550
+minus 1
+
+313
+00:11:50,550 --> 00:11:52,709
+Domino so that when that domino falls
+
+314
+00:11:52,709 --> 00:11:55,700
+the nth Domino what respectively fall
+
+315
+00:11:55,700 --> 00:11:58,890
+this is the analogy to step 3 and once
+
+316
+00:11:58,890 --> 00:12:01,320
+we do that all the dominoes fall I want
+
+317
+00:12:01,320 --> 00:12:03,150
+to emphasize here that all three steps
+
+318
+00:12:03,150 --> 00:12:05,070
+are equally necessary for this to work
+
+319
+00:12:05,070 --> 00:12:07,140
+out if we don't get the base case right
+
+320
+00:12:07,140 --> 00:12:08,790
+that means the first domino never falls
+
+321
+00:12:08,790 --> 00:12:10,980
+if we don't make the assumption that F
+
+322
+00:12:10,980 --> 00:12:12,959
+called on and minus 1 works that's
+
+323
+00:12:12,959 --> 00:12:14,490
+similar to the situation where the N
+
+324
+00:12:14,490 --> 00:12:15,060
+minus 1
+
+325
+00:12:15,060 --> 00:12:17,279
+Domino never actually falls in which
+
+326
+00:12:17,279 --> 00:12:19,440
+case there's no way that the nth Domino
+
+327
+00:12:19,440 --> 00:12:22,020
+is gonna fall and lastly if we don't
+
+328
+00:12:22,020 --> 00:12:24,000
+properly define the relationship between
+
+329
+00:12:24,000 --> 00:12:26,880
+F of N and F of n minus 1 that's
+
+330
+00:12:26,880 --> 00:12:28,560
+basically like putting the nth Domino
+
+331
+00:12:28,560 --> 00:12:30,450
+too far away from the N minus 1
+
+332
+00:12:30,450 --> 00:12:33,420
+Domino so in that case the n Domino also
+
+333
+00:12:33,420 --> 00:12:33,990
+never falls
+
+334
+00:12:33,990 --> 00:12:36,420
+it's by moving the Domino close enough
+
+335
+00:12:36,420 --> 00:12:38,610
+to the N minus 1 Domino that the nth
+
+336
+00:12:38,610 --> 00:12:41,330
+domino falls
+
+337
+00:12:41,330 --> 00:12:43,890
+so let's now apply these three steps to
+
+338
+00:12:43,890 --> 00:12:46,230
+solving towers of Noi starting with step
+
+339
+00:12:46,230 --> 00:12:48,300
+one we want to show how we appropriately
+
+340
+00:12:48,300 --> 00:12:49,950
+handle the base case for this problem
+
+341
+00:12:49,950 --> 00:12:52,440
+when n is equal to one that's easy
+
+342
+00:12:52,440 --> 00:12:54,390
+enough since if we only have one disk
+
+343
+00:12:54,390 --> 00:12:56,850
+all we have to do is move that one disk
+
+344
+00:12:56,850 --> 00:12:59,730
+from the start to the end in our problem
+
+345
+00:12:59,730 --> 00:13:01,440
+statement this is equivalent to calling
+
+346
+00:13:01,440 --> 00:13:03,600
+print move with the arguments start and
+
+347
+00:13:03,600 --> 00:13:06,780
+end that takes care of step 1 now let's
+
+348
+00:13:06,780 --> 00:13:09,150
+move to step 2 in the process of solving
+
+349
+00:13:09,150 --> 00:13:11,640
+towers of Hanoi for any N what it means
+
+350
+00:13:11,640 --> 00:13:14,400
+to assume the F of n minus 1 works is
+
+351
+00:13:14,400 --> 00:13:16,800
+that we can just accept that any version
+
+352
+00:13:16,800 --> 00:13:19,140
+of towers of Hanoi call an N minus 1
+
+353
+00:13:19,140 --> 00:13:21,360
+will work it's important to remember
+
+354
+00:13:21,360 --> 00:13:23,700
+that this includes a variety of starting
+
+355
+00:13:23,700 --> 00:13:25,410
+and ending positions and we're just
+
+356
+00:13:25,410 --> 00:13:26,640
+going to assume that all of these
+
+357
+00:13:26,640 --> 00:13:28,590
+subproblems work now with that
+
+358
+00:13:28,590 --> 00:13:30,300
+assumption that any call to towers of
+
+359
+00:13:30,300 --> 00:13:33,030
+Hanoi on n minus 1 works let's move to
+
+360
+00:13:33,030 --> 00:13:35,520
+the third step where we need to show how
+
+361
+00:13:35,520 --> 00:13:38,310
+we can solve and disk towers of Hanoi
+
+362
+00:13:38,310 --> 00:13:41,190
+problems using the solutions to towers
+
+363
+00:13:41,190 --> 00:13:44,100
+of Hanoi called on n minus 1 there's one
+
+364
+00:13:44,100 --> 00:13:46,200
+minor issue though the first thing we
+
+365
+00:13:46,200 --> 00:13:48,090
+need to take care of is we currently
+
+366
+00:13:48,090 --> 00:13:50,940
+have a reference to the start and end
+
+367
+00:13:50,940 --> 00:13:53,190
+rod but we somehow need to have a
+
+368
+00:13:53,190 --> 00:13:54,810
+reference to the other rod in the
+
+369
+00:13:54,810 --> 00:13:57,330
+process one quick and easy way to do
+
+370
+00:13:57,330 --> 00:13:59,900
+this is by utilizing the rod numbers
+
+371
+00:13:59,900 --> 00:14:02,310
+since the first second and third rods
+
+372
+00:14:02,310 --> 00:14:05,040
+are labeled 1 2 & 3 respectively the
+
+373
+00:14:05,040 --> 00:14:07,350
+other rod will always be 6 minus the sum
+
+374
+00:14:07,350 --> 00:14:10,410
+of the start and end rods and now that
+
+375
+00:14:10,410 --> 00:14:12,690
+we have the other rod we can now execute
+
+376
+00:14:12,690 --> 00:14:14,640
+the first step of the strategy that we
+
+377
+00:14:14,640 --> 00:14:17,130
+developed earlier we want to first move
+
+378
+00:14:17,130 --> 00:14:20,100
+the top n minus one disks from the start
+
+379
+00:14:20,100 --> 00:14:22,350
+to the other the neat thing about the
+
+380
+00:14:22,350 --> 00:14:24,240
+framework that we've defined for solving
+
+381
+00:14:24,240 --> 00:14:26,370
+this problem is that the first step is
+
+382
+00:14:26,370 --> 00:14:28,860
+exactly equivalent to solving the
+
+383
+00:14:28,860 --> 00:14:30,900
+following towers of Hanoi problem on n
+
+384
+00:14:30,900 --> 00:14:33,780
+minus one disks by the second step of
+
+385
+00:14:33,780 --> 00:14:36,000
+recursive problem solving we can assume
+
+386
+00:14:36,000 --> 00:14:38,700
+this call works so we can use it as part
+
+387
+00:14:38,700 --> 00:14:40,890
+of our solution this corresponds to the
+
+388
+00:14:40,890 --> 00:14:43,440
+recursive call to annoy called on n
+
+389
+00:14:43,440 --> 00:14:46,530
+minus 1 start and other once we've
+
+390
+00:14:46,530 --> 00:14:48,450
+completed a step we can then proceed to
+
+391
+00:14:48,450 --> 00:14:51,270
+moving the last disk from the start to
+
+392
+00:14:51,270 --> 00:14:53,940
+the end this corresponds to a call to
+
+393
+00:14:53,940 --> 00:14:54,270
+pray
+
+394
+00:14:54,270 --> 00:14:56,190
+move with the arguments start and end
+
+395
+00:14:56,190 --> 00:14:58,950
+and now the final step is to move the
+
+396
+00:14:58,950 --> 00:15:01,680
+top n minus one disks from the middle
+
+397
+00:15:01,680 --> 00:15:03,810
+rod to the destination rod this
+
+398
+00:15:03,810 --> 00:15:05,640
+subproblem is essentially the same as
+
+399
+00:15:05,640 --> 00:15:08,430
+solving Hanoi for n minus 1 disk but a
+
+400
+00:15:08,430 --> 00:15:10,890
+start disk is the middle and the end
+
+401
+00:15:10,890 --> 00:15:14,160
+disk is the last disk this means we can
+
+402
+00:15:14,160 --> 00:15:16,140
+assume that the sub-problem works as per
+
+403
+00:15:16,140 --> 00:15:17,670
+our framework and the corresponding
+
+404
+00:15:17,670 --> 00:15:19,980
+recursive call is Hanoi with the
+
+405
+00:15:19,980 --> 00:15:23,480
+arguments n minus 1 other and end and
+
+406
+00:15:23,480 --> 00:15:25,500
+following these steps successfully
+
+407
+00:15:25,500 --> 00:15:27,690
+solves towers of Hanoi for n disk and
+
+408
+00:15:27,690 --> 00:15:29,910
+this does indeed end up being a valid
+
+409
+00:15:29,910 --> 00:15:34,740
+recursive solution now before we move on
+
+410
+00:15:34,740 --> 00:15:36,840
+I want you to take a second and look at
+
+411
+00:15:36,840 --> 00:15:38,820
+the final logic and really take a moment
+
+412
+00:15:38,820 --> 00:15:41,670
+to appreciate it I mean how crazy is it
+
+413
+00:15:41,670 --> 00:15:43,920
+that such a seemingly tricky problem
+
+414
+00:15:43,920 --> 00:15:46,050
+ends up having such a simple solution I
+
+415
+00:15:46,050 --> 00:15:47,760
+remember when I first solved this
+
+416
+00:15:47,760 --> 00:15:49,650
+problem my mind was absolutely blown
+
+417
+00:15:49,650 --> 00:15:52,200
+away I mean honestly if this doesn't
+
+418
+00:15:52,200 --> 00:15:53,880
+blow your mind do you even have a soul
+
+419
+00:15:53,880 --> 00:15:57,030
+this is really an amazing example of the
+
+420
+00:15:57,030 --> 00:15:58,950
+power and beauty of recursive problem
+
+421
+00:15:58,950 --> 00:16:01,050
+solving and for completeness he is a
+
+422
+00:16:01,050 --> 00:16:03,000
+fully developed solution to this problem
+
+423
+00:16:03,000 --> 00:16:05,700
+in Python the nice thing about going
+
+424
+00:16:05,700 --> 00:16:07,080
+through all this work is that the code
+
+425
+00:16:07,080 --> 00:16:10,160
+basically writes itself
+
+426
+00:16:10,990 --> 00:16:13,490
+now at this point some of you might be
+
+427
+00:16:13,490 --> 00:16:15,519
+looking at the solution and think okay I
+
+428
+00:16:15,519 --> 00:16:17,660
+understand how it works within the
+
+429
+00:16:17,660 --> 00:16:20,180
+recursive leap of faith' framework but
+
+430
+00:16:20,180 --> 00:16:22,579
+how does the actual recursion work fear
+
+431
+00:16:22,579 --> 00:16:24,529
+not let's answer that question I think
+
+432
+00:16:24,529 --> 00:16:26,540
+the best example to take a deep dive
+
+433
+00:16:26,540 --> 00:16:28,459
+into is the one we started off with
+
+434
+00:16:28,459 --> 00:16:30,649
+annoying with three disks where we want
+
+435
+00:16:30,649 --> 00:16:32,360
+to move the three disks from the first
+
+436
+00:16:32,360 --> 00:16:34,399
+rod to the third rod the first recursive
+
+437
+00:16:34,399 --> 00:16:34,970
+call
+
+438
+00:16:34,970 --> 00:16:37,579
+we'll call Hanoi on two disks with the
+
+439
+00:16:37,579 --> 00:16:40,339
+start rod as Rod one and the end rod as
+
+440
+00:16:40,339 --> 00:16:43,430
+rod two here's what that represents this
+
+441
+00:16:43,430 --> 00:16:45,829
+recursive call forces us to go back into
+
+442
+00:16:45,829 --> 00:16:47,839
+the function where we now get another
+
+443
+00:16:47,839 --> 00:16:50,269
+recursive call to Hanoi this time on one
+
+444
+00:16:50,269 --> 00:16:53,000
+disk where we want the single disk to
+
+445
+00:16:53,000 --> 00:16:55,370
+move from one to three here's a visual
+
+446
+00:16:55,370 --> 00:16:57,680
+example of what this call is trying to
+
+447
+00:16:57,680 --> 00:17:00,200
+achieve and this recursive call will go
+
+448
+00:17:00,200 --> 00:17:01,970
+back into the function where we actually
+
+449
+00:17:01,970 --> 00:17:04,250
+hit up base case which then prints the
+
+450
+00:17:04,250 --> 00:17:07,369
+move from rod 1 to rod 3 and this is a
+
+451
+00:17:07,369 --> 00:17:08,869
+very first move in the towers of Hanoi
+
+452
+00:17:08,869 --> 00:17:11,419
+problem visually what this represents is
+
+453
+00:17:11,419 --> 00:17:13,790
+that all our recursive calls before had
+
+454
+00:17:13,790 --> 00:17:15,079
+changed state because we now have
+
+455
+00:17:15,079 --> 00:17:17,049
+officially made our first move
+
+456
+00:17:17,049 --> 00:17:19,429
+after making a first move we have
+
+457
+00:17:19,429 --> 00:17:21,199
+officially completed the recursive call
+
+458
+00:17:21,199 --> 00:17:24,619
+to Hanoi on one disk which now means we
+
+459
+00:17:24,619 --> 00:17:26,449
+have to complete the recursive call to
+
+460
+00:17:26,449 --> 00:17:28,940
+Hanoi on two disks this means we now
+
+461
+00:17:28,940 --> 00:17:32,120
+have to call print move on rods one to
+
+462
+00:17:32,120 --> 00:17:34,190
+two which has the following effect this
+
+463
+00:17:34,190 --> 00:17:35,870
+is the second move in this particular
+
+464
+00:17:35,870 --> 00:17:38,270
+towers of our problem after completely
+
+465
+00:17:38,270 --> 00:17:39,830
+in the second move we still have to
+
+466
+00:17:39,830 --> 00:17:41,570
+finish computing the recursive call to
+
+467
+00:17:41,570 --> 00:17:44,179
+Hanoi on two disks which now makes its
+
+468
+00:17:44,179 --> 00:17:46,700
+final recursive call on a single disk
+
+469
+00:17:46,700 --> 00:17:49,549
+from rod 3 to rod 2 which has the
+
+470
+00:17:49,549 --> 00:17:51,980
+following visual representation this
+
+471
+00:17:51,980 --> 00:17:53,990
+hits the base case once again where we
+
+472
+00:17:53,990 --> 00:17:56,030
+now make the third move which is to move
+
+473
+00:17:56,030 --> 00:17:59,809
+the disk from rod 3 to rod two here's
+
+474
+00:17:59,809 --> 00:18:01,190
+the effect of that on the overall
+
+475
+00:18:01,190 --> 00:18:03,669
+problem
+
+476
+00:18:04,030 --> 00:18:07,480
+and this now completes our first
+
+477
+00:18:07,480 --> 00:18:10,430
+original recursive call which was step
+
+478
+00:18:10,430 --> 00:18:12,380
+one in our earlier strategy of moving
+
+479
+00:18:12,380 --> 00:18:14,660
+the top two disks from the first rod to
+
+480
+00:18:14,660 --> 00:18:17,240
+the second rod what's next is step two
+
+481
+00:18:17,240 --> 00:18:19,340
+of that strategy where we move the last
+
+482
+00:18:19,340 --> 00:18:22,130
+rod from rod one to the destination rod
+
+483
+00:18:22,130 --> 00:18:24,470
+that's a simple print call which has the
+
+484
+00:18:24,470 --> 00:18:26,840
+following effect that actually ends up
+
+485
+00:18:26,840 --> 00:18:29,800
+being the fourth move in the sequence
+
+486
+00:18:29,800 --> 00:18:32,320
+this now leads us to the final step
+
+487
+00:18:32,320 --> 00:18:34,930
+which involves moving the top two disks
+
+488
+00:18:34,930 --> 00:18:37,000
+from the second rod to the destination
+
+489
+00:18:37,000 --> 00:18:39,340
+rod that kicks off the following
+
+490
+00:18:39,340 --> 00:18:41,980
+recursive call this kicks off a similar
+
+491
+00:18:41,980 --> 00:18:44,260
+sequence of events the second recursive
+
+492
+00:18:44,260 --> 00:18:46,570
+call goes back into the function where
+
+493
+00:18:46,570 --> 00:18:48,130
+we now make a recursive call with one
+
+494
+00:18:48,130 --> 00:18:50,500
+disk moving from the second rod to the
+
+495
+00:18:50,500 --> 00:18:52,810
+first rod this it's the base case where
+
+496
+00:18:52,810 --> 00:18:55,090
+we now print this move which is where
+
+497
+00:18:55,090 --> 00:18:56,770
+the fifth move in the sequence comes
+
+498
+00:18:56,770 --> 00:18:58,450
+from here's the effect of that on the
+
+499
+00:18:58,450 --> 00:19:01,170
+overall problem
+
+500
+00:19:01,770 --> 00:19:04,869
+[Music]
+
+501
+00:19:08,660 --> 00:19:11,240
+the sixth move then follows by now
+
+502
+00:19:11,240 --> 00:19:13,580
+moving the disc from the middle rod to
+
+503
+00:19:13,580 --> 00:19:15,500
+the destination rod here's the effect of
+
+504
+00:19:15,500 --> 00:19:18,820
+that on the overall problem
+
+505
+00:19:24,179 --> 00:19:27,389
+and finally the seventh and final step
+
+506
+00:19:27,389 --> 00:19:30,029
+involves the final recursive call on one
+
+507
+00:19:30,029 --> 00:19:32,759
+disk moving from the first rod to the
+
+508
+00:19:32,759 --> 00:19:34,919
+third rod which once again hits the base
+
+509
+00:19:34,919 --> 00:19:37,049
+case that actually prints out the last
+
+510
+00:19:37,049 --> 00:19:38,700
+move
+
+511
+00:19:38,700 --> 00:19:46,690
+[Music]
+
+512
+00:19:50,940 --> 00:19:53,430
+and there you have it that's how the
+
+513
+00:19:53,430 --> 00:19:55,620
+towers of paranoid recursion unravels
+
+514
+00:19:55,620 --> 00:19:57,660
+it's really quite amazing how it all
+
+515
+00:19:57,660 --> 00:19:59,250
+works out especially if it's your first
+
+516
+00:19:59,250 --> 00:20:01,080
+time seeing it so I highly encourage
+
+517
+00:20:01,080 --> 00:20:02,880
+working through some examples on your
+
+518
+00:20:02,880 --> 00:20:05,160
+own to convince yourself that things do
+
+519
+00:20:05,160 --> 00:20:08,930
+indeed work out as they are supposed to
+
+520
+00:20:09,770 --> 00:20:11,720
+before I conclude this video here's a
+
+521
+00:20:11,720 --> 00:20:13,580
+big-picture recap of how we went about
+
+522
+00:20:13,580 --> 00:20:16,220
+solving towers of Hanoi we first took a
+
+523
+00:20:16,220 --> 00:20:17,900
+step back didn't even think about the
+
+524
+00:20:17,900 --> 00:20:19,760
+code recursion algorithms or anything
+
+525
+00:20:19,760 --> 00:20:22,190
+and just trying to understand how we as
+
+526
+00:20:22,190 --> 00:20:24,620
+someone trying to solve a puzzle might
+
+527
+00:20:24,620 --> 00:20:26,420
+go about solving this problem this is
+
+528
+00:20:26,420 --> 00:20:28,490
+something I really encourage doing when
+
+529
+00:20:28,490 --> 00:20:30,710
+you encounter a tough problem don't be
+
+530
+00:20:30,710 --> 00:20:32,480
+afraid to take a step back and take a
+
+531
+00:20:32,480 --> 00:20:33,530
+look at things from a different
+
+532
+00:20:33,530 --> 00:20:36,050
+perspective following this we developed
+
+533
+00:20:36,050 --> 00:20:37,820
+a strategy and use a strategy to
+
+534
+00:20:37,820 --> 00:20:41,240
+implement our occurr civ solution on the
+
+535
+00:20:41,240 --> 00:20:43,130
+way here we learn about the recursive
+
+536
+00:20:43,130 --> 00:20:44,690
+leap of faith and how it can help us
+
+537
+00:20:44,690 --> 00:20:46,700
+simplify particularly challenging
+
+538
+00:20:46,700 --> 00:20:48,770
+problems and lastly we took a step
+
+539
+00:20:48,770 --> 00:20:50,570
+deeper into the problem to understand
+
+540
+00:20:50,570 --> 00:20:53,310
+how this recursion works out
+
+541
+00:20:53,310 --> 00:20:55,000
+[Music]
+
+542
+00:20:55,000 --> 00:20:57,370
+thanks for watching me and as always I'd
+
+543
+00:20:57,370 --> 00:20:59,350
+appreciate it if you hit the like button
+
+544
+00:20:59,350 --> 00:21:01,210
+if you enjoyed it if you want to see
+
+545
+00:21:01,210 --> 00:21:02,710
+more content like this be sure to hit
+
+546
+00:21:02,710 --> 00:21:04,840
+the subscribe button and if you want to
+
+547
+00:21:04,840 --> 00:21:07,300
+more directly support this channel be
+
+548
+00:21:07,300 --> 00:21:08,980
+sure to check out the patreon page
+
+549
+00:21:08,980 --> 00:21:10,870
+linked in the description below see you
+
+550
+00:21:10,870 --> 00:21:13,470
+in the next video
+

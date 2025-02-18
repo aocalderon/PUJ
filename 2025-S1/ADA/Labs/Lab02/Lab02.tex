@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.5cm, top=2cm, right=2cm, bottom=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{url}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+%opening
+\title{Algorithm Analysis \\ Lab 2}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this lab we will explore a well-known problem frequently covered when we talk about recursion.  The Towers of Hanoi is a nice puzzle where player have to move a set of disks of different sizes from one rob to another.  We will use a couple of online resources to understand the problem and, mainly, its corresponding recursive solution.  Finally, you will asked to dive further in the analysis to work independently in its recurrence formula and complexity.
+
+\section{A YouTube Video from the Reducible Channel}\label{sec:reducible}
+First, we will watch an excellent video from the Reducible Channel. You can find the video \href{https://www.youtube.com/watch?v=rf6uf3jNjbo}{here}.
+We have prepared \href{https://drive.google.com/file/d/1hDacb41pGUKO_J6gFWMA8fPpuPSJdE5h/view?usp=drive_link}{English} and \href{https://drive.google.com/file/d/15krFvJwWnhg4-QKkIE5xJiqRnBZTi9GP/view?usp=drive_link}{Spanish} subtitles, but you will need to download the video in MP4 format from \href{https://drive.google.com/file/d/1md8574OHPTrH5oscsDb8kNA5BIRyFa4O/view?usp=sharing}{here}.
+
+\href{https://www.videolan.org/vlc/}{VLC} is a recommended video player that you can use to activate the subtitles. Simply follow these steps:
+
+\begin{enumerate}
+    \item Place the MP4 and SRT files in the same folder.
+    \item Rename the MP4 file to match the name of the SRT file you want to use.
+    \item Open the video with VLC, and it will automatically load the corresponding SRT file.
+\end{enumerate}
+
+At the end of the video, you will be able to use the code provided to run instances of the Tower of Hanoi Problem with different values of N. Try running the code and determine the largest value of N that your computer can solve in under 1 minute.  Keep a record of your work and attach it later as part of your report.
+
+\section{Khan Academy Computer Science Theory Course}\label{sec:khan}
+Khan Academy offers an excellent course covering various topics in Computer Theory. Among their lessons, there is a dedicated section on the Tower of Hanoi Problem: [\href{https://www.khanacademy.org/computing/computer-science/algorithms/towers-of-hanoi/a/towers-of-hanoi}{Lesson 7: Towers of Hanoi}].
+
+You are required to create an account on Khan Academy and complete the four units of this lesson. Once you have finished, you must attach a screenshot showing your username and the completed four units (especially the final unit, which includes the challenge).
+
+This task must be completed by all members of the group.
+
+\section{Independent Work}\label{sec:work}
+Now that you have mastered the Towers of Hanoi Problem, you should be able to derive its recurrence formula by applying the most suitable method from those we have already covered in class.
+
+Along with the recurrence, you will perform a complete complexity analysis for this problem, including its corresponding proof.
+
+Once again, while the Internet and various AI tools could provide you with the answer, we trust that you will first make \textbf{an honest attempt} to solve this problem on your own.
+
+\section{What we expect}
+You will compile all your findings into a well-structured report using the \href{https://drive.google.com/file/d/1jyfiDPpzuluE6UpEA-arws1D2_wtPVyC/view?usp=sharing}{template} provided for this lab. This template is primarily focused on how you should present your complexity analysis (as required in Section \ref{sec:work}). You may include the other two requirements in additional sections.
+
+Your report should include:
+
+\begin{itemize}
+    \item The execution output for the maximum N that your machine can process within 1 minute (Section \ref{sec:reducible}).
+    \item Screenshots of your work on Khan Academy (Section \ref{sec:khan}).
+    \item The complexity analysis as requested in (Section \ref{sec:work}).
+\end{itemize}
+
+\end{document}

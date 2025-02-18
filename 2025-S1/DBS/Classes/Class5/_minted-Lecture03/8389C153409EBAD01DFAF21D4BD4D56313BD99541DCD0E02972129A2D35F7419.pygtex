@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{name}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{salary}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }\PYG{k}{NULL}
+\end{Verbatim}

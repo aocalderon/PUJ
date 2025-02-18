@@ -1,0 +1,24 @@
+1. Find the unique person who does not frequent pizzerias which sell supreme pizza.
+
+\project_{name} person \diff \project_{name}((\select_{pizza='supreme'} serves) \join frequents);
+
+2. Find the pizzerias and pizzas which are more expensive that those sell them by Little Caesars.
+
+\select_{s2.pizzeria='Little Caesars'}(
+	\rename_{s1:*} Serves
+		\join_{s1.pizza=s2.pizza and s1.price>s2.price}
+	\rename_{s2:*} Serves
+);
+
+3. How old is the woman who eats pizzs cheaper than 7.75
+
+\project_{age}(\select_{price < 7.75 and gender = 'female'}(serves \join (person \join eats)));
+
+4. What is the most popular pizzeria among people between 20 and 30 years old? 
+
+\aggr_{pizzeria: count(1)}((\select_{ age >= 20 and age <= 30 } person) \join frequents);
+
+5. What is the average age amongs men who eat pepperoni pizza?
+
+\aggr_{avg(age) } (\select_{ gender = 'male' and pizza = 'pepperoni'} (person \join eats));
+

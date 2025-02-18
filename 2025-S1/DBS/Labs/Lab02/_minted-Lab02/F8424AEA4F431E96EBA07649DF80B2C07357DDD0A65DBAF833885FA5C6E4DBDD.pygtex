@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZbs{}project\PYGZus{}\PYGZob{}sName, GPA\PYGZcb{}( \PYGZbs{}select\PYGZus{}\PYGZob{}student.sID = apply.sID and major = \PYGZsq{}Sistemas\PYGZsq{}\PYGZcb{}( student \PYGZbs{}cross apply ) );
+\end{Verbatim}

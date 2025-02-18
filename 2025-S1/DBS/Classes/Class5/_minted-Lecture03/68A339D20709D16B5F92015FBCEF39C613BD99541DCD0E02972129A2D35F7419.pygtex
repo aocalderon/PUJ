@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{c+cm}{/* erroneous query */}
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{AVG}\PYG{p}{(}\PYG{n}{salary}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{instructor}
+\PYG{+w}{    }\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}
+\PYG{+w}{        }\PYG{n}{dept\PYGZus{}name}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,75 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%opening
+\title{A nice title for your report}
+\author{Your names}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Here, provide a brief summary of your work.
+\end{abstract}
+
+\section{Problem Definition}
+Here, you should state the problem and provide a formal definition. Use the \LaTeX\ tag \verb|\begin{definition}| for this purpose. For example:
+
+\begin{definition}[Towers of Hanoi]
+Towers of Hanoi is a puzzle...
+\end{definition}
+
+\section{Problem Design}
+Here, you should clearly state the inputs and outputs of the problem. For example:
+
+\begin{enumerate}
+    \item \emph{\underline{Inputs}}:
+    \begin{enumerate}
+        \item $n \in \mathbb{N}$, the number of disks.
+        \item $\left( s, e, o \right)$, a triplet with the identifiers of the robs: \textbf{\emph{\underline{s}}}tart, \textbf{\emph{\underline{e}}}nd and \textbf{\emph{\underline{o}}}ther.
+    \end{enumerate}
+    \item \emph{\underline{Outputs}}: $S=\left\langle \left(i,j\right);i,j\in\left\{ s,e,o\right\} \right\rangle $ the sequence of steps that solve the game.
+\end{enumerate}
+
+\section{Algorithm Solution}
+Here, you should include the pseudo-code that solves the problem. For instance:
+
+\begin{algorithm}[H]
+    \begin{algorithmic}[1]
+        \Require{ $n\in\mathbb{N}$, the number of disks to move.}
+        \Require{$t \equiv \left(s, e, o \right)$, a tuple with the three robs (\textbf{\emph{\underline{s}}}tart, \textbf{\emph{\underline{e}}}nd and \textbf{\emph{\underline{o}}}ther)}
+
+        \Procedure{SolveTowersOfHanoi}{$n, t \equiv \left(s, e, o \right)$}
+            \If{$n = 1$}
+                \State \Return $\left\langle t \right\rangle$
+            \Else
+                \State $M \leftarrow \emptyset$
+                \State $M \leftarrow M \bigcup \text{\Call{SolveTowersOfHanoi}{\ensuremath{n - 1, \left(s, e, o\right)}}}$
+                \State $M \leftarrow M \bigcup \text{\Call{SolveTowersOfHanoi}{\ensuremath{1, \left(s, e, o\right)}}}$
+                \State $M \leftarrow M \bigcup \text{\Call{SolveTowersOfHanoi}{\ensuremath{n - 1, \left(s, e, o\right)}}}$
+                \State \Return $M$
+            \EndIf
+            \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\subsection{Invariants}
+Here, you should clearly state the rules or set of assumptions required to ensure the correct execution of the proposed algorithm.
+
+\subsection{Complexity Analysis}
+Provide a detailed explanation of the findings from the algorithm's complexity analysis. This is the main section, so explain it as thoroughly as possible. Include the recurrence tree or a similar analysis, along with the proof of your recurrence formula.
+
+\subsection{Implementation Notes}
+Include any additional information that is relevant to the implementation of your algorithm.
+
+\end{document}

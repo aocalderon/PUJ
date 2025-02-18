@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}A\PYGZsq{}}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{lightgray},
+    keywordstyle=\bfseries\color{blue},
+}
+
+\title{Gu\'ia para Compilar PostgreSQL en Ubuntu Server 24.04}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Actualizar el Sistema}
+Antes de empezar, es recomendable actualizar el sistema para asegurarnos de tener las últimas versiones de los paquetes.
+
+\begin{lstlisting}[language=bash]
+sudo apt update && sudo apt upgrade -y
+\end{lstlisting}
+
+\section{Instalar Dependencias Necesarias}
+PostgreSQL requiere varias bibliotecas y herramientas para compilarse correctamente.
+
+\begin{lstlisting}[language=bash]
+sudo apt install -y build-essential libreadline-dev zlib1g-dev \
+                    flex bison libxml2-dev libxslt1-dev \
+                    libssl-dev libperl-dev libpam0g-dev \
+                    libldap2-dev python3-dev uuid-dev
+\end{lstlisting}
+
+\section{Descargar la Última Versión de PostgreSQL}
+Obtenemos la versión más reciente desde el sitio oficial de PostgreSQL.
+
+\begin{lstlisting}[language=bash]
+cd /usr/local/src
+wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.gz
+\end{lstlisting}
+(Sustituye `16.1` por la última versión disponible si hay una más reciente).
+
+\section{Extraer el Código Fuente}
+Descomprimimos el archivo descargado.
+
+\begin{lstlisting}[language=bash]
+tar -xvzf postgresql-16.1.tar.gz
+cd postgresql-16.1
+\end{lstlisting}
+
+\section{Configurar la Compilación}
+Ejecutamos el script de configuración con las opciones necesarias.
+
+\begin{lstlisting}[language=bash]
+./configure --prefix=/usr/local/pgsql --with-openssl
+\end{lstlisting}
+Opcionalmente, puedes añadir otras opciones como `--with-python`, `--with-libxml`, etc.
+
+\section{Compilar PostgreSQL}
+Ahora compilamos PostgreSQL utilizando `make`.
+
+\begin{lstlisting}[language=bash]
+make -j$(nproc)
+\end{lstlisting}
+
+\section{Instalar PostgreSQL}
+Si la compilación fue exitosa, instalamos PostgreSQL en el sistema.
+
+\begin{lstlisting}[language=bash]
+sudo make install
+\end{lstlisting}
+
+\section{Crear el Usuario y Configurar Directorios}
+Creamos un usuario específico para PostgreSQL y configuramos los directorios.
+
+\begin{lstlisting}[language=bash]
+sudo useradd -m -d /usr/local/pgsql -s /bin/bash postgres
+sudo mkdir -p /usr/local/pgsql/data
+sudo chown postgres:postgres /usr/local/pgsql/data
+\end{lstlisting}
+
+\section{Inicializar la Base de Datos}
+Iniciamos PostgreSQL con el usuario `postgres`.
+
+\begin{lstlisting}[language=bash]
+sudo -i -u postgres
+/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data
+exit
+\end{lstlisting}
+
+\section{Configurar el Servicio de PostgreSQL}
+Creamos un archivo de servicio para `systemd`.
+
+\begin{lstlisting}[language=bash]
+sudo nano /etc/systemd/system/postgresql.service
+\end{lstlisting}
+
+Pegamos el siguiente contenido:
+
+\begin{lstlisting}[language=bash]
+[Unit]
+Description=PostgreSQL database server
+After=network.target
+
+[Service]
+User=postgres
+Group=postgres
+ExecStart=/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+\end{lstlisting}
+
+Guardamos y salimos (`Ctrl + X`, luego `Y` y `Enter`).
+
+\section{Iniciar y Habilitar PostgreSQL}
+Recargamos `systemd` y habilitamos PostgreSQL para que se inicie automáticamente.
+
+\begin{lstlisting}[language=bash]
+sudo systemctl daemon-reload
+sudo systemctl enable postgresql
+sudo systemctl start postgresql
+\end{lstlisting}
+
+\section{Verificar el Estado del Servidor}
+Para confirmar que PostgreSQL está corriendo correctamente, usamos:
+
+\begin{lstlisting}[language=bash]
+sudo systemctl status postgresql
+\end{lstlisting}
+
+Si PostgreSQL está funcionando bien, deberíamos ver un mensaje indicando que está activo.
+
+\section{Acceder a PostgreSQL}
+Iniciamos sesión en PostgreSQL con el usuario `postgres`.
+
+\begin{lstlisting}[language=bash]
+sudo -i -u postgres
+/usr/local/pgsql/bin/psql
+\end{lstlisting}
+
+Para salir de la sesión de `psql`, usamos:
+
+\begin{lstlisting}[language=sql]
+\q
+\end{lstlisting}
+
+Y para salir del usuario `postgres`:
+
+\begin{lstlisting}[language=bash]
+exit
+\end{lstlisting}
+
+\section{¡PostgreSQL está listo para usarse!}
+Ahora puedes configurar usuarios, bases de datos y tunear PostgreSQL según tus necesidades.
+
+\end{document}

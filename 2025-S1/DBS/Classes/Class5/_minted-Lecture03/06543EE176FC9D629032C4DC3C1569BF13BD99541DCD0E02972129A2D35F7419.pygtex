@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{DISTINCT}
+\PYG{+w}{            }\PYG{n}{name}
+\PYG{+w}{        }\PYG{k}{FROM}
+\PYG{+w}{            }\PYG{n}{instructor}
+\PYG{+w}{        }\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}
+\PYG{+w}{            }\PYG{n}{name}\PYG{p}{;}
+\end{Verbatim}

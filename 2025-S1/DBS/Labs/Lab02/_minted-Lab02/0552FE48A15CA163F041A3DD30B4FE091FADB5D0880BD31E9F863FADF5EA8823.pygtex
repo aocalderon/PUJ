@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZbs{}project\PYGZus{}\PYGZob{}sID, sName\PYGZcb{}( \PYGZbs{}select\PYGZus{}\PYGZob{}GPA \PYGZgt{} 3.5\PYGZcb{} student );
+\end{Verbatim}

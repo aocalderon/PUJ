@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Analysis of Algorithms}{3}{0}{1}
+\beamer@sectionintoc {2}{Insertion-sort}{7}{0}{2}
+\beamer@sectionintoc {3}{Asymptotic Analysis}{24}{0}{3}
+\beamer@sectionintoc {4}{Merge-sort}{30}{0}{4}
+\beamer@sectionintoc {5}{Recurrences}{46}{0}{5}

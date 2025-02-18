@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{k}{COUNT}\PYG{p}{(}\PYG{o}{*}\PYG{p}{)}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{course}\PYG{p}{;}
+\end{Verbatim}

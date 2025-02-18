@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{name}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{instructor}
+\PYG{+w}{    }\PYG{k}{WHERE}
+\PYG{+w}{        }\PYG{n}{name}\PYG{+w}{ }\PYG{k}{LIKE}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}\PYGZpc{}dar\PYGZpc{}\PYGZsq{}}\PYG{p}{;}
+\end{Verbatim}

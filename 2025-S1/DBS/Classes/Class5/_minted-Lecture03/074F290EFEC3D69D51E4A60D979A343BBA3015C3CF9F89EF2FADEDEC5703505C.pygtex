@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{SELECT}
+\PYG{+w}{            }\PYG{n}{course\PYGZus{}id}
+\PYG{+w}{        }\PYG{k}{FROM}
+\PYG{+w}{            }\PYG{n}{section}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{S}
+\PYG{+w}{        }\PYG{k}{WHERE}
+\PYG{+w}{            }\PYG{n}{semester}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Fall\PYGZsq{}}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{k}{year}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2017}\PYG{+w}{ }\PYG{k}{AND}
+\PYG{+w}{            }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{                }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}
+\PYG{+w}{                }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{section}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{T}
+\PYG{+w}{                }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{semester}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Spring\PYGZsq{}}\PYG{+w}{ }\PYG{k}{AND}
+\PYG{+w}{                    }\PYG{k}{year}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2018}\PYG{+w}{ }\PYG{k}{AND}
+\PYG{+w}{                    }\PYG{n}{S}\PYG{p}{.}\PYG{n}{course\PYGZus{}id}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{T}\PYG{p}{.}\PYG{n}{course\PYGZus{}id}
+\PYG{+w}{            }\PYG{p}{);}
+\end{Verbatim}

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}
+\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{teaches}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,2194 @@
+1
+00:00:00,000 --> 00:00:02,490
+Quiero decir, sinceramente, si esto no te sorprende,
+
+2
+00:00:02,490 --> 00:00:06,270
+¿realmente tienes alma?
+
+3
+00:00:06,270 --> 00:00:08,039
+El problema de las Torres de Hanói es un clásico
+
+4
+00:00:08,039 --> 00:00:09,900
+problema recursivo que puede causar
+
+5
+00:00:09,900 --> 00:00:12,179
+grandes cantidades de frustración. Cuando por primera vez
+
+6
+00:00:12,179 --> 00:00:13,860
+me encontré con este problema, me tomó
+
+7
+00:00:13,860 --> 00:00:15,210
+varios días llegar a la
+
+8
+00:00:15,210 --> 00:00:17,609
+solución y, sinceramente, no sentí que
+
+9
+00:00:17,609 --> 00:00:19,199
+entendía la solución
+
+10
+00:00:19,199 --> 00:00:21,210
+hasta después de enseñarla a muchos de mis
+
+11
+00:00:21,210 --> 00:00:24,150
+antiguos estudiantes, años después. La configuración del
+
+12
+00:00:24,150 --> 00:00:25,380
+problema es la siguiente:
+
+13
+00:00:25,380 --> 00:00:28,080
+Tienes tres varillas. Una de las varillas tiene
+
+14
+00:00:28,080 --> 00:00:30,210
+cierto número de discos de diferentes tamaños,
+
+15
+00:00:30,210 --> 00:00:33,030
+colocados en ella, con los discos más grandes en
+
+16
+00:00:33,030 --> 00:00:34,739
+la parte inferior y los discos más pequeños en la
+
+17
+00:00:34,739 --> 00:00:37,590
+parte superior. Tu objetivo es mover estos discos,
+
+18
+00:00:37,590 --> 00:00:39,570
+uno a la vez, a una varilla de destino
+
+19
+00:00:39,570 --> 00:00:42,829
+manteniendo la misma configuración inicial.
+
+20
+00:00:42,829 --> 00:00:45,059
+Antes de adelantarte y declarar este problema trivial,
+
+21
+00:00:45,059 --> 00:00:46,890
+hay una restricción importante:
+
+22
+00:00:46,890 --> 00:00:49,530
+En cualquier momento del proceso de mover los discos,
+
+23
+00:00:49,530 --> 00:00:51,480
+no está permitido colocar un disco
+
+24
+00:00:51,480 --> 00:00:54,570
+más grande sobre uno más pequeño.
+
+25
+00:00:54,570 --> 00:00:57,300
+Esta regla es lo que hace que este problema
+
+26
+00:00:57,300 --> 00:00:58,680
+sea significativamente más desafiante.
+
+27
+00:00:58,680 --> 00:01:01,379
+En este video, analizaremos el problema
+
+28
+00:01:01,379 --> 00:01:03,090
+de las Torres de Hanói en tres fases distintas.
+
+29
+00:01:03,090 --> 00:01:05,640
+Primero, lo abordaremos desde la perspectiva
+
+30
+00:01:05,640 --> 00:01:06,750
+de un rompecabezas, donde intentaremos
+
+31
+00:01:06,750 --> 00:01:09,119
+idear una estrategia para diversas
+
+32
+00:01:09,119 --> 00:01:10,619
+configuraciones. Luego,
+
+33
+00:01:10,619 --> 00:01:13,409
+transferiremos la estrategia a un programa recursivo
+
+34
+00:01:13,409 --> 00:01:15,570
+para resolver este problema con cualquier número
+
+35
+00:01:15,570 --> 00:01:17,460
+de discos. En esta sección también
+
+36
+00:01:17,460 --> 00:01:20,159
+te mostraré algunos trucos útiles
+
+37
+00:01:20,159 --> 00:01:22,020
+para resolver problemas recursivos
+
+38
+00:01:22,020 --> 00:01:23,790
+desafiantes como este.
+
+39
+00:01:23,790 --> 00:01:26,369
+Por último, descompondremos la recursión
+
+40
+00:01:26,369 --> 00:01:28,350
+para entender lo que realmente sucede
+
+41
+00:01:28,350 --> 00:01:29,850
+detrás de escena con algunas ingeniosas
+
+42
+00:01:29,850 --> 00:01:31,320
+animaciones que estoy seguro de que
+
+43
+00:01:31,320 --> 00:01:32,820
+no querrás perderte. Así que asegúrate
+
+44
+00:01:32,820 --> 00:01:35,729
+de ver el video hasta el final.
+
+45
+00:01:35,729 --> 00:01:38,340
+Muy bien, comencemos. Primero enfoquémonos en
+
+46
+00:01:38,340 --> 00:01:40,320
+tres discos, ya que las soluciones para
+
+47
+00:01:40,320 --> 00:01:42,930
+un disco y dos discos son demasiado simples
+
+48
+00:01:42,930 --> 00:01:45,780
+para el análisis. Te recomiendo
+
+49
+00:01:45,780 --> 00:01:48,390
+pausar el video y tomarte un momento
+
+50
+00:01:48,390 --> 00:01:50,549
+para ver si puedes encontrar la serie
+
+51
+00:01:50,549 --> 00:01:52,590
+de movimientos necesarios para llevar estos tres discos
+
+52
+00:01:52,590 --> 00:01:55,290
+a la varilla de la derecha. Nuestro objetivo
+
+53
+00:01:55,290 --> 00:01:57,030
+es idear una estrategia general para resolver
+
+54
+00:01:57,030 --> 00:01:59,549
+este problema. Si eres como yo, tu primera
+
+55
+00:01:59,549 --> 00:02:02,250
+estrategia instintiva para cualquier tipo de rompecabezas es
+
+56
+00:02:02,250 --> 00:02:04,290
+adivinar al azar, y sinceramente,
+
+57
+00:02:04,290 --> 00:02:06,270
+no hay nada de malo en eso. Adivinar al azar
+
+58
+00:02:06,270 --> 00:02:09,330
+es la estrategia más antigua que existe.
+
+59
+00:02:09,330 --> 00:02:11,190
+Así que si observo este problema,
+
+60
+00:02:11,190 --> 00:02:12,990
+lo primero que podría intentar es mover...
+
+61
+00:02:12,990 --> 00:02:16,050
+el disco más pequeño a la varilla del medio y luego
+
+62
+00:02:16,050 --> 00:02:17,700
+el siguiente movimiento es básicamente forzado.
+
+63
+00:02:17,700 --> 00:02:20,100
+Desde ahí, movería el disco verde a la
+
+64
+00:02:20,100 --> 00:02:22,500
+varilla de la derecha, ya que no puedo moverlo a la
+
+65
+00:02:22,500 --> 00:02:23,880
+segunda varilla porque eso
+
+66
+00:02:23,880 --> 00:02:26,340
+violaría las reglas. Después de eso, el siguiente
+
+67
+00:02:26,340 --> 00:02:28,200
+movimiento que tiene más sentido es intentar
+
+68
+00::02:28,200 --> 00:02:30,030
+mover el disco más pequeño a la
+
+69
+00:02:30,030 --> 00:02:33,210
+varilla de la derecha, y en este punto, después de
+
+70
+00:02:33,210 --> 00:02:35,460
+haber destruido por completo el orden
+
+71
+00:02:35,460 --> 00:02:36,840
+de este problema con tres movimientos aleatorios,
+
+72
+00:02:36,840 --> 00:02:38,940
+creo que podría ser una buena idea
+
+73
+00:02:38,940 --> 00:02:41,430
+evaluar lo que he hecho hasta ahora. Bueno,
+
+74
+00:02:41,430 --> 00:02:43,640
+desafortunadamente, no se ve muy bien.
+
+75
+00:02:43,640 --> 00:02:46,410
+Parece que estamos un poco atascados,
+
+76
+00:02:46,410 --> 00:02:48,870
+porque lo que realmente queremos es que
+
+77
+00:02:48,870 --> 00:02:50,880
+el disco inferior esté debajo de los discos que
+
+78
+00:02:50,880 --> 00:02:53,580
+actualmente tenemos en la tercera varilla. Lo que
+
+79
+00:02:53,580 --> 00:02:55,590
+acabamos de hacer con suposiciones aleatorias
+
+80
+00:02:55,590 --> 00:02:57,330
+parece ser bastante contraproducente.
+
+81
+00:02:57,330 --> 00:03:00,420
+Así que en este punto del problema podría
+
+82
+00:03:00,420 --> 00:03:02,670
+decidir que quizás quiera empezar
+
+83
+00:03:02,670 --> 00:03:06,960
+de nuevo y reevaluar, pero de esta experiencia
+
+84
+00:03:06,960 --> 00:03:08,340
+de prueba y error hemos aprendido un
+
+85
+00:03:08,340 --> 00:03:10,680
+hecho importante: primero debemos pensar
+
+86
+00:03:10,680 --> 00:03:12,780
+en mover el disco más grande desde la
+
+87
+00:03:12,780 --> 00:03:16,050
+primera varilla hasta la varilla de destino.
+
+88
+00:03:16,050 --> 00:03:17,970
+Y si llevamos esta idea un paso más allá,
+
+89
+00:03:17,970 --> 00:03:19,950
+antes de siquiera pensar en hacer eso,
+
+90
+00:03:19,950 --> 00:03:21,660
+primero tenemos que ocuparnos de
+
+91
+00:03:21,660 --> 00:03:24,270
+los dos discos superiores, y debemos
+
+92
+00:03:24,270 --> 00:03:26,100
+manejarlos con cuidado para poder
+
+93
+00:03:26,100 --> 00:03:28,230
+finalmente mover el disco más grande a la
+
+94
+00:03:28,230 --> 00:03:30,390
+varilla de destino. Esto significa que nuestra única
+
+95
+00:03:30,390 --> 00:03:32,790
+opción es encontrar una manera
+
+96
+00:03:32,790 --> 00:03:35,130
+de mover los dos discos superiores a la
+
+97
+00:03:35,130 --> 00:03:37,440
+segunda varilla. Bien, ahora que hemos dividido
+
+98
+00:03:37,440 --> 00:03:39,360
+nuestro problema en subtareas más razonables,
+
+99
+00:03:39,360 --> 00:03:41,850
+resolvamos una por una. Para mover los
+
+100
+00:03:41,850 --> 00:03:44,640
+dos discos superiores a la segunda varilla, primero movemos
+
+101
+00:03:44,640 --> 00:03:46,830
+el disco más pequeño a la tercera varilla, luego
+
+102
+00:03:46,830 --> 00:03:48,990
+movemos el disco del medio a la segunda varilla,
+
+103
+00:03:48,990 --> 00:03:51,570
+y terminamos la subtarea moviendo el
+
+104
+00:03:51,570 --> 00:03:54,930
+disco más pequeño a la segunda varilla. Ahora estamos
+
+105
+00:03:54,930 --> 00:03:56,760
+listos para mover el disco más grande a la
+
+106
+00:03:56,760 --> 00:04:00,360
+tercera varilla. Bien, ¿qué sigue? Desde
+
+107
+00:04:00,360 --> 00:04:01,500
+aquí, la solución se vuelve bastante
+
+108
+00:04:01,500 --> 00:04:03,750
+clara. Necesitamos mover los dos discos superiores
+
+109
+00:04:03,750 --> 00:04:05,460
+de la segunda varilla a la tercera varilla.
+
+110
+00:04:05,460 --> 00:04:07,770
+Para lograr esto, movemos el disco más pequeño
+
+111
+00:04:07,770 --> 00:04:09,930
+de la segunda varilla a la primera varilla.
+
+112
+00:04:09,930 --> 00:04:12,090
+Luego movemos el disco del medio
+
+113
+00:04:12,090 --> 00:04:14,370
+de la segunda varilla a la tercera varilla,
+
+114
+00:04:14,370 --> 00:04:16,950
+seguido del paso final, que es mover el
+
+115
+00:04:16,950 --> 00:04:18,690
+disco más pequeño a la
+
+116
+00:04:18,690 --> 00:04:21,089
+varilla de destino. Y ahí lo tienes,
+
+117
+00:04:21,089 --> 00:04:22,710
+acabamos de resolver el problema de Torres de Hanói
+
+118
+00:04:22,710 --> 00:04:24,220
+para tres discos.
+
+119
+00:04:24,220 --> 00:04:26,950
+Aquí tienes un resumen rápido de lo que hicimos.
+
+120
+00:04:26,950 --> 00:04:29,020
+Primero, encontramos una manera de mover los dos
+
+121
+00:04:29,020 --> 00:04:31,480
+los discos a la segunda varilla, lo que nos permite
+
+122
+00:04:31,480 --> 00:04:32,920
+mover el disco más grande a la
+
+123
+00:04:32,920 --> 00:04:35,290
+varilla de destino. Después de esto,
+
+124
+00:04:35,290 --> 00:04:37,690
+terminamos moviendo los dos discos superiores
+
+125
+00:04:37,690 --> 00:04:39,730
+de la varilla del medio a la varilla de destino.
+
+126
+00:04:39,730 --> 00:04:42,670
+Bien, ahora demos un paso más
+
+127
+00:04:42,670 --> 00:04:45,250
+y veamos si podemos resolverlo para
+
+128
+00:04:45,250 --> 00:04:47,500
+el caso N = 4 utilizando una
+
+129
+00:04:47,500 --> 00:04:49,300
+estrategia similar a la que acabamos de
+
+130
+00:04:49,300 --> 00:04:51,850
+desarrollar. Antes de recorrer los pasos
+
+131
+00:04:51,850 --> 00:04:54,040
+para resolver esto, tómate un momento para pausar el
+
+132
+00:04:54,040 --> 00:04:55,780
+video y ver si puedes encontrar
+
+133
+00:04:55,780 --> 00:04:58,390
+los pasos por tu cuenta aplicando la
+
+134
+00:04:58,390 --> 00:05:00,430
+estrategia general a este nuevo problema.
+
+135
+00:05:00,430 --> 00:05:03,070
+Ahora queremos mover los tres discos superiores
+
+136
+00:05:03,070 --> 00:05:06,250
+de la varilla 1 a la varilla 2. ¿Cómo lo hacemos?
+
+137
+00:05:06,250 --> 00:05:09,160
+Bueno, una cosa interesante al resolver
+
+138
+00:05:09,160 --> 00:05:11,140
+este problema es que básicamente es como
+
+139
+00:05:11,140 --> 00:05:13,540
+ignorar que el disco más grande existe
+
+140
+00:05:13,540 --> 00:05:16,390
+y resolver un problema general de Torres de Hanói con tres discos,
+
+141
+00:05:16,390 --> 00:05:17,830
+donde ahora nuestro destino
+
+142
+00:05:17,830 --> 00:05:20,770
+es la varilla del medio. Asegúrate
+
+143
+00:05:20,770 --> 00:05:22,240
+de tomarte un momento para entender la
+
+144
+00:05:22,240 --> 00:05:25,120
+relación que acabamos de establecer. Al observar
+
+145
+00:05:25,120 --> 00:05:26,920
+el problema más simple, sabemos cómo resolverlo,
+
+146
+00:05:26,920 --> 00:05:29,110
+¿verdad? Básicamente resolvimos
+
+147
+00:05:29,110 --> 00:05:31,240
+una versión de este problema antes. Para resolver este subproblema,
+
+148
+00:05:31,240 --> 00:05:33,130
+movemos los dos discos superiores a la
+
+149
+00:05:33,130 --> 00:05:35,740
+tercera varilla. Logramos esto moviendo
+
+150
+00:05:35,740 --> 00:05:38,230
+el disco superior a la segunda varilla, el disco del medio
+
+151
+00:05:38,230 --> 00:05:40,630
+a la tercera varilla y finalizamos
+
+152
+00:05:40,630 --> 00:05:42,790
+moviendo el disco superior de la segunda varilla
+
+153
+00:05:42,790 --> 00:05:45,400
+a la tercera varilla. Esto ahora deja espacio
+
+154
+00:05:45,400 --> 00:05:47,890
+para que el disco más grande se mueva a la posición deseada.
+
+155
+00:05:47,890 --> 00:05:50,770
+Para terminar el subproblema, movemos nuevamente
+
+156
+00:05:50,770 --> 00:05:53,320
+los dos discos superiores, pero esta vez de la tercera varilla
+
+157
+00:05:53,320 --> 00:05:55,030
+a la segunda varilla. Esta subtarea se descompone en
+
+158
+00:05:55,030 --> 00:05:57,669
+mover el disco superior a la
+
+159
+00:05:57,669 --> 00:05:59,830
+primera varilla, seguido de mover el segundo
+
+160
+00:05:59,830 --> 00:06:02,110
+disco a la segunda varilla y terminar
+
+161
+00:06:02,110 --> 00:06:04,690
+moviendo el disco superior de la varilla 1 a la varilla 2.
+
+162
+00:06:04,690 --> 00:06:08,669
+Observa que la lógica que usamos aquí fue
+
+163
+00:06:08,669 --> 00:06:11,350
+esencialmente la misma que usamos antes,
+
+164
+00:06:11,350 --> 00:06:13,330
+y esto es algo que será
+
+165
+00:06:13,330 --> 00:06:15,010
+sumamente importante a medida que avancemos.
+
+166
+00:06:15,010 --> 00:06:17,770
+En cierto sentido, aquí es donde realmente
+
+167
+00:06:17,770 --> 00:06:19,330
+se origina la recursión de este problema.
+
+168
+00:06:19,330 --> 00:06:22,180
+Regresando al problema con cuatro discos, ahora movemos
+
+169
+00:06:22,180 --> 00:06:24,280
+el disco más grande de la primera varilla
+
+170
+00:06:24,280 --> 00:06:27,220
+a la varilla de destino.
+
+171
+00:06:27,220 --> 00:06:28,650
+Y ahora, siguiendo nuestra estrategia anterior,
+
+172
+00:06:28,650 --> 00:06:31,320
+movemos los tres discos superiores de la
+
+173
+00:06:31,320 --> 00:06:33,780
+segunda varilla a la varilla de destino,
+
+174
+00:06:33,780 --> 00:06:36,090
+y una vez más aparece el mismo patrón.
+
+175
+00:06:36,090 --> 00:06:38,340
+Esencialmente, es el mismo problema de tres discos
+
+176
+00:06:38,340 --> 00:06:39,990
+que hemos resuelto varias veces antes.
+
+177
+00:06:39,990 --> 00:06:42,690
+Movemos los dos discos superiores de la varilla del medio
+
+178
+00:06:42,690 --> 00:06:44,310
+a la primera varilla.
+
+179
+00:06:44,310 --> 00:06:47,039
+Para hacerlo, movemos el disco superior
+
+180
+00:06:47,039 --> 00:06:49,380
+de la segunda varilla a la tercera varilla.
+
+181
+00:06:49,380 --> 00:06:51,600
+Luego movemos el segundo disco de la
+
+182
+00:06:51,600 --> 00:06:54,060
+varilla número dos a la varilla número uno y
+
+183
+00:06:54,060 --> 00:06:55,770
+terminamos esta subtarea moviendo el disco
+
+184
+00:06:55,770 --> 00:06:59,699
+superior a la primera varilla. Luego movemos el
+
+185
+00:06:59,699 --> 00:07:01,350
+tercer disco de la segunda varilla a la
+
+186
+00:07:01,350 --> 00:07:03,750
+varilla de destino y nuestra última subtarea
+
+187
+00:07:03,750 --> 00:07:06,900
+es mover los dos discos superiores de la varilla 1
+
+188
+00:07:06,900 --> 00:07:09,840
+a la varilla 3. Una vez más, sabemos cómo hacer esto.
+
+189
+00:07:09,840 --> 00:07:10,229
+Movemos el primer disco
+
+190
+00:07:10,229 --> 00:07:13,080
+de la varilla 1 a la varilla 2, luego
+
+191
+00:07:13,080 --> 00:07:15,060
+movemos el segundo disco a la
+
+192
+00:07:15,060 --> 00:07:17,250
+varilla de destino y terminamos todo el
+
+193
+00:07:17,250 --> 00:07:19,770
+problema moviendo el disco superior a la
+
+194
+00:07:19,770 --> 00:07:22,050
+varilla de destino. Y esa es la secuencia
+
+195
+00:07:22,050 --> 00:07:24,330
+de pasos para resolver las Torres de Hanói con cuatro discos.
+
+196
+00:07:24,330 --> 00:07:27,030
+Sé que eso fue mucho, así que hagamos un
+
+197
+00:07:27,030 --> 00:07:29,430
+resumen rápido de lo que acabamos de hacer.
+
+198
+00:07:29,430 --> 00:07:31,740
+Primero, movimos los tres discos superiores de la varilla
+
+199
+00:07:31,740 --> 00:07:34,620
+1 a la varilla 2. Esto requirió algunos
+
+200
+00:07:34,620 --> 00:07:36,690
+pasos intermedios donde primero movimos
+
+201
+00:07:36,690 --> 00:07:39,330
+los dos discos superiores de la varilla 1 a la
+
+202
+00:07:39,330 --> 00:07:42,240
+varilla 3. Luego, movimos el tercer disco a
+
+203
+00:07:42,240 --> 00:07:44,190
+la varilla del medio y finalizamos la subtarea
+
+204
+00:07:44,190 --> 00:07:46,650
+moviendo los dos discos superiores de
+
+205
+00:07:46,650 --> 00:07:49,349
+la última varilla a la varilla del medio. Luego,
+
+206
+00:07:49,349 --> 00:07:51,360
+movimos el disco más grande a la varilla
+
+207
+00:07:51,360 --> 00:07:54,630
+de destino y finalmente terminamos moviendo los
+
+208
+00:07:54,630 --> 00:07:57,030
+tres discos superiores de la varilla del medio a
+
+209
+00:07:57,030 --> 00:07:59,039
+la varilla de destino, lo que implicó el mismo
+
+210
+00:07:59,039 --> 00:08:01,110
+conjunto de subtareas que hemos encontrado
+
+211
+00:08:01,110 --> 00:08:05,970
+varias veces. Ahora que tenemos una
+
+212
+00:08:05,970 --> 00:08:08,010
+comprensión bastante buena de la estrategia
+
+213
+00:08:08,010 --> 00:08:10,139
+para este problema, profundicemos ahora en una
+
+214
+00:08:10,139 --> 00:08:12,330
+declaración formal del problema. Queremos
+
+215
+00:08:12,330 --> 00:08:14,340
+escribir una función Hanoi que tome tres
+
+216
+00:08:14,340 --> 00:08:18,449
+entradas: el número de discos, la varilla de inicio y la varilla de destino,
+
+217
+00:08:18,449 --> 00:08:21,210
+y que devuelva una secuencia de pasos para mover los discos
+
+218
+00:08:21,210 --> 00:08:23,639
+desde la varilla de inicio hasta la varilla de destino.
+
+219
+00:08:23,639 --> 00:08:25,889
+Aquí tienes un ejemplo rápido de entrada y salida
+
+220
+00:08:25,889 --> 00:08:27,720
+para entender cómo funciona esta declaración
+
+221
+00:08:27,720 --> 00:08:28,930
+del problema.
+
+222
+00:08:28,930 --> 00:08:32,020
+Si ingresamos N = 3, con la varilla inicial en 1
+
+223
+00:08:32,020 --> 00:08:33,760
+y la varilla de destino en 3,
+
+224
+00:08:33,760 --> 00:08:36,070
+eso significa que nuestra varilla de inicio es la varilla número 1,
+
+225
+00:08:36,070 --> 00:08:38,830
+y que tenemos tres discos en esa varilla.
+
+226
+00:08:38,830 --> 00:08:41,529
+Nuestra varilla de destino es la número 3,
+
+227
+00:08:41,529 --> 00:08:43,719
+y ahí es donde los discos deben llegar.
+
+228
+00:08:43,719 --> 00:08:46,060
+Para simplificar, asumiremos que la varilla de inicio y la de destino
+
+229
+00:08:46,060 --> 00:08:49,180
+siempre estarán entre 1 y 3, y que nunca serán iguales.
+
+230
+00:08:49,180 --> 00:08:51,370
+También asumiremos que N siempre será
+
+231
+00:08:51,370 --> 00:08:52,750
+un número entero positivo, por lo que no
+
+232
+00:08:52,750 --> 00:08:55,180
+tendremos que manejar casos extremos extraños.
+
+233
+00:08:55,180 --> 00:08:57,130
+Para esta entrada en particular, la secuencia de pasos
+
+234
+00:08:57,130 --> 00:08:59,440
+que esta función generará será la siguiente.
+
+235
+00:08:59,440 --> 00:09:01,720
+Ya hemos visto cómo se generan estos pasos
+
+236
+00:09:01,720 --> 00:09:03,430
+a partir de nuestra estrategia, pero aquí tienes
+
+237
+00:09:03,430 --> 00:09:05,410
+un resumen rápido de cómo estos pasos
+
+238
+00:09:05,410 --> 00:09:07,000
+corresponden a la solución real.
+
+239
+00:09:07,000 --> 00:09:09,459
+nuestra estrategia, pero aquí hay una descripción general rápida
+
+240
+00:09:09,459 --> 00:09:11,410
+de cómo los pasos corresponden a los
+
+241
+00:09:11,410 --> 00:09:13,630
+movimientos reales de los discos. La
+
+242
+00:09:13,630 --> 00:09:16,630
+interpretación básica es que una flecha de A a B
+
+243
+00:09:16,630 --> 00:09:18,430
+significa que moveremos el disco superior
+
+244
+00:09:18,430 --> 00:09:22,209
+de la varilla A a la varilla B. Bien, entonces, ¿cómo
+
+245
+00:09:22,209 --> 00:09:23,830
+podemos empezar a resolver este problema?
+
+246
+00:09:23,830 --> 00:09:25,570
+Cuando me enfrento a cualquier tipo de
+
+247
+00:09:25,570 --> 00:09:27,250
+problema desafiante, trato de encontrar la
+
+248
+00:09:27,250 --> 00:09:29,230
+acción más sencilla que pueda hacer para ayudarme a resolver
+
+249
+00:09:29,230 --> 00:09:31,089
+el problema. Personalmente, he notado que
+
+250
+00:09:31,089 --> 00:09:32,440
+hay un factor de intimidación
+
+251
+00:09:32,440 --> 00:09:34,810
+en problemas difíciles como este y
+
+252
+00:09:34,810 --> 00:09:36,430
+resolver algo sencillo puede ayudar a
+
+253
+00:09:36,430 --> 00:09:39,070
+superar esa intimidación inicial. Una de las
+
+254
+00:09:39,070 --> 00:09:40,630
+cosas más fáciles que podemos hacer aquí es
+
+255
+00:09:40,630 --> 00:09:42,700
+definir una función auxiliar que simplemente
+
+256
+00:09:42,700 --> 00:09:45,060
+imprima un movimiento en el formato adecuado.
+
+257
+00:09:45,060 --> 00:09:46,810
+Definir esta función es bastante
+
+258
+00:09:46,810 --> 00:09:48,610
+sencillo y se ve de la siguiente manera.
+
+259
+00:09:48,610 --> 00:09:51,459
+Ahora que tenemos eso listo,
+
+260
+00:09:51,459 --> 00:09:53,380
+cambiemos nuestro enfoque a la tarea principal.
+
+261
+00:09:53,380 --> 00:09:55,600
+Necesitamos encontrar una manera de
+
+262
+00:09:55,600 --> 00:09:57,850
+generar programáticamente una secuencia de
+
+263
+00:09:57,850 --> 00:10:00,370
+pasos para N discos. Ya hemos visto
+
+264
+00:10:00,370 --> 00:10:02,410
+muchas pistas en nuestro análisis que
+
+265
+00:10:02,410 --> 00:10:04,029
+indican que tendremos que
+
+266
+00:10:04,029 --> 00:10:06,220
+resolver este problema recursivamente, pero ¿cómo
+
+267
+00:10:06,220 --> 00:10:07,959
+podemos llegar a una solución funcional?
+
+268
+00:10:07,959 --> 00:10:09,700
+Este no es un problema fácil en absoluto,
+
+269
+00:10:09,700 --> 00:10:12,070
+y antes de entrar en la solución quiero hacer
+
+270
+00:10:12,070 --> 00:10:13,660
+una breve pausa para repasar un concepto
+
+271
+00:10:13,660 --> 00:10:16,510
+increíblemente importante al resolver problemas recursivos.
+
+272
+00:10:16,510 --> 00:10:19,800
+Cada vez que te enfrentas a un problema recursivo desafiante,
+
+273
+00:10:19,800 --> 00:10:21,760
+hay tres pasos clave que debes seguir
+
+274
+00:10:21,760 --> 00:10:23,410
+para facilitar enormemente tu trabajo.
+
+275
+00:10:23,410 --> 00:10:25,060
+Estos tres consejos me han ayudado
+
+276
+00:10:25,060 --> 00:10:27,450
+durante mis años aprendiendo ciencias de la computación
+
+277
+00:10:27,450 --> 00:10:29,380
+y me han ahorrado mucho sufrimiento.
+
+278
+00:10:29,380 --> 00:10:31,060
+El primer paso al resolver una función
+
+279
+00:10:31,060 --> 00:10:33,459
+recursiva general \( f(n) \) es diseñar una
+
+280
+00:10:33,459 --> 00:10:35,410
+solución que funcione para
+
+281
+00:10:35,410 --> 00:10:37,720
+\( f(1) \). Esto es lo que comúnmente se conoce
+
+282
+00:10:37,720 --> 00:10:39,150
+como el caso base.
+
+283
+00:10:39,150 --> 00:10:42,270
+El segundo paso es el más difícil de aceptar,
+
+284
+00:10:42,270 --> 00:10:44,760
+pero lo que haremos es asumir que
+
+285
+00:10:44,760 --> 00:10:46,140
+\( f(n-1) \) funciona correctamente.
+
+286
+00:10:46,140 --> 00:10:47,970
+Este paso se conoce como el
+
+287
+00:10:47,970 --> 00:10:50,370
+"salto de fe recursivo". 
+
+288
+00:10:50,370 --> 00:10:52,740
+Una vez que hemos hecho esta suposición,
+
+289
+00:10:52,740 --> 00:10:55,980
+mostraremos cómo definir \( f(n) \) correctamente
+
+290
+00:10:55,980 --> 00:10:58,680
+utilizando llamadas a la función \( f(n-1) \).
+
+291
+00:10:58,680 --> 00:11:01,470
+Aquí hay una intuición sobre por qué estos
+
+292
+00:11:01,470 --> 00:11:03,870
+tres pasos funcionan. Piensa en resolver
+
+293
+00:11:03,870 --> 00:11:07,350
+este problema recursivo \( f(n) \) como tratar de
+
+294
+00:11:07,350 --> 00:11:09,240
+derribar una fila de N fichas de dominó,
+
+295
+00:11:09,240 --> 00:11:12,089
+donde solo puedes derribar la primera ficha.
+
+296
+00:11:12,089 --> 00:11:14,550
+Quieres demostrar que la ficha número N
+
+297
+00:11:14,550 --> 00:11:16,740
+también caerá, pero la única acción que puedes
+
+298
+00:11:16,740 --> 00:11:19,080
+tomar es empujar la primera ficha de la fila.
+
+299
+00:11:19,080 --> 00:11:22,260
+Si demostramos que cada ficha hace caer a la siguiente,
+301
+00:11:23,970 --> 00:11:25,890
+eventualmente caerá. ¿Cómo hacemos esto?
+
+302
+00:11:25,890 --> 00:11:28,800
+Bueno, sabemos que si solo hay un dominó,
+
+303
+00:11:28,800 --> 00:11:30,630
+obviamente funcionará porque simplemente podemos empujarlo.
+
+304
+00:11:30,630 --> 00:11:32,070
+Esta es una analogía con el paso uno.
+
+305
+00:11:32,070 --> 00:11:35,520
+A partir de aquí, lo que podemos hacer es asumir que en algún
+
+306
+00:11:35,520 --> 00:11:37,470
+momento el dominó \( N-1 \) caerá.
+
+307
+00:11:37,470 --> 00:11:39,300
+Esta es la analogía con el paso 2.
+
+308
+00:11:39,300 --> 00:11:41,820
+Y ahora, para garantizar que el dominó \( N \) caerá,
+
+309
+00:11:41,820 --> 00:11:45,029
+debemos colocarlo lo suficientemente cerca del dominó \( N-1 \)
+
+310
+00:11:45,029 --> 00:11:47,910
+para que cuando ese caiga, el dominó \( N \) caiga también.
+
+311
+00:11:47,910 --> 00:11:49,950
+Esta es la analogía con el paso 3.
+
+312
+00:11:49,950 --> 00:11:50,550
+Y una vez que hacemos eso,
+
+313
+00:11:50,550 --> 00:11:52,709
+todos los dominós caerán.
+
+314
+00:11:52,709 --> 00:11:55,700
+Quiero enfatizar aquí que los tres pasos
+
+315
+00:11:55,700 --> 00:11:58,890
+son igualmente necesarios para que esto funcione.
+
+316
+00:11:58,890 --> 00:12:01,320
+Si no definimos correctamente el caso base,
+
+317
+00:12:01,320 --> 00:12:03,150
+significa que el primer dominó nunca caerá.
+
+318
+00:12:03,150 --> 00:12:05,070
+Si no asumimos que \( f(N-1) \)
+
+319
+00:12:05,070 --> 00:12:07,140
+funciona, es similar a la situación en la que
+
+320
+00:12:07,140 --> 00:12:08,790
+el dominó \( N-1 \) nunca cae.
+
+321
+00:12:08,790 --> 00:12:10,980
+En ese caso, no hay manera de que el dominó \( N \)
+
+322
+00:12:10,980 --> 00:12:12,959
+pueda caer.
+
+323
+00:12:12,959 --> 00:12:14,490
+Y finalmente, si no definimos correctamente
+
+324
+00:12:14,490 --> 00:12:15,060
+la relación entre
+
+325
+00:12:15,060 --> 00:12:17,279
+\( f(N) \) y \( f(N-1) \), es como
+
+326
+00:12:17,279 --> 00:12:19,440
+colocar el dominó \( N \) demasiado lejos del dominó \( N-1 \),
+
+327
+00:12:19,440 --> 00:12:22,020
+lo que haría que el dominó \( N \) nunca cayera.
+
+328
+00:12:22,020 --> 00:12:24,000
+Al colocar el dominó lo suficientemente cerca
+
+329
+00:12:24,000 --> 00:12:26,880
+del dominó \( N-1 \), el dominó \( N \) caerá.
+
+330
+00:12:26,880 --> 00:12:28,560
+Ahora apliquemos estos tres pasos
+
+331
+00:12:28,560 --> 00:12:30,450
+para resolver las Torres de Hanói.
+
+332
+00:12:30,450 --> 00:12:33,420
+Comenzando con el paso 1, queremos mostrar cómo
+
+333
+00:12:33,420 --> 00:12:35,760
+manejamos adecuadamente el caso base para este problema.
+
+334
+00:12:35,760 --> 00:12:38,240
+Cuando \( N = 1 \), la solución es bastante simple.
+
+335
+00:12:38,240 --> 00:12:40,950
+Si solo tenemos un disco, simplemente movemos
+
+336
+00:12:40,950 --> 00:12:43,050
+ese único disco de la varilla de inicio a la varilla de destino.
+
+337
+00:12:43,050 --> 00:12:45,730
+En nuestra declaración del problema, esto equivale
+
+338
+00:12:45,730 --> 00:12:47,950
+a llamar a la función `print_move` con los argumentos
+
+339
+00:12:47,950 --> 00:12:50,460
+de la varilla de inicio y la varilla de destino.
+
+340
+00:12:50,460 --> 00:12:52,440
+Eso se encarga del paso 1.
+
+341
+00:12:52,440 --> 00:12:54,390
+Ahora pasemos al paso 2.
+
+342
+00:12:54,390 --> 00:12:56,850
+En el proceso de resolver las Torres de Hanói para cualquier \( N \),
+
+343
+00:12:56,850 --> 00:12:59,730
+lo que significa asumir que \( f(N-1) \) funciona
+
+344
+00:12:59,730 --> 00:13:01,440
+es simplemente aceptar que cualquier versión
+
+345
+00:13:01,440 --> 00:13:03,600
+de Torres de Hanói con \( N-1 \) discos funcionará.
+
+346
+00:13:03,600 --> 00:13:06,780
+Es importante recordar que esto incluye
+
+347
+00:13:06,780 --> 00:13:09,150
+diferentes configuraciones de inicio y fin,
+
+348
+00:13:09,150 --> 00:13:11,640
+y simplemente asumiremos que todos estos subproblemas funcionan.
+
+349
+00:13:11,640 --> 00:13:14,400
+Con esta suposición de que cualquier llamada a las Torres de Hanói
+
+350
+00:13:14,400 --> 00:13:16,800
+para \( N-1 \) funciona, pasemos al
+
+351
+00:13:16,800 --> 00:13:19,140
+tercer paso, donde necesitamos demostrar cómo
+
+352
+00:13:19,140 --> 00:13:21,360
+podemos definir \( f(N) \) de manera funcional.
+
+353
+00:13:19,140 --> 00:13:21,360
+funcionará. Es importante recordar
+
+354
+00:13:21,360 --> 00:13:23,700
+que esto incluye una variedad de posiciones 
+
+355
+00:13:23,700 --> 00:13:25,410
+de inicio y fin, y simplemente 
+
+356
+00:13:25,410 --> 00:13:26,640
+asumiremos que todos estos 
+
+357
+00:13:26,640 --> 00:13:28,590
+subproblemas funcionan. Ahora, con esa 
+
+358
+00:13:28,590 --> 00:13:30,300
+asunción de que cualquier llamada a las Torres de 
+
+359
+00:13:30,300 --> 00:13:33,030
+Hanói con \(N-1\) discos funciona, pasemos al 
+
+360
+00:13:33,030 --> 00:13:35,520
+tercer paso, donde necesitamos mostrar cómo 
+
+361
+00:13:35,520 --> 00:13:38,310
+podemos resolver el problema de las Torres de Hanói con \(N\) discos 
+
+362
+00:13:38,310 --> 00:13:41,190
+usando las soluciones para el caso con \(N-1\) discos. 
+
+363
+00:13:41,190 --> 00:13:44,100
+Sin embargo, hay un pequeño problema. 
+
+364
+00:13:44,100 --> 00:13:46,200
+Lo primero que debemos resolver es que 
+
+365
+00:13:46,200 --> 00:13:48,090
+actualmente tenemos una referencia a la 
+
+366
+00:13:48,090 --> 00:13:50,940
+varilla de inicio y la varilla de destino, 
+
+367
+00:13:50,940 --> 00:13:53,190
+pero de alguna manera necesitamos una 
+
+368
+00:13:53,190 --> 00:13:54,810
+referencia a la otra varilla 
+
+369
+00:13:54,810 --> 00:13:57,330
+durante el proceso. Una forma rápida y sencilla de hacer 
+
+370
+00:13:57,330 --> 00:13:59,900
+esto es utilizando los números de las varillas. 
+
+371
+00:13:59,900 --> 00:14:02,310
+Dado que las varillas primera, segunda y tercera 
+
+372
+00:14:02,310 --> 00:14:05,040
+están numeradas como 1, 2 y 3 respectivamente, 
+
+373
+00:14:05,040 --> 00:14:07,350
+la otra varilla siempre será \(6 -\) 
+
+374
+00:14:07,350 --> 00:14:10,410
+la suma de las varillas de inicio y destino. 
+
+375
+00:14:10,410 --> 00:14:12,690
+tenemos la otra varilla, ahora podemos ejecutar
+
+376
+00:14:12,690 --> 00:14:14,640
+el primer paso de la estrategia que
+
+377
+00:14:14,640 --> 00:14:17,130
+desarrollamos anteriormente. Primero queremos mover
+
+378
+00:14:17,130 --> 00:14:20,100
+los \( N-1 \) discos superiores desde la varilla de inicio
+
+379
+00:14:20,100 --> 00:14:22,350
+hacia la otra varilla. Lo interesante del
+
+380
+00:14:22,350 --> 00:14:24,240
+marco que hemos definido para resolver
+
+381
+00:14:24,240 --> 00:14:26,370
+este problema es que el primer paso es
+
+382
+00:14:26,370 --> 00:14:28,860
+exactamente equivalente a resolver el
+
+383
+00:14:28,860 --> 00:14:30,900
+problema de Torres de Hanói con \( N-1 \) discos.
+
+384
+00:14:30,900 --> 00:14:33,780
+Siguiendo el segundo paso del
+
+385
+00:14:33,780 --> 00:14:36,000
+proceso de resolución de problemas recursivos,
+
+386
+00:14:36,000 --> 00:14:38,700
+podemos asumir que esta llamada funciona, por lo que
+
+387
+00:14:38,700 --> 00:14:40,890
+podemos usarla como parte de nuestra solución.
+
+388
+00:14:40,890 --> 00:14:43,440
+Esto corresponde a la llamada recursiva a Hanói
+
+389
+00:14:43,440 --> 00:14:46,530
+con \( N-1 \) discos, la varilla de inicio y la otra varilla.
+
+390
+00:14:46,530 --> 00:14:48,450
+Una vez que hemos completado este paso, podemos proceder
+
+391
+00:14:48,450 --> 00:14:51,270
+a mover el último disco desde la varilla de inicio
+
+392
+00:14:51,270 --> 00:14:53,940
+hasta la varilla de destino. Esto corresponde a una llamada a
+
+393
+00:14:53,940 --> 00:14:54,270
+la función
+
+394
+00:14:54,270 --> 00:14:56,190
+`print_move` con los argumentos de inicio y destino.
+
+395
+00:14:56,190 --> 00:14:58,950
+Y ahora, el paso final es mover los
+
+396
+00:14:58,950 --> 00:15:01,680
+\( N-1 \) discos superiores desde la varilla del medio
+
+397
+00:15:01,680 --> 00:15:03,810
+hacia la varilla de destino. Este
+
+398
+00:15:03,810 --> 00:15:05,640
+subproblema es esencialmente el mismo que
+
+399
+00:15:05,640 --> 00:15:08,430
+resolver el problema de Hanói con \( N-1 \) discos,
+
+400
+00:15:08,430 --> 00:15:10,890
+pero con la varilla de inicio siendo la del medio y la de destino
+
+401
+00:15:10,890 --> 00:15:14,160
+disco es el último disco. Esto significa que podemos
+
+402
+00:15:14,160 --> 00:15:16,140
+asumir que el subproblema funciona según
+
+403
+00:15:16,140 --> 00:15:17,670
+nuestro marco y la llamada
+
+404
+00:15:17,670 --> 00:15:19,980
+recursiva correspondiente es Hanói con los
+
+405
+00:15:19,980 --> 00:15:23,480
+argumentos \( N-1 \), la otra varilla y la de destino.
+
+406
+00:15:23,480 --> 00:15:25,500
+Siguiendo estos pasos, logramos resolver
+
+407
+00:15:25,500 --> 00:15:27,690
+las Torres de Hanói para \( N \) discos y
+
+408
+00:15:27,690 --> 00:15:29,910
+esto resulta ser una solución recursiva
+
+409
+00:15:29,910 --> 00:15:34,740
+válida. Ahora, antes de continuar,
+
+410
+00:15:34,740 --> 00:15:36,840
+quiero que tomes un segundo para observar
+
+411
+00:15:36,840 --> 00:15:38,820
+la lógica final y realmente te tomes un momento
+
+412
+00:15:38,820 --> 00:15:41,670
+para apreciarla. ¿No es increíble que un
+
+413
+00:15:41,670 --> 00:15:43,920
+problema aparentemente complicado
+
+414
+00:15:43,920 --> 00:15:46,050
+tenga una solución tan simple?
+
+415
+00:15:46,050 --> 00:15:47,760
+Recuerdo cuando resolví este problema
+
+416
+00:15:47,760 --> 00:15:49,650
+por primera vez, mi mente quedó totalmente
+
+417
+00:15:49,650 --> 00:15:52,200
+impactada. Honestamente, si esto no te
+
+418
+00:15:52,200 --> 00:15:53,880
+impresiona, ¿tienes alma?
+
+419
+00:15:53,880 --> 00:15:57,030
+Este es realmente un asombroso ejemplo del
+
+420
+00:15:57,030 --> 00:15:58,950
+poder y la belleza de la resolución de
+
+421
+00:15:58,950 --> 00:16:01,050
+problemas recursivos. Y para completar,
+
+422
+00:16:01,050 --> 00:16:03,000
+aquí tienes una solución completa a este problema
+
+423
+00:16:03,000 --> 00:16:05,700
+en Python. Lo mejor de todo este trabajo
+
+424
+00:16:05,700 --> 00:16:07,080
+es que el código prácticamente
+
+425
+00:16:07,080 --> 00:16:10,160
+se escribe solo.
+
+426
+00:16:10,990 --> 00:16:13,490
+Ahora, en este punto, algunos de ustedes podrían
+
+427
+00:16:13,490 --> 00:16:15,519
+estar viendo la solución y pensar: "Está bien, 
+
+428
+00:16:15,519 --> 00:16:17,660
+entiendo cómo funciona dentro del
+
+429
+00:16:17,660 --> 00:16:20,180
+marco del 'salto de fe recursivo', pero 
+
+430
+00:16:20,180 --> 00:16:22,579
+¿cómo funciona realmente la recursión?"
+
+431
+00:16:22,579 --> 00:16:24,529
+No te preocupes, respondamos esa pregunta.
+
+432
+00:16:24,529 --> 00:16:26,540
+Creo que el mejor ejemplo para analizar
+
+433
+00:16:26,540 --> 00:16:28,459
+en profundidad es el que usamos al principio:
+
+434
+00:16:28,459 --> 00:16:30,649
+las Torres de Hanói con tres discos, donde
+
+435
+00:16:30,649 --> 00:16:32,360
+queremos mover los tres discos desde la
+
+436
+00:16:32,360 --> 00:16:34,399
+primera varilla hasta la tercera varilla.
+
+437
+00:16:34,399 --> 00:16:34,970
+La primera llamada recursiva
+
+438
+00:16:34,970 --> 00:16:37,579
+invocará a Hanói con dos discos, usando
+
+439
+00:16:37,579 --> 00:16:40,339
+la varilla inicial como la varilla uno y la varilla
+
+440
+00:16:40,339 --> 00:16:43,430
+de destino como la varilla dos. Esto representa lo siguiente:
+
+441
+00:16:43,430 --> 00:16:45,829
+Esta llamada recursiva nos obliga a volver a
+
+442
+00:16:45,829 --> 00:16:47,839
+la función, donde ahora obtenemos otra
+
+443
+00:16:47,839 --> 00:16:50,269
+llamada recursiva a Hanói, esta vez con un solo
+
+444
+00:16:50,269 --> 00:16:53,000
+disco, donde queremos moverlo
+
+445
+00:16:53,000 --> 00:16:55,370
+de la varilla uno a la varilla tres.
+
+446
+00:16:55,370 --> 00:16:57,680
+Aquí tienes un ejemplo visual de lo que intenta lograr
+
+447
+00:16:57,680 --> 00:17:00,200
+esta llamada. Y esta llamada recursiva volverá
+
+448
+00:17:00,200 --> 00:17:01,970
+a la función donde finalmente
+
+449
+00:17:01,970 --> 00:17:04,250
+alcanzamos el caso base, lo que imprime el
+
+450
+00:17:04,250 --> 00:17:07,369
+movimiento de la varilla 1 a la varilla 3.
+
+451
+00:17:07,369 --> 00:17:08,869
+Este es el primer movimiento del problema
+
+452
+00:17:08,869 --> 00:17:11,419
+de las Torres de Hanói. Visualmente, esto representa
+
+453
+00:17:11,419 --> 00:17:13,790
+que todas nuestras llamadas recursivas anteriores han
+
+454
+00:17:13,790 --> 00:17:15,079
+cambiado de estado porque ahora
+
+455
+00:17:15,079 --> 00:17:17,049
+hemos realizado oficialmente nuestro primer movimiento.
+
+456
+00:17:17,049 --> 00:17:19,429
+Después de hacer el primer movimiento,
+
+457
+00:17:19,429 --> 00:17:21,199
+hemos completado oficialmente la llamada recursiva
+
+458
+00:17:21,199 --> 00:17:24,619
+a Hanói con un disco, lo que ahora significa que
+
+459
+00:17:24,619 --> 00:17:26,449
+debemos completar la llamada recursiva a
+
+460
+00:17:26,449 --> 00:17:28,940
+Hanói con dos discos. Esto significa que ahora
+
+461
+00:17:28,940 --> 00:17:32,120
+debemos imprimir el movimiento de la varilla uno a
+
+462
+00:17:32,120 --> 00:17:34,190
+la varilla dos, lo que tiene el siguiente efecto.
+
+463
+00:17:34,190 --> 00:17:35,870
+Este es el segundo movimiento en este
+
+464
+00:17:35,870 --> 00:17:38,270
+problema particular de Torres de Hanói.
+
+465
+00:17:38,270 --> 00:17:39,830
+Después de completar el segundo movimiento,
+
+466
+00:17:39,830 --> 00:17:41,570
+aún debemos terminar de calcular la llamada
+
+467
+00:17:41,570 --> 00:17:44,179
+recursiva a Hanói con dos discos, lo que ahora
+
+468
+00:17:44,179 --> 00:17:46,700
+realiza su última llamada recursiva para un solo
+
+469
+00:17:46,700 --> 00:17:49,549
+disco de la varilla 3 a la varilla 2.
+
+470
+00:17:49,549 --> 00:17:51,980
+Esto tiene la siguiente representación visual.
+
+471
+00:17:51,980 --> 00:17:53,990
+Se alcanza nuevamente el caso base, lo que nos lleva
+
+472
+00:17:53,990 --> 00:17:56,030
+a realizar el tercer movimiento, que es mover
+
+473
+00:17:56,030 --> 00:17:59,809
+el disco de la varilla 3 a la varilla 2.
+
+474
+00:17:59,809 --> 00:18:01,190
+Este es su efecto en el problema
+
+475
+00:18:01,190 --> 00:18:03,669
+general.
+476
+00:18:04,030 --> 00:18:07,480
+Y con esto, hemos completado nuestra primera
+
+477
+00:18:07,480 --> 00:18:10,430
+llamada recursiva original, que era el primer
+
+478
+00:18:10,430 --> 00:18:12,380
+paso de nuestra estrategia anterior para mover
+
+479
+00:18:12,380 --> 00:18:14,660
+los dos discos superiores de la primera varilla a
+
+480
+00:18:14,660 --> 00:18:17,240
+la segunda varilla. Lo siguiente es el segundo
+
+481
+00:18:17,240 --> 00:18:19,340
+paso de esa estrategia, en el que movemos el
+
+482
+00:18:19,340 --> 00:18:22,130
+último disco de la varilla uno a la varilla de destino.
+
+483
+00:18:22,130 --> 00:18:24,470
+Eso es simplemente una llamada de impresión, que tiene el
+
+484
+00:18:24,470 --> 00:18:26,840
+siguiente efecto, terminando siendo
+
+485
+00:18:26,840 --> 00:18:29,800
+el cuarto movimiento en la secuencia.
+
+486
+00:18:29,800 --> 00:18:32,320
+Esto nos lleva ahora al paso final,
+
+487
+00:18:32,320 --> 00:18:34,930
+que implica mover los dos discos superiores
+
+488
+00:18:34,930 --> 00:18:37,000
+de la segunda varilla a la varilla de destino.
+
+489
+00:18:37,000 --> 00:18:39,340
+Esto inicia la siguiente
+
+490
+00:18:39,340 --> 00:18:41,980
+llamada recursiva, que a su vez
+
+491
+00:18:41,980 --> 00:18:44,260
+desencadena una secuencia similar de eventos.
+
+492
+00:18:44,260 --> 00:18:46,570
+La segunda llamada recursiva vuelve a la función,
+
+493
+00:18:46,570 --> 00:18:48,130
+donde ahora realizamos una llamada recursiva
+
+494
+00:18:48,130 --> 00:18:50,500
+con un disco que se mueve de la segunda varilla a la
+
+495
+00:18:50,500 --> 00:18:52,810
+primera varilla. Esto alcanza el caso base,
+
+496
+00:18:52,810 --> 00:18:55,090
+lo que nos lleva a imprimir este movimiento,
+
+497
+00:18:55,090 --> 00:18:56,770
+que corresponde al quinto movimiento
+
+498
+00:18:56,770 --> 00:18:58,450
+de la secuencia. Aquí está el efecto de
+
+499
+00:18:58,450 --> 00:19:01,170
+eso en el problema general.
+
+500
+00:19:01,770 --> 00:19:04,869
+[Music]
+
+501
+00:19:08,660 --> 00:19:11,240
+El sexto movimiento ocurre ahora al mover
+
+502
+00:19:11,240 --> 00:19:13,580
+el disco de la varilla del medio a la
+
+503
+00:19:13,580 --> 00:19:15,500
+varilla de destino. Aquí está el efecto de
+
+504
+00:19:15,500 --> 00:19:18,820
+eso en el problema general.
+
+505
+00:19:24,179 --> 00:19:27,389
+Y finalmente, el séptimo y último paso
+
+506
+00:19:27,389 --> 00:19:30,029
+implica la última llamada recursiva con un disco
+
+507
+00:19:30,029 --> 00:19:32,759
+moviendo de la primera varilla a la
+
+508
+00:19:32,759 --> 00:19:34,919
+tercera varilla, lo que nuevamente alcanza el
+
+509
+00:19:34,919 --> 00:19:37,049
+caso base y finalmente imprime el último
+
+510
+00:19:37,049 --> 00:19:38,700
+movimiento.
+
+511
+00:19:38,700 --> 00:19:46,690
+[Music]
+
+512
+00:19:50,940 --> 00:19:53,430
+Y ahí lo tienes, así es como se desenvuelve
+
+513
+00:19:53,430 --> 00:19:55,620
+la recursión en el problema de Torres de Hanói.
+
+514
+00:19:55,620 --> 00:19:57,660
+Es realmente sorprendente cómo todo
+
+515
+00:19:57,660 --> 00:19:59,250
+se resuelve, especialmente si es la primera
+
+516
+00:19:59,250 --> 00:20:01,080
+vez que lo ves. Así que te animo
+
+517
+00:20:01,080 --> 00:20:02,880
+a trabajar en algunos ejemplos por tu cuenta
+
+518
+00:20:02,880 --> 00:20:05,160
+para convencerte de que realmente
+
+519
+00:20:05,160 --> 00:20:08,930
+funciona como debería.
+
+520
+00:20:09,770 --> 00:20:11,720
+Antes de terminar este video, aquí tienes un
+
+521
+00:20:11,720 --> 00:20:13,580
+resumen general de cómo resolvimos
+
+522
+00:20:13,580 --> 00:20:16,220
+el problema de Torres de Hanói. Primero,
+
+523
+00:20:16,220 --> 00:20:17,900
+tomamos un paso atrás y ni siquiera pensamos
+
+524
+00:20:17,900 --> 00:20:19,760
+en código, recursión o algoritmos,
+
+525
+00:20:19,760 --> 00:20:22,190
+sino que intentamos entender cómo
+
+526
+00:20:22,190 --> 00:20:24,620
+alguien que trata de resolver un rompecabezas
+
+527
+00:20:24,620 --> 00:20:26,420
+podría abordar este problema. Esto es algo
+
+528
+00:20:26,420 --> 00:20:28,490
+que realmente recomiendo hacer cuando
+
+529
+00:20:28,490 --> 00:20:30,710
+te enfrentas a un problema difícil. No tengas miedo
+
+530
+00:20:30,710 --> 00:20:32,480
+de dar un paso atrás y ver las cosas
+
+531
+00:20:32,480 --> 00:20:33,530
+desde una perspectiva diferente.
+
+532
+00:20:33,530 --> 00:20:36,050
+Después de esto, desarrollamos
+
+533
+00:20:36,050 --> 00:20:37,820
+una estrategia y la utilizamos para
+
+534
+00:20:37,820 --> 00:20:41,240
+implementar nuestra solución recursiva.
+
+535
+00:20:41,240 --> 00:20:43,130
+En el camino, aprendimos sobre el
+
+536
+00:20:43,130 --> 00:20:44,690
+salto de fe en recursión y cómo nos puede
+
+537
+00:20:44,690 --> 00:20:46,700
+ayudar a simplificar problemas
+
+538
+00:20:46,700 --> 00:20:48,770
+particularmente desafiantes. Y por último,
+
+539
+00:20:48,770 --> 00:20:50,570
+profundizamos en el problema para entender
+
+540
+00:20:50,570 --> 00:20:53,310
+cómo funciona realmente la recursión.
+
+541
+00:20:53,310 --> 00:20:55,000
+[Music]
+
+542
+00:20:55,000 --> 00:20:57,370
+Gracias por ver el video, y como siempre,
+
+543
+00:20:57,370 --> 00:20:59,350
+te agradecería que le dieras me gusta
+
+544
+00:20:59,350 --> 00:21:01,210
+si lo disfrutaste. Si quieres ver
+
+545
+00:21:01,210 --> 00:21:02,710
+más contenido como este, asegúrate de
+
+546
+00:21:02,710 --> 00:21:04,840
+suscribirte, y si quieres
+
+547
+00:21:04,840 --> 00:21:07,300
+apoyar más directamente este canal,
+
+548
+00:21:07,300 --> 00:21:08,980
+puedes visitar nuestra página de Patreon
+
+549
+00:21:08,980 --> 00:21:10,870
+en el enlace de la descripción. Nos vemos
+
+550
+00:21:10,870 --> 00:21:13,470
+en el próximo video.
+

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{course}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{        }\PYG{n}{course\PYGZus{}id}\PYG{+w}{   }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{title}\PYG{+w}{       }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{dept\PYGZus{}name}\PYG{+w}{   }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{),}
+\PYG{+w}{        }\PYG{n}{credits}\PYG{+w}{     }\PYG{n+nb}{numeric}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{),}
+\PYG{+w}{        }\PYG{k}{primary}\PYG{+w}{ }\PYG{k}{key}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{course\PYGZus{}id}\PYG{p}{),}
+\PYG{+w}{        }\PYG{k}{foreign}\PYG{+w}{ }\PYG{k}{key}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{dept\PYGZus{}name}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{references}\PYG{+w}{ }\PYG{n}{department}
+\PYG{+w}{    }\PYG{p}{);}
+\end{Verbatim}

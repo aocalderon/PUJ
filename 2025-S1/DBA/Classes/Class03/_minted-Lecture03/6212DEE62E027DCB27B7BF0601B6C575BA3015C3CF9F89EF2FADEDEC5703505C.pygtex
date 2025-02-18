@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{k}{c}\PYG{p}{.}\PYG{n}{oid}\PYG{p}{::}\PYG{n}{regclass}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{k}{table\PYGZus{}name}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{pg\PYGZus{}class}\PYG{+w}{ }\PYG{k}{c}
+\PYG{+w}{    }\PYG{k}{WHERE}
+\PYG{+w}{        }\PYG{n}{relkind}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{            }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}index}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{.}\PYG{n}{indrelid}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{c}\PYG{p}{.}\PYG{n}{oid}
+\PYG{+w}{        }\PYG{p}{);}
+\end{Verbatim}

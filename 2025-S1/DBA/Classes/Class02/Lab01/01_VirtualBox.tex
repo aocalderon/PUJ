@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\title{Tutorial Básico de VirtualBox y Creación de Máquina Virtual con Ubuntu Server 24.04}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción a VirtualBox}
+VirtualBox es un software de virtualización de código abierto que permite ejecutar múltiples sistemas operativos en un mismo equipo. Es compatible con Windows, macOS y Linux, y es una herramienta ideal para probar sistemas operativos, entornos de desarrollo y configuraciones sin afectar el sistema anfitrión.
+
+\section{Controles Básicos en VirtualBox}
+
+\subsection{Creación y gestión de máquinas virtuales}
+\begin{itemize}
+    \item \textbf{Nuevo}: Permite crear una nueva máquina virtual.
+    \item \textbf{Configuración}: Modifica los parámetros de la máquina virtual antes de iniciarla.
+    \item \textbf{Iniciar}: Enciende una máquina virtual seleccionada.
+    \item \textbf{Apagar}: Detiene la ejecución de una máquina virtual.
+    \item \textbf{Instantáneas}: Guarda el estado actual de la máquina virtual para restaurarlo en cualquier momento.
+    \item \textbf{Exportar/Importar}: Permite compartir máquinas virtuales entre equipos.
+\end{itemize}
+
+\subsection{Controles dentro de una máquina virtual}
+\begin{itemize}
+    \item \textbf{Modo Pantalla Completa}: Visualiza la máquina en pantalla completa.
+    \item \textbf{Modo Escalado}: Ajusta la resolución de la ventana de la máquina virtual.
+    \item \textbf{Integración del ratón y teclado}: Permite que el ratón y el teclado interactúen sin restricciones.
+\end{itemize}
+
+\section{Atajos de Teclado en VirtualBox}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|l|}
+        \hline
+        \textbf{Atajo} & \textbf{Función} \\
+        \hline
+        Host + F & Activar/desactivar pantalla completa \\
+        Host + L & Bloquear la sesión de la máquina virtual \\
+        Host + C & Habilitar/deshabilitar portapapeles compartido \\
+        Host + P & Habilitar/deshabilitar vista previa \\
+        Host + G & Ajustar ventana de la VM al tamaño de la pantalla \\
+        Host + D & Abrir configuración de la máquina virtual \\
+        Host + R & Reiniciar la máquina virtual \\
+        Host + H & Apagar la máquina virtual \\
+        Ctrl + Alt + Supr & Enviar la combinación a la VM \\
+        \hline
+    \end{tabular}
+    \caption{Atajos de teclado más usados en VirtualBox}
+    \label{tab:atajos}
+\end{table}
+
+\section{Guía Paso a Paso: Creación de una Máquina Virtual para Ubuntu Server 24.04}
+
+\subsection{Descargar Ubuntu Server 24.04}
+Antes de iniciar, descarga la imagen ISO desde:
+
+\begin{center}
+    \url{https://ubuntu.com/download/server}
+\end{center}
+
+\subsection{Creación de la Máquina Virtual}
+
+\textbf{Paso 1: Crear una nueva máquina virtual}
+\begin{enumerate}
+    \item Abrir VirtualBox y hacer clic en \textbf{"Nueva"}.
+    \item Asignar un nombre (ej. \texttt{UbuntuServer24.04}).
+    \item Tipo: \texttt{Linux}, Versión: \texttt{Ubuntu (64-bit)}.
+    \item Asignar al menos \textbf{2048 MB} de RAM.
+    \item Crear un disco virtual (\texttt{VDI}, \texttt{Reservado dinámicamente}, 20GB mínimo).
+\end{enumerate}
+
+\textbf{Paso 2: Configurar la máquina virtual}
+\begin{enumerate}
+    \item \textbf{Procesadores}: Asignar al menos 2 núcleos.
+    \item \textbf{Red}: Elegir \texttt{NAT} o \texttt{Adaptador Puente}.
+    \item \textbf{Montar la imagen ISO}: Ir a \texttt{Almacenamiento} y agregar la ISO descargada.
+\end{enumerate}
+
+\subsection{Instalación de Ubuntu Server 24.04}
+\begin{enumerate}
+    \item Iniciar la máquina virtual.
+    \item Seleccionar el idioma y la configuración de teclado.
+    \item Configurar la conexión de red (automática con NAT).
+    \item Usar la opción de particionamiento \texttt{Usar disco completo}.
+    \item Crear un usuario y contraseña.
+    \item Seleccionar \texttt{Instalar OpenSSH} (opcional).
+    \item Finalizar la instalación y reiniciar.
+\end{enumerate}
+
+\subsection{Primeros Pasos tras la Instalación}
+\begin{itemize}
+    \item Iniciar sesión con el usuario creado.
+    \item Actualizar el sistema:
+    \begin{verbatim}
+sudo apt update && sudo apt upgrade -y
+    \end{verbatim}
+    \item Si se instaló OpenSSH, acceder desde otro equipo con:
+    \begin{verbatim}
+ssh usuario@IP_DEL_SERVIDOR
+    \end{verbatim}
+\end{itemize}
+
+\section{Conclusión}
+Siguiendo estos pasos, habrás creado una máquina virtual y configurado Ubuntu Server 24.04 en VirtualBox. A partir de aquí, puedes instalar software adicional según tus necesidades, configurar servicios o integrar esta VM en tu infraestructura de desarrollo.
+
+\end{document}

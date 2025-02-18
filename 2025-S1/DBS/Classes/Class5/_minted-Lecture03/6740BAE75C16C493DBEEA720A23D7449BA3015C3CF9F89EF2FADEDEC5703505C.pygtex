@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{instructor}
+\PYG{+w}{            }\PYG{k}{VALUES}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}10211\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Smith\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}Biology\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{66000}\PYG{p}{);}
+\end{Verbatim}
