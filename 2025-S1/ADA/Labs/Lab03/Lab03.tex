@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.5cm, top=2cm, right=2cm, bottom=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+%opening
+\title{Analysis of Algorithms \\ Lab 3}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This lab focuses on solving Problem Set 1 from the Introduction to Algorithms (6.046J) course offered by MIT OpenCourseWare. The problem set, available here, consists of exercises from the CLRS textbook (Introduction to Algorithms, 3rd Edition) and additional problems related to Asymptotic Notation and Recurrences.
+
+The primary objective of this lab is to strengthen your understanding of fundamental algorithmic analysis techniques. By working through these exercises, you will:
+
+Practice applying asymptotic notation to describe algorithm efficiency.
+Develop intuition for solving recurrence relations that arise in divide-and-conquer algorithms.
+Gain experience with formal proofs and justifications related to algorithmic complexity.
+We strongly encourage you to attempt the exercises independently before consulting external resources such as solutions or AI-based tools. The goal is not just to obtain correct answers but to understand the problem-solving process and improve your analytical thinking.
+
+Problem Set 1 comes from the \href{https://ocw.mit.edu/courses/6-046j-introduction-to-algorithms-sma-5503-fall-2005/}{\textit{Introduction to Algorithms 6.046J}} course of the MIT OpenCourseWare Iniciative.  The problem set is available at this \href{https://ocw.mit.edu/courses/6-046j-introduction-to-algorithms-sma-5503-fall-2005/21bf373b58dcd53a7650a8072a76a448_ps1.pdf}{link}.
+
+Here we go!
+
+\section{Exercises from the CLRS Textbook}\label{sec:exercises}
+We will use the 3rd edition of the \href{https://mitpress.mit.edu/9780262533058/introduction-to-algorithms/}{\textit{Introduction to Algorithms}} textbook. We will solve the set of exercises listed in Table \ref{tab:table}.
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{c c c}
+        \toprule
+        \textbf{Exercise Set} & \textbf{In Book 3e} & \textbf{Page} \\
+        \midrule
+        1.1 & 2.3-3 & 39 \\
+            & 2.3-4 & 39 \\
+            & 2.3-5 & 39 \\
+            & 2.3-6 & 39 \\
+        1.2 & 3.1-1 & 52 \\
+            & 3.1-2 & 52 \\
+            & 3.1-3 & 53 \\
+            & 3.1-4 & 53 \\
+            & 3.1-5 & 53 \\
+            & 3.1-6 & 53 \\
+        1.3 & 3.2-2 & 60 \\
+            & 3.2-3 & 60 \\
+            & 3.2-4 & 60 \\
+        1.4 & 4.1-3 & 74 \\
+            & 4.1-4 & 74 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Exercises from CLRS textbook.}
+    \label{tab:table}
+\end{table}
+
+\section{Asymptotic Notation}\label{sec:asymptotic}
+
+For each of the following statements, decide whether it is \textbf{always true}, \textbf{never true}, or \textbf{sometimes true} for asymptotically nonnegative functions $f$ and $g$. If it is \textbf{always true} or \textbf{never true}, explain why. If it is \textbf{sometimes true}, give one example for which it is true, and one for which it is false.
+
+\begin{enumerate}
+    \item[a)] $f(n) = O(f(n)^2)$
+    \item[b)] $f(n) + g(n) = \Theta(\max(f(n), g(n)))$
+    \item[c)] $f(n) + O(f(n)) = \Theta(f(n))$
+    \item[d)] $f(n) = \Omega(g(n)) \text{ and } f(n) = o(g(n))$ \hspace{5mm} (note the little-$o$)
+    \item[e)] $f(n) \neq O(g(n)) \text{ and } g(n) \neq O(f(n))$
+\end{enumerate}
+
+\section{Recurrences}\label{sec:recurrences}
+Give asymptotic upper and lower bounds for $T(n)$ in each of the following recurrences. Assume that $T(n)$ is constant for $n \leq 10$. Make your bounds as tight as possible, and justify your answers.
+
+\begin{enumerate}
+    \item[a)] $T(n) = 2T(\frac{n}{3}) + n \lg n$
+    \item[b)] $T(n) = 3T(\frac{n}{5}) + \lg^2 n$
+    \item[c)] $T(n) =  T(\frac{n}{2}) + 2^n$
+    \item[d)] $T(n) =  T(\sqrt{n}) + \Theta(\lg \lg n)$
+    \item[e)] $T(n) = 10T(\frac{n}{3}) + 17n^{1.2}$
+    \item[f)] $T(n) = 7T(\frac{n}{2}) + n^3$
+    \item[g)] $T(n) =  T(\frac{n}{2} + \sqrt{n}) + \sqrt{6046}$
+    \item[h)] $T(n) =  T(n - 2) + \lg n$
+    \item[i)] $T(n) =  T(\frac{n}{5}) + T(\frac{4n}{5}) + \Theta(n)$
+    \item[j)] $T(n) = \sqrt(n)T(\sqrt(n)) + 100n$
+\end{enumerate}
+
+\section{What we expect}
+You will compile all your answers into a well-structured handwritten report and submit it during the lab on \textbf{March 6th, 2025}. Please scan your report in PDF format and send it to my email with the [ADA] tag followed by the lab number in the subject line.
+
+As in previous labs, we already know that there are solutions for all the exercises proposed in the problem set. The MIT OpenCourseWare offers solutions for sections \ref{sec:asymptotic} and \ref{sec:recurrences}. Similarly, solutions for the exercises in section \ref{sec:exercises} can be found in the Instructor's Manual of the textbook and even online. The same applies to the use of AI frameworks. We are not concerned about whether you have access to the solutions, but we strongly encourage you to attempt the exercises on your own first before looking at the answers. There is no point in going directly to the answer or asking an AI for it if you do not try solving it yourself or at least understand the logical procedure behind the solution.
+
+\end{document}
