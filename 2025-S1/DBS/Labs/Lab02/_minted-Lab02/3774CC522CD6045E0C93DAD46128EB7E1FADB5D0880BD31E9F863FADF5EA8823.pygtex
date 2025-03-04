@@ -1,7 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYGZbs{}project\PYGZus{}\PYGZob{}sName, GPA, cName\PYGZcb{}(
-  \PYGZbs{}select\PYGZus{}\PYGZob{}major = \PYGZsq{}Medicina\PYGZsq{} and enrollment \PYGZgt{} 20000\PYGZcb{}(
-    student \PYGZbs{}join ( apply \PYGZbs{}join college )
-  )
-);
-\end{Verbatim}

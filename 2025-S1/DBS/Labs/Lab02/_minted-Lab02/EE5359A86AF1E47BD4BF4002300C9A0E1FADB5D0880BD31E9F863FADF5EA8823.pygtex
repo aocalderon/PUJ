@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYGZbs{}select\PYGZus{}\PYGZob{}GPA \PYGZgt{} 4.0 and sizeHS \PYGZgt{} 2000\PYGZcb{} student;
-\end{Verbatim}

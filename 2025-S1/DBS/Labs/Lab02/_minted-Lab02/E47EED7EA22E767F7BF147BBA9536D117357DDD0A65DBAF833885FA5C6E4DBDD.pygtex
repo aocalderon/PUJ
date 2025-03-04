@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYGZbs{}project\PYGZus{}\PYGZob{}sName, GPA\PYGZcb{}( \PYGZbs{}select\PYGZus{}\PYGZob{}major = \PYGZsq{}Sistemas\PYGZsq{}\PYGZcb{}( student \PYGZbs{}join apply ) );
-\end{Verbatim}
