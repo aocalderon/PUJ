@@ -1,0 +1,327 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{amsmath, esint}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds, positioning, arrows, scopes, shapes, shapes.misc, shapes.multipart}
+\tikzset{
+    cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt},
+    cross/.default={10pt},
+    split/.style={rectangle split, rectangle split parts=7, draw, inner sep=0ex, rectangle split horizontal, minimum size=4ex},
+    textstyle/.style={text height=1.5ex, text depth=.25ex}
+}
+
+\usepackage{amsthm}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{xcolor} 
+\definecolor{LightGray}{gray}{0.975}
+
+\renewcommand{\qed}{\\ \hfill $\blacksquare$}
+
+%\usetheme{Warsaw}
+\usefonttheme{serif} 
+
+\title[Induction]{Introduction to Algorithms \\ Bonus Lecture: Proof by Induction}
+\author{et al.}
+\date{\today}
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\defbeamertemplate*{footline}{shadow theme}{%
+    \leavevmode%
+    \hbox{
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+            \usebeamerfont{author in head/foot} Introduction to Algorithms: \hfill \insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+            \usebeamerfont{title in head/foot} \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }%
+    \vskip0pt%
+}
+
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+    \frametitle{Plan}
+    \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Proof by Induction}
+    \begin{itemize}
+        \item A powerful mathematical technique.
+        \item Prove that a statement is true for all natural numbers (or some sequence of numbers). \item It's like knocking over a line of dominoes...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{How Induction Works}
+    \textbf{Principle of Mathematical Induction:}
+    \begin{itemize}
+        \item \textbf{Base Case:} Show the statement holds for the first value (usually $n = 1$).
+        \item \textbf{Inductive Hypothesis:} Assume the statement holds for some arbitrary $n = k$.
+        \item \textbf{Inductive Step:} Prove it holds for $n = k+1$.
+    \end{itemize}
+    \pause
+    \textbf{If those steps hold, the statement is true for all $n$.}
+\end{frame}
+
+\begin{frame}{Example}
+    \begin{exampleblock}{ }
+        Prove that:
+        $$
+            1 + 2 + 3 + \cdots + n = \frac{n(n + 1)}{2}
+        $$
+        for all $n \geq 1$.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Example}
+    \begin{exampleblock}{Step 1: Base Case}
+        For $n = 1$:
+        $$
+            1 = \frac{1(1 + 1)}{2} = \frac{2}{2} = 1
+        $$ \checkmark
+        \textcolor{olive}{\textbf{True!}}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Example}
+    \begin{exampleblock}{Step 2: Inductive Hypothesis}
+        Assume that for some $n = k$, the formula holds:
+        $$
+            1 + 2 + 3 + \cdots + k = \frac{k(k + 1)}{2}
+        $$
+        (This is our assumption or ``\textit{inductive hypothesis}''.)
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Example}
+    \begin{exampleblock}{Step 3: Inductive Step}
+        We must prove it holds for $n = k + 1$, meaning:
+        $$
+            1 + 2 + 3 + \cdots + k + (k + 1) = \frac{(k + 1)(k + 2)}{2}
+        $$ \pause
+        Using the inductive hypothesis:
+        $$
+            \left( \frac{k (k + 1)}{2} \right) + (k + 1)
+        $$ \pause
+        Factor $k + 1$ out:
+        $$
+            \frac{k (k + 1) + 2(k + 1)}{2} = \frac{(k + 1)(k + 2)}{2}
+        $$ \pause
+    \end{exampleblock}
+    This matches the formula for $n = k + 1$, so the statement holds!
+    \qed
+\end{frame}
+
+\begin{frame}{Conclusion}
+    By induction, the formula is true for all natural numbers n.\\
+    \vspace{5mm}
+
+    \textsc{Why Does This Work?}\\
+    \vspace{2mm}
+    Think of induction like climbing an infinite ladder:
+
+    \begin{itemize}
+        \item The \textbf{base case} puts your foot on the first rung.
+        \item The \textbf{inductive hypothesis} and the \textbf{inductive step} shows that if you can reach one step, you can reach the next.
+    \end{itemize}
+
+    Since they are true, you can climb forever!
+    \qed \footnote{$\blacksquare =$ Q.E.D. which means ``\textit{quod erat demonstrandum}''.}
+\end{frame}
+
+
+\begin{frame}{Example}
+    \begin{exampleblock}{ }
+        Proof by Induction:
+        $$
+            2^n \geq n + 1
+        $$
+        for all $n \geq 1$.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Step 1: Base Case}
+    For $n = 1$:
+    \begin{align*}
+        2^1 &= 2,   \text{\hspace{7mm} left side} \\
+        1 + 1 &= 2. \text{\hspace{8mm} right side}
+    \end{align*}
+    Since $2 \geq 2$, the base case holds. \checkmark
+\end{frame}
+
+\begin{frame}{Step 2: Inductive Hypothesis}
+    Assume the statement is true for $n = k$:
+    \begin{align*}
+        2^k \geq k + 1.
+    \end{align*}
+    This assumption is the \textit{inductive hypothesis}.
+\end{frame}
+
+% Inductive Step
+\begin{frame}{Step 3: Inductive Step}
+    We need to prove the statement holds for $n = k+1$:
+    \begin{align*}
+        2^{k+1} &\geq (k+1) + 1.
+    \end{align*}
+    \pause
+    Start with the left-hand side:
+    \begin{align*}
+        2^{k+1} &= 2 \cdot 2^k.
+    \end{align*}
+    \pause
+    Using the inductive hypothesis $2^k \geq k+1$:
+    \begin{align*}
+        2^{k+1} &\geq 2 \cdot (k+1) = 2k + 2.
+    \end{align*}
+    \pause
+    Since $2k + 2 \geq k + 2$, the statement holds for $n = k+1$.
+    \qed
+\end{frame}
+
+% Conclusion
+\begin{frame}{Conclusion}
+    By mathematical induction, we have proven that:
+    \begin{align*}
+        2^n \geq n + 1 \quad \text{for all } n \geq 1.
+    \end{align*}
+    \textbf{Induction helps us prove statements for infinitely many cases!}
+\end{frame}
+
+\begin{frame}{Another Example}
+    We will prove that the sum of the first $n$ odd numbers is given by:
+    \begin{align*}
+        1 + 3 + 5 + \dots + (2n - 1) = n^2.
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Step 1: Base Case}
+    For $n = 1$:
+    \begin{align*}
+        1 = 1^2.
+    \end{align*}
+    Since both sides are equal, the base case holds. \checkmark
+\end{frame}
+
+\begin{frame}{Step 2: Inductive Hypothesis}
+  Assume the statement is true for $n = k$:
+  \begin{align*}
+    1 + 3 + 5 + \dots + (2k - 1) = k^2.
+  \end{align*}
+  The \textit{inductive hypothesis}.
+\end{frame}
+
+\begin{frame}{Step 3: Inductive Step}
+    We need to prove the statement holds for $n = k+1$:
+    \begin{align*}
+        1 + 3 + 5 + \dots + (2k - 1) + (2(k+1) - 1) = (k+1)^2.
+    \end{align*}
+    \pause
+    Using the \textit{inductive hypothesis}:
+    \begin{align*}
+        k^2 + (2(k+1) - 1).
+    \end{align*}
+    \pause
+    Expanding the term:
+    \begin{align*}
+        k^2 + (2k + 1) = (k+1)^2.
+    \end{align*}
+    \pause
+    Since both sides match, the statement holds for $n = k+1$.
+    \qed
+\end{frame}
+
+\begin{frame}{One More}
+    Prove that:
+    \begin{align*}
+        \sum_{i = 0}^n 3^i &= \frac{3^{n + 1} - 1}{2} \\
+    \end{align*}
+    for all non negative integer $n$.
+\end{frame}
+
+\begin{frame}{Step 1: Base Case}
+    For $n = 0$:
+    \begin{align*}
+        \sum_{i = 0}^0 3^i &= \frac{3^{0 + 1} - 1}{2} \\
+                       3^0 &= \frac{3^1 - 1}{2} \\
+                         1 &= \frac{3 - 1}{2} \\
+                         1 &= \frac{2}{2} \\
+                         1 &= 1 \\
+    \end{align*}
+    Since both sides are equal, the base case holds. \checkmark
+\end{frame}
+
+\begin{frame}{Step 1: Base Case}
+    For $n = 1$:
+    \begin{align*}
+        \sum_{i = 0}^1 3^i &= \frac{3^{1 + 1} - 1}{2} \\
+                 3^0 + 3^1 &= \frac{3^2 - 1}{2} \\
+                     1 + 3 &= \frac{9 - 1}{2} \\
+                         4 &= \frac{8}{2} \\
+                         4 &= 4 \\
+    \end{align*}
+    Since both sides are equal, the base case holds. \checkmark
+\end{frame}
+
+\begin{frame}{Step 2: Inductive Hypothesis}
+    Assume the statement is true for $n = k$:
+    \begin{align*}
+        \sum_{i = 0}^k 3^i &= \frac{3^{k + 1} - 1}{2} \\
+    \end{align*}
+    The \textit{inductive hypothesis}.
+\end{frame}
+
+\begin{frame}{Step 3: Inductive Step}
+    \footnotesize
+    We need to prove the statement holds for $n = k + 1$:
+    \begin{align*}
+        \sum_{i = 0}^{k + 1} 3^i &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+    \end{align*}
+    \pause
+    By $\sum$ definition:
+    \begin{align*}
+        \sum_{i = 0}^k 3^i + 3^{k + 1} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+    \end{align*}
+    \pause
+    Using the \textit{inductive hypothesis}:
+    \begin{align*}
+        \frac{3^{k + 1} - 1}{2} + 3^{k + 1} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+    \end{align*}
+    \pause
+    Expanding the term:
+    \begin{align*}
+        \frac{3^{k + 1}}{2} - \frac{1}{2} + \frac{2 \cdot 3^{k + 1}}{2} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+        \frac{3^{k + 1} - 1 + 2 \cdot 3^{k + 1}}{2} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Step 3: Inductive Step}
+    \footnotesize
+    Using the \textit{inductive hypothesis}:
+    \begin{align*}
+        \frac{3^{k + 1} - 1}{2} + 3^{k + 1} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+    \end{align*}
+    Expanding the term:
+    \begin{align*}
+        \frac{3^{k + 1}}{2} - \frac{1}{2} + \frac{2 \cdot 3^{k + 1}}{2} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+        \frac{3^{k + 1} - 1 + 2 \cdot 3^{k + 1}}{2} &= \frac{3^{(k + 1) + 1} - 1}{2} \\
+        \frac{3 \cdot 3^{k + 1} - 1}{2} &= \frac{3^{k + 1 + 1} - 1}{2} \\
+        \frac{3^{k + 1 + 1} - 1}{2} &= \frac{3^{k + 1 + 1} - 1}{2} \\
+        \frac{3^{k + 2} - 1}{2} &= \frac{3^{k + 2} - 1}{2} \\
+    \end{align*}
+    \pause
+    Since both sides match, the statement holds for $n = k + 1$.
+    \qed
+\end{frame}
+
+\end{document}
