@@ -50,7 +50,6 @@
     \end{frame}
 }
 
-
 \begin{document}
 
 \frame{\titlepage}
@@ -66,6 +65,8 @@
     }
 \end{frame}
 
+\section{Quicksort}
+
 \begin{frame}{Quicksort}
     \begin{itemize}
             \item Proposed by C.A.R. Hoare in 1962.
@@ -74,6 +75,8 @@
             \item Very practical (with tuning).
     \end{itemize}
 \end{frame}
+
+\section{Divide \& Conquer}
 
 \begin{frame}{Divide and Conquer}
     Quicksort an $n$-element array:
@@ -87,6 +90,8 @@
         Linear-time partitioning subroutine.
     \end{alertblock}
 \end{frame}
+
+\section{Partitioning}
 
 \begin{frame}{Partitioning Subroutine}
     \begin{minipage}{0.58\textwidth}
@@ -192,6 +197,8 @@
     \end{itemize}
 \end{frame}
 
+\section{Worst-case Analysis}
+
 \begin{frame}{Worst-case of Quicksort}
     \begin{itemize}
         \item Input sorted or reverse sorted.
@@ -276,12 +283,14 @@
     \includegraphics[width=\textwidth, trim={1.00cm 1.80cm 0.50cm 5.25cm}, clip]{pages/lec4_26}
 \end{frame}
 
+\section{Intuition}
+
 \begin{frame}{Best-case Analysis}{For intuition only!}
     If we're lucky, \textsc{Partition} splits the array evenly:
     \begin{equation*}
         \begin{split}
             T(n) =& 2T\left(\frac{n}{2}\right) + \Theta(n) \\
-                 =& \Theta(n \ln n) \text{\hspace{20mm} (same as merge-sort)} \\
+                 =& \Theta(n \lg n) \text{\hspace{20mm} (same as merge-sort)} \\
         \end{split}
     \end{equation*}
     What if the split is always $\frac{1}{10}:\frac{9}{10}$?
@@ -327,7 +336,7 @@
         \begin{split}
             L(n) =& 2\left(L\left(\frac{n}{2} - 1 \right) + \Theta(\frac{n}{2})\right) + \Theta(n) \\
                  =& 2L\left(\frac{n}{2} - 1 \right) + \Theta(n) \\
-                 =& \Theta(n \ln n) \text{\hspace{15mm} \textbf{\textcolor{red}{Lucky!}}}
+                 =& \Theta(n \lg n) \text{\hspace{15mm} \textbf{\textcolor{red}{Lucky!}}}
         \end{split}
     \end{equation*}
     How can we make sure we are usually lucky?
@@ -346,6 +355,8 @@
         \item The worst case is determined only by the output of a random-number generator.
     \end{itemize}
 \end{frame}
+
+\section{Analysis}
 
 \begin{frame}{Randomized Quicksort Analysis}
     Let $T(n) = $ the random variable for the running time of randomized quicksort on an input of size $n$, assuming random numbers are independent.
