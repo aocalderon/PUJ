@@ -1,0 +1,655 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Databases\\Lab 05}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this lab, we will explore essential SQL concepts through interactive exercises and hands-on implementation. The primary focus will be on understanding and utilizing SQL Views, a powerful feature that enhances query abstraction, security, and maintainability. By working through structured exercises, students will gain practical experience in creating, modifying, and managing views, as well as understanding their role in simplifying database interactions.
+
+The lab is divided into three key components:
+
+\begin{enumerate}
+  \item Interactive SQL Practice: Utilizing the W3Schools SQL tutorial, students will reinforce fundamental SQL operations, including database and table creation, constraints, indexing, and security mechanisms.
+  \item SQL Views and Their Applications: A detailed examination of SQL Views, covering their creation, modification, and deletion. This section will demonstrate how views can encapsulate complex queries, restrict access to sensitive data, and optimize query performance.
+  \item Hands-on Exercises: Students will apply their knowledge by creating various types of SQL views, including basic, join-based, aggregated, updatable, and security-oriented views. These exercises will solidify their understanding of real-world database design and query structuring.
+
+\end{enumerate}
+
+By the end of this lab, students will have a comprehensive grasp of how SQL Views work, their advantages in database management, and how they can be leveraged to simplify and optimize database operations. Through practical implementation, they will also develop proficiency in SQL scripting and database manipulation, essential skills for database management and development.
+
+\section{W3Schools Interactive SQL Tutorial}
+We will continue with the interactive SQL tutorial on the W3Schools website.  This time we will cover the lessons in the section of SQL Database (look for it the the left panel). Remember that the tutorial can be found \href{https://www.w3schools.com/sql/}{here}. We will cover the following lessons:
+
+\begin{enumerate}
+  \item Create DB
+  \item Drop DB
+  \item Create Table
+  \item Drop Table
+  \item Alter Table
+  \item Constrains
+  \item Not Null
+  \item Unique
+  \item Primary Key
+  \item Foreign Key
+  \item Check
+  \item Default
+  \item Index
+  \item Auto Increment
+  \item Dates
+  \item Views
+  \item Injection
+\end{enumerate}
+
+In order to support your learning, you will have to not just create (or update) an account but also set a nice profile picture.  For these lessons you will follow the content and execute the examples by you own.  In this occasion, you must complete the set of exercise of each of the lessons.  Once you have completed all the exercises, you will capture a screenshot showing the complete task.  Be aware to capture your profile picture in the screenshot and attach them in your report.  Watch this simple \href{https://drive.google.com/file/d/1cMssK6Az56eU3QyCk4hMVr6DfQ9nRsv7/view?usp=sharing}{video} to understand better what you have to do.
+
+\section{SQL Views: A Comprehensive Guide}
+
+A View in SQL is a virtual table that represents the result of a SQL query. Views do not store data themselves but provide an abstraction over the underlying tables, allowing users to simplify complex queries, enhance security, and improve maintainability.
+
+Why Use Views?
+\begin{itemize}
+  \item \textbf{Simplicity}: Encapsulate complex queries into a single reference.
+  \item \textbf{Security}: Restrict access to sensitive data by exposing only necessary columns.
+  \item \textbf{Reusability}: Avoid repeating SQL logic in multiple queries.
+  \item \textbf{Data Integrity}: Ensure consistency across applications by centralizing query definitions.
+\end{itemize}
+
+\subsection{Creating a Simple View}
+A basic view is created using the \texttt{CREATE VIEW} statement:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeInfo AS
+  SELECT
+    EmployeeID, FirstName, LastName, Department
+  FROM
+    Employees;
+\end{minted}
+
+Now, you can retrieve data using:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeInfo;
+\end{minted}
+
+\subsubsection{Modifying an Existing View}
+If you need to update the definition of a view, use \texttt{CREATE OR REPLACE VIEW}:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE OR REPLACE VIEW EmployeeInfo AS
+  SELECT
+    EmployeeID, FirstName, LastName, Department, Salary
+  FROM
+    Employees;
+\end{minted}
+
+\subsubsection{Dropping a View}
+To remove a view:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+DROP VIEW EmployeeInfo;
+\end{minted}
+
+\subsection{Advanced View Concepts}
+
+\subsubsection{Views with Joins}
+Views can combine data from multiple tables:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeDepartment AS
+  SELECT
+    e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+  FROM
+    Employees e
+  JOIN
+    Departments d
+  ON
+    e.DepartmentID = d.DepartmentID;
+\end{minted}
+
+\subsubsection{Views with Aggregations}
+Views can aggregate data too:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW DepartmentSalary AS
+  SELECT
+    DepartmentID, AVG(Salary) AS AvgSalary
+  FROM
+    Employees
+  GROUP BY
+    DepartmentID;
+\end{minted}
+
+\subsection{Updatable Views}
+Some views can be updated if they meet these conditions:
+
+\begin{itemize}
+  \item Selects from a single table.
+  \item Does not use \texttt{DISTINCT}, \texttt{GROUP BY}, or \texttt{HAVING}.
+  \item Does not include aggregate functions.
+\end{itemize}
+
+Example:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeSalary AS
+  SELECT
+    EmployeeID, Salary
+  FROM
+    Employees;
+\end{minted}
+
+Updating the view:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+UPDATE
+  EmployeeSalary
+SET
+  Salary = 60000
+WHERE
+  EmployeeID = 101;
+\end{minted}
+
+\subsection{Using Views for Security}
+You can restrict access by creating a view that excludes sensitive columns:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW PublicEmployeeInfo AS
+  SELECT
+    EmployeeID, FirstName, LastName, Department
+  FROM
+    Employees;
+\end{minted}
+
+Grant access only to this view:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+GRANT SELECT ON PublicEmployeeInfo TO public_user;
+\end{minted}
+
+\subsection{Performance Considerations}
+\begin{itemize}
+  \item \textbf{Indexes}: Views do not have indexes, but queries using indexed columns in base tables perform well.
+  \item \textbf{Materialized Views}: These store the result of a query and improve performance for complex calculations (in databases like PostgreSQL, Oracle).
+\end{itemize}
+
+Example (PostgreSQL):
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE MATERIALIZED VIEW SalesSummary AS
+  SELECT
+    ProductID, SUM(Amount) AS TotalSales
+  FROM
+    Sales
+  GROUP BY
+    ProductID;
+\end{minted}
+
+To refresh it:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+REFRESH MATERIALIZED VIEW SalesSummary;
+\end{minted}
+
+SQL Views provide a powerful way to structure queries, simplify access to data, and enforce security rules. Understanding when and how to use them can significantly improve database design and maintainability.
+
+\section{SQL Script: Working with Views}
+\subsection{Step 1: Create Sample Tables and Insert Data}
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize, linenos]{sql}
+-- Drop existing tables if they exist (to reset the example)
+DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Departments;
+
+-- Create Departments Table
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(100)
+);
+
+-- Create Employees Table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DepartmentID INT,
+    Salary DECIMAL(10,2),
+    HireDate DATE,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+-- Insert sample data into Departments
+INSERT INTO Departments (DepartmentID, DepartmentName) VALUES
+(1, 'Engineering'),
+(2, 'Human Resources'),
+(3, 'Finance');
+
+-- Insert sample data into Employees
+INSERT INTO Employees (EmployeeID, FirstName, LastName, DepartmentID, Salary, HireDate) VALUES
+(101, 'Alice', 'Johnson', 1, 75000.00, '2019-05-22'),
+(102, 'Bob', 'Smith', 2, 65000.00, '2020-08-15'),
+(103, 'Charlie', 'Brown', 1, 80000.00, '2018-07-30'),
+(104, 'Diana', 'Martinez', 3, 72000.00, '2021-03-10');
+\end{minted}
+
+\subsection{Step 2: Create and Use SQL Views}
+
+\subsubsection{Basic View: Employee Information}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeInfo AS
+SELECT EmployeeID, FirstName, LastName, DepartmentID
+FROM Employees;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeInfo;
+\end{minted}
+
+\subsubsection{View with Joins: Employee with Department Name}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeDepartment AS
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeDepartment;
+\end{minted}
+
+\subsubsection{Aggregation View: Average Salary by Department}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW AvgDepartmentSalary AS
+SELECT d.DepartmentName, AVG(e.Salary) AS AvgSalary
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM AvgDepartmentSalary;
+\end{minted}
+
+\subsubsection{Updatable View: Employee Salaries}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeSalary AS
+SELECT EmployeeID, Salary FROM Employees;
+\end{minted}
+
+Update an employee’s salary through the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+UPDATE EmployeeSalary SET Salary = 78000 WHERE EmployeeID = 101;
+\end{minted}
+
+Verify the update:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM Employees WHERE EmployeeID = 101;
+\end{minted}
+
+\subsection{Step 3: Managing Views}
+
+\subsubsection{Modify an Existing View}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE OR REPLACE VIEW EmployeeInfo AS
+SELECT EmployeeID, FirstName, LastName, DepartmentID, Salary
+FROM Employees;
+\end{minted}
+
+Query the updated view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeInfo;
+\end{minted}
+
+\subsubsection{Delete a View}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+DROP VIEW EmployeeInfo;
+\end{minted}
+
+\subsubsection*{Bonus: Materialized View (PostgreSQL \& Oracle)}
+If you're using \textbf{PostgreSQL} or \textbf{Oracle}, you can create a \textbf{materialized view}:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE MATERIALIZED VIEW TotalSalaries AS
+SELECT DepartmentID, SUM(Salary) AS TotalSalary
+FROM Employees
+GROUP BY DepartmentID;
+\end{minted}
+
+To refresh the materialized view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+REFRESH MATERIALIZED VIEW TotalSalaries;
+\end{minted}
+
+\subsection*{Summary of What You Learned}
+\begin{itemize}
+    \item Creating basic \texttt{SQL} views.
+    \item Using views with \texttt{JOIN}s.
+    \item Aggregating data with \texttt{GROUP BY}.
+    \item Updating data through updatable views.
+    \item Managing views (modifying and deleting).
+    \item Using materialized views for better performance.
+\end{itemize}
+
+
+
+
+
+\section{Advanced SQL Views Tutorial}
+
+\subsection{Filtering Data in Views}
+
+\subsubsection{Example: View for Recently Hired Employees}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW RecentHires AS
+SELECT EmployeeID, FirstName, LastName, HireDate
+FROM Employees
+WHERE HireDate >= '2020-01-01';
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM RecentHires;
+\end{minted}
+
+\subsubsection{Example: View for High-Salary Employees}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW HighEarners AS
+SELECT EmployeeID, FirstName, LastName, Salary
+FROM Employees
+WHERE Salary > 70000;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM HighEarners;
+\end{minted}
+
+\subsection{Using Multiple Joins in Views}
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeFullInfo AS
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName, e.Salary
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeFullInfo;
+\end{minted}
+
+\subsection{Views with Aggregations and GROUP BY}
+
+\subsubsection{Example: Total Salary per Department}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW DepartmentSalarySummary AS
+SELECT d.DepartmentName, SUM(e.Salary) AS TotalSalary
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM DepartmentSalarySummary;
+\end{minted}
+
+\subsubsection{Example: Count of Employees per Department}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW EmployeeCountByDepartment AS
+SELECT d.DepartmentName, COUNT(e.EmployeeID) AS TotalEmployees
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName;
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EmployeeCountByDepartment;
+\end{minted}
+
+\subsection{Security with Views}
+
+\subsubsection{Example: Hide Salary Information}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW PublicEmployeeInfo AS
+SELECT EmployeeID, FirstName, LastName, DepartmentID
+FROM Employees;
+\end{minted}
+
+Granting limited access:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+GRANT SELECT ON PublicEmployeeInfo TO public_user;
+\end{minted}
+
+\subsection{Using Views in Subqueries}
+
+\subsubsection{Example: Employees Earning Above the Department Average}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE VIEW AboveAverageEarners AS
+SELECT e.EmployeeID, e.FirstName, e.LastName, e.Salary, d.DepartmentName
+FROM Employees e
+JOIN Departments d ON e.DepartmentID = d.DepartmentID
+WHERE e.Salary > (
+    SELECT AVG(Salary) FROM Employees WHERE DepartmentID = e.DepartmentID
+);
+\end{minted}
+
+Query the view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM AboveAverageEarners;
+\end{minted}
+
+\subsection{Materialized Views for Performance Optimization (PostgreSQL \& Oracle)}
+
+\subsubsection{Example: Materialized View for Total Sales}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+CREATE MATERIALIZED VIEW SalesSummary AS
+SELECT ProductID, SUM(Amount) AS TotalSales
+FROM Sales
+GROUP BY ProductID;
+\end{minted}
+
+Refreshing a materialized view:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+REFRESH MATERIALIZED VIEW SalesSummary;
+\end{minted}
+
+\subsection*{Summary}
+\begin{itemize}
+    \item Filtering data in views.
+    \item Joining multiple tables.
+    \item Grouping and aggregations.
+    \item Using views for security.
+    \item Employing views in subqueries.
+    \item Optimizing performance with materialized views.
+\end{itemize}
+
+\section{Hands-On Exercises}
+
+\subsection*{Exercise 1: Create a View for Employees in a Specific Department}
+\subsubsection*{Task:}
+Create a view called `EngineeringEmployees' that contains only employees from the \textit{Engineering} department.
+
+\subsubsection*{Expected Output:}
+When running:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM EngineeringEmployees;
+\end{minted}
+You should see only employees from the Engineering department.
+
+\subsubsection*{Hint:}
+Use a \texttt{JOIN} between Employees and Departments and filter by DepartmentName = 'Engineering'.
+
+\subsection*{Exercise 2: Create a View for Employees Hired After a Certain Date}
+\subsubsection*{Task:}
+Create a view called `NewHires' that includes employees hired after \textbf{January 1, 2021}.
+
+\subsubsection*{Expected Output:}
+When running:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM NewHires;
+\end{minted}
+You should see only employees hired in 2021 or later.
+
+\subsubsection*{Hint:}
+Use a \texttt{WHERE} clause with the `HireDate' column.
+
+\subsection*{Exercise 3: Create a View Showing Employees with Above-Average Salaries}
+\subsubsection*{Task:}
+Create a view called `AboveAverageSalaries' that includes employees earning more than the \textbf{company-wide} average salary.
+
+\subsubsection*{Expected Output:}
+When running:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM AboveAverageSalaries;
+\end{minted}
+Only employees earning more than the average salary should be listed.
+
+\subsubsection*{Hint:}
+Use a subquery with \texttt{AVG(Salary)}.
+
+\subsection*{Exercise 4: Create an Aggregation View}
+\subsubsection*{Task:}
+Create a view called `DepartmentStats' that shows each department’s \textbf{total salary and the number of employees}.
+
+\subsubsection*{Expected Output:}
+When running:
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\normalsize]{sql}
+SELECT * FROM DepartmentStats;
+\end{minted}
+You should see something like:
+\vspace{5mm}
+
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{DepartmentName} &	\textbf{TotalSalary} &	\textbf{EmployeeCount} \\
+\hline
+Engineering	 &	 155000 &		2 \\
+\hline
+HR &		65000 &		1 \\
+\hline
+Finance &		72000 &		1 \\
+\hline
+\end{tabular}
+
+\subsubsection*{Hint:}
+Use \texttt{SUM(Salary)} and \texttt{COUNT(EmployeeID)}, and group by `DepartmentName'.
+
+\subsection*{Exercise 5: Create a Security-Based View}
+\subsubsection*{Task:}
+Create a view called `PublicEmployees' that \textbf{hides salary information} and only shows EmployeeID, FirstName, LastName, and DepartmentName.  Then, grant access to this view for a user named \texttt{readonly\_user}.
+
+\subsubsection*{Hint:}
+Use a \texttt{JOIN} between Employees and Departments and \texttt{GRANT SELECT} to give access.
+
+\subsection*{Exercise 6: Create an Updatable View}
+\subsubsection*{Task:}
+Create a view called `EmployeeSalaries' that includes `EmployeeID' and `Salary'. Then, \textbf{update} an employee's salary through this view.
+
+\subsubsection*{Hint:}
+The view must only include one table (Employees). Use \texttt{UPDATE} to modify a salary.
+
+\subsection*{Exercise 7 (Advanced): Create a Materialized View (PostgreSQL/Oracle)}
+\subsubsection*{Task:}
+Create a \textbf{materialized view} called `SalarySummary' that stores each department’s \textbf{average salary}.
+
+\subsubsection*{Hint:}
+Use \texttt{CREATE MATERIALIZED VIEW} and \texttt{REFRESH MATERIALIZED VIEW} when needed.
+
+\subsection*{Bonus Challenge: Combining Multiple Concepts}
+Design a view that:
+
+\begin{itemize}
+  \item Includes employees \textbf{earning above the department average salary}.
+  \item Hides \textbf{salaries} but includes an \textbf{``Above Average''} column (`Yes/No').
+  \item Groups results by department.
+\end{itemize}
+
+For each query, you must present the \texttt{SQL} code and the query result (either copy-pasted or as a screenshot). We expect you to submit a well-structured report in PDF format, containing the requested information from the previous sections. Additionally, include the \texttt{SQL} code with the answers to the queries in a ZIP file. The submission deadline is \textbf{March 19, 2025}.
+
+\vspace{4mm}
+Happy Hacking \smiley{}!
+
+\end{document}
