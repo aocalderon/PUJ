@@ -79,7 +79,7 @@
     \begin{itemize}
         \item Join operations take two relations and return as a result another relation.
         \item A join operation is a Cartesian product which requires that tuples in the two relations match (under some condition). It also specifies the attributes that are present in the result of the join.
-        \item The join operations are typically used as subquery expressions in the from clause.
+        \item The join operations are typically used as subquery expressions in the \texttt{FROM} clause.
         \item Three types of joins:
         \begin{itemize}
             \item Natural join
@@ -92,7 +92,7 @@
 \begin{frame}[fragile]{Natural Join in SQL}
     \begin{itemize}
         \item Natural join matches tuples with the same values for all common attributes, and retains only one copy of each common column.
-        \item List the names of instructors along with the course ID of the courses that they taught.
+        \item For all students in the university who have taken some course, ﬁnd their names and the course ID of all courses they took.
         \begin{minted}
         [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
         SELECT
@@ -120,7 +120,7 @@ FROM
 
 \begin{frame}[fragile]{Natural Join in SQL (Cont.)}
     \begin{itemize}
-        \item The \texttt{FROM} clause in can have multiple relations combined using natural join:
+        \item The \texttt{FROM} clause can have multiple relations combined using natural join:
         \begin{lstlisting}[language=SQL]
 SELECT @($A_1, A_2, \ldots, A_n$)@
 FROM @($r_1$)@ 
@@ -150,7 +150,7 @@ WHERE @($P$)@;
 \begin{frame}[fragile]{Dangerous in Natural Join}
     Beware of unrelated attributes with same name which get equated incorrectly
     \begin{exampleblock}{Example:}
-        List the names of students instructors along with the titles of courses that they have taken.
+        List the names of students along with the titles of courses that they have taken.
     \end{exampleblock}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
@@ -166,13 +166,13 @@ WHERE @($P$)@;
     \pause
     \vspace{-5mm}
     \begin{FlushRight}
-        \Large \textcolor{red}{\textbf{Incorrect!}}
+        \Large \textcolor{red}{\textbf{Incorrect!} {\footnotesize double check $dept\_name$ attribute}}
     \end{FlushRight}
 \end{frame}
 
 \begin{frame}[fragile]{Dangerous in Natural Join}
     \begin{exampleblock}{Example:}
-        List the names of students instructors along with the titles of courses that they have taken.
+        List the names of students along with the titles of courses that they have taken.
     \end{exampleblock}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize, linenos]{sql}
@@ -193,7 +193,7 @@ WHERE @($P$)@;
 
 \begin{frame}[fragile]{Dangerous in Natural Join}
     \begin{exampleblock}{Example:}
-        List the names of students instructors along with the titles of courses that they have taken.
+        List the names of students along with the titles of courses that they have taken.
     \end{exampleblock}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize, linenos]{sql}
@@ -215,7 +215,7 @@ WHERE @($P$)@;
 \begin{frame}{Outer Join}
     \begin{itemize}
         \item An extension of the join operation that avoids loss of information.
-        \item Computes the join and then adds tuples form one relation that does not match tuples in the other relation to the result of the join.
+        \item Computes the \texttt{JOIN} and then adds tuples form one relation that does not match tuples in the other relation to the result of the join.
         \item Uses \textbf{\texttt{null}} values.
         \item Three forms of outer join:
         \begin{itemize}
@@ -257,7 +257,7 @@ WHERE @($P$)@;
             \vspace{1mm}
         \item Observe that
         \begin{itemize}
-            \item course information is missing for CS-437
+            \item course information is missing for CS-347
             \item prereq information is missing for CS-315
         \end{itemize}
     \end{itemize}
@@ -575,7 +575,7 @@ CREATE VIEW physics_fall_2017_watson AS
             [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize, linenos]{sql}
 CREATE VIEW physics_fall_2017_watson AS
     SELECT course_id, room_number
-    FROM ( SELECT course.course_id, building, room_number
+    FROM ( SELECT course.course_id, sect_id, building, room_number
             FROM course, section
             WHERE course.course_id = section.course_id
             AND course.dept_name = 'Physics'
@@ -589,7 +589,7 @@ CREATE VIEW physics_fall_2017_watson AS
 \begin{frame}[fragile]{View Expansion (Cont.)}
     \begin{itemize}
         \item A way to define the meaning of views defined in terms of other views.
-        \item Let view v1 be defined by an expression e1 that may itself contain uses of view relations.
+        \item Let view $v_1$ be defined by an expression $e_1$ that may itself contain uses of view relations.
         \item View expansion of an expression repeats the following replacement step:
             \footnotesize
             \begin{lstlisting}[language=bash]
