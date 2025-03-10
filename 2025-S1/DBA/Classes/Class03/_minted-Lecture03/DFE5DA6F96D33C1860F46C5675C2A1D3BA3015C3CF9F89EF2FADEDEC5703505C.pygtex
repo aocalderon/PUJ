@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{relname}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}class}\PYG{+w}{ }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{relkind}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{;}
-\end{Verbatim}

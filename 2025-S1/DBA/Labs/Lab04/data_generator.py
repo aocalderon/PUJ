@@ -1,0 +1,39 @@
+import psycopg2
+import random
+import time
+from datetime import datetime
+
+# Database connection parameters
+db_params = {
+    'dbname': 'sensors',
+    'user': 'and',
+    'password': 'nancy',  # Add password if necessary
+    'host': 'localhost',  # Modify if different
+    'port': 5432
+}
+
+# Establish a database connection
+conn = psycopg2.connect(**db_params)
+cur = conn.cursor()
+
+try:
+    while True:
+        tim = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        oid = random.randint(0, 9)
+        lat = random.randint(0, 999)
+        lon = random.randint(0, 999)
+
+        sql = "INSERT INTO sensor(oid, lat, lon, tim) VALUES (%s, %s, %s, %s);"
+        print(sql % (oid, lat, lon, tim))
+
+        cur.execute(sql, (oid, lat, lon, tim))
+        conn.commit()
+
+        time.sleep(2)
+
+except KeyboardInterrupt:
+    print("Script stopped by user.")
+
+finally:
+    cur.close()
+    conn.close()

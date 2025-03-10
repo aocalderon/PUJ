@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{nspname}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{pg\PYGZus{}namespace}\PYG{p}{;}
-\end{Verbatim}
