@@ -17,6 +17,21 @@
 \usepackage{amssymb}
 \usepackage[plain]{algorithm}
 \usepackage{algpseudocode}
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
 
 \usepackage{xcolor} 
 \definecolor{LightGray}{gray}{0.975}
@@ -342,7 +357,7 @@
    \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example 1}
+\begin{frame}{More Examples}
     \footnotesize
     \begin{enumerate}
         \item[3] \textbf{Inductive step:} Let's solve for $n = k + 1$, \pause
@@ -354,10 +369,12 @@
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example 2}
+\begin{frame}{Another One}
     \footnotesize
-Prove the following statement by induction:
-$$ 1 + 2^2 + 3^2 + \cdots + n^2 = \frac{n \cdot (n + 1) \cdot (2n + 1)}{6} $$
+    Prove the following statement by induction:
+    $$
+        1 + 2^2 + 3^2 + \cdots + n^2 = \frac{n \cdot (n + 1) \cdot (2n + 1)}{6}
+    $$
     \begin{enumerate}[<+->]
         \item \textbf{Basis step:} For $n = 1$, $1 = \frac {1 \times 2 \times 3}{6}$ is true!
         \item \textbf{Assumption step:} Let $n = k$, so $$ 1 + 2^2 + 3^2 + \cdots + k^2 = \frac{k \cdot (k + 1) \cdot (2k + 1)}{6} $$ holds...
@@ -366,7 +383,7 @@ $$ 1 + 2^2 + 3^2 + \cdots + n^2 = \frac{n \cdot (n + 1) \cdot (2n + 1)}{6} $$
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example 2}
+\begin{frame}{Another One}
     \begin{enumerate}
         \item[3] \textbf{Inductive step:} Let's solve for $n = k + 1$,
         { \scriptsize
@@ -411,6 +428,185 @@ $$ 1 + 2^2 + 3^2 + \cdots + n^2 = \frac{n \cdot (n + 1) \cdot (2n + 1)}{6} $$
     \end{theorem}
 \end{frame}
 
+\section*{Substitution Method}
+
+\begin{frame}{Substitution Method}{Example: Solving $T(n) = 2T(\frac{n}{2}) + O(n)$}
+    The \textbf{substitution method} is used to solve recurrence relations by guessing a solution and then proving it using mathematical induction.
+
+    Let's solve the recurrence:
+    \begin{equation*}
+        T(n) = 2T \left(\frac{n}{2}\right) + O(n)
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Substitution Method}{Step 1: Guess the solution}
+    We assume $T(n) = O(n \log n)$. We will prove this by induction.
+\end{frame}
+
+\begin{frame}{Substitution Method}{Step 2: Expand the recurrence}
+    Expand the recurrence for a few levels:
+    \begin{align*}
+    T(n) &= 2T\left(\frac{n}{2}\right) + cn \\
+    T\left(\frac{n}{2}\right) &= 2T\left(\frac{n}{4}\right) + c\left(\frac{n}{2}\right)
+    \end{align*}
+
+    Substituting $T\left(\frac{n}{2}\right)$ into $T(n)$:
+    \begin{align*}
+    T(n) &= 2\left[ 2T\left(\frac{n}{4}\right) + c\left(\frac{n}{2}\right) \right] + cn \\
+         &= 4T\left(\frac{n}{4}\right) + cn + cn \\
+         &= 4T\left(\frac{n}{4}\right) + 2cn
+    \end{align*}
+
+    Continuing this process for $k$ steps:
+    \begin{equation*}
+    T(n) = 2^k T\left(\frac{n}{2^k}\right) + kcn
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Substitution Method}{Step 3: Base Case}
+    The recursion stops when $\frac{n}{2^k} = 1$, so $k = \lg n$. At this point, $T(1) = O(1)$, so:
+    \begin{align*}
+    T(n) &= 2^{\lg n} T(1) + (\lg n)cn
+    \end{align*}
+
+    Since $2^{\lg n} = n$, we get:
+    \begin{align*}
+    T(n) &= n O(1) + cn \lg n \\
+        &= O(n \lg n)
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Substitution Method}{Step 4: Inductive Proof}
+    \footnotesize
+    We assume $T(n) \leq dn \lg n$ holds for all smaller values and prove it for $n$:
+    \begin{align*}
+    T(n) &= 2T\left(\frac{n}{2}\right) + cn
+    \end{align*}
+
+    Using the inductive hypothesis:
+    \begin{align*}
+    T(n) &\leq 2 \left[ d \left(\frac{n}{2}\right) \lg \left(\frac{n}{2}\right) \right] + cn \\
+        &= d n \lg \left( \frac{n}{2} \right) + cn \\
+        &= d n (\lg n - 1) + cn \\
+        &= d n \lg n - d n + cn
+    \end{align*}
+
+    For a sufficiently large $d$, we can choose $d \geq c$, so:
+    \begin{equation*}
+    T(n) \leq d n \lg n
+    \end{equation*}
+
+    Thus, $T(n) = O(n \log n)$, which matches our guess.
+\end{frame}
+
+\begin{frame}{Substitution Method}{Conclusion}
+    By using substitution and induction, we confirmed that:
+    \begin{equation*}
+    T(n) = O(n \lg n)
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Another Example}
+    An example of a recurrence relation that \textbf{cannot} be solved using the \textbf{Master Theorem} but can be solved using the \textbf{substitution method} is:
+
+    $$
+        T(n) = T(n-1) + O(n)
+    $$
+\end{frame}
+
+\begin{frame}{Step 1: Expand the Recurrence}
+    Expanding the recurrence iteratively:
+
+    \begin{equation*}
+        \begin{align*}
+            T(n) &= T(n-1) + O(n) \\
+                 &= (T(n-2) + O(n-1)) + O(n) \\
+                 &= T(n-2) + O(n-1) + O(n) \\
+                 &= T(n-3) + O(n-2) + O(n-1) + O(n) \\
+        \end{align*}
+    \end{equation*}
+
+    Repeating this expansion until we reach the base case $T(1)$, we get:
+    $$
+        T(n) = T(1) + O(2) + O(3) + \dots + O(n)
+    $$
+\end{frame}
+
+\begin{frame}{Step 2: Approximate the Summation}
+    The summation of the first $n$ natural numbers is:
+    $$
+        \sum_{k=1}^{n} O(k) = O(1 + 2 + 3 + \dots + n) = O\left(\frac{n(n + 1)}{2}\right) = O(n^2)
+    $$
+    Thus, the recurrence simplifies to:
+    $$
+        T(n) = O(n^2)
+    $$
+\end{frame}
+
+\begin{frame}{Why Can't Master Theorem Be Used?}
+    The \textbf{Master Theorem} applies to recurrences of the form:
+    $$
+        T(n) = aT\left(\frac{n}{b}\right) + O(n^d)
+    $$
+    where $a$, $b$, and $d$ are constants. However, our recurrence $T(n) = T(n-1) + O(n)$ does \textbf{not} fit this form because:
+
+    \begin{itemize}
+        \item There is \textbf{no division} of $n$ (i.e., no factor like $\frac{n}{b}$).
+        \item The recurrence is \textbf{not a divide-and-conquer} structure.
+    \end{itemize}
+    Thus, the \textbf{Master Theorem does not apply}, and we must use the \textbf{substitution method} or an iterative expansion approach.
+\end{frame}
+
+\begin{frame}{Final Answer}
+    $$
+        T(n) = O(n^2)
+    $$
+
+    This example demonstrates a \textbf{linear recurrence} that grows quadratically, and it is a case where the \textbf{Master Theorem fails}, but substitution (expanding and summing the terms) works effectively.
+\end{frame}
+
+\begin{frame}{Why $T(n) = T(n-1) + O(n)$ is Not Divide \& Conquer}
+    \textbf{Key Differences:}
+    \begin{enumerate}
+        \item \textbf{No Division of the Problem Size}
+        \begin{itemize}
+            \item In divide \& conquer, we break the problem into smaller parts of size $\frac{n}{b}$, where $b$ is usually a constant.
+            \item Here, we only reduce $n$ by \textbf{one} in each step ($n - 1$ instead of $\frac{n}{b}$). This means we are reducing the problem by a fixed amount rather than dividing it into subproblems of proportional size.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Why $T(n) = T(n-1) + O(n)$ is Not Divide\& Conquer}
+    \textbf{Key Differences:}
+    \begin{enumerate}
+        \item[2] \textbf{Only One Subproblem ($a = 1$)}
+        \begin{itemize}
+            \item In divide \& conquer, there are typically multiple recursive calls (e.g., \textbf{Merge Sort} has two recursive calls, so $a = 2$).
+            \item Here, there is \textbf{only one recursive call} to $T(n - 1)$, so it follows a linear recurrence pattern rather than a branching recursive structure.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Why $T(n) = T(n - 1) + O(n)$ is Not Divide \& Conquer}
+    \textbf{Key Differences:}
+    \begin{enumerate}
+        \item[3] \textbf{Linear Reduction Instead of Exponential}
+        \begin{itemize}
+            \item In divide \& conquer, the problem size shrinks \textbf{exponentially} (e.g., $\frac{n}{2}$, $\frac{n}{4}$, etc.), leading to logarithmic depth recursion trees.
+            \item Here, the problem size decreases \textbf{linearly} ($n - 1, n - 2, n - 3, \dots$), leading to a \textbf{deep recursion tree of depth $O(n)$}.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    Since this recurrence follows a \textbf{linear} reduction pattern instead of an \textbf{exponential} divide \& conquer structure, it \textbf{does not} fit into the Master Theorem framework, which applies to problems that \textbf{divide} into multiple subproblems. Instead, it is better solved using expansion (substitution method) or summation techniques.
+\end{frame}
+
+\begin{frame}{ }
+    \centering
+    \includegraphics[width=0.35\textwidth]{figures/red_wedding.jpeg} \\
+    ADA' students reading the questions of the exam... \href{https://youtu.be/TZZpdHMo4UQ?si=RGrIhu2Hzv55pb5d}{\textcolor{blue}{\textbf{click me!}}}
+\end{frame}
 
 
 \end{document}
