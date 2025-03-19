@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Databases \\ Lab 06: Indexing.}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Efficient data retrieval is a fundamental aspect of database management, and indexing plays a crucial role in optimizing query performance. In this lab, we will explore the impact of indexing on query execution time by analyzing queries before and after the creation of indexes.
+
+To accomplish this, we will work with a simulated dataset containing user accounts, conversation threads, and posts in a hypothetical forum. We will generate random data to populate the tables and execute a set of predefined queries to measure their performance. Using the \texttt{EXPLAIN ANALYZE} command in \texttt{PostgreSQL}, we will evaluate query execution times, compare results, and observe how indexing improves efficiency.
+
+By the end of this lab, you will have a practical understanding of how indexing works, how it affects database performance, and how to apply indexing techniques to optimize query execution. This knowledge is essential for effective database administration and performance tuning in real-world applications.
+
+This lab is based on the work presented in this \href{https://youtu.be/clrtT_4WBAw?si=Q5Rmt7YVsykuS715}{video} by Curtis Maloney\footnote{Curtis Maloney, 2018. \textit{PostgreSQL Indexing: How, Why, and When}. PyCon Australia. Sydney, August 24–28 2018. Available at \url{https://2018.pycon-au.org/talks/42913-postgresql-indexing-how-why-and-when/}}. We will share the first part here, and then you can continue on your own.
+
+\section{Generating Random Data}
+We first create a simple schema consisting of three tables to store information about user accounts, conversation threads, and posts made by users in a hypothetical website forum. You must create and connect to a database called \texttt{posts}. Once in the \texttt{PostgreSQL} prompt, you will create the schema for the tables as follows:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+CREATE TABLE account (
+	account_id SERIAL PRIMARY KEY,
+	name TEXT NOT NULL,
+	dob DATE
+);
+
+CREATE TABLE thread (
+	thread_id SERIAL PRIMARY KEY,
+	account_id INTEGER NOT NULL REFERENCES account(account_id),
+	title TEXT NOT NULL
+);
+
+CREATE TABLE post (
+	post_id SERIAL PRIMARY KEY,
+	thread_id INTEGER NOT NULL REFERENCES thread(thread_id),
+	account_id INTEGER NOT NULL REFERENCES account(account_id),
+	created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+	visible BOOLEAN NOT NULL DEFAULT TRUE,
+	comment TEXT NOT NULL
+);
+\end{minted}
+
+To simulate data for populating the tables, we will use the \verb|random()| function available in \texttt{PostgreSQL}. In addition, we will use a file containing 1,000 frequently used words to generate text fields. You can download the words file from \href{https://drive.google.com/file/d/1ffTmZyAYcPP5fQFvodYw8YbzFIl5Hm3_/view?usp=sharing}{here} and place it in a folder you have access to, ensuring that the filename remains unchanged as \texttt{words}. Now, execute the following \texttt{SQL} code:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+CREATE TABLE words (word TEXT);
+COPY words(word) FROM '/usr/share/dict/words';
+\end{minted}
+
+Be sure to update the full path to the words file according to its location on your system. Now, it's time to generate random data:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+-- Creating 100 dummy accounts...
+INSERT INTO account (name, dob)
+	SELECT
+		substring('AEIOU', (random() * 4)::int + 1, 1) ||
+		substring('bcdfghjklmnpqrstvwxyzbcdfghjklmnpqrstvwxyz', (random() * 21 * 2 + 1)::int, 2) ||
+		substring('aeiou', (random() * 4 + 1)::int, 1) ||
+		substring('bcdfghjklmnpqrstvwxyzbcdfghjklmnpqrstvwxyz', (random() * 21 * 2 + 1)::int, 2) ||
+		substring('aeiou', (random() * 4 + 1)::int, 1),
+		NOW() + ('1 days'::interval * random() * 365)
+	FROM
+		generate_series(1, 100);
+
+-- Creating 1000 random threads...
+INSERT INTO thread (account_id, title)
+	SELECT
+		random() * 99 + 1,
+		(
+			SELECT
+				initcap(string_agg(word, ' '))
+			FROM
+				(TABLE words ORDER BY random() + n LIMIT 5) AS words (word)
+		)
+	FROM
+		generate_series(1, 1000) AS s(n);
+
+-- Let's work with 100K random posts...
+INSERT INTO post (thread_id, account_id, created, visible, comment)
+	SELECT
+		random() * 999 + 1,
+		random() * 99 + 1,
+		NOW() - ('1 days'::interval * random() * 1000),
+		CASE WHEN random() > 0.1 THEN TRUE ELSE FALSE END,
+		(
+			SELECT string_agg(word, ' ') FROM (TABLE words ORDER BY random() * n LIMIT 20) AS words(word)
+		)
+	FROM
+		generate_series(1, 100000) AS s(n);
+\end{minted}
+
+That will be enough. We are done here.
+
+\section{Measuring Performance Without and With Indexes}
+We will now address the following queries and evaluate their response times. We will assume that my account ID is 1.
+
+\begin{enumerate}
+    \item[Q1.] View all my posts.
+    \item[Q2.] How many posts have I made?
+    \item[Q3.] View all current posts in a thread.
+    \item[Q4.] How many posts have I made in a thread?
+    \item[Q5.] View all current posts in a thread for this month, in order.
+\end{enumerate}
+
+The purpose of this tutorial is to evaluate query execution performance before and after creating an index. For instance, for Q1, we will measure the current performance using only the default indexing (i.e., the indexes automatically created for primary keys).  Now, let's execute the query using the \texttt{EXPLAIN ANALYZE} command to capture the execution time and relevant statistics:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+EXPLAIN ANALYZE
+SELECT
+	*
+FROM
+	post
+WHERE
+	account_id = 1;
+\end{minted}
+
+We should obtain the following response. Pay special attention to the \texttt{Execution Time} in the last line of the output:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+posts=# EXPLAIN ANALYZE
+SELECT
+        *
+FROM
+        post
+WHERE
+        account_id = 1;
+                                               QUERY PLAN
+--------------------------------------------------------------------------------------------------------
+ Seq Scan on post  (cost=0.00..3395.00 rows=493 width=138) (actual time=0.034..10.786 rows=474 loops=1)
+   Filter: (account_id = 1)
+   Rows Removed by Filter: 99526
+ Planning Time: 0.513 ms
+ Execution Time: 10.857 ms
+(5 rows)
+\end{minted}
+
+Now, we will create an index on the \verb|account_id| column:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+CREATE INDEX ON post (account_id);
+\end{minted}
+
+Then, let's re-run \texttt{EXPLAIN ANALYZE} and examine the updated results:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{text}
+                                                           QUERY PLAN
+--------------------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on post  (cost=8.11..1182.31 rows=493 width=138) (actual time=0.106..0.641 rows=474 loops=1)
+   Recheck Cond: (account_id = 1)
+   Heap Blocks: exact=424
+   ->  Bitmap Index Scan on post_account_id_idx  (cost=0.00..7.99 rows=493 width=0) (actual time=0.062..0.062 rows=474 loops=1)
+         Index Cond: (account_id = 1)
+ Planning Time: 0.255 ms
+ Execution Time: 0.694 ms
+(7 rows)
+\end{minted}
+
+Not bad at all! From here, you can continue watching the \href{https://youtu.be/clrtT_4WBAw?si=Q5Rmt7YVsykuS715}{video} and complete the remaining four queries. Be sure to track the execution time both before and after index creation, and then plot a graph to visually compare the performance of the queries with the best index implementation. Use your preferred statistical software (e.g., R, Octave, etc.) to generate the graph.
+
+\section{Individual Work}
+You will read a few sections from Chapter 13 -- Performance Tuning -- of the book ``PostgreSQL for Jobseekers'' by Sonia Valeja and David Gonzales. You can download versions in \href{https://drive.google.com/file/d/1869N4fnJjcUbL0QjrG0CipX6p5ikcZ7L/view?usp=sharing}{English} and \href{https://drive.google.com/file/d/15FPP28OIww9ljA5-UajiXkTvndtYlqEW/view?usp=sharing}{Spanish}. As you can see at the end, there are several types of indexes you can set when creating an index. For example, the following syntax will create an index named \textit{account\_id\_hash\_index} on the column \textit{account\_id} from the table \texttt{post}:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
+CREATE INDEX account_id_hash_index ON post USING HASH (account_id);
+\end{minted}
+
+Table \ref{tab:postgresql_indexes} compares the different types of indexes in PostgreSQL. For the next exercise, you will work only with the following index types: B-tree, Hash, and BRIN. To do this, you will pick \textbf{just one} of the previous queries and measure the performance of the selected index types. As before, you will present your results by plotting them, where the x-axis represents the types of indexes in PostgreSQL, and the y-axis represents the execution time as measured by the \texttt{EXPLAIN ANALYZE} command.  We expect you to submit your report by \textbf{April 2, 2025}.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\begin{table}
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{l p{2.5cm} p{2.5cm} p{2.5cm} p{2.5cm}}
+		\toprule
+        \textbf{Index Type} & \textbf{Best For} & \textbf{Supports Range Queries} & \textbf{Supports Full-Text Search} & \textbf{Ideal Data Types} \\
+        \midrule
+        \textbf{B-Tree (default)} & General use, unique keys & Yes & No & Numbers, Text, Dates \\
+        \textbf{Hash} & Exact match searches & No & No & Numbers, Text \\
+        \textbf{GIN} & Full-text search, JSONB, Arrays & No & Yes & Arrays, JSONB, \texttt{tsvector} \\
+        \textbf{GiST} & Geospatial, Range queries & Yes & Yes & Geometries, Text \\
+        \textbf{BRIN} & Very large tables with ordered data & Yes & No & Large Time-Series, Logs \\
+        \textbf{SP-GiST} & Hierarchical \& partitioned data & Yes & Yes & Trees, Text \\
+        \textbf{Bloom} & Multi-column searches & Yes & No & Multiple Columns \\
+        \bottomrule
+    \end{tabular}
+    \caption{Comparison of Index Types in PostgreSQL}
+    \label{tab:postgresql_indexes}
+\end{table}
+
+\end{document}
+
