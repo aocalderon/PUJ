@@ -547,6 +547,80 @@
     \includegraphics[trim={4.55cm 10.80cm 4.00cm 4.85cm}, clip, width=0.8\textwidth]{figures/p264}
 \end{frame}
 
+\section{Reducing E-R Diagrams to Relational Schemas}
+
+\begin{frame}{Reduction to Relation Schemas}
+    \begin{itemize}
+        \item Entity sets and relationship sets can be expressed uniformly as relation schemas that represent the contents of the database.
+        \item A database which conforms to an E-R diagram can be represented by a collection of schemas.
+        \item For each entity set and relationship set there is a unique schema that is assigned the name of the corresponding entity set or relationship set.
+        \item Each schema has a number of columns (generally corresponding to attributes), which have unique names.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Representing Entity Sets}
+    \begin{itemize}
+        \item A strong entity set reduces to a schema with the same attributes: \\
+        \texttt{student(\underline{ID}, name, tot\_cred)}
+        \item A weak entity set becomes a table that includes a column for the primary key of the identifying strong entity set: \\
+        \texttt{section(\underline{course\_id}, \underline{sec\_id}, \underline{sem}, \underline{year})}
+        \item Example:
+        \includegraphics[width=\textwidth, clip,trim=0cm 5cm 0cm 12cm]{figures/weak_entities.pdf}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Representation of Entity Sets with Composite Attributes}
+    \begin{minipage}{0.25\textwidth}
+        \includegraphics[trim={9.25cm 15.25cm 8.5cm 4cm}, clip, width=\textwidth]{figures/p252}
+    \end{minipage}%
+    \begin{minipage}{0.74\textwidth}
+        \begin{itemize}
+            \scriptsize
+            \item Composite attributes are flattened out by creating a separate attribute for each component attribute.
+            \begin{itemize}
+                \scriptsize
+                \item Example: given entity set \texttt{instructor} with composite attribute \texttt{name} with component attributes \texttt{first\_name} and \texttt{last\_name} the schema corresponding to the entity set has two attributes \texttt{name\_first\_name} and \texttt{name\_last\_name}.
+                \begin{itemize}
+                    \scriptsize
+                    \item Prefix omitted if there is no ambiguity (\texttt{name\_first\_name} could be \texttt{first\_name})
+                \end{itemize}
+            \end{itemize}
+            \item Ignoring multivalued attributes, extended \texttt{instructor} schema is:
+            \begin{itemize}
+                \scriptsize
+                \item \texttt{instructor(ID, first\_name, middle\_initial, last\_name, street\_number, street\_name, apt\_number, city, state, zip\_code, date\_of\_birth)}
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{Representation of Entity Sets with Multivalued Attributes}
+    \begin{itemize}
+        \item A multivalued attribute \textit{M} of an entity \textit{E} is represented by a separate schema \textit{EM}.
+        \item Schema \textit{EM} has attributes corresponding to the primary key of \textit{E} and an attribute corresponding to multivalued attribute \textit{M}.
+        \item Example: Multivalued attribute \texttt{phone\_number} of \texttt{instructor} is represented by a schema: \\
+        \texttt{inst\_phone = (\underline{ID}, \underline{phone\_number})}.
+        \item Each value of the multivalued attribute maps to a separate tuple of the relation on schema \textit{EM}:
+        \begin{itemize}
+            \item For example, an instructor entity with primary key 22222 and phone numbers 456-7890 and 123-4567 maps to two tuples: (22222, 456-7890) and (22222, 123-4567)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Representing Relationship Sets}
+    \begin{itemize}
+        \item A many-to-many relationship set is represented as a schema with attributes for the primary keys of the two participating entity sets, and any descriptive attributes of the relationship set.
+        \item Example: schema for relationship set advisor. \\
+        \texttt{advisor = (\underline{s\_id}, \underline{i\_id})}
+    \end{itemize}
+    \centering
+    \includegraphics[trim={6.90cm 21cm 4.15cm 4cm}, clip, width=\textwidth]{figures/p247}
+\end{frame}
+
+
+
+
+
 
 
 
