@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Databases \\ Lab 08: E-R Diagram Tools.}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this lab, we will explore modern tools for designing and visualizing database schemas using Entity-Relationship (E-R) diagrams. E-R modeling is a foundational skill for understanding the structure of databases, enabling us to represent data entities, their attributes, and the relationships between them in a clear and structured format.
+
+To support this goal, we will work with two powerful tools: Azimutt, a lightweight, intuitive platform for exploring and designing database schemas, and Visual Paradigm, a comprehensive modeling environment widely used in both academia and industry. Each tool offers unique strengths for visualizing complex data systems and improving our understanding of data architecture.
+
+By the end of this lab, you will be able to use these tools to create effective E-R diagrams for a variety of use cases. You will apply these skills to two real-world scenarios: modeling data for European football leagues and designing a bibliographic database for a university research group. Through these exercises, you'll gain hands-on experience in data modeling, preparing you for more advanced database design and analysis tasks.
+
+Let’s get started!
+
+\section{Working with Azimutt} \label{sec:azimutt}
+Azimutt is an open-source database exploration and analysis tool designed to help users visualize, document, and optimize complex database schemas. Initially developed to address the challenges of navigating large and intricate databases, Azimutt offers a suite of features tailored to developers, data analysts, and teams working with substantial data structures.
+
+Key features of Azimutt include:
+
+\begin{itemize}
+    \item Schema Exploration: Azimutt allows users to incrementally build and customize database layouts, facilitating seamless navigation through extensive schemas. Features like global search, relation following, and pathfinding between tables enhance the exploration experience.
+    \item Documentation: Users can annotate tables and columns with notes and tags, creating contextual documentation that aids understanding and collaboration. Saved layouts and memos further support knowledge sharing within teams.
+    \item Optimization and Analysis: Azimutt provides analysis tools to identify inconsistencies and suggest improvements in database design. It offers a linter for databases, highlighting potential design issues and recommending best practices.
+    \item Design Capabilities: With its minimal and intuitive AML (Azimutt Markup Language), users can design and visualize database schemas quickly, making it suitable for both existing databases and new projects.
+    \item Versatility: Azimutt supports various databases, including both relational and document-based systems, ensuring compatibility across different platforms.
+\end{itemize}
+
+We will learn about the Azimutt project through a YouTube video of a talk by Loïc Knuchel, the creator and maintainer of Azimutt, presented at Brussels FOSDEM 2024\footnote{Loïc Knuchel, 2024. \textit{``Reinventing Database Exploration with Azimutt''}. FOSDEM 2024, Brussels, Belgium. Available \href{https://archive.fosdem.org/2024/schedule/event/fosdem-2024-3669-reinventing-database-exploration-with-azimutt/}{here}.}. You can access the video \href{https://youtu.be/6wYNlZKOtm0?si=HEfWTM7rY9YdATvC}{here}.
+
+Now, we will follow the statement below to illustrate how to use Azimutt to create informative and visually appealing E-R diagrams. The following text outlines the requirements for creating a database to store information about European football leagues. It is as follows:
+
+\textit{This database should store information related to European football competitions. It includes data about countries, leagues, teams, players, and matches. The countries data lists all countries, each with a unique ID and name. The leagues contains information about football leagues, each linked to a specific country. The teams information should hold details about football teams, including both long and short names. In addition, the players data stores information about individual players, such as their name, date of birth, height, and weight.}
+
+\textit{There must be a separate section for player attributes data, which tracks the performance and skill metrics of players over time. This includes attributes such as overall rating, ball control, and potential, recorded for specific dates. The matches records will provide information about football games, including the league, season, stage, date, the teams involved, and the final score (home and away goals).}
+
+\textit{Each table should be connected through unique identifiers (primary keys), and the relevant relationships between tables must be maintained using foreign keys. The design must enable the database to capture a rich set of football data, making it suitable for statistical analysis, performance tracking, and historical queries.}
+
+Please watch this \href{https://drive.google.com/file/d/1e4SKyzVyXFkjLNyx0BBZxJIGoPUVN3d2/view?usp=sharing}{video} to follow, step by step, how to create an E-R diagram that models the previously stated data requirements.
+
+\section{Working with Visual Paradigm} \label{sec:visual}
+Visual Paradigm is an integrated modeling environment that provides tools for software development and system design. It supports a wide variety of modeling languages and frameworks, including:
+
+\begin{itemize}
+    \item UML (Unified Modeling Language) – for object-oriented design
+    \item SysML – for systems engineering
+    \item BPMN (Business Process Model and Notation) – for business process modeling
+    \item ERD (Entity Relationship Diagrams) – for database modeling
+    \item Archimate – for enterprise architecture modeling
+    \item TOGAF – for architecture frameworks
+    \item User story mapping, wireframes, DFDs, and more
+\end{itemize}
+
+Udemy provides an excellent learning resource created directly by Visual Paradigm. You can access the free tutorial at this \href{https://www.udemy.com/course/visual-paradigm-essential}{link}. You are encouraged to enroll and follow the lessons to understand the fundamental concepts behind using Visual Paradigm to create meaningful E-R diagrams. As an exercise, you should be able to create a similar E-R diagram for the statement presented in Section~\ref{sec:azimutt}, this time using the tools provided by Visual Paradigm.
+
+\section{Independent Work} \label{sec:work}
+Using the tool of your choice (Azimutt, Visual Paradigm, or another), draw an E-R diagram that models the following database requirements:
+
+``\textit{The goal is to design the bibliographic database for a university research group. Specifically, the aim is to store all information related to scientific articles on the topics the group works on, and for which it may possess a copy. If a copy is available, it may be located either on the laboratory’s shelves or in the office of one of the group’s researchers.}
+
+\textit{For each of these articles, the following information should be recorded: the title, the authors, the keywords, the contact email address (if available), whether the group has a copy, and where it is stored. The articles may have been published as technical reports, in the proceedings of a conference, or in a scientific journal.}
+
+\textit{For technical reports, the database should store the report number and the institution where it was published, along with the month and year of publication. When the article appears in conference proceedings, the database should store the name of the conference, the edition in which the article was presented, the city where it was held, and the start and end dates. Additionally, the type of conference (national or international) and its frequency (annual, etc.) should be stored. If the conference is international, the country where it took place should also be recorded. The year the conference was first held should also be stored.}
+
+\textit{Finally, if the article has been published in a scientific journal, the database should include the journal’s name, the publisher’s name, the year it started publication, its publication frequency (monthly, quarterly, etc.), the topics it covers, the issue number in which the article appeared, the page numbers occupied (e.g., 512–519), and the year of publication.}
+
+\textit{Additional information about the article authors and, more generally, about other researchers should also be stored, such as the institution where they work and their email address. Moreover, if possible, the specific topics they work on should also be recorded.}''
+
+\section{What Do We Expect?}
+You will compile all your findings for what you was asked in sections \ref{sec:visual} and \ref{sec:work} into a well-structured report and submit it before the lab on \textbf{April 18, 2025}. Please submit your report in \textbf{PDF format} and email it to me with the subject line formatted as {\LARGE \textbf{\texttt{[DBS] Lab 8}}}, and include your names in the body of the email.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
