@@ -482,22 +482,22 @@
 
 \begin{frame}{Weak Entity Sets}
     \begin{itemize}
-        \item Consider a section entity, which is uniquely identified by a course\_id, semester, year, and sec\_id.
-        \item Clearly, section entities are related to course entities. Suppose we create a relationship set sec\_course between entity sets section and course.
-        \item Note that the information in sec\_course is redundant, since section already has an attribute course\_id, which identifies the course with which the section is related.
-        \item One option to deal with this redundancy is to get rid of the relationship sec\_course; however, by doing so the relationship between section and course becomes implicit in an attribute, which is not desirable.
+        \item Consider a \texttt{section} entity, which is uniquely identified by a \textit{course\_id}, \textit{semester}, \textit{year}, and \textit{sec\_id}.
+        \item Clearly, \texttt{section} entities are related to \texttt{course} entities. Suppose we create a relationship set \texttt{sec\_course} between entity sets \texttt{section} and \texttt{course}.
+        \item Note that the information in \texttt{sec\_course} is redundant, since \texttt{section} already has an attribute \textit{course\_id}, which identifies the course with which the section is related.
+        \item One option to deal with this redundancy is to get rid of the relationship \texttt{sec\_course}; however, by doing so the relationship between \texttt{section} and \texttt{course} becomes implicit in an attribute, which is not desirable.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Weak Entity Sets (Cont.)}
     \begin{itemize}
-        \item An alternative way to deal with this redundancy is to not store the attribute course\_id in the section entity and to only store the remaining attributes section\_id, year, and semester.
+        \item An alternative way to deal with this redundancy is to not store the attribute \textit{course\_id} in the \texttt{section} entity and to only store the remaining attributes \textit{section\_id}, \textit{year}, and \textit{semester}.
         \begin{itemize}
-            \item However, the entity set section then does not have enough attributes to identify a particular section entity uniquely.
+            \item However, the entity set \texttt{section} then does not have enough attributes to identify a particular section entity uniquely.
         \end{itemize}
-        \item To deal with this problem, we treat the relationship sec\_course as a special relationship that provides extra information, in this case, the course\_id, required to identify section entities uniquely.
+        \item To deal with this problem, we treat the relationship \texttt{sec\_course} as a special relationship that provides extra information, in this case, the \textit{course\_id}, required to identify \texttt{section} entities uniquely.
         \item A \textbf{weak entity set} is one whose existence is dependent on another entity, called its \textbf{identifying entity}.
-        \item Instead of associating a primary key with a weak entity, we use the identifying entity, along with extra attributes called discriminator to uniquely identify a weak entity.
+        \item Instead of associating a primary key with a weak entity, we use the identifying entity, along with extra attributes called \textit{discriminator attributes} to uniquely identify a weak entity.
     \end{itemize}
 \end{frame}
 
@@ -507,7 +507,7 @@
         \item Every weak entity must be associated with an identifying entity; that is, the weak entity set is said to be \textbf{existence dependent} on the identifying entity set.
         \item The identifying entity set is said to \textbf{own} the weak entity set that it identifies.
         \item The relationship associating the weak entity set with the identifying entity set is called the \textbf{identifying relationship}.
-        \item Note that the relational schema we eventually create from the entity set section does have the attribute course\_id, for reasons that will become clear later, even though we have dropped the attribute course\_id from the entity set section.
+        %\item Note that the relational schema we eventually create from the entity set \texttt{section} does have the attribute \textit{course\_id}, for reasons that will become clear later, even though we have dropped the attribute \textit{course\_id} from the entity set \texttt{section}.
     \end{itemize}
 \end{frame}
 
