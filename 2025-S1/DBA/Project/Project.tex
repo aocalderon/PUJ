@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.5cm, top=2cm, right=2cm, bottom=2.5cm]{geometry}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage{minted}
+\usepackage{caption}
+\usepackage{url}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+%opening
+\title{Database Administration \\ Final Project}
+\author{Andrés Calderón, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+The rapid transformation of energy infrastructure in Colombia calls for innovative approaches to identify suitable locations for the deployment of renewable energy solutions. As part of a broader national strategy to promote sustainable development and improve energy access in underserved regions, the Research and Information Office of the Unidad de Planeación Minero Energética (UPME) has launched a strategic initiative focused on evaluating the feasibility of solar energy in selected territories.
+
+This project supports UPME’s objective by designing and implementing a reproducible geospatial analysis workflow to estimate the solar energy potential of building rooftops across prioritized municipalities. In particular, the project emphasizes the analysis of PDET (Programas de Desarrollo con Enfoque Territorial) territories, which represent a key focus area for post-conflict development and infrastructure enhancement in Colombia.
+
+Leveraging openly available geospatial datasets the project aims to estimate the number and area of building rooftops suitable for solar panel installation. These datasets, encompassing billions of building outlines derived from high-resolution satellite imagery, provide a valuable resource for quantifying potential energy-harvesting surfaces in urban and rural contexts.
+
+To align with the UPME’s technological infrastructure and modernization goals, the methodology is designed using NoSQL data solutions, enabling scalable storage, efficient querying, and flexible spatial operations. The outcome of this work will be a technical report outlining the methodology, results, and recommendations for identifying optimal locations for proof-of-concept solar farms in the selected regions.
+
+By integrating modern data science tools with real-world energy policy needs, this project bridges technical innovation and strategic planning in support of Colombia’s energy transition and territorial equity.
+
+\section{Problem Statement and Scope}
+
+The Research and Information Office of UPME (Unidad de Planeación Minero Energética) in Colombia is seeking a strategic partner to support the initial phases of a major initiative aimed at identifying potential locations for proof-of-concept projects involving alternative energy solutions. Among these, UPME plans to assess the feasibility of solar farms in various regions across the country.
+
+In order to select potential locations, stakeholders aim to prioritize local governments (municipalities) that have been designated as PDET\footnote{\href{https://centralpdet.renovacionterritorio.gov.co/conoce-los-pdet/}{Programas de Desarrollo con Enfoque Territorial.}} territories. The primary goal of the project is to determine the number of buildings within each municipality and to estimate the total rooftop area suitable for solar panel installation. The greater the rooftop area in a municipality, the higher the potential for collecting clean energy through solar panels installed on those roofs. UPME requires a \textbf{detailed report} outlining a reproducible methodology for counting the number of rooftops and aggregating their total area for each PDET municipality evaluating different datasets.
+
+Given the new technologies and infrastructure acquired by the Research and Information Office, a key requirement is the application of NoSQL solutions in the proposed methodology. Additionally, the Office mandates the evaluation of open datasets to query and identify buildings within the target territories, with the goal of comparing the outputs from each source. Two open datasets have been selected as the primary sources for this study:
+
+\begin{itemize}
+  \item \textbf{Microsoft Building Footprints:} Bing Maps has released open building footprint data covering various parts of the world. The dataset includes over 999 million building detections derived from Bing Maps imagery collected between 2014 and 2021, incorporating sources such as Maxar and Airbus. The data is freely available under the Open Data Commons Open Database License (ODbL). More information is available at: \url{https://planetarycomputer.microsoft.com/dataset/ms-buildings}.
+
+  \item \textbf{Google Open Buildings:} This dataset contains 1.8 billion building detections spanning an inference area of 58 million~km\textsuperscript{2}, covering Africa, South Asia, Southeast Asia, Latin America, and the Caribbean. Currently in its third version, the dataset is distributed under the Creative Commons Attribution (CC BY-4.0) and Open Data Commons Open Database License (ODbL) v1.0. More information is available at: \url{https://sites.research.google/gr/open-buildings/}.
+\end{itemize}
+
+In addition to the aforementioned datasets, the Colombian administrative agency DANE (Departamento Administrativo Nacional de Estadística) provides the \textit{Marco Geoestadístico Nacional} (MGN)\footnote{MGN User Guide v. 2.0 (in Spanish): \url{https://geoportal.dane.gov.co/descargas/descarga_mgn/Manual_MGN.pdf}} at various administrative levels, including the boundaries of all Colombian municipalities\footnote{\url{https://geoportal.dane.gov.co/servicios/descarga-y-metadatos/datos-geoestadisticos/?cod=111}}. However, as previously mentioned, only the municipalities designated as PDET territories will be considered in this analysis.
+
+\section{Conclusions}
+This project presents the framework for an analysis aimed at addressing a real-world challenge: the identification and quantification of solar energy potential in developing regions of Colombia. By enabling the loading, processing, and analysis of geospatial data, the proposed solution facilitates a comprehensive evaluation of potential locations through a NoSQL-based approach. The inclusion of both theoretical and empirical analyses ensures a robust assessment of the available data and contextual conditions. The final deliverable, \textbf{a detailed technical report}, will serve as a solid foundation for selecting the most appropriate methodologies and locations in future implementation phases.
+
+%\vspace{5mm}
+%Happy Hacking \includesvg[width=4mm]{figures/sunglasses}!
+
+\end{document}
