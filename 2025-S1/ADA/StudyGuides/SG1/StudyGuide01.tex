@@ -1,0 +1,137 @@
+\documentclass[letter, 12pt]{article}
+
+\usepackage{amsmath, amssymb, hyperref, graphicx, geometry}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue,
+  pdfpagemode=FullScreen
+}
+
+\geometry{margin=2.5cm}
+
+\title{Study Guides for 3rd Exam}
+\author{Andrés Calderón, PhD.}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    \section{Lesson 1: Fundamentals of Polynomial and Superpolynomial Problems}
+
+    In the realm of algorithm analysis, ``polynomial'' and ``superpolynomial'' time complexities represent di
+     stinct categories of algorithm efficiency. Polynomial time complexity, denoted by $O(n^k)$ for some constant $k$, signifies algorithms that can complete their tasks within a reasonable time frame as the input size ($n$) increases. Conversely, superpolynomial time complexity, including exponential time ($O(2^n)$), is considered inefficient as the time required to execute these algorithms grows exponentially with input size.
+
+    \subsection{Polynomial Time Complexity}
+
+    \subsubsection{Definition:}
+    An algorithm is considered polynomial-time if its execution time is bounded by a polynomial function of the input size.
+
+    \subsubsection{Examples:}
+    \begin{itemize}
+        \item Constant time ($O(1)$)
+        \item Logarithmic time ($O(\log n)$)
+        \item Linear time ($O(n)$)
+        \item Quadratic time ($O(n^2)$)
+        \item Other polynomial functions like $O(n^3)$ or $O(n^4)$.
+    \end{itemize}
+
+    \subsubsection{Efficiency:}
+    Polynomial-time algorithms are considered efficient and scalable, meaning they can handle reasonably large inputs without significant performance degradation.
+
+    \subsection{Superpolynomial Time Complexity}
+
+    \subsubsection{Definition:}
+    An algorithm is superpolynomial-time if its execution time is not bounded by any polynomial function of the input size.
+
+    \subsubsection{Examples:}
+    \begin{itemize}
+        \item Exponential time ($O(2^n)$)
+        \item Factorial time ($O(n!)$)
+        \item Any time complexity that grows faster than a polynomial function.
+    \end{itemize}
+
+    \subsubsection{Efficiency:}
+    Superpolynomial-time algorithms are generally considered inefficient and may become impractical for even moderate input sizes.
+
+    \subsection{Why the Distinction?}
+    The separation between polynomial and superpolynomial time complexity is crucial in algorithm design and analysis because:
+
+    \subsubsection{Scalability:}
+    Polynomial-time algorithms are scalable, meaning their performance doesn't degrade significantly as the input size increases.
+
+    \subsubsection{Practicality:}
+    Superpolynomial-time algorithms can become computationally intractable for even relatively small input sizes, making them impractical for real-world applications.
+
+    \subsubsection{Complexity Classes:}
+    Complexity classes like P (polynomial time) and NP (nondeterministic polynomial time) are based on this distinction, highlighting the importance of efficient algorithms for solving computationally challenging problems.
+
+    \subsection{Examples of Polynomial and Superpolynomial Problems}
+
+    \subsubsection{Polynomial Problems:}
+    \begin{itemize}
+        \item Searching an array ($O(n)$)
+        \item Sorting a list ($O(n \log n)$)
+        \item Finding the shortest path in a graph ($O(n^2)$)
+    \end{itemize}
+
+    \subsubsection{Superpolynomial Problems:}
+    \begin{itemize}
+        \item The Traveling Salesman Problem (NP-hard, no known polynomial-time solution)
+        \item Sudoku solving (all known algorithms are superpolynomial)
+        \item Factorization of large numbers (no known polynomial-time solution)
+    \end{itemize}
+
+    \section{Additional Content}
+
+    \subsection{Lecture 16: Complexity: P, NP, NP-completeness, Reductions \cite{demaine2015complexity}}
+
+    Lecture video in  \href{https://www.youtube.com/watch?v=eHZifpgyH_4&t=66s}{YouTube} \\
+    Lecture video in  \href{https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-16-complexity-p-np-np-completeness-reductions/}{MIT OpenCourceWare}
+
+    \subsection{Summary of the Video}
+    In this lecture on NP-completeness, Eric Demaine elaborates on fundamental concepts surrounding decision problems and their computational complexities, particularly focusing on the distinction between \textbf{P} (problems solvable in polynomial time) and \textbf{NP} (problems verifiable in nondeterministic polynomial time). He exemplifies this by discussing the \textbf{3SAT} problem, wherein variables and their negations need to be assigned truth values to satisfy a formula.
+
+    Demaine clarifies the criteria for identifying NP-complete problems: they must belong to \textbf{NP} while also being \textbf{NP-hard}, the latter indicating that they are at least as challenging as all NP problems. He emphasizes the importance of polynomial-time reductions, which demonstrate that solving one problem can lead to solutions for another. This also leads to the profound implication that if a polynomial-time algorithm exists for one NP-complete problem, it could mean \textbf{P} equals \textbf{NP}—an area of significant debate in computational theory.
+
+    To illustrate NP-completeness further, Demaine creatively links the 3SAT problem to the video game \textit{Super Mario Brothers}, constructing game mechanics that parallel logic variables and clauses. This approach not only exemplifies real-world applicability but also engages with practical implications of theoretical computing principles.
+
+    The lecture delves deeper into NP-hard concepts with examples such as \textbf{three-dimensional matching (3DM)} and the garbage collection problem, while also highlighting other NP-complete problems, including the subset sum problem, partition problem, rectangle packing, and generalized jigsaw puzzles. Each concept is tackled through the lens of reductions, showcasing how they are interconnected within the realm of computational complexity.
+
+    \subsection*{Highlights}
+    \begin{itemize}
+        \item \textbf{3SAT Problem}: Vital NP-complete issue highlighted through the lens of video gaming mechanics.
+        \item \textbf{Polynomial-time Reductions}: Key tool in demonstrating NP-hardness and establishing problem relationships.
+        \item \textbf{P vs. NP Discussion}: The crucial implication of finding polynomial-time algorithms for NP-complete problems.
+        \item \textbf{Three-Dimensional Matching (3DM)}: An advanced challenge in graph theory showing NP-hard complexity.
+        \item \textbf{Garbage Collection Gadgets}: An innovative mechanism ensuring coverage in reductions.
+        \item \textbf{Subset Sum \& Partition Problems}: Classic NP-complete examples illustrating intricate relationships among computational issues.
+        \item \textbf{Generalized Jigsaw Puzzles}: Final NP-complete problem illustrating the challenges in transitioning between numerical and non-numerical problems.
+    \end{itemize}
+
+    \subsection*{Key Insights}
+    \begin{itemize}
+        \item \textbf{Understanding NP and NP-Complete}: Demaine emphasizes the difference between \textbf{P} and \textbf{NP}, crucial for grasping the boundaries of algorithmic efficiency.
+        \item \textbf{3SAT as a Foundation}: The 3SAT problem is fundamental in demonstrating NP-completeness and serves as a critical reference for reductions to other NP problems.
+        \item \textbf{Significance of Reductions}: Reductions are vital in algorithm design, aiding in the proof of NP-completeness by effectively transforming one problem into another.
+        \item \textbf{Interactive Applications}: The application of theoretical concepts to practical scenarios, such as the Super Mario Brothers analogy, illustrates the interplay between gaming and algorithmic principles.
+        \item \textbf{Examining Hardness in Various Problems}: The lecture stresses the broad implications these problems hold in real-world scenarios.
+        \item \textbf{Innovative Gadgets}: The development of gadgets to create specific variable and clause representations highlights the creative aspect of computational theory.
+        \item \textbf{Future Directions}: Encourages researchers to explore new frameworks and methodologies for unresolved questions in computational complexity.
+    \end{itemize}
+
+    Download the Lecture Notes of Prof. Demaine from \href{https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/mit6_046js15_lec16/}{here}.
+
+    \section{Recommended Reading}
+
+    \begin{enumerate}
+        \item Chapter 34 of Cormen et, al \cite{cormen2022algorithms}.  Sections: 34.1, 34.2, and 34.3.
+        \item Chapter 13 of Baase and Van Gelder \cite{baase2002algoritmos} (In Spanish).  Sections: 13.1, 13.2, and 13.3.
+    \end{enumerate}
+
+    \bibliographystyle{plain}  % or choose a different style, like ieeetr, abbrv, unsrt
+    \bibliography{references}  % name of your .bib file (without the .bib extension)
+
+\end{document}
