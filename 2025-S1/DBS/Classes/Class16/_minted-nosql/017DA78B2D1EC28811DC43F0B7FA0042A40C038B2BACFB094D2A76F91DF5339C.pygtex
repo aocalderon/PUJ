@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+db.createCollection\PYG{o}{(}\PYG{l+s+s2}{\PYGZdq{}students\PYGZdq{}}\PYG{o}{)}
+\end{Verbatim}

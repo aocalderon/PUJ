@@ -1,0 +1,396 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\geometry{margin=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\title{\textbf{Study Guide: NoSQL and MongoDB}}
+\author{Prepared by Andrés Calderón, PhD}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Learning Objectives}
+By the end of this guide, you should be able to:
+\begin{itemize}
+    \item Understand the differences between NoSQL and traditional relational databases.
+    \item Explain the types of NoSQL databases.
+    \item Understand the core concepts of MongoDB.
+    \item Perform basic CRUD operations in MongoDB.
+    \item Apply MongoDB features to real-world scenarios.
+\end{itemize}
+
+\section{Introduction to NoSQL}
+
+\subsection{What is NoSQL?}
+\begin{itemize}
+    \item NoSQL stands for \textbf{Not Only SQL}.
+    \item Designed for large volumes of unstructured or rapidly changing data.
+    \item Common in web applications, big data, and distributed systems.
+\end{itemize}
+
+\subsection{Key Characteristics}
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Feature} & \textbf{Description} \\
+\midrule
+Schema-less & Flexible structure without fixed schema \\
+Scalability & Horizontal scaling (e.g., sharding) \\
+High Availability & Built-in replication and failover \\
+Performance & Optimized for reads/writes over complex joins \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Why Not SQL?}
+NoSQL databases overcome RDBMS limitations in distributed, large-scale, or real-time applications. They work well for document storage, graphs, key-value pairs, and wide columns.
+
+\section{Types of NoSQL Databases}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Type} & \textbf{Description} & \textbf{Examples} \\
+\midrule
+Document-based & Stores documents (e.g., JSON/BSON) & MongoDB, CouchDB \\
+Key-Value & Simple key and value storage & Redis, DynamoDB \\
+Column-family & Stores data in columns & Cassandra, HBase \\
+Graph-based & Represents networks and relationships & Neo4j, ArangoDB \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{NoSQL Limitations}
+
+While NoSQL databases offer significant advantages in flexibility and scalability, they also have several important limitations:
+
+\begin{enumerate}
+    \item \textbf{Lack of Standardization:} Unlike SQL, NoSQL does not have a common query language. Each database (e.g., MongoDB, Cassandra, Redis) has its own API and query methods.
+
+    \item \textbf{Eventual Consistency:} Many NoSQL systems follow an eventual consistency model instead of strong consistency, which can lead to temporary inconsistencies in distributed systems.
+
+    \item \textbf{Limited Query Capabilities:} Features like joins, subqueries, and advanced filtering are often not supported or are more difficult to implement than in relational databases.
+
+    \item \textbf{Weaker ACID Guarantees:} Full ACID transactions are either limited or unsupported in some NoSQL systems, which may be unsuitable for applications that require strong consistency and atomic operations.
+
+    \item \textbf{Maturity and Tooling:} The ecosystem for some NoSQL databases may lack robust tools for monitoring, analytics, backup, and administrative tasks compared to mature RDBMS platforms.
+
+    \item \textbf{Steeper Learning Curve:} Developers familiar with relational databases must adapt to new paradigms, data models, and APIs specific to each NoSQL solution.
+\end{enumerate}
+
+\section{Suitable Scenarios: RDBMS vs NoSQL}
+The table \ref{tab:use_cases} summarizes typical use cases and highlights whether a relational database (RDBMS) or a NoSQL solution is more suitable for each scenario.
+
+    \begin{table}
+        \centering
+        \begin{tabular}{@{}p{6cm}p{2.5cm}p{6.5cm}@{}}
+            \toprule
+            \textbf{Scenario} & \textbf{Best Choice} & \textbf{Reason} \\
+            \midrule
+            Complex transactions (e.g., banking systems) & RDBMS & Strong ACID compliance and integrity constraints \\
+            Dynamic, frequently changing data models & NoSQL & Schema flexibility \\
+            Structured data with clear relationships & RDBMS & Support for joins and relational modeling \\
+            High-speed, low-latency key-value lookups & NoSQL & Optimized for fast retrieval using keys \\
+            Large-scale web apps with horizontal scaling needs & NoSQL & Designed for distributed architecture and sharding \\
+            Data warehousing and analytical processing & RDBMS & Mature support for complex queries and aggregations \\
+            IoT or real-time event data ingestion & NoSQL & Handles high-velocity unstructured or semi-structured data \\
+            Applications requiring strict data integrity & RDBMS & Enforces referential integrity and transactions \\
+            Content management, catalogs, or user profiles & NoSQL & Suits document-based flexible data structures \\
+            Multi-record consistency and rollback requirements & RDBMS & Transaction support across multiple tables \\
+            \bottomrule
+        \end{tabular}
+        \caption{NoSQL vs RDBMS typical use cases.}
+        \label{tab:use_cases}
+    \end{table}
+
+\section{Introduction to MongoDB}
+
+\subsection{What is MongoDB?}
+\begin{itemize}
+    \item Document-oriented NoSQL database.
+    \item Stores data in BSON (Binary JSON).
+    \item Developed by MongoDB Inc.
+\end{itemize}
+
+\subsection{MongoDB Architecture}
+\begin{itemize}
+    \item Hierarchy: \textbf{Database $\rightarrow$ Collection $\rightarrow$ Document}
+    \item Documents resemble JSON objects.
+    \item Collections group similar documents.
+\end{itemize}
+
+\section{Core MongoDB Operations}
+To install and configure the MongoDB Shell, users should follow the official MongoDB documentation guidelines available at \url{https://www.mongodb.com/docs/mongodb-shell/install/}.
+
+\subsection{Connecting to MongoDB}
+To start a MongoDB shell type in your terminal:
+
+\begin{minted}[fontsize=\small, frame=lines,  bgcolor=gray!10]{bash}
+mongosh
+\end{minted}
+
+\subsection{Creating a Database}
+The \texttt{use} command is used to switch to a specific database. If the specified database does not exist, MongoDB will create it when data is inserted.
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+use myDatabase
+\end{minted}
+
+\subsection{Creating a Collection}
+The \texttt{createCollection} method explicitly creates a new collection named \texttt{students}. Collections are created automatically when data is inserted, but this method allows manual creation.
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.createCollection("students")
+\end{minted}
+
+\subsection{Inserting Documents}
+Documents can be added to a collection using \texttt{insertOne} for a single document or \texttt{insertMany} for multiple documents. Each document is represented as a JSON-like structure.
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.insertOne({ name: "Alice", age: 23, major: "CS" })
+db.students.insertMany([{ name: "Bob" }, { name: "Carol" }])
+\end{minted}
+
+\subsection{Reading Documents}
+The \texttt{find} method retrieves documents from a collection. Without parameters, it returns all documents. Filters can be applied using MongoDB query operators like \texttt{\$gt} (greater than).
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.find()
+db.students.find({ age: { $gt: 21 } })
+\end{minted}
+
+\subsection{Updating Documents}
+The \texttt{updateOne} method modifies the first document that matches a given condition. The \texttt{\$set} operator is used to update specific fields within the document.
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.updateOne({ name: "Alice" }, { $set: { age: 24 } })
+\end{minted}
+
+\subsection{Deleting Documents}
+The \texttt{deleteOne} method removes the first document that matches the specified condition from the collection.
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.deleteOne({ name: "Bob" })
+\end{minted}
+
+\section{Advanced Features}
+
+\subsection{Indexing}
+Indexes improve the performance of queries by allowing MongoDB to quickly locate documents that match specified criteria, instead of scanning every document in a collection. The command below creates an ascending index on the \texttt{name} field, which speeds up queries that sort or filter by name.
+
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.createIndex({ name: 1 })
+\end{minted}
+
+\subsection{Aggregation Framework}
+The aggregation framework is used for data processing and transformation, allowing operations such as filtering, grouping, and calculating summary statistics. In the example below, documents where \texttt{major} is \texttt{"CS"} are filtered using \texttt{\$match}, then grouped by \texttt{age}, and a count is calculated for each group using \texttt{\$sum}.
+
+\begin{minted}[fontsize=\small, frame=lines, bgcolor=gray!10]{bash}
+db.students.aggregate([
+  { $match: { major: "CS" } },
+  { $group: { _id: "$age", count: { $sum: 1 } } }
+])
+\end{minted}
+
+
+\subsection{Replication and Sharding}
+
+\textbf{Replication} is MongoDB’s built-in mechanism to ensure high availability and data redundancy. It uses a configuration called a \textit{replica set}, which consists of a primary node and one or more secondary nodes. All write operations go to the primary node, and secondaries replicate the data. If the primary fails, one of the secondaries is automatically elected as the new primary, providing fault tolerance and minimal downtime.
+
+\textbf{Key benefits of replication:}
+\begin{itemize}
+    \item High availability through automatic failover
+    \item Redundant copies of data across different nodes
+    \item Option to distribute read operations across secondaries (read scaling)
+\end{itemize}
+
+\textbf{Sharding} is MongoDB’s strategy for \textit{horizontal scaling}, which distributes large datasets across multiple servers (shards). Each shard stores a portion of the data, determined by a \textit{shard key}. A special query router component called \texttt{mongos} directs client queries to the appropriate shards.
+
+\textbf{Key benefits of sharding:}
+\begin{itemize}
+    \item Enables linear scalability as data volume and query load grow
+    \item Supports large datasets that exceed the storage capacity of a single server
+    \item Helps balance workloads across multiple machines
+\end{itemize}
+
+Together, replication and sharding form the foundation of MongoDB’s distributed architecture, supporting both high availability and high scalability in large-scale production environments.
+
+
+\section{Expanded Use Cases for MongoDB}
+
+MongoDB is widely used across various industries due to its flexible document model, horizontal scalability, and real-time capabilities. Below are several common categories where MongoDB provides strong advantages:
+
+\subsection*{E-commerce and Product Catalogs}
+\textbf{Why MongoDB?} Its flexible schema allows storing products with varying attributes such as size, color, and price.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item Dynamic product schemas
+    \item Embedded reviews, inventory, and pricing details
+    \item Fast filtering and search via indexes
+\end{itemize}
+
+\subsection*{Mobile and Web Applications}
+\textbf{Why MongoDB?} Real-time, user-centric data such as preferences, sessions, and settings are easily modeled using documents.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item User profile and session storage
+    \item Support for push notifications and messaging
+    \item Offline data sync with MongoDB Realm\footnote{MongoDB Realm is a serverless platform and mobile database solution provided by MongoDB, designed to make it easier to build real-time, responsive applications—especially on mobile and edge devices.  More info \href{https://www.mongodb.com/resources/products/platform/webinar-get-started-with-mongodb-realm}{here}.}
+\end{itemize}
+
+\subsection*{Location-Based Services}
+\textbf{Why MongoDB?} Built-in support for geospatial data types and queries makes it ideal for geo-aware applications.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item Proximity-based search and geofencing
+    \item Delivery and ride-tracking systems
+    \item Store locator and navigation services
+\end{itemize}
+
+\subsection*{Real-Time Analytics and Dashboards}
+\textbf{Why MongoDB?} Aggregation pipelines enable fast analysis and transformation of large-scale or streaming data.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item IoT sensor data processing
+    \item Real-time dashboards and monitoring
+    \item Business intelligence with dynamic schemas
+\end{itemize}
+
+\subsection*{Content Management Systems (CMS)}
+\textbf{Why MongoDB?} Easily handles diverse content types like articles, blogs, and multimedia.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item Articles with embedded metadata and media
+    \item Tagging and categorization with nested fields
+    \item Document versioning and history tracking
+\end{itemize}
+
+\subsection*{Healthcare and Scientific Research}
+\textbf{Why MongoDB?} Complex, variable data structures such as patient records or experiment results can be modeled and evolved over time.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item Patient histories with embedded diagnostic data
+    \item Genomic and lab test result storage
+    \item Audit logs and regulatory compliance
+\end{itemize}
+
+\subsection*{Artificial Intelligence and Machine Learning}
+\textbf{Why MongoDB?} Flexible enough to store models, training metadata, and results from experimentation.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item Storage of features extracted from raw data
+    \item Model performance tracking and metadata logging
+    \item Dataset and experiment versioning
+\end{itemize}
+
+\subsection*{Authentication and User Identity}
+\textbf{Why MongoDB?} Supports customizable user profiles and identity management systems.
+\textbf{Typical Features:}
+\begin{itemize}
+    \item User role and permission structures
+    \item Integration with OAuth, LDAP, or custom auth flows
+    \item Activity logs and login history
+\end{itemize}
+
+
+\section{Recommended Resources}
+
+To further your understanding of MongoDB and NoSQL databases, the following resources offer a mix of theoretical foundations, hands-on tutorials, and cloud-based tools:
+
+\begin{itemize}
+    \item \href{https://university.mongodb.com/}{\textbf{MongoDB University}} — A free educational platform provided by MongoDB Inc. It offers structured courses and learning paths for developers, DBAs, and data engineers. Topics include MongoDB basics, aggregation pipelines, performance tuning, and application integration. Each course includes videos, quizzes, and a certificate upon completion.
+
+    \item \textbf{\textit{MongoDB: The Definitive Guide}} by Kristina Chodorow — This book is one of the most comprehensive print resources available on MongoDB. It covers the architecture, query language, data modeling, indexing, and deployment strategies. Suitable for both beginners and intermediate users, it provides in-depth explanations and practical examples.
+
+    \item \href{https://www.mongodb.com}{\textbf{MongoDB Official Website}} — The central hub for all the MongoDB ecosystem, including official documentation, community forums, release notes, tools, and APIs. It also provides links to integrations with programming languages like Python, JavaScript, Java, and Go.
+
+    \item \href{https://www.mongodb.com/cloud/atlas}{\textbf{MongoDB Atlas}} — MongoDB’s fully managed cloud database service. It supports automated deployment, backups, monitoring, and scaling. Atlas enables developers to build and run applications without managing database infrastructure. It includes support for multi-region replication, serverless functions, and real-time data services.
+
+    \item \href{https://www.coursera.org/learn/introduction-to-nosql-databases/}{\textbf{Coursera: Introduction to NoSQL Databases}} — A beginner-friendly course that introduces key NoSQL concepts and MongoDB fundamentals. Modules 1 and 2 specifically cover the basics of NoSQL data models and MongoDB's architecture and operations. The course is offered by the University of Michigan and includes an \textit{Audit} option, allowing you to access the material for free.
+\end{itemize}
+
+
+\section{Practice Questions}
+\begin{enumerate}
+    \item What are the advantages of NoSQL over traditional relational databases?
+    \item Describe the differences between document-based and key-value databases.
+    \item Write a query to find all documents where \texttt{age > 30}.
+    \item Explain the role of indexing in MongoDB.
+    \item How does MongoDB handle horizontal scalability?
+\end{enumerate}
+
+\subsection*{Solutions}
+
+\subsubsection*{1. What are the advantages of NoSQL over traditional relational databases?}
+
+\begin{itemize}
+    \item \textbf{Schema flexibility:} No predefined schema; allows dynamic changes.
+    \item \textbf{Horizontal scalability:} Easily scales across multiple machines.
+    \item \textbf{High performance:} Optimized for fast read/write operations.
+    \item \textbf{Unstructured data handling:} Suitable for JSON/BSON or nested data.
+    \item \textbf{Agile development:} Schema-less design supports rapid iteration.
+\end{itemize}
+
+\subsubsection*{2. Describe the differences between document-based and key-value databases.}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Feature} & \textbf{Document-Based DB} & \textbf{Key-Value DB} \\
+\midrule
+Structure & Documents (e.g., JSON/BSON) & Simple key-value pairs \\
+Querying & Supports queries on document fields & Access by exact key only \\
+Use Cases & Nested data, rich querying & Caching, session storage \\
+Examples & MongoDB, CouchDB & Redis, DynamoDB \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection*{3. Write a query to find all documents where \texttt{age > 30}.}
+
+\begin{minted}[fontsize=\small, frame=lines,  bgcolor=gray!10]{bash}
+db.collection.find({ age: { $gt: 30 } })
+\end{minted}
+
+\textbf{Explanation:} \verb|$gt| stands for "greater than". This query returns all documents where the \verb|age| field is greater than 30.
+
+\subsubsection*{4. Explain the role of indexing in MongoDB.}
+
+\begin{itemize}
+    \item Indexes speed up query execution by allowing fast lookup of documents.
+    \item Without indexes, MongoDB scans the entire collection.
+    \item Indexes are used for filtering, sorting, and aggregation operations.
+    \item Common index types: single-field, compound, and text indexes.
+\end{itemize}
+
+\textbf{Example:}
+\begin{minted}[fontsize=\small, frame=lines,  bgcolor=gray!10]{bash}
+db.users.createIndex({ name: 1 })
+\end{minted}
+
+\subsubsection*{5. How does MongoDB handle horizontal scalability?}
+
+\begin{itemize}
+    \item MongoDB uses \textbf{sharding} to distribute data across multiple servers.
+    \item A \textbf{shard key} determines how data is partitioned.
+    \item Each \textbf{shard} holds part of the data and can be queried independently.
+    \item The \textbf{mongos} query router directs client requests to the appropriate shard(s).
+    \item Sharding enables high throughput and large dataset handling.
+\end{itemize}
+
+
+\end{document}

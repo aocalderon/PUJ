@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+db.users.createIndex\PYG{o}{(\PYGZob{}}\PYG{+w}{ }name:\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }\PYG{o}{\PYGZcb{})}
+\end{Verbatim}
