@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-db.collection.find\PYG{o}{(\PYGZob{}}\PYG{+w}{ }age:\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}gt}:\PYG{+w}{ }\PYG{l+m}{30}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{})}
-\end{Verbatim}

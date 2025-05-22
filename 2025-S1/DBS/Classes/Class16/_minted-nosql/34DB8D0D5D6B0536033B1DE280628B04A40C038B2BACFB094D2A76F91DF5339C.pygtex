@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-db.students.updateOne\PYG{o}{(\PYGZob{}}\PYG{+w}{ }name:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Alice\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}},\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}set}:\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }age:\PYG{+w}{ }\PYG{l+m}{24}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{})}
-\end{Verbatim}

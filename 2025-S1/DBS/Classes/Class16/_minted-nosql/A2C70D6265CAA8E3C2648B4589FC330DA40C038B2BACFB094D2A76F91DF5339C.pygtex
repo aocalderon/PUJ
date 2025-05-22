@@ -1,6 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-db.students.aggregate\PYG{o}{([}
-\PYG{+w}{  }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}match}:\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }major:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}CS\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}},
-\PYG{+w}{  }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}group}:\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYGZus{}id:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}age}\PYG{l+s+s2}{\PYGZdq{}},\PYG{+w}{ }count:\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}sum}:\PYG{+w}{ }\PYG{l+m}{1}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}}
-\PYG{o}{])}
-\end{Verbatim}

@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-db.students.insertOne\PYG{o}{(\PYGZob{}}\PYG{+w}{ }name:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Alice\PYGZdq{}},\PYG{+w}{ }age:\PYG{+w}{ }\PYG{l+m}{23},\PYG{+w}{ }major:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}CS\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{})}
-db.students.insertMany\PYG{o}{([\PYGZob{}}\PYG{+w}{ }name:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Bob\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}},\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{+w}{ }name:\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}Carol\PYGZdq{}}\PYG{+w}{ }\PYG{o}{\PYGZcb{}])}
-\end{Verbatim}
