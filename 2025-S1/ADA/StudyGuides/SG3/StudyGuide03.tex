@@ -1,0 +1,354 @@
+\documentclass[12pt]{article}
+
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb, hyperref, graphicx, geometry}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue
+}
+
+\geometry{margin=2.5cm}
+
+\title{Study Guides for 3rd Exam \\ Session 3: Algorithms for Verifying Solutions and Efficient Improvements}
+\author{Andrés Calderón, PhD.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+As the complexity of software systems continues to grow, the demand for algorithms that are both correct and efficient has become increasingly critical. This study guide is designed to equip students with the knowledge and skills necessary to verify algorithm correctness and apply effective improvements. Through a combination of formal methods and practical techniques, learners will explore how to validate algorithmic solutions, assess performance, and recognize opportunities for optimization. The focus extends beyond correctness to embrace efficiency, scalability, and clarity—qualities essential in real-world problem solving.
+
+This guide covers foundational topics including formal design techniques, performance evaluation using asymptotic analysis, and optimization strategies such as memoization and data structure refinement. It also includes practical examples and case studies that demonstrate how theoretical concepts translate into better algorithmic decisions. With clear objectives and structured content, the guide prepares students for both the third exam and the challenges of professional algorithm design.
+
+\section*{Objectives}
+\begin{itemize}
+    \item Design algorithms to verify correct solutions.
+    \item Identify opportunities for improving existing algorithms.
+    \item Write efficient algorithms with correctness analysis.
+\end{itemize}
+
+\section*{Topics to Cover}
+
+\subsection*{Formal Design of Verification Algorithms}
+\begin{itemize}
+    \item Use of pseudocode to verify solutions.
+    \item Validation of results and correctness analysis.
+    \item Importance of efficiency and precision.
+\end{itemize}
+
+\subsection*{Opportunities for Algorithm Improvement}
+\begin{itemize}
+    \item Performance evaluation and bottleneck identification.
+    \item Optimization techniques.
+    \item Practical case studies and trade-off considerations.
+\end{itemize}
+
+\subsection*{Evaluation of Complexity and Efficiency}
+\begin{itemize}
+    \item Use of asymptotic analysis to measure improvements.
+    \item Examples of brute-force improvements using memoization.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Formal Design of Verification Algorithms}
+
+\subsection*{What is Verification?}
+\begin{itemize}
+    \item Verification ensures that an algorithm produces the \textbf{correct output} for \textbf{all valid inputs}.
+    \item It guarantees the algorithm meets \textbf{functional requirements}.
+    \item It involves \textbf{validating results} and performing \textbf{correctness analysis}.
+\end{itemize}
+
+\subsection{Use of Pseudocode to Verify Solutions}
+
+\textbf{Pseudocode}: A powerful tool for algorithm design and verification. It helps express logic clearly, focus on structure (\textit{abstraction}), and is readable, serving as a foundation for correctness testing. Pseudocode can be enhanced with loop invariants, pre/postconditions, and comments for validation.
+
+\vspace{2mm}
+
+Pseudocode is a powerful tool in the design and verification stages of algorithms because:
+
+\begin{itemize}
+    \item \textbf{Clarity}: Expresses the logic without worrying about programming syntax.
+    \item \textbf{Abstraction}: Focuses on algorithm structure and key operations.
+    \item \textbf{Readability}: Understandable by humans and serves as a foundation for correctness testing.
+\end{itemize}
+
+In verification, pseudocode can be enhanced with:
+
+\begin{itemize}
+    \item Loop invariants: Conditions that must hold true before and after each iteration of a loop.
+    \item Preconditions and postconditions: Describe the expected state before (precondition) and after (postcondition) the execution of an algorithm or a code segment. For example, for a sorting algorithm, the precondition is that the array contains comparable elements, and the postcondition is that the array is sorted and is a permutation of the original array.
+    \item Assertions: Statements added to code to indicate conditions that must be true at that point.
+    \item Correctness: The algorithm must satisfy the problem specification.
+    \item Explanatory comments and formal annotations for step-by-step logic validation.
+\end{itemize}
+
+\subsection{Validation of Results and Correctness Analysis}
+\textbf{Validation}: Ensuring the algorithm produces correct output for any valid input.  Validation ensures the algorithm:
+
+\begin{enumerate}
+    \item Meets functional requirements.
+    \item Produces correct output for any valid input.
+\end{enumerate}
+
+This is achieved through:
+
+\begin{itemize}
+    \item \textbf{White-box testing}: Verifies the internal logic of the algorithm (e.g., step-by-step tracing).
+    \item \textbf{Black-box testing}: Verifies the output correctness without inspecting the internal workings.
+    \item \textbf{Formal Analysis}: Using mathematical methods like induction, contradiction or Hoare logic to prove total or partial correctness.
+\end{itemize}
+
+\textbf{Example for a sorting algorithm:}
+
+\begin{itemize}
+    \item \textit{Precondition}: Array \( A \) contains \( n \) comparable elements.
+    \item \textit{Postcondition}: \( A \) is sorted in increasing order and is a permutation of the original array.
+\end{itemize}
+
+\subsection{Importance of Efficiency and Precision}
+
+A correct algorithm that is inefficient may be impractical. Formal design must also consider:
+
+\begin{itemize}
+    \item \textbf{Time efficiency}: Is the algorithm fast enough for large inputs?
+    \item \textbf{Space efficiency}: Does it use memory optimally?
+    \item \textbf{Computational precision} is crucial, especially in numerical and safety-critical systems.
+\end{itemize}
+
+In some cases, even approximate algorithms must be formally designed to guarantee solution quality and execution time.
+
+\subsection*{Summary}
+
+Verification algorithms ensure correct output for all valid inputs and compliance with functional requirements. Pseudocode aids this process by offering a clear and structured way to express logic, supported by annotations like invariants and pre/postconditions. Verification methods include white-box and black-box testing, as well as formal techniques such as induction and Hoare logic. Efficiency and precision are also critical, especially for large-scale or safety-critical systems, making formal design important even for approximate algorithms.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Opportunities for Algorithm Improvement}
+
+Improving algorithms involves enhancing their \textbf{efficiency}, \textbf{scalability}, and \textbf{maintainability}. A correct algorithm that is inefficient may still be impractical, especially at scale. Enhancements often focus on reducing time and space complexity, using more suitable data structures, or applying strategic optimizations.
+
+\subsection{Performance Evaluation and Bottleneck Identification}
+
+To assess potential improvements, one must understand the performance profile of the algorithm:
+\begin{itemize}
+    \item \textbf{Asymptotic Analysis} helps characterize algorithm efficiency as input size grows. Key notations include: \label{sec:notation}
+    \begin{itemize}
+        \item \textbf{Big O} (\(O\)): Represents the upper bound or worst-case time complexity.
+        \item \textbf{Big Omega} (\(\Omega\)): Represents the lower bound or best-case time complexity.
+        \item \textbf{Big Theta} (\(\Theta\)): Represents the tight bound, covering both upper and lower bounds (average-case).
+    \end{itemize}
+    \item \textbf{Bottlenecks} are sections that consume excessive time or memory.
+    \item \textbf{Identification Techniques}: Profiling tools (e.g., \texttt{cProfile}, \texttt{gprof}), manual timing, and Big-O complexity inspection.
+\end{itemize}
+
+\textbf{Example:} In naive matrix multiplication (\(O(n^3)\)), the nested loops represent a performance bottleneck.
+
+\subsection{Optimization Techniques}
+
+Several strategies can significantly improve algorithm performance:
+\begin{itemize}
+    \item \textbf{Memoization \& Tabulation}: Store intermediate results to avoid redundant computation. Effective in problems like Fibonacci, Edit Distance, Knapsack, and Subset Sum.
+    \item \textbf{Divide and Conquer}: Break problems into smaller subproblems (e.g., MergeSort, QuickSort).
+    \item \textbf{Greedy Methods}: Make locally optimal decisions at each step (e.g., Huffman coding).
+    \item \textbf{Pruning}: Eliminate paths that won't yield optimal results (common in backtracking and search).
+    \item \textbf{Data Structure Optimization}: Use structures that offer better time/space trade-offs. For example:
+    \begin{itemize}
+        \item Binary heap for priority queues (vs. array)
+        \item Hash tables or tries for lookup tasks (vs. lists)
+        \item Fenwick Trees or Segment Trees for range queries (vs. brute force)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Practical Case Studies and Trade-Off Considerations}
+
+Algorithm improvement strategies are best understood through practical examples. Here, we explore two well-known problems—QuickSort and Sudoku—illustrating how targeted optimizations can yield significant performance gains. These examples also demonstrate important trade-offs such as simplicity versus performance or time versus space efficiency.
+
+\begin{itemize}
+    \item \textbf{QuickSort}:
+
+    QuickSort is a widely used, efficient sorting algorithm based on the divide-and-conquer paradigm. Despite its average-case performance of \(O(n \log n)\), its practical speed depends heavily on implementation choices.
+
+    \begin{itemize}
+        \item \textbf{Improve pivot selection}: Poor pivot choices can degrade performance to \(O(n^2)\) in the worst case. Strategies like randomized pivot selection or the median-of-three method (choosing the median of the first, middle, and last elements) help reduce the chance of encountering worst-case scenarios.
+        \item \textbf{Eliminate tail recursion}: Tail recursion consumes stack space. By converting the tail-recursive calls to iterative constructs, the algorithm becomes more space-efficient and less prone to stack overflow in large input sizes.
+        \item \textbf{Hybrid sorting}: For small subarrays, switching to a simpler algorithm like insertion sort can be faster due to lower overhead. Many standard library implementations (e.g., in Java or C++) employ this hybrid approach.
+    \end{itemize}
+
+    \item \textbf{Backtracking in Sudoku}:
+
+    Solving Sudoku puzzles is a constraint satisfaction problem, typically addressed using recursive backtracking. However, naive backtracking is inefficient and can be significantly improved with the following strategies:
+
+    \begin{itemize}
+        \item \textbf{Constraint propagation}: This technique prunes the search space early by applying known constraints to reduce the number of valid options for each cell. For example, once a number is placed in a row, it is eliminated from the candidates of all other cells in that row.
+        \item \textbf{Heuristics}: Applying heuristics like the \emph{Minimum Remaining Value} (MRV) selects the variable (cell) with the fewest legal values left. This tends to identify conflicts earlier, reducing unnecessary computation.
+        \item \textbf{Bitmasking}: Using bitmasks to represent available digits allows for compact and efficient operations on candidate values. Bit-level manipulations are faster than list-based checks, especially when repeated across the grid.
+    \end{itemize}
+\end{itemize}
+
+These case studies highlight that while algorithmic correctness is essential, performance and practical usability hinge on optimization techniques. However, these enhancements often involve trade-offs:
+
+\begin{itemize}
+    \item \textbf{Time vs. Space}: Eliminating recursion or using memoization may improve time but increase memory usage.
+    \item \textbf{Readability vs. Performance}: Techniques like bitmasking or hybrid sorting can make the code less intuitive, which impacts maintainability.
+    \item \textbf{Generality vs. Specialization}: Heuristics may exploit problem-specific structure but lack generality across applications.
+\end{itemize}
+
+Understanding and managing these trade-offs is a hallmark of effective algorithm engineering.
+
+\subsection*{Summary}
+
+Effective algorithm improvement demands a blend of analytical tools, algorithmic insight, and strategic use of data structures. Through bottleneck analysis, asymptotic evaluation, and smart optimization, one can transform inefficient algorithms into scalable, high-performance solutions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Complexity and Efficiency Evaluation}
+
+Understanding how algorithm performance scales with input size is essential for designing efficient solutions. This section introduces asymptotic analysis as a key method for evaluating and comparing algorithm efficiency, followed by a practical technique—memoization—that significantly improves brute-force algorithms by reducing redundant computations.
+
+\subsection{Using Asymptotic Analysis to Measure Improvements}
+
+As mentioned before, asymptotic analysis allows us to evaluate the efficiency of algorithms based on the growth of input size. It provides a consistent framework for comparing algorithms independently of hardware or implementation-specific details (See section \ref{sec:notation} for details).
+
+Improvements in algorithm design are typically measured by reducing the dominant term in the algorithm's complexity expression.
+
+\subsection{Examples of Improvements in Brute Force Using Memoization}
+
+\textbf{Memoization} is a technique used to store and reuse the results of expensive function calls, thereby avoiding redundant computations. It effectively converts recursive brute-force approaches into efficient top-down dynamic programming solutions.
+
+\textbf{Examples:}
+\begin{itemize}
+    \item \textbf{Fibonacci Sequence:}
+    \begin{itemize}
+        \item \textit{Brute Force:} \(O(2^n)\) due to repeated recursive calls.
+        \item \textit{With Memoization:} \(O(n)\) by storing the results of subproblems.
+    \end{itemize}
+    \item \textbf{Other Applications:} Edit Distance, Knapsack Problem, and Subset Sum can all benefit significantly from memoization, reducing their time complexity from exponential to polynomial in many cases.
+\end{itemize}
+
+Memoization is particularly powerful when solving problems with overlapping subproblems, allowing for significant gains in efficiency.
+
+\subsection*{Summary}
+
+This section highlighted the importance of asymptotic analysis for evaluating algorithm efficiency and demonstrated how memoization can transform inefficient brute-force methods into scalable solutions. These tools are fundamental for recognizing and applying meaningful performance improvements.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Practice Techniques}
+
+Practical skills are essential for effectively verifying and improving algorithms. This section outlines key techniques that help programmers gain insight into algorithm behavior, detect errors, and enhance implementation quality.
+
+\begin{itemize}
+    \item \textbf{Dry Run:} Manually tracing the execution of code step-by-step using sample input helps in understanding how an algorithm behaves at each stage. This technique is especially useful for detecting logical errors, identifying off-by-one mistakes, and verifying loop invariants or conditions. Dry runs are often performed on paper or in a simple debugging environment.
+
+    \item \textbf{Unit Testing:} Unit tests validate the correctness of individual components (functions or methods) of an algorithm. Each test provides a known input and checks whether the output matches the expected result. This helps in isolating bugs and ensuring correctness for a wide range of cases. Frameworks like \texttt{unittest} in Python or \texttt{JUnit} in Java automate this process, supporting test-driven development.
+
+    \item \textbf{Edge Cases:} Testing with edge cases ensures the robustness of an algorithm. These include boundary conditions (e.g., minimum or maximum allowed input), special values (e.g., zero or null), or unexpected input formats. Edge case testing is critical for avoiding runtime errors and for ensuring that the algorithm behaves correctly in all situations, not just the ``typical'' ones.
+
+    \item \textbf{Code Refactoring:} Refactoring involves restructuring existing code to improve readability, reduce complexity, or enhance performance—without altering its external behavior. Common refactoring activities include renaming variables for clarity, breaking complex functions into smaller ones, removing redundant logic, and replacing inefficient constructs with optimized alternatives. Good refactoring improves maintainability and lays the foundation for further improvements.
+\end{itemize}
+
+Practicing these techniques regularly strengthens both algorithmic thinking and software engineering discipline, ultimately leading to more reliable, efficient, and scalable solutions.
+
+
+\section{Recommended Reading}
+\begin{itemize}
+\item \textbf{Cormen, T. H., Leiserson, C. E., Rivest, R. L., and Stein, C.}
+\textit{Introduction to Algorithms}, 4th ed. MIT Press, 2009.
+\begin{itemize}
+\item Chapter 1: The Role of Algorithms in Computing – Basic concepts of algorithms and pseudocode.
+\end{itemize}
+\item \textbf{Brassard, G., and Bratley, P.}
+\textit{Fundamentals of Algorithmics}. Prentice Hall, 1996.
+\begin{itemize}
+    \item Chapter 1: Introduction to Algorithmics – Definitions and formal correctness.
+    \item Chapter 2: Algorithm Efficiency – Covers complexity evaluation and asymptotic notation.
+\end{itemize}
+
+\item \textbf{Skiena, S. S.}
+\textit{The Algorithm Design Manual}, 2nd ed. Springer, 2008.
+\begin{itemize}
+    \item Chapter 13: How to Design Algorithms – Includes practical improvement techniques.
+\end{itemize}
+
+\item \textbf{Dasgupta, S., Papadimitriou, C., and Vazirani, U.}
+\textit{Algorithms}. McGraw-Hill, 2006.
+\begin{itemize}
+    \item Chapter 0: Introduction – Covers model of computation and verification.
+\end{itemize}
+\end{itemize}
+
+\section{Exercise: The Optimal Conference Session Pairing}
+
+\subsection*{Problem Description}
+
+You are organizing a mini-conference with a very small, exclusive group of \textbf{5 researchers}: Alex (A), Ben (B), Chloe (C), David (D), and Emily (E). You need to select \textbf{exactly 2 pairs of researchers} to present collaborative work. Each potential pair has a "research compatibility score" indicating how groundbreaking their combined presentation would likely be. Some pairs might have worked together before and have high scores, while others might have conflicting research styles, resulting in low or even negative scores (representing a disastrous presentation!).
+
+A researcher \textbf{cannot} be part of more than one selected pair (i.e., if Alex is paired with Ben, neither Alex nor Ben can be part of the second pair). Your goal is to select two distinct pairs such that the \textbf{sum of their compatibility scores is maximized}.
+
+\subsection*{Given Data}
+{Given the following compatibility scores (symmetric, Score(X,Y) = Score(Y,X)):}
+
+\bigskip % Adds a little vertical space before the table
+
+\begin{center}
+    \begin{tabular}{l r}
+        \toprule
+        \textbf{Pair} & \textbf{Score} \\
+        \midrule
+        (A,B) & 10    \\
+        (A,C) & 2     \\
+        (A,D) & -5    \\
+        (A,E) & 8     \\
+        (B,C) & 12    \\
+        (B,D) & 3     \\
+        (B,E) & -2    \\
+        (C,D) & 7     \\
+        (C,E) & 6     \\
+        (D,E) & 11    \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+You have to solve the following tasks:
+\begin{enumerate}
+    \item \textbf{Identify and briefly describe four common algorithmic design paradigms} (e.g., Brute Force, Greedy algorithms, Dynamic Programming, Divide and Conquer) that are often considered for optimization problems.
+
+    \item \textbf{Analyze these paradigms in the context of solving \textit{this specific} ``Optimal Conference Session Pairing'' problem} with the given number of researchers (5) and the requirement to select exactly 2 disjoint pairs.
+    \begin{itemize}
+        \item Discuss why some approaches might be overly complex or not guarantee optimality for this problem instance.
+        \item Argue which approach is the most suitable and practical for finding the \textit{guaranteed optimal} solution in this scenario.
+    \end{itemize}
+
+    \item \textbf{Using your chosen most suitable approach, determine the two pairs of researchers that maximize the total compatibility score and state this maximum score.} Clearly show or explain the steps you took to arrive at your solution.
+\end{enumerate}
+
+Once you have completed your answers, you may want to check out this \href{https://drive.google.com/file/d/1V8qIq35VG609Co5lhCg9dfAnK1Nh9Qqc/view?usp=sharing}{podcast}, which discusses the solution (also available in \href{https://drive.google.com/file/d/18JeYKAB46Xrhg5K5gGM5DqsosFOl1ksJ/view?usp=sharing}{Spanish}).
+
+\section*{Conclusion}
+
+Mastering algorithm verification and improvement is not only an academic milestone but a professional imperative. By learning to apply pseudocode rigorously, validate algorithm behavior through testing, and identify performance bottlenecks, students gain the tools necessary to design dependable and efficient solutions. Equally important is understanding how various optimization techniques—such as memoization, divide and conquer, or strategic data structure selection—can dramatically enhance performance while maintaining clarity and correctness.
+
+As you prepare for the upcoming exam, focus not only on memorizing techniques but on understanding the rationale behind them. Strive to connect formal concepts with real-world applications, and use case studies like QuickSort or Sudoku as anchors for deeper comprehension. This synthesis of theory and practice is what defines expert-level understanding and positions you to build systems that are both powerful and reliable.
+
+
+\end{document}
