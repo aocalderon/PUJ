@@ -249,7 +249,7 @@
 
 \begin{frame}{A Sample Relational Database}
     \centering 
-    \includegraphics[width=0.45\textwidth, trim={7.25cm 5cm 6.75cm 4cm}, clip]{figures/db}
+    \includegraphics[width=0.44\textwidth, trim={7.25cm 10.5cm 6.75cm 4cm}, clip]{figures/db}
 \end{frame}
 
 \begin{frame}[fragile]{Levels of Abstraction}
@@ -336,12 +336,37 @@
         \end{itemize}
         \item There are basically two types of data-manipulation language:
         \begin{itemize}
-            \item \textbf{Procedural DML} --- require a user to specify what data are needed and how to get those data.
-            \item \textbf{Declarative DML} --- require a user to specify what data are needed without specifying how to get those data. 
+            \item \textbf{Procedural DML}
+            \item \textbf{Declarative DML}
         \end{itemize}
-        \item Declarative DMLs are usually easier to learn and use than are procedural DMLs.  
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Data Manipulation Language (DML)}
+    \centering
+    \scriptsize
+    \begin{tabular}{|p{1.5cm}|p{4cm}|p{4cm}|}
+    \hline
+    \textbf{Aspect} & \textbf{Procedural DML} & \textbf{Declarative DML} \\
+    \hline
+    Definition & Requires the user to specify \textit{what data} are needed \textbf{and how to get them}. & Requires the user to specify \textit{what data} are needed, but \textbf{not how to get them}. \\
+    \hline
+    Control & Gives more control over the data retrieval process. & Leaves query optimization and data retrieval strategy to the DBMS. \\
+    \hline
+    Complexity & More complex to learn and write; suitable for programmers. & Easier to learn and use, especially for end-users and analysts. \\
+    \hline
+    Efficiency & Can be more efficient for certain operations if written well, but also more error-prone. & DBMS handles optimization, which may lead to better performance in general. \\
+    \hline
+    Example & Navigational access in legacy systems or procedural code embedded in host languages (e.g., C with embedded SQL cursors). & \texttt{SELECT name FROM instructor WHERE dept\_name = 'History';} \\
+    \hline
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Data Manipulation Language (DML)}
+    \begin{itemize}
+        \item Declarative DMLs are usually easier to learn and use than are procedural DMLs.
         \item Declarative DMLs are also referred to as non-procedural DMLs.
-        \item The portion of a DML that involves information retrieval is called a query language.  
+        \item The portion of a DML that involves information retrieval is called a query language.
     \end{itemize}
 \end{frame}
 
