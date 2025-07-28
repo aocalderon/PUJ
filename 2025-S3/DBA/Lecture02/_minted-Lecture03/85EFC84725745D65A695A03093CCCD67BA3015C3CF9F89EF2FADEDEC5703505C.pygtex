@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{SELECT}
+\PYG{+w}{        }\PYG{n}{attname}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{atttypid}\PYG{p}{::}\PYG{n}{regtype}
+\PYG{+w}{    }\PYG{k}{FROM}
+\PYG{+w}{        }\PYG{n}{pg\PYGZus{}attribute}\PYG{+w}{ }\PYG{k}{LIMIT}\PYG{+w}{ }\PYG{l+m+mi}{50}\PYG{p}{;}
+\end{Verbatim}
