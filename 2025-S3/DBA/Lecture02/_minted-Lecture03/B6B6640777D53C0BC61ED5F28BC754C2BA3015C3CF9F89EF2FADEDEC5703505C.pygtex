@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{SELECT}
-\PYG{+w}{        }\PYG{n}{oid}\PYG{p}{::}\PYG{n}{regprocedure}
-\PYG{+w}{    }\PYG{k}{FROM}
-\PYG{+w}{        }\PYG{n}{pg\PYGZus{}proc}
-\PYG{+w}{    }\PYG{k}{WHERE}
-\PYG{+w}{        }\PYG{l+s+s1}{\PYGZsq{}text\PYGZsq{}}\PYG{p}{::}\PYG{n}{regtype}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{ANY}\PYG{p}{(}\PYG{n}{proargtypes}\PYG{p}{);}
-\end{Verbatim}

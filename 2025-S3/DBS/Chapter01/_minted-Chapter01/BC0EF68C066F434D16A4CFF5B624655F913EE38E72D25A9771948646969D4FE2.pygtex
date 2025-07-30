@@ -1,8 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{instructor}\PYG{p}{(}
-\PYG{+w}{        }\PYG{n}{id}\PYG{+w}{ }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{),}
-\PYG{+w}{        }\PYG{n}{name}\PYG{+w}{ }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{),}
-\PYG{+w}{        }\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{n+nb}{varchar}\PYG{p}{(}\PYG{l+m+mi}{20}\PYG{p}{),}
-\PYG{+w}{        }\PYG{n}{salary}\PYG{+w}{ }\PYG{n+nb}{numeric}\PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{)}
-\PYG{+w}{    }\PYG{p}{);}
-\end{Verbatim}
