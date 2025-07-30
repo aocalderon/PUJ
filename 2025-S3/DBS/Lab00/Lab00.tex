@@ -15,8 +15,8 @@
 
 %setup new colors
 \hypersetup{
-%linkcolor=blue
-%,citecolor=
+linkcolor=blue ,
+citecolor=cyan,
 %,filecolor=
 urlcolor=blue
 %,menucolor=
@@ -40,9 +40,9 @@ urlcolor=blue
 \section{Introduction}
 In this first lab, we will set up the essential tools that will serve as the foundation for the rest of the course. Working with databases requires a reliable environment where we can easily install, configure, and manage the necessary software. To achieve this, we will use Vagrant, a powerful tool that automates the creation of development environments, and PostgreSQL, one of the most robust and widely used open-source relational database management systems.
 
-This lab will guide you through the entire process of creating a virtualized environment for PostgreSQL using Vagrant. By the end, you will have a fully functional PostgreSQL server running inside a virtual machine and will be able to connect to it using pgAdmin, a graphical client that simplifies database management.
+This lab will guide you through the entire process of creating a virtualized environment for PostgreSQL using Vagrant. By the end, you will have a fully functional PostgreSQL server running inside a virtual machine and will be able to connect to it using pgAdmin, a graphical client that simplifies database management. The goal is to ensure that you are comfortable with the setup and have all the required tools ready for the subsequent labs, where we will dive deeper into database concepts and operations.
 
-The goal is to ensure that you are comfortable with the setup and have all the required tools ready for the subsequent labs, where we will dive deeper into database concepts and operations.
+This lab also covers best practices for backing up and moving your Vagrant virtual machine to preserve all data and configurations without rebuilding the environment. By learning how to edit the VM’s identifier, relocate the project folder, and restart the setup, you will ensure a stable and portable development environment for future labs.
 
 \section{Installing PostgreSQL in Vagrant} \label{sec:installing}
 
@@ -55,8 +55,13 @@ Then we will follow this \href{https://youtu.be/_9rVc18NuOI?si=cQ2p9BFS2gfkHZtJ}
 
 The tutorial then demonstrates how to enable remote connections and focuses on the installation and basic usage of pgAdmin 4, a popular open-source graphical user interface (GUI) tool for managing and administering PostgreSQL databases. It concludes with practical tips on securely managing user credentials and testing queries to verify that the connection has been successfully established.
 
+\section{How to Backup and Move your Vagrant VM}
+In this detailed article\footnote{Peter. (2021, February 7). Move Vagrant virtual machine (keep everything: database, virtual hosts, etc.). Medium. \url{https://csimpi.medium.com/move-vagrant-virtual-machine-keep-everything-database-virtual-hosts-etc-8ec1f9a27368}}, the author walks through how to move a Vagrant virtual machine while preserving everything—including databases, virtual hosts, and configuration files—without having to rebuild or reconfigure your development setup. Instead of provisioning everything from scratch, it guides you through copying and modifying the VM's internal identifier so that Vagrant recognizes it in its new location, ensuring that shared databases, synced folders, and virtual host configurations remain intact.
+
+It explains specifics like locating the .vagrant directory, retrieving the VM's unique ID (from VirtualBox or another provider), editing the id file inside that directory, and placing the new project folder in your preferred location. With those steps completed, vagrant up proceeds seamlessly—eliminating the need to re-provision or reconfigure the setup.
+
 \section{What Do We Expect?}
-You do not need to submit any deliverable for this initial tutorial. We simply expect you to watch and follow the videos in Sections \ref{sec:installing} and \ref{sec:connecting}. It is your responsibility to ensure that you have access to all the required tools, as they will be essential for the subsequent labs.
+You are not required to submit any deliverable for this initial tutorial. We simply expect you to watch and follow the videos in Sections \ref{sec:installing} and \ref{sec:connecting}. It is your responsibility to ensure that you have access to all the required tools and that you maintain proper backups of your data, as these will be essential for the subsequent labs.
 
 \vspace{5mm}
 Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
