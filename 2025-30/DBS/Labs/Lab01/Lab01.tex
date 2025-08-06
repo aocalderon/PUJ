@@ -1,0 +1,354 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+linkcolor=blue,
+citecolor=cyan,
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Databases \\ Lab 01: A `gentle' Tutorial about Relational Algebra.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Relational algebra is one of the foundational concepts in database systems, providing a formal language for querying and manipulating relational data. In this lab, you will gain hands-on experience with relational algebra by using the \texttt{radb} interpreter---a lightweight tool that allows you to write and evaluate relational algebra expressions directly. Starting with a simple sample database, you’ll follow a guided tutorial that introduces the basic operations, such as selection, projection, joins, and set operations. These exercises will help solidify your understanding of the relational model and how queries are expressed in a procedural yet elegant way.
+
+After mastering the basics, you’ll apply what you’ve learned to two additional databases---\texttt{beer.db} and \texttt{pizza.db}---by writing and evaluating more advanced queries. You will document your results and relational algebra expressions in a structured report, demonstrating your ability to translate real-world data problems into algebraic form. This lab is designed not only to improve your technical skills but also to deepen your appreciation for the mathematical underpinnings of database query languages.
+
+Go ahead!
+
+\section{\texttt{radb} Tutorial}
+\subsection{Verify Python Installation}
+
+Ensure that Python 3.5 or a later version is installed on your system. You can check your Python version by running:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+python --version
+\end{minted}
+
+If Python 3 is not the default version on your system, you may need to use \texttt{python3} instead.
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+python3 --version
+\end{minted}
+
+If your system does not have Python installed, we recommend following this \href{https://docs.anaconda.com/miniconda/install/}{tutorial} to install Miniconda, a minimal yet powerful Python distribution.
+
+\subsection{Install \texttt{radb}}
+
+Use \texttt{pip} to install the \texttt{radb} package. If \texttt{pip} is not associated with Python 3 on your system, use \texttt{pip3} instead.
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+pip install radb
+\end{minted}
+
+Or, if necessary:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+pip3 install radb
+\end{minted}
+
+\section{Set Up a Sample Database}
+
+To practice using \texttt{radb}, set up a sample database as follows:
+
+\begin{itemize}
+    \item Download the \href{https://www.cs.ucr.edu/~acald013/public/Javeriana/DBS/applications.db}{\texttt{applications.db}} file, which contains the sample database.
+    \item Run the following command  in a terminal console, in the same directory where you downloaded the \texttt{applications.db} file, to start the \texttt{radb} interpreter using that sample database. \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+radb applications.db
+    \end{minted}
+\end{itemize}
+
+If your system cannot find the \texttt{radb} command, it might be installed in a directory that is not included in your system's \texttt{PATH}. On Linux, for example, it may be located in \texttt{\textasciitilde/.local/bin/}. You can run it by specifying the full path:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+~/.local/bin/radb applications.db
+\end{minted}
+
+Alternatively, you can add the directory to your \texttt{PATH} to avoid typing the full path each time. To find out where \texttt{pip} installed \texttt{radb}, run:
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+pip show -f radb
+\end{minted}
+
+\section{Run \texttt{radb} commands on the Sample Database}
+
+At the \texttt{ra>} prompt, you can execute commands such as:
+
+\begin{itemize}
+  \item List all relations in the database. If everything is running correctly, you should see a list of three relations.
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\list;
+    \end{minted}
+  \item Exit the \texttt{radb} interpreter:
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\quit;
+    \end{minted}
+\end{itemize}
+
+For more detailed information and additional commands, refer to the official \texttt{radb} documentation section \textbf{Advanced Use} at: \url{https://users.cs.duke.edu/~junyang/radb/advance.html}.
+
+\section{Practice Relational Algebra in a Sample Database}
+\subsection{The Applications Database}
+The \texttt{applications.db} database is extremely simple and will help us understand the format of the relational algebra expressions covered in class, as well as how to use them in the \texttt{radb} software for practice.
+
+The \texttt{applications.db} database contains dummy data about a group of students applying to different colleges or universities. It consists of only three relations and models the following attributes:
+
+\begin{itemize}
+  \item student(\underline{sID}, sName, GPA, sizeHS)
+  \item college(\underline{cName}, state, enrollment)
+  \item apply(\underline{sID}, \underline{cName}, \underline{major}, decision)
+\end{itemize}
+
+\subsection{Relational algebra operations}
+
+\subsubsection{Simplest relational algebra expresion}
+Let's list the content of the database. Go back to the \texttt{radb} interpreter, and when you see the \texttt{ra>} prompt again, type the name of each relation and see what happens.
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+student;
+\end{minted}
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+college;
+\end{minted}
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+apply;
+\end{minted}
+
+How many tuples does each relation have?
+
+\subsubsection{Selection ($\sigma$)}
+The selection operation retrieves tuples from a relation that satisfy a specified condition.
+
+\vspace{4mm}
+\textbf{Syntax:}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\select_{condition} input_relation;
+\end{minted}
+
+\textbf{Examples:}
+
+\begin{itemize}
+  \item Students with GPA greater than 4.0.
+  \item $\sigma_{GAP > 4.0} \text{ } student$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\select_{GPA > 4.0} student;
+\end{minted}
+
+\begin{itemize}
+  \item Students with GPA greater than 4.0 and the size of their high school greater than 2000.
+  \item $\sigma_{GAP > 4.0 \wedge sizeHS > 2000} \text{ } student$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\select_{GPA > 4.0 and sizeHS > 2000} student;
+\end{minted}
+
+\begin{itemize}
+  \item Applications to the program of `Sistemas' at the `PUJ'.
+  \item $\sigma_{major = Sistemas \wedge cName = PUJ} \text{ } apply$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\select_{major = 'Sistemas' and cName = 'PUJ'} apply;
+\end{minted}
+
+\subsubsection{Projection ($\Pi$)}
+Projection creates a new relation by selecting specific attributes from an existing relation.
+
+\vspace{4mm}
+\textbf{Syntax:}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{attr_list} input_relation;
+\end{minted}
+
+\textbf{Examples:}
+\begin{itemize}
+  \item Student ID and decision for all applications.
+  \item $\Pi_{sID, decision} \text{ } apply$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{sID, decision} apply;
+\end{minted}
+
+\begin{itemize}
+  \item ID and name of students with GPA greater than 3.5 (it is a composed query).
+  \item $\Pi_{sID, sName} \left( \sigma_{GPA > 3.5} \text{ } student \right)$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{sID, sName}( \select_{GPA > 3.5} student );
+\end{minted}
+
+\subsubsection{Cartesian Product ($\times$)}
+Perform Cartesian product over the tuples of two relations.
+
+\vspace{4mm}
+\textbf{Syntax:}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+input_relation_1 \cross input_relation_2;
+\end{minted}
+
+\textbf{Examples:}
+\begin{itemize}
+  \item Find the Cartesian product between the students and the applications.
+  \item $student \text{ } \times \text{ } apply$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+student \cross apply;
+\end{minted}
+
+\begin{itemize}
+  \item Name and GPA of students which applied to `Sistemas'.
+  \item $\Pi_{sName, GPA}\text{ }(\sigma_{student.sID = apply.sID \wedge major = Sistemas}\text{ }( student \text{ } \times \text{ } apply ) )$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{sName, GPA}( \select_{student.sID = apply.sID and major = 'Sistemas'}( student \cross apply ) );
+\end{minted}
+
+\subsubsection{Natural Join ($\bowtie$)}
+Natural join will automatically equate all pairs of identically named attributes from its inputs.
+
+\vspace{4mm}
+\textbf{Syntax:}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+input_relation_1 \join input_relation_2;
+\end{minted}
+
+\textbf{Examples:}
+\begin{itemize}
+  \item Name and GPA of students which applied to `Sistemas'.
+  \item $\Pi_{sName, GPA}\text{ }( \sigma_{major = Sistemas}\text{ }( student \text{ } \bowtie \text{ } apply ) )$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{sName, GPA}( \select_{major = 'Sistemas'}( student \join apply ) );
+\end{minted}
+
+\begin{itemize}
+  \item Name, GPA, and college of students which applied to `Medicina' at institutions with enrollment greater than 20000.
+  \item $\Pi_{sName, GPA, cName}\text{ }( \sigma_{major = Medicina \wedge enrollment > 20000}\text{ }( student \text{ } \bowtie \text{ } apply \text{ } \bowtie \text{ } college ) )$.
+\end{itemize}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+\project_{sName, GPA, cName}(
+  \select_{major = 'Medicina' and enrollment > 20000}(
+    student \join ( apply \join college )
+  )
+);
+\end{minted}
+
+Note that you can also use a multi-line format to write relational expressions. The expression will be evaluated only when the \texttt{;} is entered.
+
+\subsubsection{Theta Join ($\bowtie_\theta$)}
+Theta join will equate pairs of attributes from its inputs based on a particular condition.  It is particularly useful when the attributes in the relations to be joined have different names.
+
+\vspace{4mm}
+\textbf{Syntax:}
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{text}
+input_relation_1 \join_{cond} input_relation_2;
+\end{minted}
+
+\section{Independent Work}
+\subsection{Beer Database}\label{sec:beer}
+The \href{https://www.cs.ucr.edu/~acald013/public/Javeriana/DBS/beers.db}{\texttt{beer.db}} database models drinkers, bars, beers, and drinking preferences among a group of people. The data model of the database is as follows:
+
+\begin{itemize}
+  \item bar(\underline{name}, address)
+  \item beer(\underline{name}, brewer)
+  \item drinker(\underline{name}, address)
+  \item frequents(\underline{drinker}, \underline{bar}, times\_a\_week)
+  \item likes(\underline{drinker}, \underline{beer})
+  \item serves(\underline{bar}, \underline{beer}, price)
+\end{itemize}
+
+You will use this database to practice additional relational algebra queries by following the Basic Use reference available in the \texttt{radb} documentation (\url{https://users.cs.duke.edu/~junyang/radb/basic.html}).
+
+Your task is to connect to the \texttt{beer.db} database in the same way as with \texttt{applications.db} and follow the guide by running all the examples provided. Pay particular attention to the last three operations: Set union, difference, and intersection; Rename; and Aggregation and Grouping.
+
+For each expression in the guide (excluding the first long query and those involving aggregation and grouping), which appear with a gray background, you are required to capture the corresponding results and present them in a well-formatted report, accompanied by their equivalent relational algebra expressions.
+
+\subsection{Pizza Database}\label{sec:pizza}
+The \href{https://www.cs.ucr.edu/~acald013/public/Javeriana/DBS/pizza.db}{\texttt{pizza.db}} database has the following data model:
+
+\begin{itemize}
+  \item Person ( \underline{name}, age, gender )
+  \item Frequents ( \underline{name}, \underline{pizzeria})
+  \item Eats ( \underline{name}, \underline{pizza} )
+  \item Serves ( \underline{pizzeria}, \underline{pizza}, price )
+\end{itemize}
+
+You will use the \texttt{pizza.db} database to answer the following queries. For each query, you must provide the corresponding relational algebra expression and the \texttt{radb} code, along with your response.
+
+\begin{enumerate}
+  \item Find the unique person who does not frequent pizzerias that sell supreme pizza.
+
+  \item Find the pizzerias and pizzas that are more expensive than those sold by Little Caesars.
+
+  \item How old is the only woman who eats pizza that costs less than \$7.75?
+
+  \item What is the most popular pizzeria among people between 20 and 30 years old?
+
+  \item What is the average age of men who eat pepperoni pizza?
+\end{enumerate}
+
+Finally, you will propose your own query for the \texttt{pizza.db} database (just one). Based on the queries above, you will create a new query from scratch, write its corresponding relational algebra expression, and provide the \texttt{radb} code to answer it.
+
+You are expected to submit a well-structured report in PDF format containing the required information detailed in Sections \ref{sec:beer} and \ref{sec:pizza}. Additionally, include a plain text file with the extension \texttt{.ra} containing the corresponding \texttt{radb} code used to answer the queries. Both files should be compressed into a single ZIP archive. The submission deadline is \textbf{August 20, 2025}.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
