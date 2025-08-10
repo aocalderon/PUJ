@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{k}{IF}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{EXISTS}\PYG{+w}{ }\PYG{k}{public}\PYG{p}{.}\PYG{n}{sensor}
+\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{oid}\PYG{+w}{ }\PYG{n+nb}{bigint}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{lat}\PYG{+w}{ }\PYG{n+nb}{real}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{lon}\PYG{+w}{ }\PYG{n+nb}{real}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{tim}\PYG{+w}{ }\PYG{k}{timestamp}\PYG{+w}{ }\PYG{k}{with}\PYG{+w}{ }\PYG{k}{time}\PYG{+w}{ }\PYG{k}{zone}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{CONSTRAINT}\PYG{+w}{ }\PYG{n}{sensor\PYGZus{}pkey}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{tim}\PYG{p}{)}
+\PYG{p}{)}
+\end{MintedVerbatim}
