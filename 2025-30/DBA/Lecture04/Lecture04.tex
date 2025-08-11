@@ -217,22 +217,24 @@
 \end{frame}
 
 
-\begin{frame}{Focus}
-    Let's focus on:
+\begin{frame}{Most Relevant Topics}
     \begin{enumerate}
-        \item \textbf{Monitoring the PostgreSQL message log} – the primary tool for spotting errors, warnings, and server events.
+        \item \textbf{Monitoring the PostgreSQL message log} – primary source for detecting errors, warnings, and server events.
 
-        \item \textbf{Checking which queries are running} – essential for identifying performance bottlenecks in real time.
+        \item \textbf{Checking which queries are running} – crucial for identifying real-time performance bottlenecks.
 
-        \item \textbf{Monitoring the progress of commands and queries} – helps track long-running operations like VACUUM, ANALYZE, and large queries.
+        \item \textbf{Monitoring the progress of commands and queries} – enables tracking of long-running operations such as \texttt{VACUUM}, \texttt{ANALYZE}, and complex queries.
 
-        \item \textbf{Knowing who is blocking a query} – key for diagnosing locking issues and contention.
+        \item \textbf{Identifying who is blocking a query} – essential for diagnosing lock contention and concurrency issues.
 
-        \item \textbf{Monitoring I/O statistics} – to detect disk-related bottlenecks and storage pressure.
+        \item \textbf{Monitoring I/O statistics} – helps detect disk-related bottlenecks and storage constraints.
 
-        \item \textbf{Understanding why queries slow down} – root cause analysis of degraded performance.
+        \item \textbf{Understanding why queries slow down} – supports root cause analysis of performance degradation.
+
+        \item \textbf{Tracking important metrics over time} – lightweight monitoring of key PostgreSQL metrics and trends.
     \end{enumerate}
 \end{frame}
+
 
 \subsection{Monitoring the PostgreSQL Message Log}
 
