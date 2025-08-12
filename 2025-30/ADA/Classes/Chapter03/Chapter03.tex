@@ -19,6 +19,8 @@
 \usepackage{xcolor} 
 \definecolor{LightGray}{gray}{0.975}
 
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+
 %\usetheme{Warsaw}
 \usefonttheme{serif} 
 
@@ -362,6 +364,9 @@
 \section{Fibonacci Numbers}
 
 \begin{frame}{Fibonacci Numbers}
+    \centering
+    \LARGE
+    0 \hspace{2mm} 1 \hspace{2mm} 1 \hspace{2mm} 2 \hspace{2mm} 3 \hspace{2mm} 5 \hspace{2mm} 8 \hspace{2mm} 13 \hspace{2mm} 21 \hspace{2mm} 34 \hspace{2mm} $\ldots$ \pause
     \begin{alertblock}{Recursive definition:}
         \begin{align*}
             F_n =
@@ -372,12 +377,11 @@
                 \end{cases}
         \end{align*}
     \end{alertblock}
-    \centering
-    \LARGE
-    0 \hspace{2mm} 1 \hspace{2mm} 1 \hspace{2mm} 2 \hspace{2mm} 3 \hspace{2mm} 5 \hspace{2mm} 8 \hspace{2mm} 13 \hspace{2mm} 21 \hspace{2mm} 34 \hspace{2mm} $\ldots$
 \end{frame}
 
 \begin{frame}{Fibonacci Numbers}
+    \centering
+    0 \hspace{2mm} 1 \hspace{2mm} 1 \hspace{2mm} 2 \hspace{2mm} 3 \hspace{2mm} 5 \hspace{2mm} 8 \hspace{2mm} 13 \hspace{2mm} 21 \hspace{2mm} 34 \hspace{2mm} $\ldots$
     \begin{alertblock}{Recursive definition:}
         \begin{align*}
             F_n =
@@ -388,15 +392,42 @@
                 \end{cases}
         \end{align*}
     \end{alertblock}
+    \begin{alertblock}{Naive recursive algorithm:} \pause
+        \begin{center}
+            \LARGE
+            $\Omega(\phi^n)$
+        \end{center}
+    \end{alertblock} \pause
+    where $\phi = \frac{1 + \sqrt{5}}{2}$ is the golden ratio.
+\end{frame}
+
+\begin{frame}{The Golden Ratio (1.61803398875...)}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/golden_ratio}
+    \FlushRight{\href{https://sketchplanations.com/the-golden-ratio}{\scriptsize sketchplanations.com/the-golden-ratio}}
+\end{frame}
+
+\begin{frame}{Fibonacci Numbers}
     \centering
     0 \hspace{2mm} 1 \hspace{2mm} 1 \hspace{2mm} 2 \hspace{2mm} 3 \hspace{2mm} 5 \hspace{2mm} 8 \hspace{2mm} 13 \hspace{2mm} 21 \hspace{2mm} 34 \hspace{2mm} $\ldots$
+    \begin{alertblock}{Recursive definition:}
+        \begin{align*}
+            F_n =
+                \begin{cases}
+                    0 & \text{if $n = 0$;} \\
+                    1 & \text{if $n = 1$;} \\
+                    F_{n - 1} + F_{n - 2} & \text{if $n \geq 2$.}\\
+                \end{cases}
+        \end{align*}
+    \end{alertblock}
     \begin{alertblock}{Naive recursive algorithm:}
         \begin{center}
             \LARGE
             $\Omega(\phi^n)$
         \end{center}
     \end{alertblock}
-    (exponential time), where $\phi = \frac{1 + \sqrt{5}}{2}$ is the golden ratio.
+    where $\phi = \frac{1 + \sqrt{5}}{2}$ is the golden ratio. \pause
+    \\ ({\Large \textcolor{blue}{exponential time!}})
 \end{frame}
 
 \begin{frame}{Computing Fibonacci Numbers}
@@ -417,7 +448,7 @@
 \end{frame}
 
 \begin{frame}{Recursive Squaring}
-    \begin{exampleblock}{Theorem:}
+    \begin{exampleblock}{Theorem:} \pause
         $$
             \left[
                 \begin{array}{c c}
@@ -431,7 +462,7 @@
                     1 & 1 \\
                     1 & 0
                 \end{array}
-            \right]^n \text{.}
+            \right]^n
         $$
     \end{exampleblock} \pause
     \begin{exampleblock}{Algorithm:}
@@ -439,77 +470,218 @@
         Time = $\Theta(\lg n)$.
     \end{exampleblock} \pause
     \begin{itemize}
-        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.) \\
-            Base ($n = 1$): \pause
-            $$
-                \left[
-                    \begin{array}{c c}
-                        F_2 & F_1 \\
-                        F_1 & F_0
-                    \end{array}
-                \right]
-                =
-                \left[
-                    \begin{array}{c c}
-                        1 & 1 \\
-                        1 & 0
-                    \end{array}
-                \right]^1
-            $$
+        \item[] \textbf{\textcolor{red}{Proof of theorem.}} \pause (Induction on $n$.) \pause
+        \item[] Base case ($n = 1$). \pause
+        \item[] Inductive Hypothesis ($n = k$). \pause
+        \item[] Inductive Step ($n = k + 1$).
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Recursive Squaring}
+    \begin{exampleblock}{Theorem:}
+        $$
+            A^n
+            =
+            \left[
+                \begin{array}{c c}
+                    F_{n + 1} & F_n \\
+                    F_n       & F_{n - 1}
+                \end{array}
+            \right] \text{ , }
+            A =
+            \left[
+                \begin{array}{c c}
+                    1 & 1 \\
+                    1 & 0
+                \end{array}
+            \right] \text{ , }
+            n \geq 1\text{.}
+        $$
+    \end{exampleblock}
     \begin{itemize}
-        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.) \\
-            Inductive step ($n \geq 2$): \pause
-            \begin{equation*}
-                \begin{split}
-                    \left[
-                        \begin{array}{c c}
-                            F_{n + 1} & F_n \\
-                            F_n       & F_{n - 1}
-                        \end{array}
-                    \right]
-                &=
-                    \left[
-                        \begin{array}{c c}
-                            F_n       & F_{n - 1} \\
-                            F_{n - 1} & F_{n - 2}
-                        \end{array}
-                    \right]
-                    \cdot
-                    \left[
-                        \begin{array}{c c}
-                            1 & 1 \\
-                            1 & 0
-                        \end{array}
-                    \right] \\
-                &=
-                    \left[
-                        \begin{array}{c c}
-                            1 & 1 \\
-                            1 & 0
-                        \end{array}
-                    \right]^{n - 1}
-                    \cdot
-                    \left[
-                        \begin{array}{c c}
-                            1 & 1 \\
-                            1 & 0
-                        \end{array}
-                    \right] \\
-                &=
-                    \left[
-                        \begin{array}{c c}
-                            1 & 1 \\
-                            1 & 0
-                        \end{array}
-                    \right]^n \text{\tiny \hspace{30mm} $\blacksquare$} \\
-                \end{split}
-            \end{equation*}
-
+        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.)
+        \item[] Base case ($n = 1$):
     \end{itemize}
+    \pause
+    $$
+        A^1
+        =
+        A
+        =
+        \left[
+            \begin{array}{c c}
+                1 & 1 \\
+                1 & 0
+            \end{array}
+        \right]
+        =
+        \left[
+            \begin{array}{c c}
+                F_2 & F_1 \\
+                F_1 & F_0
+            \end{array}
+        \right]
+    $$
+\end{frame}
+
+\begin{frame}{Recursive Squaring}
+    \begin{exampleblock}{Theorem:}
+        $$
+            A^n
+            =
+            \left[
+                \begin{array}{c c}
+                    F_{n + 1} & F_n \\
+                    F_n       & F_{n - 1}
+                \end{array}
+            \right] \text{ , }
+            A =
+            \left[
+                \begin{array}{c c}
+                    1 & 1 \\
+                    1 & 0
+                \end{array}
+            \right] \text{ , }
+            n \geq 1\text{.}
+        $$
+    \end{exampleblock}
+    \begin{itemize}
+        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.)
+        \item[] Inductive Hypothesis ($n = k$):
+    \end{itemize}
+    \pause
+    $$
+        A^k
+        =
+        \left[
+            \begin{array}{c c}
+                F_{k + 1} & F_k \\
+                F_k       & F_{k - 1}
+            \end{array}
+        \right]
+    $$
+\end{frame}
+
+\begin{frame}{Recursive Squaring}
+    \begin{exampleblock}{Theorem:}
+        $$
+            A^n
+            =
+            \left[
+                \begin{array}{c c}
+                    F_{n + 1} & F_n \\
+                    F_n       & F_{n - 1}
+                \end{array}
+            \right] \text{ , }
+            A =
+            \left[
+                \begin{array}{c c}
+                    1 & 1 \\
+                    1 & 0
+                \end{array}
+            \right] \text{ , }
+            n \geq 1\text{.}
+        $$
+    \end{exampleblock}
+    \begin{itemize}
+        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.)
+        \item[] Inductive Step ($n = k + 1$):
+    \end{itemize}
+    \pause
+    \begin{equation*}
+        \begin{split}
+        A^{k+1}
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        A^{k} \cdot A
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        \left[
+            \begin{array}{c c}
+                F_{k + 1} & F_k \\
+                F_k       & F_{k - 1}
+            \end{array}
+        \right]
+        \cdot
+        \left[
+            \begin{array}{c c}
+                1 & 1 \\
+                1 & 0
+            \end{array}
+        \right]
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        \end{split}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Recursive Squaring}
+    $$
+        F_0, F_1, F_2, F_3, \ldots, F_{k-2},  F_{k-1}, F_{k}, F_{k+1}, F_{k+2}, \ldots
+    $$
+    \begin{itemize}
+        \item[] \textbf{\textcolor{red}{Proof of theorem.}} (Induction on $n$.)
+        \item[] Inductive Step ($n = k + 1$):
+    \end{itemize}
+    \begin{equation*}
+        \begin{split}
+        A^{k+1}
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        A^{k} \cdot A
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        \left[
+            \begin{array}{c c}
+                F_{k + 1} & F_k \\
+                F_k       & F_{k - 1}
+            \end{array}
+        \right]
+        \cdot
+        \left[
+            \begin{array}{c c}
+                1 & 1 \\
+                1 & 0
+            \end{array}
+        \right]
+        &=
+        \left[
+            \begin{array}{c c}
+                F_{k + 2} & F_{k + 1} \\
+                F_{k + 1} & F_{k}
+            \end{array}
+        \right] \\
+        (1,1)\text{: } & F_{k+1} + F_{k} = F_{k+2} \\
+        (1,2)\text{: } & F_{k+1} + 0 = F_{k+1} \\
+        (2,1)\text{: } & F_{k} + F_{k-1} = F_{k+1} \\
+        (2,2)\text{: } & F_{k} + 0 = F_{k} \text{\tiny \hspace{30mm} $\blacksquare$}\\
+        \end{split}
+    \end{equation*}
 \end{frame}
 
 \section{Matrix Multiplication}
