@@ -16,6 +16,7 @@
 \usepackage[plain]{algorithm}
 \usepackage{algorithmic}
 
+\usepackage{arydshln} % for dashed/dotted lines
 \usepackage{xcolor} 
 \definecolor{LightGray}{gray}{0.975}
 
@@ -691,7 +692,7 @@
         \left.
             \begin{array}{r l}
                 \text{\textbf{Input:}} & A=[a_{ij}], B=[b_{ij}] \text{.} \\
-                \text{\textbf{Output:}} & C=[c_{ij}]=A \cdot B \text{.}
+                \text{\textbf{Output:}} & C=[c_{ij}]=A \cdot B
             \end{array}
         \right\} i, j = 1, 2, \ldots, n\text{.}
     $$
@@ -749,6 +750,14 @@
         \end{algorithmic}
     \end{algorithm}
     \textbf{\textcolor{red}{Running time}} $=\Theta(n^3)$
+\end{frame}
+
+\begin{frame}[fragile]{Divide-and-Conquer Algorithm}
+    \begin{alertblock}{\textsc{Idea:}}
+        $n \times n$ matrix $= 2 \times 2$ matrix of $\left(\frac{n}{2}\right) \times \left(\frac{n}{2}\right)$ submatrices:
+    \end{alertblock}
+    \centering
+    \includegraphics[trim=45mm 100mm 15mm 40mm, clip, width=\textwidth]{figures/quadrants}
 \end{frame}
 
 \begin{frame}[fragile]{Divide-and-Conquer Algorithm}
@@ -922,6 +931,36 @@
     \end{minipage}
 \end{frame}
 
+\begin{frame}{Strassen's Idea}
+    \begin{itemize}
+        \item Multiply $2 \time 2$ matrices with only 7 recursive multiplications.
+    \end{itemize}
+    \begin{minipage}{0.48\textwidth}
+        \begin{equation*}
+            \begin{split}
+                P_1 &= a \cdot (f - h) \\
+                P_2 &= (a + b) \cdot h \\
+                P_3 &= (c + d) \cdot e \\
+                P_4 &= d \cdot (g - e) \\
+                P_5 &= (a + d) \cdot (e + h) \\
+                P_6 &= (b - d) \cdot (g + h) \\
+                P_7 &= (a - c) \cdot (e + f) \\
+            \end{split}
+        \end{equation*}
+    \end{minipage} %
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \begin{equation*}
+            \begin{split}
+                t =& P_3 + P_4 \\
+                  =& (c + d)e + d(g - e) \\
+                  =& ce + de + dg - de \\
+                  =& ce + dg \\
+            \end{split}
+        \end{equation*}
+    \end{minipage}
+\end{frame}
+
 \begin{frame}{Strassen's Algorithm}
     \begin{enumerate}
         \item \textbf{\Large Divide:} Partition $A$ and $B$ into $\frac{n}{2} \times \frac{n}{2}$ submatrices.  Form terms to be multiplied using $+$ and $-$.
@@ -943,11 +982,35 @@
     $$
     \pause
     \begin{exampleblock}{Note:}
-        The number $2.81$ may not seem much smaller than $3$, but because the difference is in the exponent, the impact on running time is significant. In fact, Strassen's algorithm beats the ordinary algorithm on today’s machines for $n \geq 32$ or so.
+        The number $2.81$ may not seem much smaller than $3$, but because the difference is in the exponent, the impact on running time is significant.
     \end{exampleblock}
-    \pause
-    \toRight{\textcolor{red}{\textbf{Best to date}} (of theoretical interest only): $\Theta(n^{2.376 \ldots})$.}
 \end{frame}
+
+\begin{frame}{Theoretical Notes}
+    \begin{itemize}
+        \item Strassen’s algorithm was the first to beat $O(n^3)$ time.
+        \item Coppersmith–Winograd algorithm runs in $O(n^{2.376})$ time.
+        \item Current best asymptotic bound (not practical): $O(n^{2.37286})$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Practical Issues with Strassen’s Algorithm}
+    \begin{itemize}
+        \item Higher constant factor than the naive $O(n^3)$ method.
+        \item Performs poorly on sparse matrices.
+        \item Not numerically stable — larger error accumulation.
+        \item Submatrices consume extra space, especially with copying.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Additional Considerations}
+    \begin{itemize}
+        \item Numerical stability problem is less severe than previously thought.
+        \item Index calculations can reduce space requirements.
+        \item Researchers have sought the crossover point where Strassen outperforms the naive method — results vary.
+    \end{itemize}
+\end{frame}
+
 
 \section{VLSI Tree Layout}
 
