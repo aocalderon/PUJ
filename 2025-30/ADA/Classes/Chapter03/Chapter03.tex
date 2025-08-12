@@ -1015,6 +1015,29 @@
 \section{VLSI Tree Layout}
 
 \begin{frame}{VLSI Layout}
+    \begin{itemize}
+        \item VLSI -- Very Large Scale Integration.
+    \end{itemize}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/vlsi}
+    \toRight{\scriptsize \href{https://www.maven-silicon.com/blog/physical-design-flow/}{maven-silicon.com}}
+\end{frame}
+
+\begin{frame}{What is VLSI Layout? -- The Blueprint of a Chip}
+    \begin{itemize}
+    \item \textbf{Definition:} Physical geometric representation of an IC design used for fabrication.
+    \item \textbf{Purpose:} Translates logic/schematic into manufacturable mask patterns.
+    \item \textbf{Key Elements:}
+        \begin{itemize}
+        \item Active regions (transistors), polysilicon gates
+        \item Metal interconnect layers (wiring)
+        \item Contacts and vias (vertical connections)
+        \item Isolation and well structures
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{VLSI Layout}
     \begin{exampleblock}{Problem:}
         Embed a complete binary tree with $n$ leaves in a grid using minimal area.
     \end{exampleblock}
@@ -1023,6 +1046,64 @@
     \includegraphics[width=\textwidth, trim={1cm 5cm 2cm 7cm}, clip]{pages/lec3_47}
     \begin{minipage}{0.48\textwidth}
         \pause
+        \begin{equation*}
+            \begin{split}
+                H(n) =& H\left(\frac{n}{2}\right) + \Theta(1)
+            \end{split}
+        \end{equation*}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \pause
+        \begin{equation*}
+            \begin{split}
+                W(n) =& 2W\left(\frac{n}{2}\right) + \Theta(1)
+            \end{split}
+        \end{equation*}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}{VLSI Tree Layout Recurrences}
+    \begin{itemize}
+    \item Why $\Theta(1)$ non-recursive cost?
+        \begin{itemize}
+        \item Combining two $n/2$ sublayouts adds only a \emph{fixed} vertical channel/spacing and a level of connectors.
+        \item This overhead does \emph{not} depend on $n$ (no $n$-sized merge), hence constant per level.
+        \end{itemize}
+    \item Height recurrence:
+        \(
+            H(n)=\,H(\frac{n}{2})+\Theta(1)\Rightarrow Case ? %H(n)=\Theta(\lg n)
+        \)
+    \item Width recurrence: \(
+        W(n)=2\,W(\frac{n}{2})+\Theta(1)\Rightarrow Case ?%W(n)=\Theta(n)
+        \)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{VLSI Tree Layout Recurrences}
+    \begin{itemize}
+    \item Why $\Theta(1)$ non-recursive cost?
+        \begin{itemize}
+        \item Combining two $\frac{n}{2}$ sublayouts adds only a \emph{fixed} vertical channel/spacing and a level of connectors.
+        \item This overhead does \emph{not} depend on $n$ (no $n$-sized merge), hence constant per level.
+        \end{itemize}
+    \item Height recurrence:
+        \(
+            H(n)=\,H(\frac{n}{2})+\Theta(1)\Rightarrow \text{Case 2}: H(n)=\Theta(\lg n)
+        \)
+    \item Width recurrence: \(
+        W(n)=2\,W(\frac{n}{2})+\Theta(1)\Rightarrow \text{Case 1}: W(n)=\Theta(n)
+        \)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{VLSI Layout}
+    \begin{exampleblock}{Problem:}
+        Embed a complete binary tree with $n$ leaves in a grid using minimal area.
+    \end{exampleblock}
+    \centering
+    \includegraphics[width=\textwidth, trim={1cm 5cm 2cm 7cm}, clip]{pages/lec3_47}
+    \begin{minipage}{0.48\textwidth}
         \begin{equation*}
             \begin{split}
                 H(n) =& H\left(\frac{n}{2}\right) + \Theta(1) \\
@@ -1044,7 +1125,7 @@
     \begin{exampleblock}{ }
         \centering
         \Large
-        \textbf{Area:} $ = \Theta(n \ln n)$
+        \textbf{Area:} $ = \Theta(n \lg n)$
     \end{exampleblock}
 \end{frame}
 
