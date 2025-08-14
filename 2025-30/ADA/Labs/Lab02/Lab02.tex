@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[left=2.5cm, top=3cm, right=2cm, bottom=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{minted}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\usepackage{latexsym}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{caption}
+\usepackage{url}
+\usepackage[colorlinks]{hyperref}
+
+%setup new colors
+\hypersetup{
+    linkcolor=blue,
+    citecolor=cyan,
+    urlcolor=blue
+}
+
+%opening
+\title{Analysis of Algorithm \\ Lab 02: Analyzing the Towers of Hanoi – Recurrence Relations and Complexity}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This lab explores the Towers of Hanoi problem as a vehicle for practicing algorithm analysis and recurrence solving techniques. Through interactive resources and hands-on coding, you will gain both an intuitive and formal understanding of the problem, its recursive structure, and the computational limits of solving it for large input sizes. The activities are designed to reinforce key concepts from class while encouraging independent problem-solving.
+
+You will begin by studying the problem through curated video and tutorial materials, then apply what you learn to implement and test the algorithm, derive its recurrence relation, and prove its time complexity. Along the way, you will record empirical results, document your learning progress, and compile your findings into a clear, well-structured report. By the end of the lab, you will have strengthened your skills in analyzing algorithms, presenting complexity proofs, and validating theoretical insights through experimentation.
+
+\section{A YouTube Video from the Reducible Channel}\label{sec:reducible}
+We will begin by watching an excellent video from the Reducible Channel, available \href{https://www.youtube.com/watch?v=rf6uf3jNjbo}{here}. Spanish subtitles can be activated via the \texttt{Settings} button.
+
+After watching the video, you will have access to the provided code for running the Tower of Hanoi problem with different values of $N$. Experiment by varying $N$ and determine the largest value your computer can solve in under one minute. Record your findings and include them as part of your final report.
+
+\section{Khan Academy Computer Science Theory Course}\label{sec:khan}
+Khan Academy offers an excellent Computer Science Theory course that includes a dedicated lesson on the Tower of Hanoi problem: \href{https://www.khanacademy.org/computing/computer-science/algorithms/towers-of-hanoi/a/towers-of-hanoi}{Lesson~7: Towers of Hanoi}.
+
+Each group member must create a Khan Academy account and complete all four units of this lesson. Upon completion, take a screenshot showing your username and proof of completing all four units (including the final challenge). This screenshot must be included in your report.
+
+\section{Independent Work} \label{sec:work}
+After mastering the Towers of Hanoi problem, you are now expected to derive its recurrence relation using the most appropriate method from those discussed in class.
+
+Once the recurrence is formulated, perform a complete complexity analysis of the problem, including a formal proof of your result. Follow the structure and guidelines provided in Section~\ref{sec:expect}.
+
+Although online resources and AI tools can readily provide solutions, you are strongly encouraged to make \textbf{an honest attempt} to solve the problem independently before consulting any external references.
+
+\section{What We Expect} \label{sec:expect}
+You will compile your results into a \textbf{well-structured} report using the \href{https://drive.google.com/file/d/12l-CiOO4Xd7uX3e1DXprb32XqQnhPz3E/view?usp=sharing}{template} provided for this lab. This template is primarily intended to guide the presentation of your complexity analysis (as outlined in Section~\ref{sec:work}). Any additional requirements should be addressed in separate sections, ensuring clarity and completeness.
+
+Your report must include:
+\begin{itemize}
+    \item The execution output showing the largest value of $N$ that your machine can solve within one minute (see Section~\ref{sec:reducible}).
+    \item Screenshots confirming the completion of all four Khan Academy units, including the final challenge, with your username clearly visible (see Section~\ref{sec:khan}).
+    \item A complete complexity analysis of the Towers of Hanoi problem, including the recurrence relation and its formal proof (see Section~\ref{sec:work}).
+\end{itemize}
+
+You must submit your report in \textbf{\large PDF} format, together with any additional materials that support your assumptions, packaged into a single \textbf{ZIP} file. The complete submission must be uploaded by \textbf{August 28, 2025}, using the link that will be provided on the Brightspace\texttrademark\ platform.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
