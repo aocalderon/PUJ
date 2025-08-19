@@ -509,12 +509,13 @@
     $$
         X_k = \left\{
             \begin{array}{l l}
-                \text{ 1 \text{\hspace{3mm}}} & \text{ if \textsc{Partition} generates a } k: n-k-1 split\text{,} \\
+                \text{ 1 \text{\hspace{3mm}}} & \text{ if \textsc{Partition} generates a } k: n-k-1 \text{ split,} \\
                 \text{ 0 \text{\hspace{3mm}}} & \text{ otherwise.} \\
             \end{array}
         \right.
     $$
-$E[X_k] = Pr\{X_k = 1\} = \frac{1}{n}$, since all splits are equally likely, assuming element are distinct.
+    \pause
+    $E[X_k] = 0 \cdot Pr\{X_k = 0\} + 1 \cdot Pr\{X_k = 1\} = Pr\{X_k = 1\} = \frac{1}{n}$, since all splits are equally likely, assuming element are distinct.
 \end{frame}
 
 \begin{frame}{Analysis (Cont.)}
@@ -564,7 +565,18 @@ E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) 
     \end{equation*}
 \end{frame}
 
-\begin{frame}{Calculating expectation}{Linearity of expectation: $E[X_k] = \frac{1}{n}$.}
+\begin{frame}{Calculating expectation}{$E[X_k] = \frac{1}{n}$.}
+    \begin{equation*}
+        \begin{split}
+E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E\left[ X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E[X_k] \cdot E[T(k) + T(n - k - 1) + \Theta(n)] \\
+        &= \frac{1}{n} \sum\limits_{k=0}^{n-1}  E[T(k) + T(n - k - 1) + \Theta(n)] \\
+        \end{split}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Calculating expectation}{Linearity of expectation.}
     \begin{equation*}
         \begin{split}
 E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
@@ -586,7 +598,35 @@ E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) 
         &= \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(k)] +
            \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(n - k - 1)] +
            \frac{1}{n}\sum\limits_{k=0}^{n-1} \Theta(n) \\
-        &= \frac{2}{n}\sum\limits_{k=0}^{n-1} E[T(k)] + \Theta(n) \\
+        &= \frac{2}{n}\sum\limits_{k=0}^{n-1} E[T(k)] + \frac{1}{n}\sum\limits_{k=0}^{n-1} \Theta(n)
+        \end{split}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Calculating expectation}{$n\cdot\Theta(n)=\Theta(n^2)$.}
+    \begin{equation*}
+        \begin{split}
+E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E\left[ X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E[X_k] \cdot E[T(k) + T(n - k - 1) + \Theta(n)] \\
+        &= \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(k)] +
+           \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(n - k - 1)] +
+           \frac{1}{n}\sum\limits_{k=0}^{n-1} \Theta(n) \\
+        &= \frac{2}{n}\sum\limits_{k=0}^{n-1} E[T(k)] + \frac{1}{n}\Theta(n^2)
+        \end{split}
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Calculating expectation}{Sum up.}
+    \begin{equation*}
+        \begin{split}
+E[T(n)] &= E\left[ \sum\limits_{k=0}^{n-1} X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E\left[ X_k(T(k) + T(n - k - 1) + \Theta(n)) \right] \\
+        &= \sum\limits_{k=0}^{n-1} E[X_k] \cdot E[T(k) + T(n - k - 1) + \Theta(n)] \\
+        &= \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(k)] +
+           \frac{1}{n}\sum\limits_{k=0}^{n-1} E[T(n - k - 1)] +
+           \frac{1}{n}\sum\limits_{k=0}^{n-1} \Theta(n) \\
+        &= \frac{2}{n}\sum\limits_{k=0}^{n-1} E[T(k)] + \Theta(n)
         \end{split}
     \end{equation*}
 \end{frame}
