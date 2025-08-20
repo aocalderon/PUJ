@@ -608,7 +608,6 @@ WHERE
     WHERE
         name LIKE '%dar%';
     \end{minted}
-    \vspace{-6mm}
     \begin{itemize}
         \item Match the string `100\%'
         \begin{minted}
@@ -697,7 +696,7 @@ WHERE
     FROM
         instructor, teaches
     WHERE
-        (instructor.ID, dept_name) = (teaches.ID = 'Biology');
+        (instructor.ID, dept_name) = (teaches.ID, 'Biology');
     \end{minted}
 \end{frame}
 
@@ -713,7 +712,7 @@ WHERE
 UNION
 (SELECT course_id FROM section WHERE sem = 'Spring' AND year = 2018)
     \end{minted}
-    \vspace{-10mm}
+    \vspace{-5mm}
     \begin{exampleblock}{ }
         ``Find courses that ran in Fall 2017 and in Spring 2018.''
     \end{exampleblock}
@@ -757,15 +756,16 @@ EXCEPT
 \begin{frame}[fragile]{Null Values (Cont.)}
     \begin{itemize}
         \item The predicate \texttt{IS NULL} can be used to check for null values.
-        \begin{exampleblock}{Example}
-            ``Find all instructors whose salary is null.''
-        \end{exampleblock}
-        \begin{minted}
-        [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{sql}
-    SELECT name FROM instructor WHERE salary IS NULL
-        \end{minted}
+
         \item The predicate \texttt{IS NOT NULL} succeeds if the value on which it is applied is not null.
     \end{itemize}
+    \begin{exampleblock}{Example}
+        ``Find all instructors whose salary is null.''
+    \end{exampleblock}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{sql}
+    SELECT name FROM instructor WHERE salary IS NULL
+    \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]{Null Values (Cont.)}
@@ -779,16 +779,16 @@ EXCEPT
 
 \begin{frame}[fragile]{Null Values (Cont.)}
     \begin{itemize}
-        \item The predicate in a WHERE clause can involve Boolean operations (\texttt{AND}, \texttt{OR}, \texttt{NOT}); thus the definitions of the Boolean operations need to be extended to deal with the value \textbf{unknown}.
+        \item The predicate in a WHERE clause can involve Boolean operations (\texttt{AND}, \texttt{OR}, \texttt{NOT}); thus the definitions of the Boolean operations need to be extended to deal with the value \textbf{unknown}. \pause
         \begin{itemize}
             \item \texttt{AND}:\\ 
                 (\texttt{true} \texttt{AND} \textbf{unknown}) = \textbf{unknown}\\
                 (\texttt{false} \texttt{AND} \textbf{unknown}) = \texttt{false}\\
-                (\textbf{unknown} \texttt{AND} \textbf{unknown}) = \textbf{unknown}\\
+                (\textbf{unknown} \texttt{AND} \textbf{unknown}) = \textbf{unknown} \pause
             \item \texttt{OR}:\\ 
                 (\textbf{unknown} \texttt{OR} \texttt{true}) = \texttt{true}\\
                 (\textbf{unknown} \texttt{OR} \texttt{false}) = \textbf{unknown}\\
-                (\textbf{unknown} \texttt{OR} \textbf{unknown}) = \textbf{unknown}\\
+                (\textbf{unknown} \texttt{OR} \textbf{unknown}) = \textbf{unknown} \pause
         \end{itemize}
         \item Result of \texttt{WHERE} clause predicate is treated as \texttt{false} if it evaluates to \textbf{unknown}.
     \end{itemize}
@@ -860,7 +860,6 @@ EXCEPT
     FROM instructor
     GROUP BY dept_name;
     \end{minted}
-    \vspace{-5mm}
     \begin{minipage}{.60\textwidth}
         \centering
         \includegraphics[width=0.9\textwidth, trim={8.5cm 16.5cm 5cm 4.75cm}, clip]{figures/db_agg}    
@@ -896,6 +895,7 @@ EXCEPT
     GROUP BY dept_name
     HAVING AVG(salary) > 42000;
     \end{minted}
+    \pause
     \begin{alertblock}{Note:}
         Predicates in the \texttt{HAVING} clause are applied after the formation of groups whereas predicates in the \texttt{WHERE} clause are applied before forming groups.
     \end{alertblock}
@@ -1016,7 +1016,7 @@ WHERE
                 teaches.ID = 10101
         );
     \end{minted}
-    \vspace{-8mm}
+    \vspace{-4mm}
     \begin{alertblock}{\small Note}
         \scriptsize
         Above query can be written in a much simpler manner.  The formulation above is simply to illustrate SQL features.
@@ -1463,7 +1463,7 @@ WHERE
         DELETE FROM instructor;
     \end{minted}
     \pause
-    \vspace{-12mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         Delete all instructors from the Finance department.
     \end{exampleblock}
@@ -1473,7 +1473,7 @@ WHERE
         WHERE dept_name= 'Finance';
     \end{minted}
     \pause
-    \vspace{-12mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         Delete all tuples in the instructor relation for those instructors associated with a department located in the Watson building.
     \end{exampleblock}
@@ -1517,7 +1517,7 @@ WHERE
     VALUES('CS-437', 'Database Systems', 'Comp. Sci.', 4);
     \end{minted}
     \pause
-    \vspace{-12mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         or equivalently.
     \end{exampleblock}
@@ -1527,7 +1527,7 @@ WHERE
     VALUES('CS-437', 'Database Systems', 'Comp. Sci.', 4);
     \end{minted}
     \pause
-    \vspace{-12mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         Add a new tuple to student with \texttt{credits} set to \textbf{null}.
     \end{exampleblock}
@@ -1571,7 +1571,7 @@ WHERE
     SET salary = salary * 1.05;
     \end{minted}
     \pause
-    \vspace{-13mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         Give a 5\% salary raise to those instructors who earn less than 70000.
     \end{exampleblock}
@@ -1583,7 +1583,7 @@ WHERE
     WHERE salary < 70000;
     \end{minted}
     \pause
-    \vspace{-13mm}
+    \vspace{-6mm}
     \begin{exampleblock}{ }
         Give a 5\% salary raise to instructors whose salary is less than average.
     \end{exampleblock}
@@ -1663,7 +1663,7 @@ WHERE
 \section*{Takeaways}
 
 % Tim Duncan's Top 5 Fundamental Takeaways of the Today's Class
-\begin{frame}{TDT5FTOTTC}
+\begin{frame}{TDT5FTOTC}
     \centering
     \includegraphics[width=0.75\textwidth]{figures/tim.png}
 \end{frame}
