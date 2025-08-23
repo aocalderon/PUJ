@@ -1,4 +1,5 @@
 \documentclass{beamer}
+
 \usepackage{graphicx}
 \usepackage{amsmath, esint}
 
@@ -14,6 +15,13 @@
 \usepackage{minted}
 \usepackage{xcolor} 
 \definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+}
+
 
 %\usetheme{Warsaw}
 \usefonttheme{serif} 
@@ -61,7 +69,7 @@
     {
         \tiny
         Content has been extracted from \textit{Database System Concepts}, Seventh Edition, by Silberschatz, Korth and Sudarshan. Mc Graw Hill Education. 2019.\\
-        Visit \url{https://db-book.com/}.\\
+        Visit \href{https://db-book.com/}{db-book.com}.\\
     }
 \end{frame}
 
@@ -1210,7 +1218,7 @@ WHERE
      \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Use of ``exists'' Clause}
+\begin{frame}[fragile]{Use of ``\texttt{EXISTS}'' Clause}
     \begin{itemize}
         \item Yet another way of specifying the query ``Find all courses taught in both the Fall 2017 semester and in the Spring 2018 semester''.
         \begin{minted}
@@ -1232,7 +1240,7 @@ WHERE
     \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Use of ``exists'' Clause}
+\begin{frame}[fragile]{Use of ``\texttt{EXISTS}'' Clause}
     \begin{itemize}
         \item[ ]
         \begin{minted}
@@ -1256,7 +1264,7 @@ WHERE
     \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Use of ``not exists'' Clause}
+\begin{frame}[fragile]{Use of ``\texttt{NOT EXISTS}'' Clause}
     \begin{itemize}
         \item Find all students who have taken all courses offered in the Biology department.
         \begin{minted}
@@ -1279,7 +1287,7 @@ WHERE
     \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Use of ``not exists'' Clause}
+\begin{frame}[fragile]{Use of ``\texttt{NOT EXISTS}'' Clause}
     \begin{itemize}
         \item[ ]
         \begin{minted}
@@ -1299,7 +1307,6 @@ WHERE
                     WHERE S.ID = T.ID )
             );
         \end{minted}
-        \vspace{-5mm}
         \begin{itemize}
             \item First nested query lists all courses offered in Biology.
             \item Second nested query lists all courses a particular student took.
@@ -1437,7 +1444,6 @@ WHERE
         FROM
             department;
     \end{minted}
-    \vspace{-5mm}
     \begin{itemize}
         \item Runtime error if subquery returns more than one result tuple.
     \end{itemize}
@@ -1619,11 +1625,13 @@ WHERE
     Same query as before but with case statement
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
-    UPDATE instructor
-    SET salary = CASE
-        WHEN salary <= 100000 THEN salary * 1.05
-        ELSE salary * 1.03
-    END
+    UPDATE
+        instructor
+    SET
+        salary = CASE
+                    WHEN salary <= 100000 THEN salary * 1.05
+                    ELSE salary * 1.03
+                 END
     \end{minted}
 \end{frame}
 
@@ -1632,9 +1640,13 @@ WHERE
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
     UPDATE student S
-    SET tot_cred = ( SELECT SUM(credits)
-        FROM takes, course
-        WHERE takes.course_id = course.course_id AND
+    SET tot_cred = (
+        SELECT
+            SUM(credits)
+        FROM
+            takes, course
+        WHERE
+            takes.course_id = course.course_id AND
             S.ID = takes.ID AND
             takes.grade <> 'F' AND
             takes.grade IS NOT NULL );
@@ -1705,7 +1717,7 @@ WHERE
     {
         \tiny
         Content has been extracted from \textit{Database System Concepts}, Seventh Edition, by Silberschatz, Korth and Sudarshan. Mc Graw Hill Education. 2019.\\
-        Visit \url{https://db-book.com/}.\\
+        Visit \href{https://db-book.com/}{db-book.com}.\\
     }
 \end{frame}
 
