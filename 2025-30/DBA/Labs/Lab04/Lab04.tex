@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{xcolor}
+
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+    urlcolor=blue
+}
+
+\title{Database Administration \\ Lab 04: ETL: \underline{E}xtraction, \underline{T}ransformation, and \underline{L}oad.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Data integration is a fundamental process in data engineering, enabling organizations to consolidate information from multiple sources into a unified format for analysis and decision-making. In this lab, we will explore the process of extracting, transforming, and loading (ETL) data from heterogeneous sources using \textbf{Pentaho Data Integration (PDI)}.
+
+The lab is structured around a practical scenario in which we collect and process data from \textit{two different sources}:
+
+\begin{enumerate}
+    \item \textbf{GPX files} containing location records of moving entities, including timestamps and object identifiers.
+    \item \textbf{TSV files} containing sensor data with similar attributes.
+\end{enumerate}
+
+The objective of this lab is to demonstrate how to \textit{clean, transform, merge, and load} these datasets into a structured database. We will work with a sample database called `\texttt{sensors}' and create tables (`\texttt{sensor}' and `\texttt{sensor2}') to store the integrated data. The lab will guide you through a step-by-step approach, including:
+
+\begin{itemize}
+    \item Extracting relevant data from the files.
+    \item Cleaning and transforming the data to match the database schema.
+    \item Merging both data sources into a unified dataset.
+    \item Loading the final dataset into the database.
+    \item Correcting data types, such as converting timestamps stored as strings into proper datetime formats.
+\end{itemize}
+
+By the end of this lab, you will have hands-on experience with PDI and an understanding of the ETL workflow. Additionally, you will explore alternative ETL tools and create a tutorial report based on a different data integration solution.
+
+\section{Pentaho Data Integration Installation}
+We will explore two methods for installing PDI: one using the \textit{Nube Privada Javeriana}, which you can replicate on your own machine, and the other using a \href{https://www.docker.com/products/docker-desktop/}{Docker}\footnote{Choose your O.S. in the ``\textbf{Download Docker Desktop}'' button} image from \href{https://hub.docker.com/r/hiromuhota/webspoon/}{hiromuhota/webspoon}. You can follow this \href{https://drive.google.com/file/d/10TFCXvl7-7Xs-pISO8_RyQS0WkicoHhC/view?usp=drive_link}{video} to see the step-by-step procedure.
+
+\section{Data Extraction}
+We will use two data sources and assume that we want to collect data on moving entities. One source is GPX tracks from a GPS device (download the file from \href{https://drive.google.com/file/d/1eyb5l5RjimtkEdgKsqet2AVUfHqBydWK/view?usp=drive_link}{here}). The other data source is sensor data provided in a TSV file (download the file from \href{https://drive.google.com/file/d/13r72OnZu4TZc1HqLNFjZMOkkXk5kWRDt/view?usp=drive_link}{here}).
+
+The GPX file contains 86 locations, including the ID of the moving object and the timestamp when each sample was taken. The TSV file contains 284 records with the same fields. In total, we will load 300 tuples into our database. We will use a dummy sample database named sensors and create two tables (sensor and sensor2) to simulate the loading of records.
+
+We need to clean and extract some data from the files, so please follow these two videos to see the process for the \href{https://drive.google.com/file/d/1-3AYopykAj_XVb12UHlbSCvJ0ozEx8tO/view?usp=sharing}{GPX} file and the \href{https://drive.google.com/file/d/1fNWGFPNufY0PBSzRQeEaHNfhFgpkC29a/view?usp=drive_link}{TSV} file, respectively.
+
+\section{Data Transformation}
+Before loading the data into the database, we need to merge both data sources. To do this, follow this \href{https://drive.google.com/file/d/1Vxy3xEdjDLd5ZCSYHBnQO-yoWGkRpUQD/view?usp=drive_link}{video}, where we explain how to append two different data streams.
+
+\section{Data Load}
+Finally, once we have extracted the data from the files and transformed it according to the schema of our tables, we will proceed with loading the integrated data. Watch this \href{https://drive.google.com/file/d/12NCKeYGPp_vZtaxFOrxBwJY1tjRE9eo7/view?usp=drive_link}{video} for details on the process.
+
+\section{Additional Details}
+You may have noticed that we store the event timestamps as a String data type, which is not the correct approach. In the next \href{https://drive.google.com/file/d/11d7nMsZtGBEPh7BTEz2RDwHsYFVBr7r4/view?usp=drive_link}{video}, we show you how to transform and integrate this particular field attribute. You will need to complete this step on your own.
+
+\section{Individual Work}
+Guess what? In addition to Pentaho Data Integration, there are plenty of alternatives, both open-source and commercial. Read the following \href{https://drive.google.com/file/d/1azz_AAFfquty6bu2YkU9ZqFeTXC2YU0X/view?usp=sharing}{document} and choose one of them. Then, write a well-structured tutorial report similar to the one you just completed, but using your chosen alternative.
+
+We expect you to submit your report by \textbf{September 8, 2025}.
+
+\vspace{5mm}
+Happy Hacking \includesvg[width=4mm]{figures/sunglasses}!
+
+\end{document}
+

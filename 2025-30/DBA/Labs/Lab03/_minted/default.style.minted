@@ -1,4 +1,3 @@
-
 \makeatletter
 \def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
     \let\PYG@ul=\relax \let\PYG@tc=\relax%
@@ -99,4 +98,3 @@
 \def\PYGZlb{[}
 \def\PYGZrb{]}
 \makeatother
-
