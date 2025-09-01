@@ -1460,29 +1460,20 @@ WHERE
 \end{frame}
 
 \begin{frame}[fragile]{Deletion}
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
-        Delete all instructors.
-    \end{exampleblock}
+    Delete all instructors.
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
-        DELETE FROM instructor;
+    DELETE FROM instructor;
     \end{minted}
     \pause
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
-        Delete all instructors from the Finance department.
-    \end{exampleblock}
+    Delete all instructors from the Finance department.
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
         DELETE FROM instructor
         WHERE dept_name= 'Finance';
     \end{minted}
     \pause
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
-        Delete all tuples in the instructor relation for those instructors associated with a department located in the Watson building.
-    \end{exampleblock}
+    Delete all tuples in the instructor relation for those instructors associated with a department located in the Watson building.
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
         DELETE FROM instructor
@@ -1566,22 +1557,16 @@ WHERE
 \end{frame}
 
 \begin{frame}[fragile]{Updates}
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
         Give a 5\% salary raise to all instructors.
-    \end{exampleblock}
-    \vspace{-2mm}
+    \vspace{-3mm}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
     UPDATE instructor
     SET salary = salary * 1.05;
     \end{minted}
     \pause
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
         Give a 5\% salary raise to those instructors who earn less than 70000.
-    \end{exampleblock}
-    \vspace{-2mm}
+    \vspace{-3mm}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
     UPDATE instructor
@@ -1589,11 +1574,8 @@ WHERE
     WHERE salary < 70000;
     \end{minted}
     \pause
-    \vspace{-6mm}
-    \begin{exampleblock}{ }
         Give a 5\% salary raise to instructors whose salary is less than average.
-    \end{exampleblock}
-    \vspace{-2mm}
+    \vspace{-3mm}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{sql}
     UPDATE instructor
@@ -1690,25 +1672,6 @@ WHERE
         \item[1] \textbf{SQL Basics and Structure:} SQL is a standardized language used for querying and managing relational databases using commands like SELECT, FROM, and WHERE.
     \end{enumerate}
 \end{frame}
-
-% \section*{Takeaways}
-% 
-% % Tim Duncan's Top 5 Fundamental Takeaways of the Today's Class
-% \begin{frame}{TDT5FTOTTC}
-%     \centering
-%     \includegraphics[width=0.75\textwidth]{figures/tim.png}
-% \end{frame}
-% 
-% \begin{frame}{Top 5 Fundamental Takeaways}
-%     \small
-%     \begin{enumerate} \pause
-%         \item[5] \textbf{}. \pause
-%         \item[4] \textbf{}. \pause
-%         \item[3] \textbf{}. \pause
-%         \item[2] \textbf{}. \pause
-%         \item[1] \textbf{}.
-%     \end{enumerate}
-% \end{frame}
 
 \begin{frame}{Database System Concepts}
     \centering
