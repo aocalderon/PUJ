@@ -90,6 +90,8 @@
     }
 \end{frame}
 
+\section{Introduction}
+
 \begin{frame}{Introduction}
     \begin{itemize}
         \item Regular backups are crucial for database administration.
@@ -97,6 +99,8 @@
         \item PostgreSQL provides multiple backup and restore tools.
     \end{itemize}
 \end{frame}
+
+\section{Types of Backups}
 
 \begin{frame}{Types of Backups}
     \begin{itemize}
@@ -109,6 +113,8 @@
     \centering
     \includegraphics[width=\textwidth]{figures/backup_types}
 \end{frame}
+
+\subsection{Physical}
 
 \begin{frame}{Physical Backup}
     \begin{itemize}
@@ -167,6 +173,8 @@ archive_command = 'copy "%p" "C:\\server\\archivedir\\%f"' # Windows
     \end{itemize}
 \end{frame}
 
+\subsection{Logical}
+
 \begin{frame}{Logical Backup}
     \begin{itemize}
         \item Exports data in SQL format.
@@ -200,6 +208,8 @@ archive_command = 'copy "%p" "C:\\server\\archivedir\\%f"' # Windows
         \item Point-in-Time Recovery (PITR) is not supported.
     \end{itemize}
 \end{frame}
+
+\section{Types of Restore}
 
 \begin{frame}{Types of Restore}
     \centering
@@ -237,7 +247,23 @@ archive_command = 'copy "%p" "C:\\server\\archivedir\\%f"' # Windows
     \textit{We will next review some of the most popular open-source tools, their options, and how to perform a backup and restore.}
 \end{frame}
 
-\begin{frame}{Advanced Backup Tools}
+\section{Advanced Backup Tools}
+
+\begin{frame}{BiT}
+    \centering
+    \href{https://youtu.be/ur57IunS9To?si=-SAIS_yF9kMLX_mg}{
+        \includegraphics[width=0.5\textwidth]{figures/BiT}
+    }
+\end{frame}
+
+\begin{frame}{BiT}
+    \centering
+    \href{https://backintime.readthedocs.io/en/latest/}{
+        \includegraphics[width=0.8\textwidth]{figures/BackInTime}
+    }
+\end{frame}
+
+\begin{frame}{pgBackRest}
     \textbf{pgBackRest}
     \begin{itemize}
         \item Supports full, incremental, and differential backups.
