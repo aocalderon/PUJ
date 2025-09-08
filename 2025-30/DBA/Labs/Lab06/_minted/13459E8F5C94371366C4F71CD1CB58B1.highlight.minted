@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{INDEX}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{post}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{account\PYGZus{}id}\PYG{p}{)}\PYG{p}{;}
-\end{MintedVerbatim}

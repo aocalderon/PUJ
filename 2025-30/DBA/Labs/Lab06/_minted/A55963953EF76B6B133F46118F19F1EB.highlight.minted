@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k}{EXPLAIN}\PYG{+w}{ }\PYG{k}{ANALYZE}
-\PYG{k}{SELECT}
-\PYG{+w}{	}\PYG{o}{*}
-\PYG{k}{FROM}
-\PYG{+w}{	}\PYG{n}{post}
-\PYG{k}{WHERE}
-\PYG{+w}{	}\PYG{n}{account\PYGZus{}id}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
-\end{MintedVerbatim}
