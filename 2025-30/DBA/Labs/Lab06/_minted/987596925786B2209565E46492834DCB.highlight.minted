@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{words}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{word}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{p}{)}\PYG{p}{;}
+\PYG{k}{COPY}\PYG{+w}{ }\PYG{n}{words}\PYG{p}{(}\PYG{n}{word}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}/usr/share/dict/words\PYGZsq{}}\PYG{p}{;}
+\end{MintedVerbatim}

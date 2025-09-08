@@ -1,0 +1,22 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{account}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{	}\PYG{n}{account\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{SERIAL}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{name}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{dob}\PYG{+w}{ }\PYG{n+nb}{DATE}
+\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{thread}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{	}\PYG{n}{thread\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{SERIAL}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{account\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{account}\PYG{p}{(}\PYG{n}{account\PYGZus{}id}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{title}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}
+\PYG{p}{)}\PYG{p}{;}
+
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{post}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{	}\PYG{n}{post\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{SERIAL}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{thread\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{thread}\PYG{p}{(}\PYG{n}{thread\PYGZus{}id}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{account\PYGZus{}id}\PYG{+w}{ }\PYG{n+nb}{INTEGER}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{account}\PYG{p}{(}\PYG{n}{account\PYGZus{}id}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{created}\PYG{+w}{ }\PYG{k}{TIMESTAMP}\PYG{+w}{ }\PYG{k}{WITH}\PYG{+w}{ }\PYG{k}{TIME}\PYG{+w}{ }\PYG{k}{ZONE}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{DEFAULT}\PYG{+w}{ }\PYG{n}{NOW}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}
+\PYG{+w}{	}\PYG{n}{visible}\PYG{+w}{ }\PYG{n+nb}{BOOLEAN}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{DEFAULT}\PYG{+w}{ }\PYG{k}{TRUE}\PYG{p}{,}
+\PYG{+w}{	}\PYG{k}{comment}\PYG{+w}{ }\PYG{n+nb}{TEXT}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}
+\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}
