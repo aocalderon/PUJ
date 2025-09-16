@@ -37,7 +37,22 @@ By the end of this lab, you will have a practical understanding of how indexing 
 
 This lab is based on the work presented in this \href{https://youtu.be/clrtT_4WBAw?si=Q5Rmt7YVsykuS715}{video} by Curtis Maloney\footnote{Curtis Maloney, 2018. \textit{PostgreSQL Indexing: How, Why, and When}. PyCon Australia. Sydney, August 24–28 2018. Available at \url{https://2018.pycon-au.org/talks/42913-postgresql-indexing-how-why-and-when/}}. We will share the first part here, and then you can continue on your own.
 
-\section{Generating Random Data}
+\section{Homework}
+In this first section, we will address the homework proposed in class. Specifically, the task is to \textit{summarize the sections describing the three types of extended statistics, each of which captures a different kind of correlation among column values:}
+
+\begin{enumerate}
+  \item \textit{Functional dependencies}
+  \item \textit{Number of distinct values (NDV) counts}
+  \item \textit{Most common values (MCV) lists}
+\end{enumerate}
+
+These topics are covered in Chapter 13 of \textit{PostgreSQL for Jobseekers} (2023), by Sonia Valeja and David Gonzales, starting on page~243. You are expected to {\Large \textbf{handwrite}} a concise summary of these points, scan the handwritten work, and append it to the report. Only one summary is required for submission.
+
+\section{Data Generation and Performance Evaluation}
+In this section, we will first generate a dataset to simulate the activity of a forum with accounts, threads, and posts. This synthetic data will provide the foundation for executing a set of predefined queries. Once the data is in place, we will measure the performance of these queries both before and after applying indexes.
+By comparing execution times using the \texttt{EXPLAIN ANALYZE} command in PostgreSQL, we will gain practical insights into how indexing strategies improve query efficiency. This integrated approach will allow us to connect the process of data generation directly with its impact on query performance.
+
+\subsection{Generating Random Data}
 We first create a simple schema consisting of three tables to store information about user accounts, conversation threads, and posts made by users in a hypothetical website forum. You must create and connect to a database called \texttt{posts}. Once in the \texttt{PostgreSQL} prompt, you will create the schema for the tables as follows:
 
 \begin{minted}
@@ -117,7 +132,7 @@ INSERT INTO post (thread_id, account_id, created, visible, comment)
 
 That will be enough. We are done here.
 
-\section{Measuring Performance Without and With Indexes}
+\subsection{Measuring Performance Without and With Indexes}
 We will now address the following queries and evaluate their response times.
 
 \begin{enumerate}
@@ -189,12 +204,12 @@ Then, let's re-run \texttt{EXPLAIN ANALYZE} and examine the new results:
 
 Not bad at all! From here, you can continue watching the \href{https://youtu.be/clrtT_4WBAw?si=Q5Rmt7YVsykuS715}{video} and completing the remaining four queries. Be sure to track the execution time both before and after index creation, and then plot a graph to visually compare the performance of the queries with the best index implementation.
 
-Use your preferred statistical software (e.g., R, MATLAB, etc.) to generate the graph.
+Use your preferred statistical software (e.g., R, Octave, Python, Scilab, Gnuplot, Grace, Veusz, etc.) to generate the graph.
 
 \section{Individual Work}
 As before, we will explore a similar approach but in a different environment. For this week's individual work, you will choose another DBMS (different to PostgreSQL) and investigate how it implements indexing, as well as the difference in performance before and after its implementation for the same five queries. Use the same dataset from this tutorial to gain a comprehensive understanding.
 
-We expect you to submit your report by \textbf{September 22, 2025} at \textbf{2:00pm} via Brightspace\texttrademark.
+We expect you to submit your report by \textbf{September 29, 2025} at \textbf{2:00pm} via Brightspace\texttrademark.
 
 \vspace{5mm}
 Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
