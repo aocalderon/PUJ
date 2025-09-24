@@ -75,7 +75,7 @@ By completing this project, you will:
   adjacent sectors).
 \end{itemize}
 
-\section{Data Model (Conceptual $\rightarrow$ Logical)}
+\section{Data Model (Conceptual \textrightarrow Logical)}
 
 \subsection*{Conceptual ER (deliverable)}
 Produce an ER diagram capturing main relationships.  For example:
@@ -89,135 +89,6 @@ Produce an ER diagram capturing main relationships.  For example:
     \item \texttt{UXInstrument}--\texttt{UXItem}--\texttt{UXResponseItem} .
   \end{itemize}
 
-% \subsection{Starter Logical Schema (proposed)}
-% You may refine names/types; justify changes in your report.
-% \begin{minted}[fontsize=\small, breaklines]{sql}
-% -- Core identity
-% CREATE TABLE "User" (
-%   user_id        SERIAL PRIMARY KEY,
-%   email          CITEXT UNIQUE NOT NULL,
-%   nickname       TEXT,
-%   age_years      INT CHECK (age_years BETWEEN 16 AND 99),
-%   gender         TEXT CHECK (gender IN ('female','male','nonbinary','prefer_not')),
-%   experience_yrs NUMERIC(4,1) CHECK (experience_yrs >= 0),
-%   consent_signed BOOLEAN NOT NULL DEFAULT FALSE,
-%   created_at     TIMESTAMPTZ NOT NULL DEFAULT now()
-% );
-%
-% CREATE TABLE Player (
-%   player_id      SERIAL PRIMARY KEY,
-%   user_id        INT REFERENCES "User"(user_id) ON DELETE SET NULL,
-%   handle         TEXT NOT NULL,
-%   created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
-%   UNIQUE (user_id, handle)
-% );
-%
-% -- Game/session + roster
-% CREATE TABLE Game (
-%   game_id        UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-%   started_at     TIMESTAMPTZ NOT NULL,
-%   ended_at       TIMESTAMPTZ,
-%   engine_version TEXT NOT NULL,
-%   wad            TEXT,          -- IWAD/PWAD name(s)
-%   config_hash    TEXT,          -- settings hash
-%   episode        INT NOT NULL,
-%   map_code       TEXT NOT NULL  -- e.g., E1M1, MAP05
-% );
-%
-% CREATE TABLE GameParticipant (
-%   game_id   UUID REFERENCES Game(game_id) ON DELETE CASCADE,
-%   player_id INT  REFERENCES Player(player_id) ON DELETE CASCADE,
-%   team      TEXT,
-%   role      TEXT,
-%   PRIMARY KEY (game_id, player_id)
-% );
-%
-% -- Level geometry
-% CREATE TABLE Map (
-%   episode     INT,
-%   map_code    TEXT,
-%   title       TEXT,
-%   PRIMARY KEY (episode, map_code)
-% );
-%
-% CREATE TABLE Sector (
-%   episode     INT,
-%   map_code    TEXT,
-%   sector_id   INT,
-%   floor_z     INT,
-%   ceiling_z   INT,
-%   tag         INT,
-%   PRIMARY KEY (episode, map_code, sector_id),
-%   FOREIGN KEY (episode, map_code) REFERENCES Map(episode, map_code) ON DELETE CASCADE
-% );
-%
-% -- Time base
-% CREATE TABLE TicTime (
-%   tic              BIGINT PRIMARY KEY, -- global or per-game tick; choose one model
-%   ms_from_start    INT NOT NULL
-% );
-%
-% -- Telemetry at high frequency
-% CREATE TABLE TelemetryEvent (
-%   game_id     UUID NOT NULL REFERENCES Game(game_id) ON DELETE CASCADE,
-%   tic         BIGINT NOT NULL, -- consider composite PK (game_id, tic, player_id)
-%   player_id   INT NOT NULL REFERENCES Player(player_id) ON DELETE CASCADE,
-%   pos_x       NUMERIC(10,3) NOT NULL,
-%   pos_y       NUMERIC(10,3) NOT NULL,
-%   pos_z       NUMERIC(10,3) NOT NULL,
-%   angle_deg   NUMERIC(6,2)  NOT NULL CHECK (angle_deg >= 0 AND angle_deg < 360),
-%   mom_x       NUMERIC(10,4),
-%   mom_y       NUMERIC(10,4),
-%   fov_deg     NUMERIC(5,2),
-%   health      INT CHECK (health BETWEEN 0 AND 200),
-%   armor       INT CHECK (armor BETWEEN 0 AND 200),
-%   ammo_shell  INT CHECK (ammo_shell >= 0),
-%   ammo_rocket INT CHECK (ammo_rocket >= 0),
-%   sector_id   INT,
-%   episode     INT,
-%   map_code    TEXT,
-%   PRIMARY KEY (game_id, tic, player_id),
-%   FOREIGN KEY (episode, map_code, sector_id)
-%     REFERENCES Sector(episode, map_code, sector_id) ON DELETE SET NULL
-% );
-%
-% -- UX instruments and responses
-% CREATE TABLE UXInstrument (
-%   instrument_id  SERIAL PRIMARY KEY,
-%   code           TEXT UNIQUE NOT NULL CHECK (code IN ('PENS','GUESS','BANGS')),
-%   title          TEXT NOT NULL,
-%   version        TEXT,
-%   license_url    TEXT
-% );
-%
-% CREATE TABLE UXItem (
-%   item_id        SERIAL PRIMARY KEY,
-%   instrument_id  INT NOT NULL REFERENCES UXInstrument(instrument_id) ON DELETE CASCADE,
-%   item_code      TEXT NOT NULL,
-%   prompt         TEXT NOT NULL,
-%   min_val        INT NOT NULL,
-%   max_val        INT NOT NULL,
-%   reverse_scored BOOLEAN NOT NULL DEFAULT FALSE,
-%   UNIQUE (instrument_id, item_code)
-% );
-%
-% CREATE TABLE UXResponse (
-%   response_id    UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-%   user_id        INT NOT NULL REFERENCES "User"(user_id) ON DELETE CASCADE,
-%   instrument_id  INT NOT NULL REFERENCES UXInstrument(instrument_id),
-%   taken_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
-%   notes          TEXT,
-%   CHECK (taken_at <= now())
-% );
-%
-% CREATE TABLE UXResponseItem (
-%   response_id UUID NOT NULL REFERENCES UXResponse(response_id) ON DELETE CASCADE,
-%   item_id     INT NOT NULL REFERENCES UXItem(item_id) ON DELETE CASCADE,
-%   value_int   INT NOT NULL,
-%   PRIMARY KEY (response_id, item_id)
-% );
-% \end{minted}
-
 \paragraph{Indexing Suggestions (implement and evaluate).}
 \begin{minted}[fontsize=\small]{sql}
   CREATE INDEX ON TelemetryEvent (game_id, player_id, tic);
@@ -228,13 +99,6 @@ Produce an ER diagram capturing main relationships.  For example:
 
 \section{Data Ingestion (ETL) Guidance}
 Assume the hacked engine emits TSV lines.
-
-% \begin{minted}[fontsize=\small]{text}
-% {"game_id":"...","tic":12345,"player":"doomguy","pos":{"x":-102.5,"y":88.0,"z":0},
-%  "angle":270.0,"mom":{"x":0.1,"y":-0.03},"fov":90.0,
-%  "stats":{"hp":57,"armor":25,"shell":8,"rocket":0},
-%  "episode":1,"map":"E1M1","sector":37,"ts":"2025-09-10T14:12:04.123Z"}
-% \end{minted}
 
 \noindent \textbf{Recommended pipeline:}
 \begin{enumerate}[leftmargin=*]
@@ -248,79 +112,8 @@ Assume the hacked engine emits TSV lines.
 \subsection*{Movement Trends}
 TBA
 
-% \begin{minted}[fontsize=\small]{sql}
-% -- Average speed per player per game (approx via finite differences)
-% WITH step AS (
-%   SELECT game_id, player_id, tic,
-%          pos_x, pos_y,
-%          LAG(pos_x) OVER (PARTITION BY game_id, player_id ORDER BY tic) AS px_prev,
-%          LAG(pos_y) OVER (PARTITION BY game_id, player_id ORDER BY tic) AS py_prev
-%   FROM TelemetryEvent
-% )
-% SELECT game_id, player_id,
-%        AVG( sqrt( (pos_x - px_prev)^2 + (pos_y - py_prev)^2 ) ) AS mean_step
-% FROM step
-% WHERE px_prev IS NOT NULL
-% GROUP BY game_id, player_id
-% ORDER BY mean_step DESC;
-% \end{minted}
-%
-% \subsection*{Heatmap by Sector}
-% \begin{minted}[fontsize=\small]{sql}
-% SELECT episode, map_code, sector_id, COUNT(*) AS ticks_in_sector
-% FROM TelemetryEvent
-% GROUP BY episode, map_code, sector_id
-% ORDER BY ticks_in_sector DESC;
-% \end{minted}
-%
-% \subsection*{Cooperation Proxy (Proximity)}
-% \begin{minted}[fontsize=\small]{sql}
-% -- Players within D units for >= K consecutive tics
-% WITH pairs AS (
-%   SELECT t1.game_id, t1.tic, t1.player_id AS p1, t2.player_id AS p2,
-%          sqrt( (t1.pos_x - t2.pos_x)^2 + (t1.pos_y - t2.pos_y)^2 ) AS dist
-%   FROM TelemetryEvent t1
-%   JOIN TelemetryEvent t2
-%     ON t1.game_id = t2.game_id AND t1.tic = t2.tic AND t1.player_id < t2.player_id
-% )
-% , close AS (
-%   SELECT *, (dist <= 128.0) AS close_flag
-%   FROM pairs
-% )
-% , runs AS (
-%   SELECT game_id, p1, p2, tic,
-%          close_flag,
-%          tic - ROW_NUMBER() OVER (PARTITION BY game_id, p1, p2 ORDER BY tic) AS grp
-%   FROM close
-%   WHERE close_flag
-% )
-% SELECT game_id, p1, p2, MIN(tic) AS start_tic, MAX(tic) AS end_tic,
-%        COUNT(*) AS consecutive_tics
-% FROM runs
-% GROUP BY game_id, p1, p2, grp
-% HAVING COUNT(*) >= 20  -- K threshold
-% ORDER BY consecutive_tics DESC;
-% \end{minted}
-
 \subsection*{Linking UX to Behavior}
 TBA
-
-% \begin{minted}[fontsize=\small]{sql}
-% -- Example: correlate mean speed with BANGS competence subscale (precomputed)
-% SELECT u.user_id, r.response_id, s.score AS bangs_competence, m.mean_step
-% FROM "User" u
-% JOIN UXResponse r ON r.user_id = u.user_id
-% JOIN UXScore s   ON s.response_id = r.response_id AND s.subscale = 'competence'
-% JOIN (
-%   SELECT gp.player_id, AVG( sqrt( (pos_x - LAG(pos_x) OVER w)^2
-%                                 + (pos_y - LAG(pos_y) OVER w)^2 ) ) AS mean_step
-%   FROM TelemetryEvent
-%   WINDOW w AS (PARTITION BY game_id, player_id ORDER BY tic)
-%   GROUP BY gp.player_id
-% ) m ON m.player_id IN (SELECT player_id FROM Player WHERE user_id = u.user_id);
-% \end{minted}
-%
-% \noindent(\emph{Note}: define a small \texttt{UXScore} table or a view computing subscales per instrument.)
 
 \section{Project Tasks \& Deliverables}
 
@@ -380,20 +173,6 @@ Report quality (clarity, organization, reproducibility) & 5 \\
 \bottomrule
 \end{tabular}
 \end{center}
-
-% \section{Starter Inserts (Optional)}
-% \begin{minted}[fontsize=\small]{sql}
-% INSERT INTO UXInstrument (code, title, version, license_url)
-% VALUES
-%   ('BANGS','Basic Needs in Games','1.0','https://...'),
-%   ('PENS','Player Experience of Need Satisfaction','1.0','https://...'),
-%   ('GUESS','Game User-Experience Satisfaction','1.0','https://...');
-%
-% -- Example BANGS items (illustrative; replace with official wording/range)
-% INSERT INTO UXItem (instrument_id, item_code, prompt, min_val, max_val, reverse_scored)
-% SELECT instrument_id, 'B1', 'I felt competent while playing', 1, 7, FALSE
-% FROM UXInstrument WHERE code='BANGS';
-% \end{minted}
 
 \section{Bonus}
 \begin{itemize}[leftmargin=*]
