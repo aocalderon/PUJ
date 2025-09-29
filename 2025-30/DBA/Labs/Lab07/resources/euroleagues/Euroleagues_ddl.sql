@@ -79,9 +79,5 @@ CREATE TABLE IF NOT EXISTS public.matches (
     CONSTRAINT matches_home_team_id_fkey FOREIGN KEY (home_team_id)
         REFERENCES public.teams (team_api_id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT matches_league_id_fkey FOREIGN KEY (league_id)
-        REFERENCES public.leagues (league_id) MATCH SIMPLE
-        ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
