@@ -874,7 +874,7 @@
         \item \textbf{Recurrence}:
         \begin{equation*}
             \begin{align*}
-                d_{uv}^{(m)} &= min( d_{uv}^{(m - 1)} + w(x, v) & \text{ for } x \in V) \\
+                d_{uv}^{(m)} &= min( d_{ux}^{(m - 1)} + w(x, v) & \text{ for } x \in V) \\
                 d_{uv}^{(0)} &=
                     \begin{cases}
                         0 & \text{ if } u = v. \\
@@ -883,7 +883,7 @@
             \end{align*}
         \end{equation*} \pause
         \item \textbf{Topological ordering}: for $m = 0, 1, 2, . . . , n - 1$: for $u$ and $v$ in $V$. \pause
-        \item \textbf{Original problem}: If graph contains no negative-weight cycles (by Bellman-Ford analysis), then shortest path is simple $\Rightarrow \delta(u, v) = d_{uv}^{(n - 1)} = d_{uv}^{(n)} = \cdots$
+        \item \textbf{Original problem}: If graph contains no negative-weight cycles (by Bellman-Ford analysis), then shortest path is simple $\Rightarrow \delta(u, v) = d_{uv}^{(n)} = d_{uv^\prime}^{(n - 1)} = \cdots$
     \end{enumerate}
 \end{frame}
 
@@ -932,7 +932,8 @@
 
 \begin{frame}{Matrix Multiplication Algorithm}
     \begin{itemize}
-        \item $n - 2$ multiplications $\Rightarrow O(n^4)$ time (still no better). \pause
+        % $n - 2$ multiplications
+        \item $\Rightarrow O(n^4)$ time (still no better). \pause
         \item Repeated squaring: $((W^2)^2)^{2 \cdots}$ \pause $= W^{2^{\lg n}}$ \pause $= W^{n - 1} = (\delta(i, j))$ if no negative-weight cycles. \pause
         \item Time complexity of this algorithm is now \textcolor{red}{$O(n^3 \lg n)$}.
     \end{itemize}
