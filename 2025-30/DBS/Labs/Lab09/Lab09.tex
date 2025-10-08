@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue
+}
+
+\title{Databases \\ Lab 09: A still `gentle' Introduction to E-R Modelling Exercises.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In this lab, we will reinforce our understanding of Entity-Relationship (E-R) modelling through a set of practical exercises. You will begin by reviewing and comparing your own solutions to guided examples. Then, you will apply your skills independently by designing E-R diagrams based on real-world business scenarios. This hands-on approach is intended to strengthen your ability to interpret business rules and translate them into clear and structured data models.
+
+\section{Try and Error} \label{sec:try}
+In this first section, the idea is very simple. You will be presented with two statements, and we expect you to build an E-R model from scratch for each of them. However, you will have access to a draft of the solution on the following pages. Please do not look at the draft until you have completed your own version. Don’t worry, there are no wrong answers here. The goal is for you to practice and have the opportunity to compare your responses with a reference.
+
+The statements are as follows, and possible solutions are shown in Figures~\ref{fig:agents} and~\ref{fig:shifts}.
+
+\begin{enumerate}
+    \item \textbf{Management of real estate agent mandates:} \\
+    You are requested to design the database for the management of agent mandates at some real estate agencies. The database must contain a list of agents. Agents are identified by the Tax ID, they are characterized by their full name, the telephone number, and they may have an e-mail address. Each agent covers one or more geographical areas. Every geographical area is identified by the main city and it is characterized by the list of possible other municipalities included in the area, by the total number of inhabitants, and by the territorial area in square kilometers. The database must contain a list of real estate agencies. \\
+
+    Real estate agencies are identified by an unique identifier, and they are characterized by an address. Agencies can be either independent or franchised. For what it concerns independent agencies, the Tax ID of the business owner is known. Regarding the franchised agencies, only the name of the retail chain which they belong to is known. You are requested to keep track of all the mandates that agencies gave to their agents. An agent can be given more mandates from the same agency at separate times. An agency may have given more mandates to the same agent at different times. An agent can simultaneously have mandates from different agencies. You are requested to keep track of the start date, the end date, and the type of each mandate.
+
+    \item \textbf{Management of staff shifts in company buildings:} \\
+    You are requested to design the database for the management of staff shifts in different company buildings. The database must contain a list of employees. Employees are identified by a unique code within the company, they are characterized by their name, email address, and the list of qualifications. Employees can be either factory workers or clerks; for clerks their role is known. The database must contain the list of the company buildings, which are identified by a unique code and characterized by their address and the list of telephone numbers. \\
+
+    You are requested to keep track of all the work shifts of each employee at the various buildings. A work shift is characterized by a date, a start time and an end time, the building where it takes place, and it can be either ordinary or overtime. A shift is associated with only one employee and one building. The same employee can have work shifts in different buildings; however, an employee can work only one shift on each day.
+\end{enumerate}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/agents.png}
+    \caption{E-R Diagram for real state agent mandates.}
+    \label{fig:agents}
+\end{figure}
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=\textwidth]{figures/shifts.png}
+    \caption{E-R Diagram for staff shifts in company buildings.}
+    \label{fig:shifts}
+\end{figure}
+
+\section{Exercises} \label{sec:exercises}
+Okay! For the next exercises, you are on your own. You will have to create the E-R diagram for the following two statements:
+
+\begin{enumerate}
+    \item We want to design the database for the management of maintenance inspections executed by workers at different machinery. The database must contain a list of workers. The workers are identified by a unique code and are characterized by their name, surname, and may have a telephone number. Each worker is assigned to one or more products. Each product is identified by the bar code and is characterized by the list of categories to which it belongs, the duration in hours of its production process and the cost. The database must contain a list of machinery. Each machinery is identified by a unique code and is characterized by a brand and a model.
+
+    The machinery can be either production machinery or quality control machinery. For production machinery, the maximum energy consumption is known. The quality parameter is known for quality control machinery. You are requested to keep track of all the maintenance inspections that workers have carried out on the various machinery. A worker can carry out multiple inspections on the same machinery at different times. A machinery can receive multiple inspections from the same worker at different times. At the same time, a worker can have multiple inspections on different machinery in progress. You are requested to keep track of the start date and time, and the end date and time of each inspection.
+
+    \item Create an E-R diagram for a car dealership. The dealership sells both new and used cars and operates a service facility. Base your design on the following business rules:
+
+        \begin{itemize}
+            \item A salesperson may sell many cars, but each car is sold by only one salesperson.
+            \item A customer may buy many cars, but each car is bought by only one customer.
+            \item A salesperson writes a single invoice for each car he or she sells.
+            \item A customer receives an invoice for each car he or she buys.
+            \item A customer may come in just to have his or her car serviced; that is, a customer need not buy a car to be classified as a customer.
+            \item When a customer brings one or more cars in for repair or service, one service ticket is written for each car.
+            \item The car dealership maintains a service history for each of the cars it services. The service records are referenced by the car’s serial number.
+            \item A car brought in for service can be worked on by many mechanics, and each mechanic may work on several cars.
+            \item A car that is serviced may or may not need parts (e.g., adjusting a carburetor or cleaning a fuel injector nozzle does not require new parts).
+        \end{itemize}
+\end{enumerate}
+
+\section{What Do We Expect?}
+You do not need to submit the diagrams for Section~\ref{sec:try}, only for Section~\ref{sec:exercises}. Please include your diagrams in a well-structured report and submit it before \textbf{October 22, 2025}. Submit your report in \textbf{PDF format} via the corresponding Brightspace\texttrademark ~assignment.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+

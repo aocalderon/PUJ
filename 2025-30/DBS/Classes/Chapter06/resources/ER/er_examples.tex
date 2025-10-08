@@ -2,10 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{geometry}
+\usepackage{amsmath}
 \geometry{margin=1in}
+\numberwithin{figure}{section}
 
-\title{Database Design: Solved Problems}
-\author{Adoración de Miguel Castaño}
+\title{Database Design: Solved Problems\footnote{Extracted and translated from \textit{``Diseño de Bases de Datos: Problemas Resueltos''} by Adoración de Miguel, Paloma Martínez, Elena Castro, José Cavero, Dolores Cuadra, Ana Iglesias and Carlos Nieto.  Editorial $RaMa^{\text{\textregistered}}$. September 2000.}}
+\author{de Miguel et. al.}
 \date{September 2000}
 
 \begin{document}
@@ -16,26 +18,29 @@
 
 \subsection{Introduction}
 
-\subsubsection{Methodological guides to approach the resolution of problems}
+\subsubsection{
+    Methodological guides to approach the resolution of problems
+}
 
 The elaboration of an E-R scheme that captures the semantics of a certain Universe of Discourse is a creative process for which there is no defined procedure.  However, it is possible to follow a series of recommendations or heuristics that help us in the design. These recommendations are not rules that always work but in some cases are appropriate and in others not.
 
 \subsubsection{
-Some Heuristics for the Identification of the Different Constructs}
+    Some Heuristics for the Identification of the Different Constructs
+}
 
-In the first proposal of the E-R Model (Chen, 1976), only three classes of objects are distinguished: entities, attributes, and relationships. The model that will be used in the conceptual modeling phase in the exercises of this book is the extended E-R model that adds to the basic model a set of constructs that help to collect more semantics of the universe of discourse (minimum and maximum cardinalities in relationships, generalizations, dependence in existence and identification, etc.).  It is not really a single model but a family of models, since each author specializes it and adds different constructs to it.  The complete description of this model is found in De Miguel et al. (1999). In this section, the constructs that make up the extended E-R model will be briefly explained in order to facilitate the understanding of the problems.
+In the first proposal of the E-R Model \cite{chen1976entity}, only three classes of objects are distinguished: entities, attributes, and relationships. The model that will be used in the conceptual modeling phase in the exercises of this book is the extended E-R model that adds to the basic model a set of constructs that help to collect more semantics of the universe of discourse (minimum and maximum cardinalities in relationships, generalizations, dependence in existence and identification, etc.).  It is not really a single model but a family of models, since each author specializes it and adds different constructs to it.  The complete description of this model is found in \cite{demiguel1999fundamentos}. In this section, the constructs that make up the extended E-R model will be briefly explained in order to facilitate the understanding of the problems.
 
 Entities are the main objects about which information should be collected and generally denote people, places, things, or events of interest.  Entities will usually appear in the statement as nouns.  Each of the possible occurrences (each specific person, place, thing, or event) of the entity is called an instance.
 
 Attributes are used to detail entities by assigning them descriptive properties such as name, color, and weight.  There are two types of attributes: identifiers and descriptors.  The former are used to uniquely distinguish each of the occurrences of an entity (distinguishing between Primary Identifiers and Alternative Identifiers), while the descriptors are used to describe an entity occurrence.  It is not only possible to specify attributes in entities but also in relationships (in this case it only makes sense to talk about descriptive attributes and not identifiers).  Attributes will also be reflected in the statement, generally, as nouns.
 
-In relation to attributes, there is also the concept of a domain (a set of values over which the attribute is defined).  Although they can be represented explicitly in the E-R schemes (as shown in the following section where the notations are reflected), in the problems of this book it will be considered that the domain takes the same name as the attribute.  For example, the \texttt{EMPLOYEE} entity may have the \textit{"Marital Status"} attribute defined on the \textit{"Marital Statuses"} domain (composed of the values Single, Married, Widowed, Divorced) and whose two possible representations in the E-R scheme are shown in figure 1.1.
+In relation to attributes, there is also the concept of a domain (a set of values over which the attribute is defined).  Although they can be represented explicitly in the E-R schemes (as shown in the following section where the notations are reflected), in the problems of this book it will be considered that the domain takes the same name as the attribute.  For example, the \texttt{EMPLOYEE} entity may have the \textit{``Marital Status"} attribute defined on the \textit{``Marital Statuses"} domain (composed of the values Single, Married, Widowed, Divorced) and whose two possible representations in the E-R scheme are shown in figure 1.1.
 
 \begin{figure}
     \centering
     % Placeholder for Figure 1.1
     \includegraphics[width=0.8\textwidth]{figures/fig1}
-    \caption{Representation of domains. The image shows two ways to represent the relationship between an \texttt{EMPLOYEE} entity and their \textit{Marital Status}. The left diagram shows \textit{"Estado Civil"} (Marital Status) as an attribute of \texttt{EMPLOYEE}. The right diagram shows \textit{"Estados Civiles"} (Marital Statuses) as a separate entity connected to \texttt{EMPLOYEE} by a relationship labeled \textit{"Estado Civil"}.}
+    \caption{Representation of domains. The image shows two ways to represent the relationship between an \texttt{EMPLOYEE} entity and their \textit{Marital Status}. The left diagram shows \textit{``Estado Civil"} (Marital Status) as an attribute of \texttt{EMPLOYEE}. The right diagram shows \textit{``Estados Civiles"} (Marital Statuses) as a separate entity connected to \texttt{EMPLOYEE} by a relationship labeled \textit{``Estado Civil"}.}
     \label{fig:fig1.1}
 \end{figure}
 
@@ -51,17 +56,17 @@ A construct that extends the semantics collected in a relationship is the cardin
     \centering
     % Placeholder for Figure 1.2
     \includegraphics[width=0.8\textwidth]{figures/fig2}
-    \caption{Example of minimum and maximum cardinalities. The diagram shows a "participar" (\textit{participate}) relationship between \texttt{PROJECT} and \texttt{EMPLOYEE}. The notation (1,N) on the \texttt{EMPLOYEE} side indicates that a \texttt{PROJECT} instance is related to one or more \texttt{EMPLOYEE} instances. The notation (0,1) on the \texttt{PROJECT} side indicates that an \texttt{EMPLOYEE} instance is related to zero or one \texttt{PROJECT} instances.}
+    \caption{Example of minimum and maximum cardinalities. The diagram shows a ``participar" (\textit{participate}) relationship between \texttt{PROJECT} and \texttt{EMPLOYEE}. The notation (1,N) on the \texttt{EMPLOYEE} side indicates that a \texttt{PROJECT} instance is related to one or more \texttt{EMPLOYEE} instances. The notation (0,1) on the \texttt{PROJECT} side indicates that an \texttt{EMPLOYEE} instance is related to zero or one \texttt{PROJECT} instances.}
     \label{fig:fig1.2}
 \end{figure}
 
 In the statements, the appearance of verbs may indicate, in some cases, the existence of a relationship in the E-R scheme.
 
-As for generalizations, they provide us with an abstraction mechanism that allows specializing an entity (which will be called a supertype) into subtypes, or what is the same, generalizing the subtypes into the supertype.  In this way we see a set of occurrences of one entity as occurrences of another entity (as also happens in the "is\_a" hierarchies of semantic networks).  For example, a "Person" is an "Animal" and a "Reptile" is an "Animal"; in this case, "Animal" can be considered the supertype and "Person" and "Reptile" are subtypes of "Animal".  The occurrences or instances of "Person" are also of "Animal" and the same happens with those of "Reptile".
+As for generalizations, they provide us with an abstraction mechanism that allows specializing an entity (which will be called a supertype) into subtypes, or what is the same, generalizing the subtypes into the supertype.  In this way we see a set of occurrences of one entity as occurrences of another entity (as also happens in the ``is\_a" hierarchies of semantic networks).  For example, a ``Person" is an ``Animal" and a ``Reptile" is an ``Animal"; in this case, ``Animal" can be considered the supertype and ``Person" and ``Reptile" are subtypes of ``Animal".  The occurrences or instances of ``Person" are also of ``Animal" and the same happens with those of ``Reptile".
 
-We will be able to identify generalizations if we find a series of attributes common to a set of entities.  This situation occurs frequently if a view integration process is being carried out, De Miguel et al. (1999).  These common attributes will describe the supertype and the particular attributes will remain in the subtypes.  It may happen that the subtypes do not have their own attributes; in that case, subtypes will only exist (even if to better capture the semantics, they can be reflected) if they are going to participate in relationships (apart from the relationships in which the supertype participates).
+We will be able to identify generalizations if we find a series of attributes common to a set of entities.  This situation occurs frequently if a view integration process is being carried out, \cite{demiguel1999fundamentos}.  These common attributes will describe the supertype and the particular attributes will remain in the subtypes.  It may happen that the subtypes do not have their own attributes; in that case, subtypes will only exist (even if to better capture the semantics, they can be reflected) if they are going to participate in relationships (apart from the relationships in which the supertype participates).
 
-For example, suppose the following entities identified in a universe of discourse of a company: EMPLOYEE (with identifier "Emp-No" and the descriptors "Emp-Name", "Family-Address", "Birth-Date", "Job-Description", "Salary", "Experience"), ENGINEER (with identifier "Emp-No" and descriptors "Emp-Name", "Family-Address", "Specialty"), SECRETARY (with identifier "Emp-No" and descriptors "Emp-Name", "Birth-Date", "Salary", "Typing-Speed"), TECHNICIAN (with identifier "Emp-No" and descriptors "Emp-Name", "Experience", "Years-of-Experience").  We identify that EMPLOYEE is a generalization of ENGINEER, SECRETARY, and TECHNICIAN.  Then we redistribute the attributes among the entities.  We place the identifier "Emp-No" and the generic descriptors "Emp-Name", "Family-Address", "Birth-Date", "Job-Description", and "Salary" in the supertype entity EMPLOYEE, we put the specific descriptor "Specialty" in the ENGINEER entity; we put the specific descriptor "Typing-Speed" in the SECRETARY entity and, finally, we put the specific descriptors "Experience" and "Years-Experience" in the TECHNICIAN entity.  Figure 1.3 shows the resulting E-R scheme.
+For example, suppose the following entities identified in a universe of discourse of a company: EMPLOYEE (with identifier ``Emp-No" and the descriptors ``Emp-Name", ``Family-Address", ``Birth-Date", ``Job-Description", ``Salary", ``Experience"), ENGINEER (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Family-Address", ``Specialty"), SECRETARY (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Birth-Date", ``Salary", ``Typing-Speed"), TECHNICIAN (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Experience", ``Years-of-Experience").  We identify that EMPLOYEE is a generalization of ENGINEER, SECRETARY, and TECHNICIAN.  Then we redistribute the attributes among the entities.  We place the identifier ``Emp-No" and the generic descriptors ``Emp-Name", ``Family-Address", ``Birth-Date", ``Job-Description", and ``Salary" in the supertype entity EMPLOYEE, we put the specific descriptor ``Specialty" in the ENGINEER entity; we put the specific descriptor ``Typing-Speed" in the SECRETARY entity and, finally, we put the specific descriptors ``Experience" and ``Years-Experience" in the TECHNICIAN entity.  Figure 1.3 shows the resulting E-R scheme.
 
 \begin{figure}
     \centering
@@ -83,15 +88,15 @@ Although it is simple to define the constructs of entity, attribute, and relatio
 
 Attributes do not have existence by themselves but make sense as they belong to a certain entity or relationship.  An entity must be characterized by something more than its Primary Identifier.  If there is descriptive information about a concept or object, then it should be classified as an entity.  If only one identifier is needed for an object, the object should be classified as an attribute.  Thus, \textbf{entities have descriptive information and attributes do not}.
 
-For example, in the assumption "Warehouses are located in Cities".  If there is some descriptive information about the State and Population of the Cities, then City should be classified as an entity.  If only the "City Name" attribute is needed to identify a city, then it should be classified as an attribute.  On the other hand, it could happen that even having a concept for which there is only one Primary Identifier, it is related to more than one entity.  In that case, it could appear as an entity in the E-R scheme.  In the previous example, if there was another assumption "suppliers are assigned several cities", then City could be left as an entity related to the Warehouse and Supplier entities or left as attributes in both entities.
+For example, in the assumption ``Warehouses are located in Cities".  If there is some descriptive information about the State and Population of the Cities, then City should be classified as an entity.  If only the ``City Name" attribute is needed to identify a city, then it should be classified as an attribute.  On the other hand, it could happen that even having a concept for which there is only one Primary Identifier, it is related to more than one entity.  In that case, it could appear as an entity in the E-R scheme.  In the previous example, if there was another assumption ``suppliers are assigned several cities", then City could be left as an entity related to the Warehouse and Supplier entities or left as attributes in both entities.
 
 \subsubsection{Entities vs. multi-valued attributes}
 
-In this aspect there are discrepancies.  There are proposals that prefer to incorporate in the E-R schemes a multi-valued attribute as an entity and others prefer to represent it as an attribute.  In our case, regardless of whether the attribute is simple or composite, if it is known that it will have a limited and not very high number of occurrences, then it will be part of the entity it describes (as long as the concept it represents is not related to other entities in the E-R scheme).  An example may be "Of an employee it is interesting to store their ID, name, address, and telephones"; in this case the "Telephone" attribute is a multi-valued attribute of the EMPLOYEE entity.  In the example "A professor is characterized by his name, ID, address, and the campuses where he teaches"; in this case the "Campus" attribute could also be a multi-valued attribute of the PROFESSOR entity, but if there are additional assumptions in the universe of discourse that indicate additional information to describe a campus and it is also related to other entities (for example, DEPARTMENT, CLASSROOM BUILDING, etc.) then it must be reflected as an entity.
+In this aspect there are discrepancies.  There are proposals that prefer to incorporate in the E-R schemes a multi-valued attribute as an entity and others prefer to represent it as an attribute.  In our case, regardless of whether the attribute is simple or composite, if it is known that it will have a limited and not very high number of occurrences, then it will be part of the entity it describes (as long as the concept it represents is not related to other entities in the E-R scheme).  An example may be ``Of an employee it is interesting to store their ID, name, address, and telephones"; in this case the ``Telephone" attribute is a multi-valued attribute of the EMPLOYEE entity.  In the example ``A professor is characterized by his name, ID, address, and the campuses where he teaches"; in this case the ``Campus" attribute could also be a multi-valued attribute of the PROFESSOR entity, but if there are additional assumptions in the universe of discourse that indicate additional information to describe a campus and it is also related to other entities (for example, DEPARTMENT, CLASSROOM BUILDING, etc.) then it must be reflected as an entity.
 
 \subsubsection{Entities vs. relationships}
 
-Usually there are no problems in differentiating between entities and relationships.  Relationships associate one or several entities, while entities do not.  However, in any relationship, a process of nominalization can be carried out.  For example, through nominalization, "men marry women" can be converted into "men and women form marriages".  Thus, a relationship has been substantivized and by introducing a new concept, it has become an entity.  Even though nominalization can be useful in a complex design process, especially to try to reduce the degree of a very complex relationship or to find elements of interest for the system that had not been initially taken into account, in our case, we will avoid nominalizations that are not present in the statements or that are not evident in the Universe of Discourse.
+Usually there are no problems in differentiating between entities and relationships.  Relationships associate one or several entities, while entities do not.  However, in any relationship, a process of nominalization can be carried out.  For example, through nominalization, ``men marry women" can be converted into ``men and women form marriages".  Thus, a relationship has been substantivized and by introducing a new concept, it has become an entity.  Even though nominalization can be useful in a complex design process, especially to try to reduce the degree of a very complex relationship or to find elements of interest for the system that had not been initially taken into account, in our case, we will avoid nominalizations that are not present in the statements or that are not evident in the Universe of Discourse.
 
 \subsection{Notations}
 
@@ -109,19 +114,19 @@ The following are the conventions followed in the problems for the graphical rep
     \item \textbf{Optional Attribute}: An empty circle for the attribute.
     \item \textbf{Derived Attribute}: A dashed oval.
     \item \textbf{Relationship}: A diamond.
-    \item \textbf{Relationship with Existence Dependency}: A diamond with "Ex".
-    \item \textbf{Relationship with Identification Dependency}: A diamond with "Id".
+    \item \textbf{Relationship with Existence Dependency}: A diamond with ``Ex".
+    \item \textbf{Relationship with Identification Dependency}: A diamond with ``Id".
     \item \textbf{Domain}: An oval with the domain name.
     \item \textbf{Overlapping and partial hierarchy (no restriction)}: A triangle pointing to subtypes.
     \item \textbf{Overlapping and total hierarchy}: A triangle with a circle inside pointing to subtypes.
-    \item \textbf{Exclusive and partial hierarchy}: A triangle with a 'd' inside pointing to subtypes.
+    \item \textbf{Exclusive and partial hierarchy}: A triangle with a `d' inside pointing to subtypes.
     \item \textbf{Exclusive and total hierarchy}: A triangle with a filled circle inside pointing to subtypes.
 \end{itemize}
 
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/notation}
+    \includegraphics[width=\textwidth]{figures/erd_notation}
     \caption{Conventions used for the graphical representation of the various constructs in the proposed E-R diagram problems.}
     \label{fig:notation}
 \end{figure}
@@ -150,7 +155,7 @@ Sometimes other types of tools are also used that help us detect information tha
 
     \item Using the entity matrix, a first E-R scheme is constructed with the entities, attributes, relationships, and their correspondence types.  The minimum and maximum cardinalities are added to this scheme.
 
-    \item In this last step, the E-R scheme from the previous step is refined by studying the possible redundancies whenever there are cycles with semantically equivalent relationships.  This approach will be used in the first exercise of this topic.  Redundancy exists in an E-R scheme when the same semantics is collected in a duplicate manner, so that scheme could be represented while maintaining the same semantics with fewer elements.  In general, there can be redundancy when there are cycles in an E-R scheme (several entities joined by several semantically related relationships forming a cycle).  In this case, it would be necessary to check if by eliminating a relationship, the semantics represented in it can be obtained through the remaining relationships.  To do this, you have to study the cardinalities of the relationships in detail and do the check in both one direction and the other.  This process is described in De Miguel et al. (1999).  An example will be shown in the exercises of this chapter.
+    \item In this last step, the E-R scheme from the previous step is refined by studying the possible redundancies whenever there are cycles with semantically equivalent relationships.  This approach will be used in the first exercise of this topic.  Redundancy exists in an E-R scheme when the same semantics is collected in a duplicate manner, so that scheme could be represented while maintaining the same semantics with fewer elements.  In general, there can be redundancy when there are cycles in an E-R scheme (several entities joined by several semantically related relationships forming a cycle).  In this case, it would be necessary to check if by eliminating a relationship, the semantics represented in it can be obtained through the remaining relationships.  To do this, you have to study the cardinalities of the relationships in detail and do the check in both one direction and the other.  This process is described in \cite{demiguel1999fundamentos}.  An example will be shown in the exercises of this chapter.
 \end{enumerate}
 
 \section{Problem 1:
@@ -195,10 +200,10 @@ For this, we will analyze the semantic assumptions explicitly represented in the
 \textbf{B) Assumptions not given in the statement:}
 
 \begin{itemize}
-    \item Many PERSONS can INHABIT a DWELLING (logical assumption of the real world) -> Inhabits relationship (1:N) between PERSON and DWELLING.
-    \item A DWELLING can be the PROPERTY of many PERSONS (legal assumption) -> Property relationship (M:N) between PERSON and DWELLING.
-    \item A PERSON can only have one head of the family and a head of the family can be so for several PERSONS -> H.F. relationship (1:N) between PERSON and PERSON.
-    \item A MUNICIPALITY can have many DWELLINGS and a DWELLING belongs to a single MUNICIPALITY -> Is\_In relationship (N:1) between MUNICIPALITY and DWELLING.
+    \item Many PERSONS can INHABIT a DWELLING (logical assumption of the real world) \textrightarrow ~Inhabits relationship (1:N) between PERSON and DWELLING.
+    \item A DWELLING can be the PROPERTY of many PERSONS (legal assumption) \textrightarrow ~Property relationship (M:N) between PERSON and DWELLING.
+    \item A PERSON can only have one head of the family and a head of the family can be so for several PERSONS \textrightarrow ~H.F. relationship (1:N) between PERSON and PERSON.
+    \item A MUNICIPALITY can have many DWELLINGS and a DWELLING belongs to a single MUNICIPALITY \textrightarrow ~Is\_In relationship (N:1) between MUNICIPALITY and DWELLING.
 \end{itemize}
 
 The resulting matrix is shown in figure 1.4.
@@ -291,8 +296,11 @@ The same course has different editions, that is, it is taught in different place
 
 The courses are taught by personnel from the company itself.
 
-Of the employees, it is desired to store their employee code, name and surname, address, telephone, NIF (Tax Identification Number), date of birth, nationality, sex, signature, and salary, as well as whether or not they are qualified to teach courses.
+Of the employees, it is desired to store their employee code, name and surname, address, telephone, TIN (Tax Identification Number), date of birth, nationality, sex, signature, and salary, as well as whether or not they are qualified to teach courses.
 
 The same employee can be a teacher in one edition of a course and a student in another edition, but can never be both at the same time (in the same edition of a course, he either teaches it or receives it).
+
+\bibliographystyle{plain} % Sets the citation style
+\bibliography{er_examples.bib}  % Tells LaTeX to use references.bib
 
 \end{document}
