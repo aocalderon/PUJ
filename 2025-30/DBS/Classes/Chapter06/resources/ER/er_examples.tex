@@ -2,10 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{geometry}
+\usepackage{amsmath}
 \geometry{margin=1in}
+\numberwithin{figure}{section}
 
-\title{Database Design: Solved Problems}
-\author{Adoración de Miguel Castaño}
+\title{Database Design: Solved Problems\footnote{Extracted and translated from \textit{``Diseño de Bases de Datos: Problemas Resueltos''} by Adoración de Miguel, Paloma Martínez, Elena Castro, José Cavero, Dolores Cuadra, Ana Iglesias and Carlos Nieto.  Editorial $RaMa^{\text{\textregistered}}$. September 2000.}}
+\author{de Miguel et. al.}
 \date{September 2000}
 
 \begin{document}
@@ -26,7 +28,7 @@ The elaboration of an E-R scheme that captures the semantics of a certain Univer
     Some Heuristics for the Identification of the Different Constructs
 }
 
-In the first proposal of the E-R Model (Chen, 1976), only three classes of objects are distinguished: entities, attributes, and relationships. The model that will be used in the conceptual modeling phase in the exercises of this book is the extended E-R model that adds to the basic model a set of constructs that help to collect more semantics of the universe of discourse (minimum and maximum cardinalities in relationships, generalizations, dependence in existence and identification, etc.).  It is not really a single model but a family of models, since each author specializes it and adds different constructs to it.  The complete description of this model is found in De Miguel et al. (1999). In this section, the constructs that make up the extended E-R model will be briefly explained in order to facilitate the understanding of the problems.
+In the first proposal of the E-R Model \cite{chen1976entity}, only three classes of objects are distinguished: entities, attributes, and relationships. The model that will be used in the conceptual modeling phase in the exercises of this book is the extended E-R model that adds to the basic model a set of constructs that help to collect more semantics of the universe of discourse (minimum and maximum cardinalities in relationships, generalizations, dependence in existence and identification, etc.).  It is not really a single model but a family of models, since each author specializes it and adds different constructs to it.  The complete description of this model is found in \cite{demiguel1999fundamentos}. In this section, the constructs that make up the extended E-R model will be briefly explained in order to facilitate the understanding of the problems.
 
 Entities are the main objects about which information should be collected and generally denote people, places, things, or events of interest.  Entities will usually appear in the statement as nouns.  Each of the possible occurrences (each specific person, place, thing, or event) of the entity is called an instance.
 
@@ -62,7 +64,7 @@ In the statements, the appearance of verbs may indicate, in some cases, the exis
 
 As for generalizations, they provide us with an abstraction mechanism that allows specializing an entity (which will be called a supertype) into subtypes, or what is the same, generalizing the subtypes into the supertype.  In this way we see a set of occurrences of one entity as occurrences of another entity (as also happens in the ``is\_a" hierarchies of semantic networks).  For example, a ``Person" is an ``Animal" and a ``Reptile" is an ``Animal"; in this case, ``Animal" can be considered the supertype and ``Person" and ``Reptile" are subtypes of ``Animal".  The occurrences or instances of ``Person" are also of ``Animal" and the same happens with those of ``Reptile".
 
-We will be able to identify generalizations if we find a series of attributes common to a set of entities.  This situation occurs frequently if a view integration process is being carried out, De Miguel et al. (1999).  These common attributes will describe the supertype and the particular attributes will remain in the subtypes.  It may happen that the subtypes do not have their own attributes; in that case, subtypes will only exist (even if to better capture the semantics, they can be reflected) if they are going to participate in relationships (apart from the relationships in which the supertype participates).
+We will be able to identify generalizations if we find a series of attributes common to a set of entities.  This situation occurs frequently if a view integration process is being carried out, \cite{demiguel1999fundamentos}.  These common attributes will describe the supertype and the particular attributes will remain in the subtypes.  It may happen that the subtypes do not have their own attributes; in that case, subtypes will only exist (even if to better capture the semantics, they can be reflected) if they are going to participate in relationships (apart from the relationships in which the supertype participates).
 
 For example, suppose the following entities identified in a universe of discourse of a company: EMPLOYEE (with identifier ``Emp-No" and the descriptors ``Emp-Name", ``Family-Address", ``Birth-Date", ``Job-Description", ``Salary", ``Experience"), ENGINEER (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Family-Address", ``Specialty"), SECRETARY (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Birth-Date", ``Salary", ``Typing-Speed"), TECHNICIAN (with identifier ``Emp-No" and descriptors ``Emp-Name", ``Experience", ``Years-of-Experience").  We identify that EMPLOYEE is a generalization of ENGINEER, SECRETARY, and TECHNICIAN.  Then we redistribute the attributes among the entities.  We place the identifier ``Emp-No" and the generic descriptors ``Emp-Name", ``Family-Address", ``Birth-Date", ``Job-Description", and ``Salary" in the supertype entity EMPLOYEE, we put the specific descriptor ``Specialty" in the ENGINEER entity; we put the specific descriptor ``Typing-Speed" in the SECRETARY entity and, finally, we put the specific descriptors ``Experience" and ``Years-Experience" in the TECHNICIAN entity.  Figure 1.3 shows the resulting E-R scheme.
 
@@ -153,7 +155,7 @@ Sometimes other types of tools are also used that help us detect information tha
 
     \item Using the entity matrix, a first E-R scheme is constructed with the entities, attributes, relationships, and their correspondence types.  The minimum and maximum cardinalities are added to this scheme.
 
-    \item In this last step, the E-R scheme from the previous step is refined by studying the possible redundancies whenever there are cycles with semantically equivalent relationships.  This approach will be used in the first exercise of this topic.  Redundancy exists in an E-R scheme when the same semantics is collected in a duplicate manner, so that scheme could be represented while maintaining the same semantics with fewer elements.  In general, there can be redundancy when there are cycles in an E-R scheme (several entities joined by several semantically related relationships forming a cycle).  In this case, it would be necessary to check if by eliminating a relationship, the semantics represented in it can be obtained through the remaining relationships.  To do this, you have to study the cardinalities of the relationships in detail and do the check in both one direction and the other.  This process is described in De Miguel et al. (1999).  An example will be shown in the exercises of this chapter.
+    \item In this last step, the E-R scheme from the previous step is refined by studying the possible redundancies whenever there are cycles with semantically equivalent relationships.  This approach will be used in the first exercise of this topic.  Redundancy exists in an E-R scheme when the same semantics is collected in a duplicate manner, so that scheme could be represented while maintaining the same semantics with fewer elements.  In general, there can be redundancy when there are cycles in an E-R scheme (several entities joined by several semantically related relationships forming a cycle).  In this case, it would be necessary to check if by eliminating a relationship, the semantics represented in it can be obtained through the remaining relationships.  To do this, you have to study the cardinalities of the relationships in detail and do the check in both one direction and the other.  This process is described in \cite{demiguel1999fundamentos}.  An example will be shown in the exercises of this chapter.
 \end{enumerate}
 
 \section{Problem 1:
@@ -297,5 +299,8 @@ The courses are taught by personnel from the company itself.
 Of the employees, it is desired to store their employee code, name and surname, address, telephone, TIN (Tax Identification Number), date of birth, nationality, sex, signature, and salary, as well as whether or not they are qualified to teach courses.
 
 The same employee can be a teacher in one edition of a course and a student in another edition, but can never be both at the same time (in the same edition of a course, he either teaches it or receives it).
+
+\bibliographystyle{plain} % Sets the citation style
+\bibliography{er_examples.bib}  % Tells LaTeX to use references.bib
 
 \end{document}
