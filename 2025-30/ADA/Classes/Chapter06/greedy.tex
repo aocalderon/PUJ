@@ -1,0 +1,216 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\geometry{
+    margin=3cm,
+}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue,
+  pdfpagemode=FullScreen
+}
+
+\title{Study Guide: Greedy Algorithms}
+\author{Drawing on CLRS and Video Lectures}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty} % Suppress page number on the title page
+
+\section{I. Foundations and Definition}
+
+A \textbf{Greedy Algorithm} is a technique for solving optimization problems that involves going through a sequence of steps, making a set of choices at each step.
+
+\begin{itemize}
+    \item \textbf{Core Principle:} The algorithm always makes the choice that looks best at the moment.
+    \item \textbf{Goal:} It makes a \textbf{locally optimal choice} in the hope that this choice will lead to a \textbf{globally optimal solution}.
+    \item \textbf{Limitation:} The greedy strategy typically ignores the effects of the future when making a choice.
+\end{itemize}
+
+\section{II. Comparative Analysis: Greedy vs. Dynamic Programming}
+
+Both Greedy Algorithms and Dynamic Programming (DP) rely on the property of \textbf{Optimal Substructure}. However, they differ in how they make choices.
+
+\subsection*{Greedy vs. Dynamic Programming}
+
+\begin{longtable}{|p{0.15\textwidth}|p{0.35\textwidth}|p{0.35\textwidth}|}
+\toprule
+\textbf{Feature} & \textbf{Greedy Algorithms} & \textbf{Dynamic Programming (DP)} \\
+\midrule
+Choice Mechanism & Makes the choice that seems best \textit{at the moment} (locally optimal). & The choice usually depends on the solutions to subproblems. \\
+\midrule
+Processing Direction & Usually progresses \textbf{top-down}, making one greedy choice after another, reducing the problem size. & Typically solved in a \textbf{bottom-up} manner, progressing from smaller to larger subproblems. \\
+\midrule
+Choice Dependency & Choice cannot depend on any future choices or solutions to subproblems. & Choice depends on subproblem solutions, requiring those solutions to be known first (unless memoizing is used). \\
+\bottomrule
+\caption{Comparison of Greedy Algorithms and Dynamic Programming.}
+\end{longtable}
+
+\subsection*{Knapsack Problem Contrast (CLRS Example)}
+
+The distinction is highlighted by variations of the Knapsack Problem:
+\begin{itemize}
+    \item \textbf{Fractional Knapsack Problem:} The thief can take fractions of items. This problem \textbf{has the greedy-choice property}. The optimal strategy is to sort items by value per pound and take as much as possible of the highest-value items first.
+    \item \textbf{0-1 Knapsack Problem:} The thief must make a binary choice (take or leave). The standard greedy strategy (based on value per pound) \textbf{does not yield an optimal solution}. This problem exhibits optimal substructure and overlapping subproblems, making it suitable for a DP solution (running time $O(nW)$).
+\end{itemize}
+
+\section{III. Core Properties of Greedy Strategy}
+
+For a problem to be solvable by a greedy algorithm, it must typically exhibit two essential properties:
+
+\subsection{1. Optimal Substructure}
+The optimal solution to the problem incorporates the optimal solution to subproblems.
+\begin{itemize}
+    \item \textbf{MST Example:} The Minimum Spanning Tree (MST) exhibits optimal substructure. If an edge $(u, v)$ is removed from an MST $T$, $T$ is partitioned into two subtrees, $T_1$ and $T_2$. The subtree $T_1$ is itself an MST of the subgraph induced by the vertices of $T_1$.
+    \item \textbf{Proof Technique:} This is proven using the \textbf{cut-and-paste argument}, where assuming a suboptimal solution for the subproblem leads to a contradiction regarding the overall optimality of the original solution.
+    \item MST also exhibits \textbf{overlapping subproblems}. While this suggests DP, MST also has the stronger greedy choice property.
+\end{itemize}
+
+\subsection{2. Greedy Choice Property}
+You can assemble a globally optimal solution by making locally optimal (greedy) choices. This is the central heuristic distinguishing greedy algorithms.
+
+\subsubsection*{The Fundamental MST Theorem (Greedy Choice)}
+\textbf{Theorem:} Let $T$ be the MST of $G=(V, E)$, and let $A \subseteq V$. Suppose $(u, v) \in E$ is the \textbf{least-weight edge connecting $A$ to $V \setminus A$} (a cut). Then, $(u, v)$ must be included in $T$.
+
+\begin{itemize}
+    \item \textbf{Significance:} This theorem provides a powerful tool, guaranteeing that the cheapest edge crossing any cut is always a "safe edge" to include in the MST.
+    \item \textbf{Proof:} The proof also uses a cut-and-paste argument. If $(u, v)$ were not in $T$, the unique path between $u$ and $v$ in $T$ must contain some edge $e'$ that also crosses the cut. Since $(u, v)$ is the least-weight crossing edge, $w(u, v) \le w(e')$. By swapping $(u, v)$ for $e'$ (cutting $e'$ and pasting $(u, v)$), a new spanning tree $T'$ is formed that is either equally or lighter in weight than $T$, contradicting the optimality of $T$ if $w(u, v) < w(e')$.
+\end{itemize}
+
+\section{IV. Greedy Algorithms: Examples}
+
+\subsection{1. Minimum Spanning Trees (MST)}
+
+The MST problem requires finding a spanning tree $T$ (a connected, acyclic subgraph that includes all vertices) of minimum total weight in a connected, undirected graph $G=(V, E)$.
+
+\subsubsection*{Prim’s Algorithm (Greedy Approach 1)}
+Prim's algorithm builds the MST by incrementally growing a single tree from an arbitrary starting vertex $s$.
+
+\begin{itemize}
+    \item \textbf{Idea:} Maintain a set $A$ (or $S$) of vertices already included in the MST. At each step, choose the minimum-weight edge connecting a vertex in $A$ to a vertex outside $A$ (in $V \setminus A$).
+    \item \textbf{Mechanism:} Uses a \textbf{min-priority queue ($Q$)} keyed by the weight of the least-weight edge connecting that vertex to $A$.
+    \begin{verbatim}
+while Q is not empty:
+    u <- EXTRACT-MIN(Q) // u is added to A
+    for each neighbor v of u:
+        if v in Q and w(u, v) < key[v]:
+            key[v] <- w(u, v) // DECREASE-KEY operation
+            parent[v] <- u
+    \end{verbatim}
+    \item \textbf{Correctness:} Verified using the MST Greedy Choice Theorem.
+    \item \textbf{Running Time:} Prim's algorithm runs in time $O(V \cdot T_{\text{Extract-Min}} + E \cdot T_{\text{Decrease-Key}})$.
+    \begin{itemize}
+        \item Using a \textbf{Fibonacci heap}, the worst-case running time is $O(E + V \lg V)$.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Kruskal’s Algorithm (Greedy Approach 2)}
+Kruskal's algorithm builds a forest of trees, iteratively merging components using the cheapest available edges.
+
+\begin{itemize}
+    \item \textbf{Idea:} Select the lowest-weight edge that connects two previously unconnected components (avoiding cycles).
+    \item \textbf{Mechanism:}
+    \begin{enumerate}
+        \item Initialize $T = \emptyset$ and use \texttt{Make-Set(v)} for all vertices.
+        \item Sort all edges $E$ by weight in increasing order.
+        \item Iterate through sorted edges $e=(u, v)$: if $\texttt{Find-Set}(u) \ne \texttt{Find-Set}(v)$, add $e$ to $T$ and merge their sets using $\texttt{Union}(u, v)$.
+    \end{enumerate}
+    \item \textbf{Data Structure:} Requires the \textbf{Disjoint-Set (Union-Find)} data structure to efficiently track connected components.
+    \item \textbf{Correctness:} An edge $e$ is added only if it is the minimum-weight edge crossing the cut defined by the two connected components it joins, applying the Greedy Choice Property.
+    \item \textbf{Running Time:} Dominated by sorting, $O(E \lg E)$. The total time is $O(E \lg E + E\alpha(V))$, where $\alpha(V)$ is the inverse Ackermann function. If weights are small integers, specialized sorting can make the time nearly linear $O(E + E\alpha(V))$.
+\end{itemize}
+
+\subsection{2. Activity Selection Problem (CLRS Chapter Example)}
+
+Goal: Schedule a maximum-size subset of mutually compatible activities that require exclusive use of a common resource.
+
+\begin{itemize}
+    \item \textbf{Optimal Substructure:} If a maximum compatible set $A_{ij}$ includes activity $a_k$, it includes optimal solutions to subproblems before $a_k$ finishes ($S_{ik}$) and after $a_k$ finishes ($S_{kj}$).
+    \item \textbf{Greedy Choice:} Choose the activity that leaves the resource available for as many other activities as possible. This is achieved by selecting the activity with the \textbf{earliest finish time}.
+    \item \textbf{Algorithm ($\texttt{GREEDY-ACTIVITY-SELECTOR}$):} Assumes activities are sorted by finish time. It iteratively selects the first activity $a_k$ to finish, and then finds the next activity $a_m$ whose start time $s_m$ is not earlier than the finish time $f_k$ of the selected activity.
+    \item \textbf{Time Complexity:} If the activities are already sorted, the iterative greedy algorithm runs in $\Theta(n)$ time.
+\end{itemize}
+
+\subsection{3. Huffman Codes (CLRS Chapter Example)}
+
+Huffman codes create optimal prefix-free binary codes used for data compression by assigning shorter codewords to frequent characters and longer ones to infrequent characters.
+
+\begin{itemize}
+    \item \textbf{Greedy Choice:} The tree is built bottom-up by repeatedly performing a merger. The algorithm chooses to merge the two characters/nodes having the \textbf{lowest frequencies}. This choice incurs the least cost at the moment, defined as the sum of the frequencies of the two merged items.
+    \item \textbf{Mechanism:} Uses a \textbf{min-priority queue ($Q$)} keyed on frequency. It extracts the two nodes of lowest frequency ($x$ and $y$) and replaces them with a new internal node $z$ whose frequency is $x.freq + y.freq$.
+    \item \textbf{Time Complexity:} The total running time is $O(n \lg n)$, assuming the min-priority queue is implemented as a binary min-heap.
+\end{itemize}
+
+\subsection{4. Offline Caching (CLRS Chapter Example)}
+
+The problem is to minimize the number of cache misses when the entire sequence of future memory requests is known in advance (offline version).
+
+\begin{itemize}
+    \item \textbf{Optimal Substructure:} The problem exhibits optimal substructure. An optimal solution $S$ to a subproblem $(C, i)$ incorporates an optimal solution $S'$ to the resulting subproblem $(C', i+1)$.
+    \item \textbf{Greedy Choice Strategy:} The \textbf{Furthest-in-Future} strategy.
+    \item \textbf{Mechanism:} When the cache is full and a miss occurs, evict the block currently in the cache whose next access in the request sequence occurs \textbf{furthest in the future}. If a block will never be referenced again, it is chosen for eviction.
+    \item \textbf{Optimality:} The furthest-in-future strategy is optimal, proven by showing that the problem has both optimal substructure and the greedy-choice property.
+\end{itemize}
+
+\section{Greedy Algorithms Podcast}
+
+For a deeper dive into greedy algorithms, you can listen to \href{https://drive.google.com/file/d/1B25NKQXEjpyLnhL9lyvlavMPsuure7Gv/view?usp=sharing}{this} podcast covering Greedy Algorithms and Minimum Spanning Trees, including Prim's and Kruskal's algorithms. It was created by Google NotebookLM using the sources in the reference list and is available only in Spanish.
+
+\section{Resource Materials}
+
+\begin{enumerate}
+    \item \textbf{PDF Documents / Book Chapters}
+    \begin{itemize}
+        \item \textbf{Book Chapter\cite{cormen2022algorithms}:} Chapter 15 Greedy Algorithms
+        \begin{itemize}
+            \item \emph{Context:} Covers general greedy strategy, optimal substructure, greedy-choice property, Activity-Selection Problem, Huffman codes, and Offline Caching.
+        \end{itemize}
+        \item \textbf{Book Chapter\cite{baase2002algoritmos}:} Capítulo 8: Problemas de optimización de grafos y algoritmos codiciosos
+        \begin{itemize}
+            \item \emph{Context:} Covers greedy optimization algorithms about graphs, in particular Prim and Kruskal Minimum Spanning Trees.  Spanish version of the original English work ``\textit{Computer Algorithms: Introduction to Design and Analysis}'' published by Addison-Wesley Longman, Inc.
+        \end{itemize}
+
+
+        \item \textbf{Lecture Slides/PDF\cite{leiserson2005greedy}:} Lecture 16 Greedy Algorithms (and Graphs)
+        \begin{itemize}
+            \item \emph{Context:} Focuses on graph representation, Minimum Spanning Trees (MST), Optimal Substructure, Greedy Choice, and Prim’s Algorithm. This material is associated with the Fall 2005 course context.
+        \end{itemize}
+        \item \textbf{Lecture Slides/PDF\cite{demaine2015greedy}:} Lecture 12 Minimum Spanning Tree
+        \begin{itemize}
+            \item \emph{Context:} Provides definitions and proofs for Optimal Substructure and Greedy Choice Property for MST, including detailed pseudocode and runtime analysis for Prim’s and Kruskal’s algorithms.
+        \end{itemize}
+        \item \textbf{Written Lecture Notes/PDF:} Design and Analysis of Algorithms
+        \begin{itemize}
+            \item \emph{Context:} Associated written material for the 6.046J / 18.410J course, Spring 2015.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{YouTube Video Transcripts}
+    \begin{itemize}
+        \item \textbf{\href{https://www.youtube.com/watch?v=FPEMBWg_WlY}{Video Transcript}:} Lec 16 | MIT 6.046J / 18.410J Introduction to Algorithms (SMA 5503), Fall 2005
+        \begin{itemize}
+            \item \emph{Content:} Detailed coverage of graph definitions, the MST problem, proof of optimal substructure and the greedy choice theorem, and the derivation and analysis of Prim's Algorithm.
+        \end{itemize}
+        \item \textbf{\href{https://www.youtube.com/watch?v=tKwnms5iRBU}{Video Transcript}:} 12. Greedy Algorithms: Minimum Spanning Tree
+        \begin{itemize}
+            \item \emph{Content:} Explores the definition of greedy algorithms, the contrast between greedy and DP, MST problem definition, edge contraction, the optimal substructure claim, the greedy choice property using cuts, and the introduction of Kruskal's Algorithm.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\bibliographystyle{plain}  % or choose a different style, like ieeetr, abbrv, unsrt
+\bibliography{references}  % name of your .bib file (without the .bib extension)
+
+\end{document}
