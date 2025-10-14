@@ -1168,6 +1168,27 @@
 \end{frame}
 
 \begin{frame}{Matrix-chain multiplication}
+    For example, if the chain of matrices is $\langle A_1 , A_2 , A_3 , A_4 \rangle$, then you can fully parenthesize the product $A_1 \cdot A_2 \cdot A_3 \cdot A_4$ in five distinct ways:
+    \vspace{5mm}
+
+    \centering
+    \begin{tabular}{c}
+        $(A_1 (A_2 (A_3 A_4)))$, \\
+        $(A_1 ((A_2 A_3) A_4))$, \\
+        $((A_1 A_2) (A_3 A_4))$, \\
+        $((A_1 (A_2 A_3)) A_4)$, \\
+        $(((A_1 A_2) A_3) A_4)$ \\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Matrix-chain multiplication}
+    The RECTANGULAR-MATRIX-MULTIPLY procedure computes $C = C + A \cdot B$ for three matrices $A = (a_{ij})$, $B = (b_{ij})$, and $C = (c_{ij})$, where $A$ is $p \times q$, $B$ is $q \times r$, and $C$ is $p \times r$.
+
+    \centering
+    \includegraphics[width=\textwidth]{figures/rmp}
+\end{frame}
+
+\begin{frame}{Matrix-chain multiplication}
     \begin{itemize}
         \item Suppose multiplying matrices A and B: $C = A \cdot B$.
         \item The matrices must be compatible: number of columns of $A$ equals number of rows of $B$.
@@ -1246,7 +1267,7 @@
         \begin{itemize}
             \item If $i = j$, then just one matrix $ m[i, i] = 0$ for $i = 1, 2, \ldots, n$.
             \item If $i < j$, then suppose the optimal split is between $A_k$ and $A_{k+1}$, where $i \leq k < j$.
-            \item Then $m[i, j] = m[i, k] + m[k+1, j] + p_{i-1} p_i p_j$.
+            \item Then $m[i, j] = m[i, k] + m[k+1, j] + p_{i-1} p_k p_j$.
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -1275,7 +1296,7 @@
 \begin{frame}{Step 3: Compute the optimal costs}
     \begin{itemize}
         \item Could implement a recursive algorithm based on the above equation for $m[i, j]$ but it would take exponential time.
-        \item There are not all many subproblems:
+        \item There are not all that many distinct subproblems:
             \begin{itemize}
                 \item just one for each $i, j$ such that $1 \leq i \leq j \leq n$.
                 \item there are ${n \choose 2} + n = \Theta (n^2)$ of them.
@@ -1300,8 +1321,15 @@
         \item With the $s$ table filled in, recursively print an optimal solution.
         \item Initial call is \textsc{Print-Optimal-Parens}$(s, 1, n)$.
     \end{itemize}
+    \vspace{5mm}
+
     \centering
-    \includegraphics[width=\textwidth, trim={4cm 17cm 5cm 6.75cm}, clip]{figures/p381}
+    \includegraphics[width=0.9\textwidth, trim={4cm 17cm 5cm 6.75cm}, clip]{figures/p381}
+\end{frame}
+
+\begin{frame}{Example}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/rmp2}
 \end{frame}
 
 \begin{frame}{Code Implemantation}
@@ -1343,7 +1371,7 @@
         \hline
         $p_i$ & .25 & .2 & .05 & .2 & .3
     \end{tabular}
-    \includegraphics[width=\textwidth, trim={4cm 12cm 4cm 9.75cm}, clip]{figures/BST_example}
+    \includegraphics[width=0.8\textwidth, trim={4cm 12cm 4cm 9.75cm}, clip]{figures/BST_example}
     \begin{itemize}
         \item Therefore, E[search cost] = 2.15.
     \end{itemize}
@@ -1356,7 +1384,7 @@
         \hline
         $p_i$ & .25 & .2 & .05 & .2 & .3
     \end{tabular}
-    \includegraphics[width=\textwidth, trim={4cm 4cm 4cm 17cm}, clip]{figures/BST_example}
+    \includegraphics[width=0.8\textwidth, trim={4cm 4cm 4cm 17cm}, clip]{figures/BST_example}
     \begin{itemize}
         \item Therefore, E[search cost] = 2.10, which turns out to be optimal.
     \end{itemize}
@@ -1466,7 +1494,8 @@
                         \end{cases}
                 \end{align*}
             \end{equation*}
-        \item Could write a recursive algorithm. . .
+        \item Could write a recursive algorithm\ldots
+        \item Have a look at this \href{https://www.youtube.com/watch?v=Tw1k46ywN6E}{lecture}\footnote{Watch from minute 22:53 til 54:21.}\ldots
     \end{itemize}
 \end{frame}
 
