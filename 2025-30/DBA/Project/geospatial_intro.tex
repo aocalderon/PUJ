@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \usepackage{graphicx}
 \usepackage{amsmath, esint}
@@ -35,22 +35,44 @@
 %\usetheme{Warsaw}
 \usefonttheme{serif}
 
-\title[Geospatial]{MongoDB Geospatial Queries}
+\title[MongoDB Geospatial]{MongoDB Geospatial Queries}
 \author{mongodb.com}
 \date{\today}
 
-\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
 
-\defbeamertemplate*{footline}{shadow theme}
-{%
-  \leavevmode%
-  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
-    \usebeamerfont{author in head/foot} MongoDB \hfill \insertshorttitle
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
-    \usebeamerfont{title in head/foot} \hfill \insertframenumber\,/\,\inserttotalframenumber%
-  \end{beamercolorbox}}%
-  \vskip0pt%
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft DBA
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
 }
 
 \AtBeginSection[]
@@ -212,7 +234,6 @@
         }
 	})
   \end{minted}
-  \vspace{-8mm}
   \begin{itemize}
     \item Finds places within the specified polygon
   \end{itemize}
