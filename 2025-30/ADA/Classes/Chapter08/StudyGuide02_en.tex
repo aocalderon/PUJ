@@ -1,0 +1,374 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb, hyperref, graphicx, geometry, minted, xcolor}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue,
+  pdfpagemode=FullScreen
+}
+\geometry{margin=2.5cm}
+\definecolor{LightGray}{gray}{0.975}
+
+\title{Study Guide 2: Brute Force Strategies and Problem Modeling}
+\author{Andrés Oswaldo Calderón Romero, PhD.}
+\date{\today}
+
+\begin{document}
+    \maketitle
+
+    \section*{Introduction}
+    Brute force is one of the most fundamental strategies in algorithm design. It involves systematically enumerating all possible solutions to a problem and selecting the best one. While not always efficient, this approach is conceptually simple, guarantees correctness, and provides a useful baseline for evaluating more advanced methods. By modeling problems explicitly and applying brute force techniques, students gain insight into the nature of computational complexity and the importance of optimization. This guide explores the principles, applications, and improvements of brute force algorithms through practical examples and hands-on Python code.
+
+    \subsection*{Objectives:}
+        \begin{itemize}
+            \item Introduce brute force strategies for problem solving.
+            \item Model problems that can be solved using brute force algorithms.
+            \item Identify optimization opportunities in basic algorithms.
+        \end{itemize}
+
+    \section{Introduction to Brute Force Algorithms}
+    Brute force algorithms are among the most straightforward approaches to problem-solving in computer science. They rely on systematically exploring all possible solutions to find the optimal one. Despite their simplicity, brute force methods play a crucial role in understanding algorithm design and computational complexity.
+
+    \subsection{Definition and Characteristics}
+
+    \subsubsection{Definition}
+    Brute force is a straightforward approach to solving a problem by evaluating every possible candidate solution and selecting the best one. This method typically lacks sophistication but guarantees an optimal solution if one exists.
+
+    \subsubsection{Key Characteristics}
+        \begin{itemize}
+            \item Exhaustive Search: Examines all possible solutions without pruning.
+            \item Guaranteed Correctness: Always finds the optimal solution if it exists.
+            \item High Time Complexity: Often exponential or factorial, making it impractical for large inputs.
+            \item Simplicity: Easy to implement and understand, making it a common starting point for algorithm design.
+        \end{itemize}
+
+    \subsubsection{Common Use Cases}
+        \begin{itemize}
+            \item Small input sizes where exhaustive search is feasible.
+            \item Benchmarking more sophisticated algorithms.
+            \item Situations where the optimal solution is critical.
+        \end{itemize}
+
+    \section{Advantages and Limitations of Brute Force Approaches}
+
+    \subsection{Advantages}
+        \begin{itemize}
+            \item Simplicity: Often the simplest approach to implement.
+            \item Comprehensive Search: Evaluates every possible solution, ensuring completeness.
+            \item Versatility: Can be applied to a wide range of problems without modification.
+            \item Correctness: Guaranteed to find the optimal solution if one exists.
+        \end{itemize}
+
+    \subsection{Limitations}
+        \begin{itemize}
+            \item High Computational Cost: Exponential or factorial time complexity makes it impractical for large problems.
+            \item Memory Intensive: Requires significant memory for storing all possible solutions in some cases.
+            \item Scalability Issues: Performance rapidly degrades as input size increases.
+            \item Limited Practical Use: Rarely used in real-world applications beyond small-scale problems or as a baseline.
+        \end{itemize}
+
+    \section{Classic Examples of Brute Force Problems}
+
+    \subsection{Example 1: Traveling Salesperson Problem (TSP)}
+
+    \subsubsection{Problem Statement:}
+    Given a set of cities and the distances between them, find the shortest possible route that visits each city exactly once and returns to the starting point.
+
+    \subsubsection{Brute Force Approach:}
+        \begin{itemize}
+            \item Generate all possible permutations of cities.
+            \item Calculate the total distance for each route.
+            \item Select the route with the minimum total distance.
+        \end{itemize}
+
+    \subsubsection{Python Code Example:}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+    from itertools import permutations
+
+    distances = {
+        ('A', 'B'): 4, ('A', 'C'): 6, ('A', 'D'): 8,
+        ('B', 'C'): 5, ('B', 'D'): 7, ('C', 'D'): 3,
+        ('B', 'A'): 4, ('C', 'A'): 6, ('D', 'A'): 8,
+        ('C', 'B'): 5, ('D', 'B'): 7, ('D', 'C'): 3
+    }
+
+    cities = ['A', 'B', 'C', 'D']
+    min_distance = float('inf')
+    optimal_route = []
+
+    for route in permutations(cities):
+        distance = sum(distances[(route[i], route[i+1])] for i in range(len(route)-1))
+        distance += distances[(route[-1], route[0])]
+        if distance < min_distance:
+            min_distance = distance
+            optimal_route = route
+
+    print(f"Optimal Route: {optimal_route} with distance {min_distance}")
+    \end{minted}
+
+    \subsection{Example 2: Subset Sum Problem}
+
+    \subsubsection{Problem Statement:}
+    Given a set of integers, determine if there exists a subset whose sum is equal to a given target.
+
+    \subsubsection{Brute Force Approach:}
+        \begin{itemize}
+            \item Generate all possible subsets of the given set.
+            \item Check if any subset has a sum equal to the target.
+        \end{itemize}
+
+    \subsubsection{Python Code Example:}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+    def subset_sum(nums, target):
+        n = len(nums)
+        for i in range(1 << n):
+            subset = [nums[j] for j in range(n) if (i & (1 << j))]
+            if sum(subset) == target:
+                print(f"Subset found: {subset}")
+                return True
+        return False
+
+    numbers = [1, 3, 9, 2, 5]
+    target = 10
+    subset_sum(numbers, target)
+    \end{minted}
+
+    \subsection{Key Takeaways}
+        \begin{itemize}
+            \item Brute force algorithms are often impractical for large-scale problems but provide a foundational understanding of problem-solving.
+            \item They serve as a benchmark for evaluating the efficiency of more advanced algorithms.
+            \item Understanding their limitations is essential for developing more sophisticated approaches.
+        \end{itemize}
+
+    \subsection{Summary}
+    Brute force methods, despite their limitations, are a critical component of algorithmic thinking. They provide a baseline for performance evaluation and serve as a stepping stone towards more efficient algorithm designs. While often avoided in practice due to their inefficiency, they remain a valuable tool for theoretical analysis and small-scale problem solving.
+
+    \section{Strategies for Writing Brute Force Algorithms}
+    Brute force algorithms are a foundational approach in algorithm design. They systematically explore all possible solutions to a problem, often leading to simple but computationally expensive methods. Despite their high cost, brute force strategies are essential for understanding algorithm design and identifying opportunities for optimization.
+
+    \subsection{Generating Permutations}
+
+    \subsubsection{Definition}
+    A permutation is a specific arrangement of all the elements in a set. Generating permutations is a key component of many brute force algorithms, especially for optimization and combinatorial problems.
+
+    \subsubsection{Key Concepts}
+        \begin{itemize}
+            \item Factorial Growth: The number of permutations for a set of nn elements is n!n!. This rapid growth highlights the inefficiency of brute force methods for large inputs.
+            \item Backtracking: A common technique used to generate permutations by exploring the search space in a structured manner.
+        \end{itemize}
+
+    \subsubsection{Example Problem - TSP (revisited)}
+    Given a set of cities and the distances between them, find all the routes that visit each city exactly once and returns to the starting point.
+
+    \subsubsection{Code Example (Python)}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+    from itertools import permutations
+
+    cities = ['A', 'B', 'C', 'D']
+    all_routes = list(permutations(cities))
+    print(f"Total routes: {len(all_routes)}")
+    for route in all_routes:
+        print(route)
+    \end{minted}
+
+    \subsubsection{Key Takeaways}
+        \begin{itemize}
+            \item Permutations are useful for problems that require evaluating all possible orderings.
+            \item Efficient permutation generation can significantly impact the runtime of a brute force algorithm.
+        \end{itemize}
+
+
+    \subsection{Exhaustive Search and Evaluation}
+
+    \subsubsection{Definition}
+    Exhaustive search, also known as brute force search, is the process of evaluating every possible solution to a problem to find the optimal one.
+
+    \subsubsection{Key Concepts}
+        \begin{itemize}
+            \item Complete Search: Explores the entire search space without pruning, ensuring that the optimal solution is found.
+            \item Practical Limitations: Often impractical for large inputs due to exponential growth in runtime.
+        \end{itemize}
+
+    \subsubsection{Example Problem - Subset Sum (revisited)}
+    Given a set of numbers, determine all the subsets with the combination of the elements of the set.
+
+    \subsubsection{Code Example (Python)}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+def subset_sum(nums):
+    n = len(nums)
+    for i in range(1 << n):
+        subset = [nums[j] for j in range(n) if (i & (1 << j))]
+        print(subset)
+
+numbers = [1, 3, 9, 2, 5]
+subset_sum(numbers)
+    \end{minted}
+
+    \subsubsection{Key Takeaways}
+        \begin{itemize}
+            \item Exhaustive search guarantees finding the optimal solution, but at a potentially high computational cost.
+            \item Useful as a baseline for comparing more efficient algorithms.
+        \end{itemize}
+
+    \subsection{Verifying Correct Solutions}
+
+    \subsubsection{Definition}
+    Once a candidate solution is found, it must be verified for correctness. This step ensures that the proposed solution satisfies all problem constraints.
+
+    \subsubsection{Key Concepts}
+        \begin{itemize}
+            \item Feasibility Check: Ensuring the candidate is a valid solution.
+            \item Correctness: Verifying that the solution meets the problem's requirements.
+        \end{itemize}
+
+    \subsubsection{Example Problem - Hamiltonian Path}
+    Determine if a given path visits each vertex exactly once in a graph.
+
+    \subsubsection{Code Example (Python)}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+def is_hamiltonian_path(graph, path):
+    for i in range(len(path) - 1):
+        if path[i+1] not in graph[path[i]]:
+            return False
+    return True
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'C', 'D'],
+    'C': ['A', 'B', 'D'],
+    'D': ['B', 'C']
+}
+path = ['A', 'B', 'D', 'C']
+print(is_hamiltonian_path(graph, path))
+    \end{minted}
+
+    \subsubsection{Key Takeaways}
+        \begin{itemize}
+            \item Verification is critical to ensure the validity of brute force solutions.
+            \item Efficient verification can significantly reduce the overall computation time in some cases.
+        \end{itemize}
+
+    \subsubsection{Summary}
+    Brute force algorithms are a powerful but costly approach to problem-solving. Understanding how to generate permutations, perform exhaustive searches, and verify correct solutions provides a strong foundation for algorithm design. While often impractical for large-scale problems, these techniques remain essential for benchmarking and theoretical analysis.
+
+    \section{Optimizing Brute Force Algorithms}
+    Brute force algorithms, while simple and comprehensive, are often inefficient for large inputs. Optimizing these algorithms is crucial for making them practical in real-world applications. This section covers key strategies for improving the performance of brute force algorithms, including identifying repeated subproblems and using appropriate data structures.
+
+    \subsection{Identifying Repeated Subproblems}
+
+    \subsubsection{Definition}
+    Many brute force algorithms suffer from inefficiency because they repeatedly solve the same subproblems. Recognizing these patterns can significantly reduce computation time by eliminating redundant calculations.
+
+    \subsubsection{Key Concepts}
+        \begin{itemize}
+            \item Overlapping Subproblems: Occur when the same subproblems are solved multiple times within the recursive structure of an algorithm.
+            \item Memoization: A technique to store the results of expensive function calls and reuse them when the same inputs occur again.
+            \item Dynamic Programming: A more structured approach that combines overlapping subproblem recognition with optimal substructure.
+        \end{itemize}
+
+    \subsubsection{Example - Fibonacci Sequence}
+    Without optimization, calculating the $n^{th}$ Fibonacci number has exponential time complexity.
+    \vspace{2mm}
+
+    \quad \textbf{Naive Recursive Approach:}
+
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+print(fib(10))
+    \end{minted}
+
+    \quad \textbf{Optimized with Memoization:}
+
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fib_optimized(n):
+    if n <= 1:
+        return n
+    return fib_optimized(n-1) + fib_optimized(n-2)
+
+print(fib_optimized(50))
+    \end{minted}
+
+    \subsubsection{Key Takeaways}
+        \begin{itemize}
+            \item Identifying repeated subproblems can drastically improve algorithm efficiency.
+            \item Memoization is a simple but powerful optimization technique.
+            \item Dynamic programming can further improve performance by avoiding redundant calculations.
+        \end{itemize}
+
+    \subsection{Using Data Structures for Performance Improvement}
+
+    \subsubsection{Definition}
+    Efficient use of data structures can greatly enhance the speed and memory efficiency of brute force algorithms. The choice of data structure can impact both time and space complexity.
+
+    \subsubsection{Key Concepts}
+        \begin{itemize}
+            \item Hashing: Fast lookup and insertion, ideal for set and dictionary operations.
+            \item Heaps: Efficient minimum and maximum retrieval for priority operations.
+            \item Graphs and Trees: Useful for pathfinding and hierarchical data representation.
+        \end{itemize}
+
+    \subsubsection{Example - Subset Sum with Hashing}
+    Instead of generating all possible subsets, use a hash set to check for the existence of complementary sums.
+
+    \subsubsection{Optimized Subset Sum with Hashing:}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{python}
+def subset_sum(nums, target):
+    seen = set()
+    for num in nums:
+        if target - num in seen:
+            print(f"Subset found: {target - num} + {num} = {target}")
+            return True
+        seen.add(num)
+    return False
+
+numbers = [1, 3, 9, 2, 5]
+target = 10
+subset_sum(numbers, target)
+    \end{minted}
+
+    \subsection{Key Takeaways}
+        \begin{itemize}
+            \item Choosing the right data structure can reduce runtime significantly.
+            \item Hashing is particularly effective for problems involving set membership or quick lookups.
+            \item Heaps and graphs offer specialized operations that can simplify complex algorithms.
+        \end{itemize}
+
+    \subsection{Summary}
+    Optimizing brute force algorithms involves both recognizing overlapping subproblems and selecting the right data structures. These strategies can transform an otherwise impractical approach into an efficient, scalable solution for many real-world problems.
+
+    \section{Recommended Readings}
+        \begin{itemize}
+            \item Chapter 3 – Brute Force and Exhaustive Search in \textit{``Introduction to the Design and Analysis of Algorithms''} by Anany Levitin \cite{Levitin2012}.
+            \item Chapter 9 – Combinatorial Search and Chapter 17 – Combinatorial Problems in \textit{``The Algorithm Design Manual''} by Steven Skiena \cite{skiena2020algorithm}.
+            \item \textit{``Brute Force Approach and its pros and cons''} by \href{https://www.geeksforgeeks.org/}{GeeksforGeeks} \cite{geeksforgeeks_brute_force}.
+        \end{itemize}
+
+    \section*{Conclusion}
+    Brute force algorithms, while often dismissed due to their inefficiency, remain a cornerstone in algorithm design and computational problem-solving. Their exhaustive nature ensures correctness and completeness, making them invaluable for small-scale problems, algorithm benchmarking, and educational purposes. Through examples like the Traveling Salesperson Problem and Subset Sum, this guide has demonstrated how brute force methods operate and the critical role of permutation generation, exhaustive search, and solution verification.
+
+    Moreover, the exploration of optimization strategies—such as identifying repeated subproblems and employing effective data structures—highlights that brute force does not have to mean naive. When applied thoughtfully, even the most basic approaches can yield practical insights and serve as a stepping stone to more advanced techniques like dynamic programming and heuristic algorithms.
+
+    Understanding brute force techniques is not just about solving problems the hard way—it's about building a solid foundation from which more efficient and elegant solutions can emerge.
+
+    \bibliographystyle{IEEEtran}  % or choose a different style, like ieeetr, abbrv, unsrt
+    \bibliography{references}
+
+\end{document}
