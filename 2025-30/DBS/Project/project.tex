@@ -109,13 +109,35 @@ Assume the hacked engine emits TSV lines.
   \item Deduplicate on \texttt{(game\_id, tic, player\_id)}; reject malformed records with an \emph{error log} table.
 \end{enumerate}
 
-\section{Analytics Queries (Examples to Implement)}
+\section{Analytics Queries} \label{sec:queries}
+Implement SQL solutions for any five (5) of the eight (8) proposed analytical queries. \textit{Note: The provided hints utilize generic table and attribute names; you are required to adapt these to the specific nomenclature defined in your database schema.}
 
-\subsection*{Movement Trends}
-TBA
+\begin{enumerate}
+  \item Average duration of game sessions per map. \\
+  \textbf{Hint:} Use the `Game' table and the \texttt{AVG} aggregation function on the `timestamp' or `tic' field, grouped by the `map\_id'.
 
-\subsection*{Linking UX to Behavior}
-TBA
+  \item Players with the highest average proximity. \\
+  \textbf{Hint} Perform a self-join on the `TelemetryEvent' table (matching on `game\_id' and/or `tic' -- actually I am not sure) to calculate the \textit{Euclidean distance}\footnote{\url{https://en.wikipedia.org/wiki/Euclidean_distance}} between player pairs, then filter for proximity thresholds (maybe $<= 5.0$?) and aggregate the results to find the pairs with the highest average closeness.
+
+  \item Shortest and longest trajectory distances per player. \\
+  \textbf{Hint} Calculate the total length of each game's trajectory by summing the Euclidean distances between consecutive tics (using a self-join or \textit{window function}\footnote{If you use window functions, that will be a bonus.}), then group by player to find the minimum and maximum of those totals.
+
+  \item List UX survey responses for players with above-average trajectories duration. \\
+  \textbf{Hint} Calculate the average duration of all trajectories (using total tics or time differences), then use a subquery to select players whose individual duration exceeds this global average and JOIN them to the `UXResponse' table to retrieve their survey answers.
+
+  \item Most Visited Sector (Hotspot) per Episode and Map. \\
+  \textbf{Hint} Group the `TelemetryEvent' records by `episode', `map', and `sector'.  The sector should be a cell in a grid of a $250 \times 250$ units covering the current map.  Then use the \texttt{COUNT} function to calculate the frequency of player presence in each area, sorting the results in descending order to identify the hotspots.
+
+  \item Number of Tics Where Players Were Together in a Sector. \\
+  \textbf{Hint} Perform a self-join on the `TelemetryEvent' table matching records by `game\_id', `tic', and `sector\_id' to identify co-presence while filtering for distinct `player\_ids', and then apply \texttt{COUNT(DISTINCT tic)} to calculate the total duration of these overlapping moments.
+
+  \item Average UX Score for Players with the Shortest Trajectory per Episode. \\
+  \textbf{Hint} Identify the players with the minimum total trajectory distance for each episode (using a \textit{window function}  or subquery), then JOIN those players to the `UXResponse' table to calculate the average of their survey scores.
+
+  \item Total Distance Traveled and Average Speed per Player, Analyzing All Games for a Player. \\
+  \textbf{Hint} Sum the Euclidean distances between consecutive tics across all sessions to determine the total distance, then divide this by the total duration (calculated from the aggregated tic counts or game timestamps) to derive the average speed, grouping the results by player identity.
+
+\end{enumerate}
 
 \section{Project Tasks \& Deliverables}
 
@@ -136,9 +158,7 @@ TBA
 
 \subsection*{Part C: Queries, Indexing, and Reporting (Week 7--9)}
 \begin{enumerate}[leftmargin=*]
-  \item Implement at least 8 analytical queries including: trajectory steps, sector heatmap,
-        proximity/cooperation runs, health under proximity, ammo usage patterns, player hotspots,
-        per-player summary, and UX-behavior link.
+  \item Implement at least 5 analytical queries (see Section \ref{}).
   \item Create at least 3 indexes. Show \texttt{EXPLAIN(ANALYZE)} before/after and discuss.
   \item Provide 2 views and 1 materialized view for frequent analyses.
   \item Provide a \texttt{Makefile} or shell script to recreate the schema and load samples.
