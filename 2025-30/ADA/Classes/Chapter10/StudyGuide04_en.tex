@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb, hyperref, graphicx, geometry, minted, xcolor, booktabs, threeparttable}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=blue,
+  citecolor=blue,
+  pdfpagemode=FullScreen
+}
+\geometry{margin=2.5cm}
+\definecolor{LightGray}{gray}{0.975}
+
+\title{Study Guide 4: Identifying Problem Types and Advanced Strategies}
+\author{Andrés Oswaldo Calderón Romero, PhD.}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Introduction}
+Algorithm design is a cornerstone of computer science, enabling the systematic development of efficient and scalable solutions to computational problems. As the complexity and size of real-world data continue to grow, mastering advanced algorithmic strategies becomes increasingly important. This study guide is intended to support students in recognizing the types of problems that arise in practice and in selecting the most suitable techniques to solve them.
+
+The material focuses on classifying problems by solution strategy, applying advanced methods such as divide and conquer, dynamic programming, and greedy algorithms, and evaluating the complexity of algorithms under different scenarios. By understanding when and how to use each approach, students will develop the analytical skills required to design optimal algorithms and interpret their performance rigorously.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Objectives}
+\begin{itemize}
+    \item Recognize different types of problems and solution strategies.
+    \item Apply advanced strategies such as dynamic programming and divide and conquer.
+    \item Develop skills to analyze complex problems.
+\end{itemize}
+
+\section*{Topics to Cover}
+\subsection*{Classification of Problems by Solution Strategy}
+\begin{itemize}
+    \item Differences between brute force, divide and conquer, dynamic programming, and greedy algorithms.
+    \item Classic problem examples for each strategy.
+\end{itemize}
+
+\subsection*{Application of Advanced Techniques}
+\begin{itemize}
+    \item \textbf{Divide and Conquer:} Analysis using the Master Theorem.
+    \item \textbf{Dynamic Programming:} Examples such as Longest Common Subsequence (LCS) and Knapsack.
+    \item \textbf{Greedy Algorithms:} Basic concepts.
+\end{itemize}
+
+\subsection*{Complexity Analysis for Advanced Strategies}
+\begin{itemize}
+    \item Evaluation of average case, worst case, and best case.
+    \item Identification of patterns in algorithmic solutions.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Classification of Problems by Solution Strategy}
+Understanding how to classify problems by their optimal solution strategy is essential in algorithm design. Four major strategies include \textbf{Brute Force}, \textbf{Divide and Conquer}, \textbf{Dynamic Programming}, and \textbf{Greedy Algorithms}. Each has its strengths and is suited for specific types of problems.
+
+\subsection{Brute Force}
+
+\subsubsection{Definition}
+Tries all possible combinations or solutions without any optimization.
+
+\subsubsection{Characteristics}
+\begin{itemize}
+    \item Simple to implement.
+    \item Often inefficient for large input sizes.
+    \item Guarantees correctness (if exhaustive).
+\end{itemize}
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item Small input sizes.
+    \item When correctness is more important than speed.
+    \item As a baseline to compare optimized algorithms.
+\end{itemize}
+
+\subsubsection{Examples}
+\begin{itemize}
+    \item Exhaustive search in puzzles.
+    \item Traveling Salesman Problem (TSP): trying all permutations.
+    \item Subset Sum Problem (without optimization).
+\end{itemize}
+
+\subsection{Divide and Conquer}
+
+\subsubsection{Definition}
+Divides the problem into smaller subproblems, solves each independently, and combines the results.
+
+\subsubsection{Characteristics}
+\begin{itemize}
+    \item Recursive in nature.
+    \item Often leads to logarithmic or polynomial time.
+    \item Performance can be analyzed using the Master Theorem.
+\end{itemize}
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item Problems that can be broken into independent subproblems.
+    \item Large input sizes where recursion is manageable.
+\end{itemize}
+
+\subsubsection{Examples}
+\begin{itemize}
+    \item Merge Sort and Quick Sort
+    \item Binary Search
+    \item Closest Pair of Points (Computational Geometry)
+\end{itemize}
+
+\subsection{Dynamic Programming}
+
+\subsubsection{Definition}
+Solves complex problems by breaking them into overlapping subproblems and storing intermediate results (memoization or tabulation).
+
+\subsubsection{Characteristics}
+\begin{itemize}
+    \item Avoids redundant calculations.
+    \item Efficient for optimization problems.
+    \item Requires optimal substructure and overlapping subproblems.
+\end{itemize}
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item Problems with repeated subproblems.
+    \item Optimization problems (maximize/minimize cost/value).
+\end{itemize}
+
+\subsubsection{Examples}
+\begin{itemize}
+    \item Longest Common Subsequence (LCS)
+    \item Knapsack Problem
+    \item Fibonacci Sequence
+    \item Edit Distance
+\end{itemize}
+
+\subsection{Greedy Algorithms}
+
+\subsubsection{Definition}
+Makes a locally optimal choice at each step with the hope of finding a global optimum.
+
+\subsubsection{Characteristics}
+\begin{itemize}
+    \item Fast and simple.
+    \item Doesn’t always produce an optimal solution.
+    \item Requires the greedy choice property and optimal substructure.
+\end{itemize}
+
+\subsubsection{When to Use}
+\begin{itemize}
+    \item Problems where local decisions lead to a global optimum.
+    \item When speed is more critical than exactness.
+\end{itemize}
+
+\subsubsection{Examples}
+\begin{itemize}
+    \item Activity Selection
+    \item Huffman Encoding
+    \item Minimum Spanning Tree (Kruskal's and Prim's)
+    \item Fractional Knapsack
+\end{itemize}
+
+\subsection{Summary Table}
+Table~\ref{tab:strategies} provides a comparative overview of common algorithmic strategies, highlighting their optimal use cases and representative example problems.
+
+\begin{table}
+    \centering
+    \begin{threeparttable}
+        \begin{tabular}{@{} l p{3cm} p{4cm} p{3cm} @{}}
+            \toprule
+            \textbf{Strategy} & \textbf{Key Features} & \textbf{Best For} & \textbf{Example Problem} \\ \midrule
+            Brute Force & Exhaustive search & Small input size, correctness & Subset Sum \\
+            Divide and Conquer & Divide $\rightarrow$ Solve $\rightarrow$ Combine & Recursive structures & Merge Sort, Binary Search \\
+            Dynamic Programming & Memoization \& tabulation & Overlapping subproblems optimization& Knapsack\tnote{a}, LCS \\
+            Greedy & Local optimal decisions & Problems with greedy structure & Huffman\tnote{b}, Activity Selection\tnote{b} \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}
+            \footnotesize
+            \item[a] Refer to section \ref{sec:dp_example}.
+            \item[b] Refer to section \ref{sec:greedy_examples}.
+        \end{tablenotes}
+    \end{threeparttable}
+    \caption{Comparison of Algorithmic Strategies}
+    \label{tab:strategies}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Application of Advanced Techniques}
+\subsection{Divide and Conquer}
+
+\subsubsection{Master Theorem}
+Used to analyze time complexity of divide and conquer algorithms. For recurrences of the form:
+\[
+T(n) = aT\left(\frac{n}{b}\right) + f(n)
+\]
+Compare $f(n)$ with $n^{\log_b a}$ to determine the time complexity.
+
+\subsubsection{Examples}
+\begin{itemize}
+    \item \textbf{Merge Sort}: $T(n) = 2T(n/2) + O(n) \Rightarrow O(n \log n)$
+    \item \textbf{Binary Search}: $T(n) = T(n/2) + O(1) \Rightarrow O(\log n)$
+\end{itemize}
+
+\subsection{Dynamic Programming (DP)}
+
+\subsubsection{Key Approaches}
+\begin{itemize}
+    \item \textbf{Top-down}:  Memoization.
+    \item \textbf{Bottom-up}: Tabulation.
+\end{itemize}
+
+\subsubsection{Examples} \label{sec:dp_example}
+\begin{itemize}
+    \item \textbf{0/1 Knapsack}: Maximizes value under weight constraint using tabulated decisions.
+    Refer to \textit{``0/1 Knapsack Problem''} by W3Schools \cite{w3schools_knapsack} for an exhaustive analysis.
+\end{itemize}
+
+\subsection{Greedy Algorithms}
+
+\subsubsection{Concept}
+Make the best local (greedy) choice at each step, aiming for a globally optimal solution.
+
+\subsubsection{Requirements}
+\begin{itemize}
+    \item \textbf{Greedy-choice property}: A global solution can be reached by local choices.
+    \item \textbf{Optimal substructure}: A problem's solution contains optimal solutions to subproblems.
+\end{itemize}
+
+\subsubsection{Examples} \label{sec:greedy_examples}
+\begin{itemize}
+    \item \textbf{Activity Selection} \cite{gfg_activity_selection}: Select maximum number of non-overlapping activities.
+    \item \textbf{Huffman Coding} \cite{gfg_huffman_video}: Builds optimal prefix codes for data compression.
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Complexity Analysis for Advanced Strategies}
+
+\subsection{Complexity Evaluation}
+
+\subsubsection{Best Case}
+\begin{itemize}
+    \item \textbf{Definition:} The minimum number of steps an algorithm takes on the most favorable input.
+    \item \textbf{Notation:} \( \Omega(f(n)) \)
+    \item \textbf{Example:} In Binary Search, the best case is when the target is the middle element: \( O(1) \).
+\end{itemize}
+
+\subsubsection{Average Case}
+\begin{itemize}
+    \item \textbf{Definition:} The expected number of steps over all possible inputs of size \( n \).
+    \item \textbf{Notation:} \( \Theta(f(n)) \)
+    \item \textbf{Example:} In Linear Search, the average case is finding the element halfway through the array: \( \Theta(n/2) = \Theta(n) \).
+\end{itemize}
+
+\subsubsection{Worst Case}
+\begin{itemize}
+    \item \textbf{Definition:} The maximum number of steps an algorithm takes on the least favorable input.
+    \item \textbf{Notation:} \( O(f(n)) \)
+    \item \textbf{Example:} Quick Sort can degrade to \( O(n^2) \) if the pivot is always the smallest or largest element.
+\end{itemize}
+
+\subsection{Recognizing Patterns in Algorithms}
+
+\subsubsection{Divide and Conquer}
+\begin{itemize}
+    \item Recurrences of the form \( T(n) = aT(n/b) + f(n) \).
+    \item Solved using the \textbf{Master Theorem}.
+    \item Appears in Merge Sort, Binary Search.
+\end{itemize}
+
+\subsubsection{Dynamic Programming}
+\begin{itemize}
+    \item Involves overlapping subproblems and optimal substructure.
+    \item Time complexity often \( O(n^2) \) or \( O(n \cdot W) \), as in LCS or Knapsack.
+\end{itemize}
+
+\subsubsection{Greedy Algorithms}
+\begin{itemize}
+    \item Typically linear or \( O(n \log n) \), especially when sorting is required.
+    \item Complexity depends on the nature of local decisions.
+\end{itemize}
+
+\subsection{Summary Table}
+
+\begin{center}
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        \textbf{Case Type} & \textbf{Notation} & \textbf{Description} & \textbf{Example} \\ \midrule
+        Best Case   & \( \Omega(f(n)) \) & Fastest possible scenario & Binary Search → \( O(1) \) \\
+        Average Case& \( \Theta(f(n)) \) & Expected behavior          & Linear Search → \( \Theta(n) \) \\
+        Worst Case  & \( O(f(n)) \)      & Slowest possible scenario  & Quick Sort → \( O(n^2) \) \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+In the following \href{https://drive.google.com/file/d/14AJw2GU4XWm-T1sgmccPmU0ZpVkizBDJ/view?usp=sharing}{link}, you can download and listen to a Gemini podcast that discusses the main topics covered in this study guide. Please note that the podcast is in Spanish.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Conclusion}
+Understanding the complexity of an algorithm is just as crucial as implementing it correctly. Through best-case, average-case, and worst-case analyses, one can gain a comprehensive view of an algorithm’s behavior across various inputs. Recognizing structural patterns in problems—such as optimal substructure or overlapping subproblems—enables the informed use of divide and conquer, dynamic programming, or greedy approaches.
+
+Ultimately, the ability to match problems with effective algorithmic strategies fosters both problem-solving efficiency and deeper computational thinking. This guide serves not only as a review for the upcoming exam but also as a reference for future courses and professional scenarios where algorithmic decisions must be made under constraints of time and performance.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{plainnat}  % or choose a different style, like ieeetr, abbrv, unsrt
+\bibliography{references}  % name of your .bib file (without the .bib extension)
+
+\end{document}
