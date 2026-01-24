@@ -1,0 +1,4 @@
+[debug] [som-test] Classpath dependencies List()
+[debug] [som-test] Dependencies from configurations List(som)
+[debug] Bloop wrote the configuration of project 'som-test' to '/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.bloop/som-test.json'
+[success] Generated .bloop/som-test.json

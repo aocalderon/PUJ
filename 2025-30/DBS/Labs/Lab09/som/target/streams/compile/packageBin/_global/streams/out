@@ -1,0 +1,17 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/som_2.13-0.1.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj/sist[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj/sist[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj/sist/som[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj/sist/som[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj/sist/som/BatchSOM.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj/sist/som/BatchSOM.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj/sist/som/SomRunner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj/sist/som/SomRunner.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	edu/puj/sist/som/SomRunner$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /opt/PUJ/2025-30/DBS/Labs/Lab09/som/target/scala-2.13/classes/edu/puj/sist/som/SomRunner$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m

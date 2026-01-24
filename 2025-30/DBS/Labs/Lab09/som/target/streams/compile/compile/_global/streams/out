@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala:33:9: value saveWeightsToFile is not a member of edu.puj.sist.som.BatchSOM[0m
+[0m[[0m[31merror[0m] [0m[0m    som.saveWeightsToFile("som_weights.txt")[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

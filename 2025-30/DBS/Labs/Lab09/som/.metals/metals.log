@@ -1,0 +1,1272 @@
+2026.01.22 18:23:27 INFO  Started: Metals version 1.6.5 in folders '/opt/PUJ/2025-30/DBS/Labs/Lab09/som' for client Visual Studio Code 1.108.1.
+2026.01.22 18:23:27 INFO  Memory monitor started
+2026.01.22 18:23:28 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.22 18:23:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:32 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:23:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:50 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:23:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:23:56 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:15 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:15 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:25 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:26 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:27 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:27 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:35 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:35 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:35 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:24:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:24:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:15 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:15 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:17 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala
+2026.01.22 18:25:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:26 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala
+2026.01.22 18:25:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/Main.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:25:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:46 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:26:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:46 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:26:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+ene 22, 2026 6:26:58 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 214
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:58 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:26:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:26:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:04 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:06 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:07 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:14 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:27:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:16 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:27:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+ene 22, 2026 6:27:22 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 329
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:26 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:27:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:38 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:27:38 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:27:38 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:38 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:38 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:38 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:41 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:42 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:50 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:50 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:29:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:29:50 WARN  Could not find semantic tokens for: file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt
+2026.01.22 18:31:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/build.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:28 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:31:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:30 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:31:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:31:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:07 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:49 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:55 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:55 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:55 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:32:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:34 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:45 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:45 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:52 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:33:52 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:33:52 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:34:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:11 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:35:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:35:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:37:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:37:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:37:58 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:37:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7ene 22, 2026 6:37:58 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 642
+
+2026.01.22 18:37:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:11 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:22 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:26 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:30 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:35 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:38:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:38:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:01 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:03 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:04 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:04 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:48 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:39:57 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:39:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:43 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:40:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:43 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:46 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:47 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:57 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:40:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:40:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:07 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:08 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:40 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:41:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:12 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:14 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:42:14 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:23 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:24 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:28 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:42:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:29 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:42:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:29 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:31 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:32 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:35 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:42:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:35 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:37 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:39 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:39 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:39 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:41 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:42 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:44 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:50 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:52 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:51 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:53 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:54 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:57 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:42:59 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:42:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:10 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:43:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:16 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:17 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:43:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:17 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:19 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:20 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:21 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:28 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:43:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:43:28 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:48:52 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:06 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:06 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:09 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:10 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala
+2026.01.22 18:49:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:10 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/SOMRunner.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:13 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala
+2026.01.22 18:49:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:13 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:55 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:56 INFO  Created report: Optional[file:///opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala]
+2026.01.22 18:49:56 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:49:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:50:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:50:00 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:50:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:49:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:50:00 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:50:00 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:51:07 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:33 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:56 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:58 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.22 18:51:59 INFO  empty definition using pc, found symbol in pc:  (full report at: "/opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/.reports/metals-full/2026-01-22/r_empty-definition_18-49-56-283.md")
+2026.01.22 18:51:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+ene 22, 2026 7:22:38 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.01.22 19:22:50 INFO  Shutting down server
+2026.01.22 19:22:50 INFO  Memory monitor stopped
+2026.01.22 19:22:50 INFO  shutting down Metals
+2026.01.22 19:22:50 INFO  Exiting server
+2026.01.24 15:03:57 INFO  Started: Metals version 1.6.5 in folders '/opt/PUJ/2025-30/DBS/Labs/Lab09/som' for client Visual Studio Code 1.108.1.
+2026.01.24 15:03:57 INFO  Memory monitor started
+2026.01.24 15:03:59 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.24 15:03:59 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:02 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:03 INFO  running '/usr/bin/sbt -Dbloop.export-jar-classifiers=sources bloopInstall'
+2026.01.24 15:04:04 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project/metals.sbt. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:04 WARN  no build target for: /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project/metals.sbt
+2026.01.24 15:04:05 INFO  [info] welcome to sbt 1.12.0 (Oracle Corporation Java 17.0.17)
+2026.01.24 15:04:07 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:08 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:08 INFO  [info] loading settings for project som-build-build from metals.sbt...
+2026.01.24 15:04:08 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+ene 24, 2026 3:04:08 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 11
+2026.01.24 15:04:08 INFO  [info] loading project definition from /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project/project
+2026.01.24 15:04:11 INFO  [info] loading settings for project som-build from metals.sbt...
+2026.01.24 15:04:11 INFO  [info] loading project definition from /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project
+2026.01.24 15:04:14 INFO  [success] Generated .bloop/som-build.json
+2026.01.24 15:04:14 INFO  [success] Total time: 3 s, completed 24 ene 2026 15:04:14
+2026.01.24 15:04:15 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:16 INFO  [info] loading settings for project som from build.sbt...
+2026.01.24 15:04:16 INFO  [info] set current project to som (in build file:/opt/PUJ/2025-30/DBS/Labs/Lab09/som/)
+2026.01.24 15:04:16 INFO  [success] Generated .bloop/som-test.json
+2026.01.24 15:04:16 INFO  [success] Generated .bloop/som.json
+2026.01.24 15:04:16 INFO  [success] Total time: 0 s, completed 24 ene 2026 15:04:17
+2026.01.24 15:04:17 INFO  time: ran 'sbt bloopInstall' in 14s
+2026.01.24 15:04:17 INFO  Attempting to connect to the build server...
+2026.01.24 15:04:17 INFO  No running Bloop server found, starting one.
+2026.01.24 15:04:18 INFO  no build target found for /opt/PUJ/2025-30/DBS/Labs/Lab09/som/src/main/scala/BatchSOM.scala. Using presentation compiler with project's scala-library version: 3.3.7
+2026.01.24 15:04:18 INFO  Starting compilation server
+2026.01.24 15:04:21 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/bsp.trace.json or /home/and/.cache/metals/bsp.trace.json
+2026.01.24 15:04:25 INFO  Attempting to connect to the build server...
+2026.01.24 15:04:25 INFO  Found a Bloop server running
+2026.01.24 15:04:25 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project/.metals/bsp.trace.json or /home/and/.cache/metals/bsp.trace.json
+2026.01.24 15:04:26 INFO  time: Connected to build server in 8.61s
+2026.01.24 15:04:25 INFO  Connected to Build server: Bloop v2.0.17
+2026.01.24 15:04:26 INFO  time: Imported build in 0.23s
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:26 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:04:27 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:27 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:04:27 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:04:27 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:04:27 ERROR Failed to resolve mtags for 2.13.12
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:04:31 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.24 15:04:39 INFO  time: indexed workspace in 12s
+2026.01.24 15:04:39 WARN  unsupported Scala 2.13.12
+2026.01.24 15:04:39 INFO  compiling som (2 scala sources)
+2026.01.24 15:04:45 INFO  time: compiled som in 6.28s
+2026.01.24 15:04:45 WARN  unsupported Scala 2.13.12
+2026.01.24 15:04:46 WARN  unsupported Scala 2.13.12
+2026.01.24 15:04:46 WARN  unsupported Scala 2.13.12
+2026.01.24 15:04:54 WARN  unsupported Scala 2.13.12
+ene 24, 2026 3:06:10 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:11 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:12 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:18 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:20 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:21 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:22 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:22 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:23 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:23 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:23 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:24 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:24 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:24 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:24 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:25 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:25 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:25 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:25 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+ene 24, 2026 3:06:25 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:01 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:01 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:01 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:01 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:01 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:01 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:02 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:02 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:02 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:02 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:10:01 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:10:02 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:10:02 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:10:01 ERROR Failed to resolve mtags for 2.13.12
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:10:01 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:01 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:02 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:03 WARN  unsupported Scala 2.13.12
+2026.01.24 15:10:10 INFO  Shutting down server
+2026.01.24 15:10:10 INFO  Memory monitor stopped
+2026.01.24 15:10:10 INFO  shutting down Metals
+2026.01.24 15:10:10 INFO  Shut down connection with build server.
+2026.01.24 15:10:10 INFO  Shut down connection with build server.
+2026.01.24 15:10:10 INFO  Exiting server
+2026.01.24 15:11:10 INFO  Started: Metals version 1.6.5 in folders '/opt/PUJ/2025-30/DBS/Labs/Lab09/som' for client Visual Studio Code 1.108.2.
+2026.01.24 15:11:10 INFO  Memory monitor started
+2026.01.24 15:11:13 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.24 15:11:13 INFO  Attempting to connect to the build server...
+2026.01.24 15:11:13 INFO  Found a Bloop server running
+2026.01.24 15:11:13 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /opt/PUJ/2025-30/DBS/Labs/Lab09/som/.metals/bsp.trace.json or /home/and/.cache/metals/bsp.trace.json
+2026.01.24 15:11:13 INFO  Attempting to connect to the build server...
+2026.01.24 15:11:13 INFO  Found a Bloop server running
+2026.01.24 15:11:13 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /opt/PUJ/2025-30/DBS/Labs/Lab09/som/project/.metals/bsp.trace.json or /home/and/.cache/metals/bsp.trace.json
+2026.01.24 15:11:13 INFO  time: Connected to build server in 0.41s
+2026.01.24 15:11:13 INFO  Connected to Build server: Bloop v2.0.17
+2026.01.24 15:11:14 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:14 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:14 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:14 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:14 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:14 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:14 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:14 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:15 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:15 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:15 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:14 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:14 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:15 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:15 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:15 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:14 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:14 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:15 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:15 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:15 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:15 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:15 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:15 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:15 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:15 WARN  2.13.12 is no longer supported in the current Metals versions, using the last known supported version 1.4.2
+2026.01.24 15:11:15 ERROR Error downloading Dependency(org.scalameta:mtags_2.13.12, 1.4.2, Configuration(), Set(), Publication(, Type(), Extension(), Classifier()), false, true)
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:15 INFO  Running coursier with command /home/and/.local/share/coursier/bin/cs, using it to fetch dependency
+2026.01.24 15:11:16 ERROR The current machine does not support all of the following CPU features that are required by the image: [CX8, CMOV, FXSR, MMX, SSE, SSE2, SSE3, SSSE3, SSE4_1, SSE4_2, POPCNT, LZCNT, AVX, AVX2, BMI1, BMI2, FMA].
+2026.01.24 15:11:16 ERROR Please rebuild the executable with an appropriate setting of the -march option.
+2026.01.24 15:11:15 ERROR Failed to resolve mtags for 2.13.12
+coursier.error.FetchError$DownloadingArtifacts: Error fetching artifacts:
+file:/home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+
+	at coursier.Artifacts$.$anonfun$fetchArtifacts$9(Artifacts.scala:505)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1(Task.scala:14)
+	at coursier.util.Task$.$anonfun$flatMap$extension$1$adapted(Task.scala:14)
+	at coursier.util.Task$.wrap(Task.scala:82)
+	at coursier.util.Task$.$anonfun$flatMap$2(Task.scala:14)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:503)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repository/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar
+	at coursier.cache.internal.Downloader.$anonfun$checkFileExists$1(Downloader.scala:638)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:842)
+
+2026.01.24 15:11:19 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.24 15:11:20 INFO  time: indexed workspace in 6.6s
