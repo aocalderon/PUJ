@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{studentes}\PYG{p}{;}
-\end{Verbatim}

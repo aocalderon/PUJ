@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{AVG}\PYG{p}{(}\PYG{n}{salary}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{avg\PYGZus{}salary}
-\PYG{+w}{    }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}
-\PYG{+w}{    }\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{p}{;}
-\end{Verbatim}

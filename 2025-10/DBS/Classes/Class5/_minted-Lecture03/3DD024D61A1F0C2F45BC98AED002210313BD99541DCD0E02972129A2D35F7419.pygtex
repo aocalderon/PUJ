@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{            }\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{name}
-\end{Verbatim}

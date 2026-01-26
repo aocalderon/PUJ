@@ -1,9 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{SELECT}
-\PYG{+w}{        }\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{course\PYGZus{}id}
-\PYG{+w}{    }\PYG{k}{FROM}
-\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{teaches}
-\PYG{+w}{    }\PYG{k}{WHERE}
-\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{.}\PYG{n}{ID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{teaches}\PYG{p}{.}\PYG{n}{ID}\PYG{+w}{ }\PYG{k}{AND}
-\PYG{+w}{        }\PYG{n}{instructor}\PYG{p}{.}\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Art\PYGZsq{}}
-\end{Verbatim}
