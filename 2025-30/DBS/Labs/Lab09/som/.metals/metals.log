@@ -1270,3 +1270,9 @@ Caused by: coursier.cache.ArtifactError$NotFound: not found: /home/and/.m2/repos
 
 2026.01.24 15:11:19 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
 2026.01.24 15:11:20 INFO  time: indexed workspace in 6.6s
+2026.01.24 15:14:07 INFO  Shutting down server
+2026.01.24 15:14:07 INFO  Memory monitor stopped
+2026.01.24 15:14:07 INFO  shutting down Metals
+2026.01.24 15:14:07 INFO  Shut down connection with build server.
+2026.01.24 15:14:07 INFO  Shut down connection with build server.
+2026.01.24 15:14:07 INFO  Exiting server
