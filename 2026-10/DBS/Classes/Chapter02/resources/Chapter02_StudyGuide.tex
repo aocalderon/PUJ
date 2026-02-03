@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath} % Para símbolos matemáticos como sigma y pi
+\usepackage{amsfonts} % Para fuentes matemáticas
+\usepackage{ulem} % Para subrayar (útil para claves primarias)
+\usepackage[margin=2cm]{geometry} % Para controlar los márgenes del documento
+\usepackage{xcolor} % Para colores si se desean (no se usará extensivamente, pero buena práctica)
+
+\begin{document}
+
+\title{Study Guide: Introduction to the Relational Model\\ (Chapter 2 Deep Dive)}
+\date{\today}
+
+\maketitle
+
+\section{\textbf{The Relationl Model}}
+
+This study guide elaborates on key concepts from Chapter 2, ``Introduction to the Relational Model'', building upon the foundational knowledge typically covered in slides and delving deeper into the nuances explained in the textbook.
+
+\subsection{\textbf{Fundamental Concepts of the Relational Model}}
+
+The relational model organizes data into \textit{tables}, also known as \textbf{relations}.
+\begin{itemize}
+    \item Each table has \textit{multiple columns}, referred to as \textbf{attributes}.
+    \item Each column has a \textbf{unique name}.
+    \item Each \textit{row} of the table represents one piece of information, known as a \textbf{tuple}. A row in a table represents a relationship among a set of values.
+    \item The \textbf{order of tuples in a relation is irrelevant}, as a relation is mathematically defined as a set of tuples. This means two tables with the same set of data are considered the same relation regardless of tuple order.
+    \item Examples include the \textbf{instructor} relation with attributes (ID, name, dept\_name, salary) and the \textbf{department} relation with (dept\_name, building, budget).
+\end{itemize}
+
+\subsection{\textbf{Keys and Integrity Constraints}}
+
+Keys are fundamental to uniquely identify tuples and ensure data integrity.
+\begin{itemize}
+    \item \textbf{Superkey (K)}: A set of one or more attributes that, taken collectively, are \textbf{sufficient to identify a unique tuple} in each possible relation for a given schema.
+        \begin{itemize}
+            \item \textbf{Example}: \{ID\} and \{ID, name\} are superkeys for the \texttt{instructor} relation because the ID alone is sufficient to distinguish instructors.
+        \end{itemize}
+    \item \textbf{Candidate Key}: A superkey \textbf{K} that is \textbf{minimal}. This means no proper subset of \textbf{K} is also a superkey.
+        \begin{itemize}
+            \item \textbf{Example}: ID is a candidate key for \texttt{instructor}, but \{ID, name\} is not, because ID alone is sufficient.
+        \end{itemize}
+    \item \textbf{Primary Key}: One of the candidate keys is \textbf{selected to be the primary key}.
+        \begin{itemize}
+            \item It is customary to list primary key attributes first in the relation schema and to \textbf{underline} them.
+            \item \textbf{Example}: In \texttt{department(dept\_name, building, budget)}, \underline{dept\_name} is the primary key. In \texttt{classroom(building, room\_number, capacity)}, \{\underline{building, room\_number}\} is the primary key.
+        \end{itemize}
+    \item \textbf{Foreign Key Constraint}: A value in one relation (\textbf{referencing relation}) must appear in another relation (\textbf{referenced relation}).
+        \begin{itemize}
+            \item Typically, a foreign key in the referencing relation refers to the \textbf{primary key} of the referenced relation.
+            \item \textbf{Example}: \texttt{dept\_name} in \texttt{instructor} is a foreign key referencing \texttt{department}. This ensures an instructor can only be assigned to an existing department.
+            \item In SQL, foreign keys are specified using the \texttt{foreign key} clause in \texttt{create table} statements.
+        \end{itemize}
+    \item \textbf{Referential Integrity Constraint}: A more general type of constraint than a foreign key constraint, where the referenced attributes do not necessarily form a primary key of the referenced relation.
+\end{itemize}
+
+\subsection{\textbf{Schema Diagrams}}
+
+Schema diagrams provide a \textbf{visual representation} of database structure, including relations, attributes, and key constraints.
+\begin{itemize}
+    \item Each \textbf{relation is depicted as a box}, with the relation name at the top.
+    \item Attributes are listed inside the box.
+    \item \textbf{Primary key attributes are underlined}.
+    \item \textbf{Foreign key constraints} are shown as \textbf{single-headed arrows} from the foreign-key attributes in the referencing relation to the primary key of the referenced relation.
+    \item \textbf{Referential integrity constraints} (that are not foreign-key constraints) are shown with a \textbf{two-headed arrow}.
+    \item \textbf{Example}: The schema diagram for the university database visually represents relations like \texttt{instructor}, \texttt{department}, \texttt{student}, \texttt{takes}, \texttt{teaches}, etc., and their interrelationships.
+\end{itemize}
+
+\subsection{\textbf{Relational Algebra Operations}}
+
+Relational algebra is a \textbf{formal, functional query language} that forms the \textbf{theoretical basis for SQL}. It consists of operations that take one or two relations as input and produce a new relation as a result.
+
+\subsubsection{\textbf{Unary Operations (operate on a single relation)}}
+\begin{itemize}
+    \item \textbf{Selection ($\sigma$)}:
+        \begin{itemize}
+            \item Selects \textbf{tuples (rows)} from a relation that satisfy a given \textbf{predicate}.
+            \item \textbf{Notation}: $\sigma_{\text{predicate}}(\text{Relation})$. The predicate appears as a subscript.
+            \item Predicates can use comparison operators ($=, \ne, <, \le, >, \ge$) and logical connectives (AND ($\land$), OR ($\lor$), NOT ($\lnot$)).
+            \item \textbf{Example}: Find all instructors in the "Physics" department: $\sigma_{\text{dept\_name = "Physics"}}(\text{instructor})$. The result is shown in Figure 2.10.
+            \item \textbf{Example}: Find instructors in Physics with salary over \$90,000: $\sigma_{\text{dept\_name = "Physics"} \land \text{salary}>90000}(\text{instructor})$.
+        \end{itemize}
+    \item \textbf{Projection ($\Pi$)}:
+        \begin{itemize}
+            \item Selects \textbf{specific attributes (columns)} from a relation, creating a new relation with a subset of the original attributes.
+            \item \textbf{Notation}: $\Pi_{\text{AttributeList}}(\text{Relation})$.
+            \item In formal relational algebra, this operation \textbf{implicitly eliminates duplicate tuples} from the result.
+            \item \textbf{Example}: List instructors' ID, name, and salary: $\Pi_{\text{ID, name, salary}}(\text{instructor})$. The result is shown in Figure 2.11.
+        \end{itemize}
+    \item \textbf{Rename ($\rho$)}:
+        \begin{itemize}
+            \item Used to \textbf{change the name of a relation or its attributes}.
+            \item It's particularly useful when performing operations that require comparing tuples within the *same* relation, by creating aliases to avoid ambiguity.
+            \item While not explicitly detailed in the slides, it's one of the 6 basic operations.
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{\textbf{Binary Operations (operate on two relations)}}
+\begin{itemize}
+    \item \textbf{Cartesian Product ($\times$)}:
+        \begin{itemize}
+            \item Combines \textbf{every tuple from the first relation with every tuple from the second relation}.
+            \item The schema of the result includes all attributes from both relations. If attributes have the same name, they are prefixed with the relation name (e.g., \texttt{instructor.ID}, \texttt{teaches.ID}).
+            \item \textbf{Example}: \texttt{instructor} $\times$ \texttt{teaches}.
+            \item This operation often generates \textbf{very large intermediate relations} containing many irrelevant tuples that do not logically correspond. It forms the basis for the join operation.
+        \end{itemize}
+    \item \textbf{Join ($\bowtie$)}:
+        \begin{itemize}
+            \item A join operation $r \bowtie_\theta s$ is formally defined as a \textbf{Cartesian product followed by a selection operation} on a predicate $\theta$. $r \bowtie_\theta s = \sigma_\theta(r \times s)$.
+            \item This filters the Cartesian product to include only logically related tuples.
+            \item \textbf{Example}: To find tuples from (\texttt{instructor} $\times$ \texttt{teaches}) that pertain to instructors and the courses they taught, we use: $\sigma_{\text{instructor.ID = teaches.ID}}(\text{instructor} \times \text{teaches})$. This is equivalent to \texttt{instructor} $\bowtie_{\text{instructor.ID = teaches.ID}}$ \texttt{teaches}. The result is shown in Figure 2.13 and Figure 3.7.
+        \end{itemize}
+    \item \textbf{Set Operations (Union ($\cup$), Intersection ($\cap$), Set Difference ($-$))}:
+        \begin{itemize}
+            \item These operations are analogous to set theory operations.
+            \item They require relations to be \textbf{union compatible}: they must have the \textbf{same number of attributes} and corresponding attributes must have \textbf{compatible data types}.
+            \item \textbf{Union ($\cup$)}: Combines all tuples from two relations. In formal relational algebra, \textbf{duplicate tuples are implicitly eliminated}.
+                \item \textbf{Example}: Courses taught in Fall 2017 OR Spring 2018: $\Pi_{\text{course id}}(\sigma_{\text{semester = "Fall"} \land \text{year=2017}}(\text{section})) \cup \Pi_{\text{course id}}(\sigma_{\text{semester = "Spring"} \land \text{year=2018}}(\text{section}))$.
+            \item \textbf{Intersection ($\cap$)}: Returns only those tuples that appear in \textbf{both} relations. Duplicates are implicitly eliminated.
+                \item \textbf{Example}: Courses taught in BOTH Fall 2017 AND Spring 2018: $\Pi_{\text{course id}}(\sigma_{\text{semester = "Fall"} \land \text{year=2017}}(\text{section})) \cap \Pi_{\text{course id}}(\sigma_{\text{semester = "Spring"} \land \text{year=2018}}(\text{section}))$.
+            \item \textbf{Set Difference ($-$)}: Returns tuples that are in the first relation \textbf{but not} in the second. $r - s$ produces tuples in $r$ but not in $s$.
+                \item \textbf{Example}: Courses taught in Fall 2017 BUT NOT in Spring 2018: $\Pi_{\text{course id}}(\sigma_{\text{semester = "Fall"} \land \text{year=2017}}(\text{section})) - \Pi_{\text{course id}}(\sigma_{\text{semester = "Spring"} \land \text{year=2018}}(\text{section}))$.
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{\textbf{Assignment Operation ($\leftarrow$)}}
+\begin{itemize}
+    \item Allows the result of a relational algebra expression to be \textbf{assigned to a temporary relation variable}.
+    \item This is useful for breaking down complex queries into smaller, more manageable steps.
+    \item \textbf{Example}: \texttt{courses\_fall\_2017} $\leftarrow \Pi_{\text{course id}}(\sigma_{\text{semester = "Fall"} \land \text{year=2017}}(\text{section}))$. This temporary relation can then be used in subsequent expressions.
+\end{itemize}
+
+\subsection{\textbf{Duplicate Handling: Relational Algebra (Formal) vs. SQL (Practical)}}
+
+This is a crucial distinction that often causes confusion between the theoretical model and practical implementations.
+\begin{itemize}
+    \item \textbf{Formal Relational Algebra}:
+        \begin{itemize}
+            \item Relations are defined as \textbf{sets of tuples}.
+            \item By definition, \textbf{sets cannot contain duplicate elements}.
+            \item Therefore, operations like Projection ($\Pi$) and Union ($\cup$) \textbf{implicitly eliminate duplicates} from their results.
+        \end{itemize}
+    \item \textbf{Practical SQL Implementations}:
+        \begin{itemize}
+            \item SQL \textbf{tables (relations) can contain duplicate tuples} by default, unless specific constraints (like primary key or `UNIQUE`) prevent it.
+            \item To explicitly remove duplicates in a \texttt{SELECT} query, the \textbf{\texttt{DISTINCT}} keyword is used (e.g., \texttt{SELECT DISTINCT dept\_name FROM instructor;}).
+            \item For set operations:
+                \begin{itemize}
+                    \item \textbf{\texttt{UNION}} removes duplicates by default, mirroring formal relational algebra.
+                    \item \textbf{\texttt{UNION ALL}} retains all duplicate tuples.
+                    \item \textbf{\texttt{INTERSECT}} removes duplicates by default.
+                    \item \textbf{\texttt{INTERSECT ALL}} retains duplicates, with the number of duplicates equal to the minimum count in both input relations.
+                    \item \textbf{\texttt{EXCEPT}} (or \texttt{MINUS} in some systems like Oracle) removes duplicates by default.
+                    \item \textbf{\texttt{EXCEPT ALL}} retains duplicates, with the count equal to the difference in duplicate counts between the first and second relations.
+                \end{itemize}
+            \item This behavior in SQL is often described using the concept of \textbf{multisets} (or bags), which are collections that allow duplicate elements. (Note: This is external information to the provided sources, but helps to frame the difference).
+        \end{itemize}
+\end{itemize}
+
+\subsection{\textbf{Equivalent Queries and Query Optimization}}
+
+There are often \textbf{multiple ways to write the same query} in relational algebra or SQL, all yielding the same result. However, the \textbf{efficiency of execution can vary drastically} depending on the order of operations.
+\begin{itemize}
+    \item \textbf{Optimization Principle: Push Selections Early}:
+        \begin{itemize}
+            \item A key optimization strategy is to \textbf{apply selection (filtering) operations as early as possible} in the query execution plan.
+            \item This \textbf{reduces the size of intermediate results}, leading to more efficient processing, especially for subsequent operations like joins.
+            \item \textbf{Example}: Consider finding information about courses taught by instructors in the Physics department.
+                \begin{itemize}
+                    \item \textbf{Less efficient}: $\sigma_{\text{dept\_name = "Physics"}}(\text{instructor} \bowtie_{\text{instructor.ID = teaches.ID}} \text{teaches})$. Here, the join is computed first, potentially creating a large intermediate table, and *then* filtered.
+                    \item \textbf{More efficient}: $(\sigma_{\text{dept\_name = "Physics"}}(\text{instructor})) \bowtie_{\text{instructor.ID = teaches.ID}} \text{teaches}$. Here, the \texttt{instructor} relation is filtered *before* the join, significantly reducing the number of tuples involved in the join operation.
+                \end{itemize}
+            \item Database systems have \textbf{query optimizers} that attempt to transform user queries into more efficient execution plans, often by applying rules like pushing selections. They consider various equivalent expressions and estimate their costs.
+        \end{itemize}
+    \item \textbf{Join Ordering}:
+        \begin{itemize}
+            \item The order of join operations can also significantly affect performance.
+            \item Relational join operations are \textbf{associative} ($(r_1 \bowtie r_2) \bowtie r_3 \equiv r_1 \bowtie (r_2 \bowtie r_3)$) and \textbf{commutative} ($r_1 \bowtie r_2 \equiv r_2 \bowtie r_1$).
+            \item Optimizers use these properties to reorder joins to minimize intermediate result sizes.
+        \end{itemize}
+\end{itemize}
+
+\end{document}
+```
