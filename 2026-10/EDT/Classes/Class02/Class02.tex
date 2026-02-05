@@ -1,0 +1,140 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{Class02.bib}
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+  \renewcommand{\fcolorbox}[4][]{#4}}
+
+\usefonttheme{serif}
+
+\usepackage{listings}
+\lstdefinestyle{myCustomSQLStyle}{
+  language=SQL,
+  numbers=left,
+  stepnumber=1,
+  numbersep=10pt,
+  tabsize=4,
+  frame=single,
+  backgroundcolor=\color{LightGray},
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\title[Class 02]{Introduction to Remote Sensing}
+\author{The EO4GEO project and IGIK Poland}
+\date{\today}
+
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft EDT
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+% \begin{frame}{}
+%     \centering
+%     \includegraphics[width=0.35\textwidth]{figures/book_cover.jpg} \\
+%     \vspace{5mm}
+%     {
+%         \tiny
+%         Content has been extracted from \textit{Database System Concepts}, Seventh Edition, by Silberschatz, Korth and Sudarshan. Mc Graw Hill Education. 2019.\\
+%         Visit \url{https://db-book.com/}.\\
+%     }
+% \end{frame}
+
+\begin{frame}{Introduction to Remote Sensing}
+    Content from:
+    \begin{itemize}
+         \item The EO4GEO project \\ \href{http://www.eo4geo.eu/}{http://www.eo4geo.eu/}
+
+         \item EO4GEO Course Material \\ \href{https://github.com/eo4geocourses}{https://github.com/eo4geocourses}
+
+         \item The Institute of Geodesy and Cartography - Poland \\ \href{http://www.igik.edu.pl/en}{http://www.igik.edu.pl/en}
+
+         \item Introduction to Remote Sensing Slides \\ \href{https://eo4geocourses.github.io/IGIK_Introduction-to-Remote-Sensing/}{https://eo4geocourses.github.io/IGIK\_Introduction-to-Remote-Sensing/}
+
+         \item The Electromagnetic Song \\ \href{https://www.youtube.com/watch?v=bjOGNVH3D4Y}{https://www.youtube.com/watch?v=bjOGNVH3D4Y}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Additional Material}
+    \begin{itemize}
+        \item Imaging Sensors: Aerial Survey Cameras (end page 36) \parencite{lillesand_remote_2015}.
+        \item The QGIS Project \parencite{graser_qgis_2025}.
+        \item A (gentle) QGIS Tutorial \parencite{flenniken_quantum_2020}.
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+    \printbibliography
+\end{frame}
+
+\end{document}
