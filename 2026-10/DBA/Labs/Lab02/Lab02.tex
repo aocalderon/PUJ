@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Database Administration \\ Lab 02: Reverse Design}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The main objective of this lab is to explore a database tool to work on the DBA database design, specifically with the technique of Reverse Design to obtain an ERD. \href{https://dbeaver.io/}{DBeaver} is a multiplatform DBA tool designed for diverse DBMSs. It is a Java-based application with a GUI that can connect to a database (via a JDBC driver), extract the required data, and generate an ERD from scratch. We will cover a basic guide using a couple of DBMSs, complete some sections of the online course, and then explore other online alternatives as independent work.
+
+
+\section{DBeaver Tutorial}
+\subsection{Installation}
+
+If you are using a lab computer, please follow these instructions to install a \textbf{\href{https://github.com/aocalderon/PUJ/blob/main/2026-10/DBS/Labs/Lab00/Lab00.pdf}{Vagrant Linux box with PostgreSQL}}. While this is recommended for consistency in the lab, it is \textit{\textbf{not}} a strict requirement; you are free to use your own laptop if you prefer.
+
+\subsection*{1. Database Server Requirement}
+These exercises assume you have a functional instance of \textbf{PostgreSQL} running.
+\begin{itemize}
+    \item \textbf{Lab Computers:} Follow the Vagrant setup instructions provided.
+    \item \textbf{Personal Machines:} Ensure PostgreSQL is installed and active. If you already have a running installation on your system, you may skip the server configuration steps.
+\end{itemize}
+
+\subsection*{2. Installing DBeaver}
+To interact with the database, we will use the DBeaver GUI. You can download the appropriate installer for your operating system from the official download page: \url{https://dbeaver.io/download/}.
+
+\begin{itemize}
+    \item \textbf{Windows \& macOS:} Download and follow the standard installation wizard.
+    \item \textbf{Linux:} Download the Linux package and uncompress the file, and you are ready to go! So let's follow these steps:
+
+    \begin{enumerate}
+        \item Open a terminal console and type:
+        \begin{minted}
+        [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{bash}
+        wget https://dbeaver.io/files/dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
+        \end{minted}
+
+        \item Decompress the tar file by executing:
+        \begin{minted}
+        [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{bash}
+        tar -zxvf dbeaver-ce-latest-linux.gtk.x86_64.tar.gz
+        \end{minted}
+
+        \item Now, you can execute DBeaver from your terminal by navigating inside the dbeaver folder and running the executable. Type the following commands:
+        \begin{minted}
+        [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{bash}
+        cd dbeaver
+        ./dbeaver
+        \end{minted}
+    \end{enumerate}
+
+    If everything goes well, you will see something like Figure \ref{fig:dbeaver}.
+
+\end{itemize}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/dbeaver}
+    \caption{DBeaver GUI.}
+    \label{fig:dbeaver}
+\end{figure}
+
+\subsection{Reverse ERD using SQLite}
+Overall, this will be very simple. We will connect to a sample database called Chinook, implemented in \href{https://www.sqlite.org/}{SQLite3}. SQLite is a highly portable DBMS, and you will not need any additional installation (I believe?). You can download the database from \href{https://drive.google.com/file/d/1BWhCaN7Bp989HNRn55sO7lB7k-9aBwbS/view?usp=sharing}{here}.
+
+Follow this \href{https://drive.google.com/file/d/1d04-Wx6gUBqxyDga-DLC4kZKiKGjq62F/view?usp=sharing}{video} to explore the steps for generating the ERD for this database by making the connection from DBeaver. Let's go!
+
+\subsection{Reverse ERD using PostgreSQL}
+Ok, now we will give our PostgreSQL installation a try with an interesting sample database named \href{https://github.com/devrimgunduz/pagila}{Pagila}. You can download the database schema from \href{https://drive.google.com/file/d/1XAHXlBIfAxmSvh8bWeMIy81YppZXu21w/view?usp=sharing}{here} and the actual data from \href{https://drive.google.com/file/d/1l3_LFHdKv9YvfaQ-aZoqeDMOjSkLTmqR/view?usp=sharing}{here}.
+
+Again, follow this new \href{https://drive.google.com/file/d/1394GbIGQkrgSWgQN9jtLSjVkbp7NC226/view?usp=sharing}{video} to explore the steps for generating the ERD, this time by connecting to a PostgreSQL instance. Here we go!
+
+\section{Independent Work}
+\subsection{Complete Others Sections in the Course}
+You are asked to create an account on Udemy and visit the webpage of the \href{https://www.udemy.com/course/database-design-and-management/}{\textit{Database Design and Management}} course. Follow sections 2 and 4. Once you complete those sections, please take a screenshot of your progress (see Figure \ref{fig:progress} for an example) and attach it to your report.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/progress}
+    \caption{Progress in the \textit{Database Design and Management} Udemy course (checkboxes on the right).}
+    \label{fig:progress}
+\end{figure}
+
+\subsection{Explore Others Options}
+As before, we will now explore the same topic using a similar approach but this time by trying out online tools for creating E-R diagrams. Read the list of a few interesting tools \href{https://drive.google.com/file/d/1FEkgTJEXY07AtVxIYr1_qq0naw3rmOpu/view?usp=sharing}{here}.
+
+So, you will have a list of E-R Diagram tools:
+
+\begin{itemize}
+    \item Azimutt
+    \item draw.io
+    \item Lucidchart
+    \item QuickDBD
+    \item DBDiagram.io
+    \item DrawSQL
+    \item Dia
+\end{itemize}
+
+and a list of DBMSs:
+
+\begin{itemize}
+    \item Oracle
+    \item SQLServer
+    \item MySQL
+    \item DB2
+\end{itemize}
+
+Now you will choose a combination of a E-R Diagram tool and a DBMS (i.e. Lucidchart + MySQL) and then write a well-structured tutorial on how to use that tool to generate or create ERDs for the \textbf{Chinook} database for that particular DBMS.
+
+We expect you to submit your report by \textbf{Febraury 23, 2026}, via the link that will be provided on Brightspace\texttrademark.
+
+\vspace{5mm}
+Happy Hacking \includesvg[width=4mm]{figures/sunglasses}!
+
+\end{document}
+
