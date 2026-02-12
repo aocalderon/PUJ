@@ -1,0 +1,103 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage[printonlyused]{acronym}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+}
+
+\title{Lab 01: A `gentle' Introduction to Coordinate Reference Systems.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction} \label{sec:intro}
+
+In this lab, we will learn about \ac{CRS} and their critical role in spatial data analysis. Understanding how to manage these systems is fundamental when integrating diverse datasets (ranging from satellite-derived indices to official administrative boundaries) to ensure that our spatial overlays and measurements are accurate.
+
+This lab provides a foundational exploration of geospatial data within the Colombian context. We will bridge the gap between global standards, such as \ac{WGS} and \ac{UTM}, and the modern, unified legal standard for our country: \textbf{\acs{MAGNA}-\acs{SIRGAS} Origen Nacional (\acs{EPSG}:9377)}. Transitioning to this single national origin is an essential skill for modern practitioners working in fields such as urban planning and environmental monitoring.
+
+Throughout the following sections, you will transition from theoretical concepts to practical \ac{GIS} workflows. By the conclusion of this session, you will not only be able to technically execute coordinate transformations but also present your findings through professional cartographic products that adhere to national standards.
+
+\subsection*{Core Learning Objectives}
+\begin{itemize}
+    \item \textbf{Identify} and manage native \acp{CRS} from multiple data providers.
+    \item \textbf{Implement} the legally mandated \textbf{EPSG:9377} projection for standardized analysis in Colombia.
+    \item \textbf{Generate} professional-grade map layouts in PDF format, incorporating metric grids and essential cartographic elements.
+\end{itemize}
+
+\section{Integrating Data Sources with Different \acs{CRS}} \label{sec:datasources}
+
+In this section, we utilize two primary datasets for Colombia. The first is a raster file containing aggregated \ac{NDVI} values spanning 2014 to 2020. \ac{NDVI} is a standard indicator of photosynthetic activity; for our current purposes, it is sufficient to understand that higher values correspond to denser, healthier vegetation (refer to this \href{https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index}{Wikipedia entry} for further details). These data were sourced from the \href{https://land.copernicus.eu/en/products/vegetation}{Copernicus Global Land Service}.
+
+The second data source comprises the Level 1 administrative boundaries for Colombia, representing its 33 departments (including the Capital District of Bogotá). This vector dataset is provided by \href{https://gadm.org/}{GADM website}.
+
+Because these datasets originate from different providers, they are defined in different Coordinate Reference Systems (CRSs). The {NDVI} raster is delivered in \href{https://epsg.io/32618}{EPSG:32618} (UTM zone 18N), while the administrative boundaries use geographic coordinates in \href{https://epsg.io/4326}{EPSG:4326} (WGS 84). To perform accurate spatial analysis, our first challenge is to reproject both datasets into the official national standard for Colombia: \textbf{MAGNA-SIRGAS Origen Nacional (\href{https://epsg.io/9377}{EPSG:9377})}.
+
+\section{Hands-on Exercise} \label{sec:handson}
+
+In this practical session, we will begin by viewing a \href{https://www.youtube.com/watch?v=6LyxNVkYAjI}{tutorial video} that demonstrates the standardized procedures for loading raster and vector datasets. Following this, we will explore methods to identify the native \ac{CRS} of various data sources and discuss the implications of working with mismatched projections.
+
+Once we have mastered the basics of coordinate transformations, we will implement the legally mandated standard for Colombia: \textbf{MAGNA-SIRGAS Origen Nacional (EPSG:9377)}. Finally, we will configure background layers and visualization parameters to ensure our results are both spatially accurate and professionally presented.
+
+\section{Autonomous Work} \label{sec:autonomous}
+
+Now that you have mastered the basics of coordinate transformations, you will work independently to produce a professional cartographic product. You are expected to follow this \href{http://www.youtube.com/watch?v=LFJGLaH4Tvg}{QGIS Tutorial} to learn the fundamentals of the \textbf{Print Layout} (formerly known as Print Composer).
+
+While this video is an excellent resource for mastering layout logic, please note that some interface elements may differ across QGIS versions. You are encouraged to supplement this viewing with independent research to resolve any version-specific changes.
+
+Your objective is to design a high-quality map layout that effectively visualizes the spatial analysis results from Section \ref{sec:handson}. The final deliverable for this exercise is a map in an appropiate format to be included in your report.
+
+\begin{quote}
+    \textbf{Pro-Tip:} Since you are using the \textbf{MAGNA-SIRGAS Origen Nacional (EPSG:9377)}, your map is projected in meters. When configuring your map grid, ensure you set the intervals in map units (e.g., 50,000 m) rather than decimal degrees. This ensures the grid is both mathematically accurate and visually readable for Colombian standards.
+\end{quote}
+
+\section{Submission and Next Steps} \label{sec:submission}
+
+To conclude this exercise, you must prepare a well-structured technical report documenting the procedures and findings from Section \ref{sec:autonomous}. Your report should provide a clear narrative of the geoprocessing steps taken and must include the finalized map as a primary figure. \\
+
+\textbf{Submission Requirements:}
+\begin{itemize}
+    \begin{small}
+    \item \textbf{Deadline:} All materials must be submitted before class on \textbf{February 26, 2026}.
+    \item \textbf{Format:} The report must be uploaded in \textbf{PDF format}.
+    \item \textbf{Platform:} Submit your file via the corresponding {Brightspace\texttrademark} assignment portal.
+    \end{small}
+\end{itemize}
+
+Please ensure your map layout adheres to the cartographic standards discussed, specifically the correct use of the \ac{CRS} and the inclusion of all essential map elements.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\section*{List of Acronyms}
+\begin{acronym}[MAGNA  ] % Use the longest acronym here for alignment
+    \acro{NDVI}{Normalized Difference Vegetation Index}
+    \acro{CRS}{Coordinate Reference System}
+    \acro{WGS}{World Geodetic System}
+    \acro{UTM}{Universal Transverse Mercator}
+    \acro{EPSG}{European Petroleum Survey Group}
+    \acro{GIS}{Geographic Information Systems}
+    \acro{MAGNA}{Marco Geocéntrico Nacional de Referencia}
+    \acro{SIRGAS}{Sistema de Referencia Geocéntrico para las Américas}
+\end{acronym}
+
+\end{document}
+
