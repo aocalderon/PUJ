@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+
+%setup new colors
+\hypersetup{
+%linkcolor=blue
+%,citecolor=
+%,filecolor=
+urlcolor=blue
+%,menucolor=
+%,runcolor=
+%,linkbordercolor=
+%,citebordercolor=
+%,filebordercolor=
+%,urlbordercolor=
+%,menubordercolor=
+%,runbordercolor=
+}
+
+\title{Database Administration \\ Lab 03: Performance Monitoring and Diagnosis.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In this lab, we will focus on an essential aspect of database administration: monitoring and diagnosing the performance of our PostgreSQL systems. Beyond simply running queries, an effective DBA must be able to observe how the database behaves in real time, identify bottlenecks, and detect trends that could impact performance.
+
+To achieve this, we will simulate a continuous stream of sensor data being inserted into a PostgreSQL table using a single Python or Bash script. This live feed will serve as our testing ground for implementing performance monitoring techniques. We will then integrate PostgreSQL with Grafana to build an interactive dashboard, allowing us to visualize metrics, track trends, and gain actionable insights into query execution and system health.
+
+By the end of this lab, you will not only have a functioning monitoring setup but also a deeper understanding of how to analyze ongoing database activity, skills directly applicable to production environments.
+
+
+\section{Additional Sections in the Textbook} \label{sec:recipes}
+As you have already seen, Chapter 8 of ``\textit{PostgreSQL 16 Administration Cookbook}'' (Ciolli et al., 2023) is quite extensive. In class, we examined only four of the most relevant recipes. You will now read and summarize three additional ones:
+
+\begin{itemize}
+    \item Monitoring the progress of commands (page 352).
+    \item Understanding why queries slow down (page 368).
+    \item Tracking important metrics over time (page 374).
+\end{itemize}
+
+Prepare concise summaries of these three recipes and include them in your report. These summaries must be \textbf{handwritten} and submitted as a \textbf{snapshot} to be considered valid.
+
+\section{Grafana + PostgreSQL} \label{sec:grafana}
+Grafana is an open-source analytics and visualization platform that enables you to query, explore, and display data through interactive dashboards. It supports multiple data sources, including PostgreSQL.
+
+Watch the following videos to learn how to connect Grafana to a PostgreSQL table containing sensor data: \href{https://drive.google.com/file/d/1NpSFTgN7s5IwQjOtmUd-gfDtW3V7F4Rt/view?usp=sharing}{video 1} and \href{https://drive.google.com/file/d/1nxkS3YTr_MTg1tvGLcMb8NuLeJ245NBv/view?usp=sharing}{video 2}.
+
+The SQL code to create the table is provided below:
+\pagebreak
+
+\begin{minted}
+[tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize]{sql}
+CREATE TABLE IF NOT EXISTS public.sensor
+(
+    oid bigint NOT NULL,
+    lat real NOT NULL,
+    lon real NOT NULL,
+    tim timestamp with time zone NOT NULL,
+    CONSTRAINT sensor_pkey PRIMARY KEY (tim)
+)
+\end{minted}
+
+You can also download the code used to generate the data from \href{https://drive.google.com/file/d/1ZLxN3c0_E2Q6f3UTZ4IzhTOdjitN6bNE/view?usp=sharing}{here}. Reproduce the steps shown in the videos to gain a better understanding of how to display and monitor trends in your database. There is no deliverable required for this section; however, you will perform a similar task using alternative tools in the autonomous work.
+
+\section{Autonomous Work}
+As a practice, in addition to preparing the summaries for section \ref{sec:recipes}, you will review the following \href{https://drive.google.com/file/d/13tYo-_geKQJil7J8UX0gBOyhJdJH23bJ/view?usp=sharing}{document}. This resource contains information about various relational DBMSs—both commercial and open source and, towards the end, presents alternatives to Grafana for visualization and monitoring.
+
+Your task is to select one new RDBMS and one visualization tool from the document, and create a tutorial similar to the one you previously followed in Section \ref{sec:grafana}.
+
+We expect you to submit a well-structured report in \textbf{PDF} format by \textbf{March 2, 2026} before \textbf{2:00pm}.
+
+\vspace{5mm}
+Happy Hacking \includesvg[width=4mm]{figures/sunglasses}!
+
+\end{document}
+
