@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{amsfonts}
+\usepackage[printonlyused]{acronym}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usemintedstyle{tango}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+}
+
+\title{Lab 02: A `gentle' Introduction to Remote Sensing Indices.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The primary objective of this laboratory exercise is to explore the mathematical foundations of spectral indices and their practical application in identifying Earth surface features. By focusing on the multi-spectral signatures of vegetation and water, this study utilizes imagery from major satellite constellations to bridge the gap between raw data and environmental insights. The core of the analysis centers on the January and February 2026 flood event in the Department of Córdoba, employing Landsat imagery to perform a comparative temporal assessment between pre-flood conditions in late January and post-flood conditions in mid-February.
+
+To quantify the environmental impact of these floods, the methodology integrates both visual and computational analysis within a Geographic Information System (QGIS). Initial processing involves the creation of True Color and False Color composites, particularly utilizing the Near-Infrared (NIR) band to distinguish between submerged areas and healthy vegetation. This is followed by the application of map algebra to compute the Normalized Difference Vegetation Index (NDVI) and the Normalized Difference Water Index (NDWI) as lab exercise. These metrics allow for a detailed evaluation of vegetation health and a precise delimitation of affected water bodies, culminating in the production of professional map layouts that illustrate the magnitude of the emergency.
+
+\section{Getting Data}
+This section covers the data acquisition process for analyzing the January and February 2026 flood event in the Department of Córdoba. We will use Landsat imagery to compare ``before'' scenes (late January) and ``after'' scenes (mid-February).
+
+You will access the \href{https://earthexplorer.usgs.gov/}{USGS Earth Explorer} platform to retrieve free satellite imagery of the study area. Please watch this \href{https://youtu.be/LaYln0x99Ow}{video tutorial} for a step-by-step guide on how to obtain the necessary data. There is no formal submission for this section; the goal is to familiarize yourself with the data retrieval process.
+
+\section{Visualizing Band Composites}
+To effectively interpret the satellite imagery, we will process the scenes using two standard visualization techniques: True Color and False Color composites. We will follow the methodology presented in this \href{https://youtu.be/BmlbnlQBFNU}{video tutorial} to generate false-color composites for both the pre- and post-emergency periods. By utilizing bands such as Near-Infrared (NIR), these composites provide a clearer distinction between water bodies and vegetation, allowing for a more precise assessment of the flood's magnitude.
+
+\section{Computing Spectral Indices}
+To further quantify the environmental impact, we will employ map algebra to calculate the Normalized Difference Vegetation Index (NDVI) for the study area. This metric allows for a detailed assessment of how the flood events have affected local vegetation health. Furthermore, this process serves as a practical application of the general methodology used to compute a wide range of spectral indices. The following \href{https://youtu.be/bY46XiLU4eQ}{video tutorial} provides a comprehensive summary of the steps required to calculate the NDVI for this specific analysis.  Figure \ref{fig:ndvi_after} show the resulting NDVI visualization after the flood emergency.
+
+\begin{figure}[t]
+ \centering
+ \includegraphics[width=0.75\textwidth]{figures/NDVI_After.jpg}
+ \caption{NDVI singleband pseudocolor visualization for the study area.}
+ \label{fig:ndvi_after}
+\end{figure}
+
+
+\section{Autonomous Work}
+It is now time for hands-on application. Your task is to compute the Normalized Difference Water Index (NDWI) for the study area. To focus on the most affected locations, you must perform a \textbf{clip operation} on the raster layers in QGIS; you are expected to research the specific tools and parameters required for this process independently.
+
+Once you have delimited your study area, you will present your ``before and after'' findings in separate maps. These should utilize the skills you acquired in the previous lab regarding \textbf{Print Layouts} in QGIS. You must submit a well-formatted report in \textbf{PDF} format detailing your methodology and including your final map layouts. The report must be uploaded to Brightspace\texttrademark\ no later than \textbf{March 5, 2026}, before the start of the next lab.
+
+\end{document}
