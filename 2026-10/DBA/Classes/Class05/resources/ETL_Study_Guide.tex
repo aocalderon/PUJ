@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\geometry{margin=1in}
+
+\title{Study Guide: ETL in Data Warehousing and Pentaho Data Integration}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\noindent This study guide is designed to enhance your understanding of Extract, Transform, and Load (ETL) processes within the data warehousing lifecycle and to provide a detailed overview of Pentaho Data Integration (PDI).
+
+\section*{Part 1: The Role of ETL in the Data Warehousing Lifecycle}
+
+Data warehousing is the process of taking data from legacy and transaction database systems and transforming it into organized information in a user-friendly format to encourage data analysis and support fact-based business decision-making. A data warehouse is defined as a system that extracts, cleans, conforms, and delivers source data into a dimensional data store and then supports querying and analysis for decision-making. The ETL process is core to this, consuming at least 70\% of the time, effort, and expense of most data warehouse projects.
+
+\subsection*{Requirements for ETL System Design}
+
+Designing an ETL system begins by gathering all known requirements, realities, and constraints, which are non-negotiable aspects to which the system must adapt. These requirements significantly influence architectural decisions, affecting hardware, software, coding practices, personnel, and operations.
+
+\begin{itemize}
+    \item \textbf{Business Needs:} While end-users' information requirements drive data source choices, the ETL team plays a crucial role in maintaining a continuous dialogue with architects and end-users. Through interviews and investigations, the ETL team often uncovers hidden complexities or limitations in data sources, which can affect whether business needs can be met as originally hoped. Conversely, they may also discover additional capabilities in the data sources that can expand end-users' decision-making.
+    \item \textbf{Compliance Requirements:} Regulations like Sarbanes-Oxley demand proof of accuracy, completeness, and lineage. This includes archived copies of data sources, proof of complete transaction flow, documented algorithms, and proof of data security over time.
+    \item \textbf{Data Profiling:} This is a necessary precursor involving analytical methods to thoroughly understand data content, structure, and quality.   A data source that perfectly suits a production system might be disastrous for a data warehouse if ancillary fields are unreliable.  Dirty data may require eliminating fields, flagging missing data, or generating special surrogate keys.   In extreme cases, if profiling reveals deep flaws, the project should be cancelled.
+    \item \textbf{Security Requirements:} Security for end-users is typically handled via role-based access control (LDAP). However, the ETL environment requires special security: workstations on a separate subnet behind a packet-filtering gateway. Sensitive data sets should be instrumented with OS printed reports on a dedicated impact printer in a locked room. Archived data sets should be stored with checksums.
+    \item \textbf{Data Integration:} This takes the form of conforming dimensions (establishing common textual labels/units) and conforming facts (agreeing on common business metrics/KPIs).
+    \item \textbf{Data Latency:} Defines how quickly data must be delivered.  Urgent requirements necessitate a paradigm shift to a streaming-oriented architecture (record-at-a-time processing).
+    \item \textbf{Archiving and Lineage:} It is recommended to stage data after each major transformation (extract, clean, conform, deliver). All staged data should be archived with accompanying metadata describing its lineage.
+    \item \textbf{End User Delivery Interfaces:} The ETL team must ensure data content and structure make applications simple and fast. Handing off a full-blown normalized physical model is considered irresponsible.
+    \item \textbf{Available Skills \& Legacy Licenses:} Design must consider in-house skills (e.g., C++ expertise) and management mandates regarding existing legacy licenses.
+\end{itemize}
+
+\subsection*{Architectural Decisions}
+
+The choice of architecture drives every aspect of implementation.
+
+\begin{itemize}
+    \item \textbf{ETL Tool versus Hand Coding:} ETL tools enable simpler, faster development with integrated metadata repositories, built-in schedulers, and prebuilt connectors. Hand-coding allows for automated unit testing (JUnit, Python), object-oriented consistency, and unlimited flexibility.
+    \item \textbf{Using Proven Technology:} Investing in dedicated tools reduces long-term costs and ensures you work with vendors likely to support products long-term.
+    \item \textbf{Horizontal versus Vertical Task Dependency:} Horizontal flow allows final database loads to run independently; vertical flow synchronizes two or more job flows so they occur simultaneously.
+    \item \textbf{Scheduler Automation:} Ranges from manual initiation to a master scheduler managing all jobs and emergency alerts.
+    \item \textbf{Exception Handling:} Should be a system-wide mechanism reporting process name, time, severity, and resolution status to a single database. %
+    \item \textbf{Quality Handling:} Quality issues should trigger exception reports and generate audit records attached to the final data.
+    \item \textbf{Recovery and Restart:} Jobs must be re-entrant and impervious to incorrect multiple updates.
+    \item \textbf{Metadata:} The biggest challenge is storing process-flow information, often handled automatically by tool suites.
+\end{itemize}
+
+\subsection*{The Back Room and Front Room Architecture}
+
+\begin{itemize}
+    \item \textbf{The Back Room – Data Management:} Strictly off-limits to end-users. It stages data through: \textbf{Extracting} (raw data to disk), \textbf{Cleaning} (checks for valid values and duplicates), \textbf{Conforming} (enterprise-wide standardization), and \textbf{Delivering} (structuring into dimensional models/star schemas).
+    \item \textbf{Operational Data Store (ODS):} Historically a separate system, but largely unnecessary in modern architectures due to overlap with real-time data warehouses.
+    \item \textbf{The Front Room – Data Access:} Where cleaned data is made available via \textbf{Data Marts} (sets of dimensional tables based on business processes).
+\end{itemize}
+
+\subsection*{The Mission of the Data Warehouse and ETL Team}
+
+The mission is to publish data assets to support decision-making.   A data warehouse is \textbf{not} a product, a language, a single project, a data model alone, or a copy of your transaction system. The \textbf{Data Warehouse Bus Architecture} uses conformed dimensions and facts to allow drill-across reports, whereas an \textbf{Enterprise Data Warehouse (EDW)} is often based on highly normalized models.
+
+\pagebreak
+
+\section*{Part 2: Main Points of Pentaho Data Integration (PDI)}
+
+Pentaho Data Integration (PDI), also known as \textbf{Kettle}, is an engine and suite of tools for ETL.
+
+\subsection*{PDI and the Pentaho BI Suite}
+
+PDI is a core component of the Pentaho BI Suite, which includes:
+\begin{itemize}
+    \item \textbf{Analysis:} Mondrian OLAP server.
+    \item \textbf{Reporting:} Design and distribution of reports (HTML, PDF).
+    \item \textbf{Data Mining:} Weka project for predictive analysis.
+    \item \textbf{Dashboards:} CTools (CDE, CCC, CDA).
+\end{itemize}
+
+\subsection*{Kettle's History}
+
+Originally a community project, Kettle was acquired by Pentaho Corporation in April 2006. Major releases include PDI 3.0 (redesign), PDI 5.0 (big data/looping improvements), and PDI 8.0 (resource optimization and streaming connectivity).
+
+\subsection*{Typical Uses of PDI}
+
+Beyond ETL, PDI is used for: loading data warehouses, integrating disparate ERP/CRM applications, data cleansing (duplicates/normalization), system migration, and exporting data for ad-hoc reports.
+
+\subsection*{Installing and Launching PDI}
+
+\begin{itemize}
+    \item \textbf{Prerequisite:} JRE 8.0 must be installed.
+    \item \textbf{Spoon:} The desktop design tool. On Windows, run \texttt{Spoon.bat}; on Linux/Unix, run \texttt{spoon.sh}.
+\end{itemize}
+
+\subsection*{Exploring the Spoon Interface}
+
+The work areas include the Main Menu/Toolbar, the \textbf{Steps Tree} (under the Design tab), the Transformation Toolbar, the \textbf{Canvas} (Work Area), and the View Tab.
+
+\subsection*{The Marketplace}
+
+A pluggable architecture allowing extensions. Plugins have maturity stages from Stage 1 (development) to Stage 4 (production-ready).
+
+\subsection*{Introducing Transformations}
+
+A Transformation is an entity composed of \textbf{steps} (minimal unit of function) and \textbf{hops} (directional data flow). It is stored as plain XML metadata.   \textbf{Previewing} allows seeing a sample of data, while \textbf{Running} executes the whole transformation.
+
+\subsection*{Useful Related Software}
+
+Recommended tools include a text editor (Notepad++, Sublime), spreadsheet editor (OpenOffice Calc), \textbf{PostgreSQL} database, and \textbf{PgAdmin} or SQuirrel SQL Client for administration.
+
+\end{document}
