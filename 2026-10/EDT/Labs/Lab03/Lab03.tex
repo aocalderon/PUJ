@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{amsfonts}
+\usepackage[printonlyused]{acronym}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usemintedstyle{tango}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+}
+
+\title{Lab 03: A `gentle' Introduction to Satellite Imagery Classification.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In our previous sessions, we explored the capabilities of the Landsat program and its long-standing contribution to Earth observation. This lab shifts our focus to the European Space Agency's (ESA) Copernicus program, specifically working with \textbf{Sentinel-2} imagery. With its higher spatial resolution (up to 10 meters) and more frequent revisit times, Sentinel-2 provides a robust platform for detailed land-cover analysis.
+
+The primary objective of this lab is to move beyond simple data visualization and into the realm of quantitative analysis through \textbf{Supervised Classification}. You will learn how to transform raw spectral bands into meaningful thematic maps by ``training'' the software to recognize specific land cover types. Furthermore, we will address a critical phase of any remote sensing project: \textbf{Accuracy Assessment}. Understanding how to validate your results using established metrics, such as the error matrix, is essential for ensuring the reliability of your geospatial products.
+
+By the end of this session, you will have mastered the end-to-end workflow of data acquisition, plugin integration in QGIS, and the theoretical foundations of classification validation.
+
+\section{Getting Data}
+Now that we have covered Landsat data, we will move on to Sentinel data. Visit the \href{https://dataspace.copernicus.eu/}{Copernicus Data Space Ecosystem} to get started. Please create an account and use this \href{https://youtu.be/htF8JD7QEfM}{video} as a guide to downloading Sentinel-2 imagery. Although you do not need to submit anything yet, you will need to have the Blue, Green, Red, and NIR bands of a Sentinel scene ready for your specific study area.
+
+\section{Performing Supervised Classification} \label{sec:class}
+There is no need to reinvent the wheel when so many great resources exist for classifying satellite imagery. For QGIS, we will use the \href{https://semiautomaticclassificationmanual.readthedocs.io/en/latest/}{Semi-Automatic Classification Plugin}. Start by installing it according to the \href{https://semiautomaticclassificationmanual.readthedocs.io/en/latest/installation.html}{instructions here}. Then, watch this specific \href{https://youtu.be/7SZDCFXjIbA?si=XzImodNE6tb-9VD8}{tutorial} from the \href{https://www.youtube.com/@LucaCongedoGIS}{From GIS to Remote Sensing} channel. You may also consult other videos that suit your learning style. Your goal is to apply a supervised classification to the Sentinel bands you downloaded earlier. Be sure to document each step carefully, as this will be a required part of your report.
+
+\section{Learning about Accuracy Assesment} \label{sec:asses}
+As an additional activity, we will explore content from the textbook \textit{`Remote Sensing and Image Interpretation'} (7th ed.) by Lillesand, Chipman, and Kiefer (2015). Specifically, you are to read Section \textbf{7.17: Classification Accuracy Assessment}. After reading, please write a concise summary covering the primary concepts and methodologies discussed. You must include photos of your handwritten summary as figures within your final report.
+
+\section{Autonomous Work}
+You must submit a well-formatted report in \textbf{PDF} format detailing the methodology requested in Section \ref{sec:class}, including the final map layout of your classified image. Additionally, please include the summary requested in Section \ref{sec:asses}. The report must be uploaded to Brightspace\texttrademark\ no later than \textbf{March 12, 2026}, before the start of the next lab session.
+
+\end{document}

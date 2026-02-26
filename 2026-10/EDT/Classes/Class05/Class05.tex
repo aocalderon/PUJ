@@ -1,0 +1,523 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{Class02.bib}
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+  \renewcommand{\fcolorbox}[4][]{#4}}
+
+\usefonttheme{serif}
+
+\usepackage{listings}
+\lstdefinestyle{myCustomSQLStyle}{
+  language=SQL,
+  numbers=left,
+  stepnumber=1,
+  numbersep=10pt,
+  tabsize=4,
+  frame=single,
+  backgroundcolor=\color{LightGray},
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\title[Class 05]{Satellite Imagery Classification}
+\author{Lillesand, Chipman \& Kiefer, 2015.}
+\date{\today}
+
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft EDT
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Image Classification}
+
+\begin{frame}{Spectral Pattern Recognition}
+    \begin{itemize}
+        \item \textbf{The Core Objective:} Automatically categorize pixels into land cover classes or ``themes''.
+        \item \textbf{The ``Individualist'' Approach:}
+        \begin{itemize}
+            \item Classification is performed \textbf{pixel-by-pixel}.
+            \item Based on spectral reflectance or emissivity signatures.
+            \item \alert{Crucial Note:} It ignores the pixel's neighbors or surroundings.
+        \end{itemize}
+        \item \textbf{Extending the Model:}
+        \begin{itemize}
+            \item \textbf{Polarization:} Radar imagery.
+            \item \textbf{Temporal:} Multitemporal sequences.
+            \item \textbf{Bidirectional:} Multi-angle imagery (e.g., MISR).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spatial Pattern Recognition}
+    \begin{itemize}
+        \item \textbf{The ``Contextual'' Approach:} Categorizes pixels based on their relationship with surrounding pixels.
+        \item \textbf{Key Variables Considered:}
+        \begin{itemize}
+            \item Texture, proximity, size, and shape.
+            \item Directionality, repetition, and context.
+        \end{itemize}
+        \item \textbf{Human Synthesis:} Attempts to replicate the visual interpretation process of a human analyst.
+        \item \textbf{Complexity:} More computationally intensive than spectral methods.
+        \item \textbf{Hybrid Models (OBIA):} Object-Based Image Analysis combines both spectral and spatial logic.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Supervised Classification}
+    \textit{The analyst acts as the teacher for the algorithm.}
+    \vspace{0.3cm}
+    \begin{enumerate}
+        \item \textbf{Training Stage:} The analyst identifies representative sample sites of known cover types (\textbf{Training Areas}).
+        \item \textbf{Interpretation Key:} These areas are used to compile numerical descriptors of spectral attributes.
+        \item \textbf{Classification:} The computer compares every unknown pixel to the key.
+        \item \textbf{Labeling:} The pixel is assigned to the category it ``looks most like'' based on statistical strategies.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Unsupervised and Hybrid Classification}
+    \begin{block}{Unsupervised Classification}
+        \begin{itemize}
+            \item \textbf{Data-First:} Pixels are grouped into ``natural'' clusters based on spectral similarity.
+            \item \textbf{Post-Classification Identity:} The analyst labels the clusters \textit{after} the grouping is done using ground reference data.
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Hybrid \& Specialized Procedures}
+        \begin{itemize}
+            \item \textbf{Hybrid:} Combines supervised and unsupervised steps for better efficiency.
+            \item \textbf{Advanced Topics:} Neural networks, mixed pixel analysis, and specialized hyperspectral procedures.
+        \end{itemize}
+    \end{block}
+
+    \centering
+    \small \textit{``There is no single `right' manner... approach depends on data nature and intended application.''}
+\end{frame}
+
+\section{Supervised Classification}
+
+\begin{frame}{Data Input and Spectral Patterns}
+    \begin{itemize}
+        \item \textbf{Sensor Agnostic:} Procedures apply to airborne multispectral data and satellite platforms (Landsat, SPOT, WorldView-2).
+        \item \textbf{Multichannel Framework:} Analysis typically involves multiple spectral bands, for example:
+        \begin{itemize}
+            \item Visible: Blue, Green, Red
+            \item Infrared: Near-Infrared (NIR), Thermal Infrared
+        \end{itemize}
+        \item \textbf{Digital Numbers (DNs):} The sensor measures scene radiance recorded as DNs for each pixel across all bands.
+        \item \textbf{Basis for Classification:} If spectral response patterns are sufficiently distinct for different terrain features, they form a ``signature'' for automated categorization.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Three-Step Procedure}
+    Supervised classification follows a structured three-stage workflow:
+    \vspace{0.3cm}
+    \begin{enumerate}
+        \item \textbf{Training Stage:} The analyst identifies representative ``training areas'' to develop numerical descriptions of the spectral attributes for each land cover type.
+        \item \textbf{Classification Stage:} Each pixel is compared to the training data and categorized into the class it most closely resembles.
+        \item \textbf{Output Stage:} Results are compiled into final products for end-users.
+    \end{enumerate}
+    \vspace{0.2cm}
+    \begin{quote}
+        Pixels that do not sufficiently match any training set are labeled as \textbf{``unknown''.}
+    \end{quote}
+\end{frame}
+
+\begin{frame}{Classification Stage and Output Products}
+    \begin{itemize}
+        \item \textbf{The ``Heart'' of the Process:} The classification stage uses computer-based \textbf{decision rules} to evaluate spectral patterns.
+        \item \textbf{Versatile Output Formats:}
+        \begin{itemize}
+            \item \textbf{Thematic Maps:} Visual representations of land cover.
+            \item \textbf{Statistical Tables:} Summary data for each class.
+            \item \textbf{Digital Data Files:} Classified data can be exported directly into a \textbf{Geographic Information System (GIS)}.
+        \end{itemize}
+        \item \textbf{Strategic Integration:} Classification output often becomes GIS input, enabling complex spatial modeling and decision-making.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Multispectral Scan Line Profile}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig34}
+\end{frame}
+
+\begin{frame}{Basic steps}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig35}
+\end{frame}
+
+\section{The Classification Stage}
+
+\begin{frame}{The Concept of Measurement Space}
+    \begin{itemize}
+        \item \textbf{Measurement Vectors:} Each pixel is represented as a point in a multi-dimensional space.
+        \item \textbf{Scatter Plots:} For a 2-band subset, DNs from Band 3 ($y$-axis) and Band 4 ($x$-axis) define a pixel's coordinates.
+        \item \textbf{Spectral Clusters:} Training data forms ``clouds of points'' rather than single values.
+        \item \textbf{Natural Variability:} These clouds illustrate the centralizing tendency and inherent variance of specific land cover classes.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Pixel observations to scatter diagram}
+    \centering
+    \includegraphics[width=0.575\textwidth]{figures/fig36}
+\end{frame}
+
+\begin{frame}{Minimum-Distance-to-Means Classifier}
+    \begin{itemize}
+        \item \textbf{Mechanism:}
+        \begin{enumerate}
+            \item Calculate the \textbf{mean vector} (average spectral value) for each category.
+            \item Compute the Euclidean distance from an unknown pixel to each mean.
+            \item Assign pixel to the ``closest'' class.
+        \end{enumerate}
+        \item \textbf{Pros:} Mathematically simple and computationally efficient.
+        \item \textbf{Cons:} Insensitive to different degrees of \textbf{variance}.
+        \item \alert{Limitation:} A pixel may be mathematically closer to a ``tight'' cluster (like sand) even if it logically belongs to a ``wide'' cluster (like urban).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Minimum distance to means classiﬁcation strategy}
+    \centering
+    \includegraphics[width=0.575\textwidth]{figures/fig37}
+\end{frame}
+
+\begin{frame}{Parallelepiped Classifier}
+    \begin{itemize}
+        \item \textbf{Mechanism:} Uses the range (min/max) of DNs in each band to create ``decision regions'' (rectangles in 2D, parallelepipeds in n-D).
+        \item \textbf{Sensitivity:} Accounts for category variance by sizing the boxes differently.
+        \item \textbf{The Overlap Problem:}
+        \begin{itemize}
+            \item If categories overlap, pixels are labeled ``not sure''.
+            \item Fails to account for \textbf{covariance} (slanted clouds where bands vary together).
+        \end{itemize}
+        \item \textbf{Performance:} Very fast, but often poor for highly correlated spectral response patterns.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Parallelepiped classiﬁcation strategy}
+    \centering
+    \includegraphics[width=0.575\textwidth]{figures/fig38}
+\end{frame}
+
+\begin{frame}{Gaussian Maximum Likelihood Classifier (GMLC)}
+    \begin{itemize}
+        \item \textbf{The Probabilistic Leap:} Evaluates both variance and covariance by assuming a \textbf{Gaussian (Normal)} distribution.
+        \item \textbf{Parameters:} Completely described by the mean vector $\mu$ and the covariance matrix $\Sigma$.
+        \item \textbf{Mechanism:} Calculates the statistical probability of a pixel belonging to each class; assigns it to the ``most likely'' one.
+        \item \textbf{Equi-probability Contours:} Delineates ellipsoidal decision regions that follow the ``slant'' of the data.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Probability density by a maximum likelihood classiﬁer.}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/fig39}
+\end{frame}
+
+\begin{frame}{Equiprobability contours by a maximum likelihood classiﬁer.}
+    \centering
+    \includegraphics[width=0.575\textwidth]{figures/fig40}
+\end{frame}
+
+\begin{frame}{Bayesian Classifier \& Cost Functions}
+    The Bayesian approach refines GMLC by adding two weighting factors:
+    \vspace{0.2cm}
+    \begin{enumerate}
+        \item \textbf{A Priori Probability:} The anticipated likelihood of a class occurring in the scene (e.g., urban is more likely than rare sand).
+        \item \textbf{Cost of Misclassification:} A weight applied to minimize the ``damage'' of specific errors.
+    \end{enumerate}
+    \vspace{0.2cm}
+    \begin{block}{The Ideal Goal}
+        To minimize the overall ``cost'' of errors, resulting in a theoretically optimum classification.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Efficiency vs. Accuracy}
+    \begin{itemize}
+        \item \textbf{The Drawback of GMLC:} Large number of computations, especially with many bands.
+        \item \textbf{Dimensionality Reduction:} Using Principal Component transformations to speed up the process.
+        \item \textbf{Decision Tree (Layered) Classifiers:}
+        \begin{itemize}
+            \item A ``multi-step'' approach.
+            \item Separate simple classes (like water) first using basic thresholds.
+            \item Reserve complex GMLC logic only for ``ambiguous'' overlapping classes.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{The Training Stage}
+
+\begin{frame}{The Analyst's Critical Role}
+    \begin{itemize}
+        \item \textbf{Manual vs. Automated:} While classification is automated, training is a manual process requiring ``art and science''.
+        \item \textbf{The Objective:} To define the location, size, and orientation of the ``clouds of points'' (spectral signatures) for each class.
+        \item \textbf{Requirements:}
+        \begin{itemize}
+            \item Close interaction with image data.
+            \item Substantial reference data.
+            \item Thorough knowledge of the geographic area.
+        \end{itemize}
+        \item \alert{Success Factor:} The quality of training determines the value of the entire classification effort.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Information Classes vs. Spectral Classes}
+    \begin{itemize}
+        \item \textbf{Information Class:} The desired category (e.g., ``Water'' or ``Agriculture'').
+        \item \textbf{Spectral Class:} The distinct spectral subgroups within an information class.
+        \item \textbf{The ``Representative'' Rule:}
+        \begin{itemize}
+            \item One information class often requires \textbf{multiple} spectral classes.
+            \item \textbf{Example:} ``Water'' might include clear water, turbid water, and deep water (each requiring its own training set).
+            \item \textbf{Complexity:} Agriculture may vary by planting date, soil moisture, and crop variety.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Methods of Delineation}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \textbf{Manual Polygons:}
+            \begin{itemize}
+                \item Analyst draws boundaries around known areas.
+                \item \textbf{Edge Avoidance:} Avoid pixels on boundaries or ``rough'' areas to ensure purity.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Seed Pixel Approach:}
+            \begin{itemize}
+                \item Analyst selects a representative ``seed''.
+                \item Algorithm grows the area by including contiguous pixels with similar spectral traits.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Statistical Requirements}
+    \begin{itemize}
+        \item \textbf{Sample Size ($n$ = number of bands):}
+        \begin{itemize}
+            \item Theoretical minimum: $n + 1$ pixels.
+            \item \textbf{Practical Rule:} Use $10n$ to $100n$ pixels per training set.
+        \end{itemize}
+        \item \textbf{Spatial Dispersion:}
+        \begin{itemize}
+            \item It is better to have many small sites (e.g., 20 sites of 40 pixels) than one giant site (1 site of 800 pixels).
+            \item Dispersion captures scene-wide variations.
+        \end{itemize}
+        \item \textbf{Mathematical Basis:} These pixels generate the \textbf{mean vector} and \textbf{covariance matrix} for the classifier.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Training area polygons}
+    \centering
+    \includegraphics[width=\textwidth]{figures/fig41}
+\end{frame}
+
+\begin{frame}{The Refinement Process}
+    \begin{itemize}
+        \item \textbf{Statistical Testing:} Ensure data is \textbf{unimodal} and Gaussian (normally distributed).
+        \item \textbf{Cleaning Data:}
+        \begin{itemize}
+            \item Delete ``edge pixels'' or outliers (e.g., bare soil found within a crop field).
+            \item Split bimodal distributions into two distinct spectral classes.
+        \end{itemize}
+        \item \textbf{Spectral Separability:} Evaluate if training sets for different classes overlap too much.
+        \item \textbf{Final Goal:} A clean, non-redundant set of ``interpretation keys'' for the computer to follow.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Graphical Analysis: Histograms}
+    \begin{itemize}
+        \item \textbf{Visual Normality Check:} Essential for Maximum Likelihood classifiers to ensure data follows a Gaussian distribution.
+        \item \textbf{Identifying Subclasses:}
+        \begin{itemize}
+            \item A \textbf{bimodal distribution} (two peaks) suggests the training site contains two distinct subclasses.
+            \item \textit{Example:} ``Hay'' might actually be two different varieties or have different illumination conditions.
+        \end{itemize}
+        \item \textbf{Action:} Split bimodal classes into separate spectral categories to improve overall accuracy.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Visualization of training plot data}
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/fig42}
+\end{frame}
+
+\begin{frame}{Coincident Spectral Plots}
+    \begin{itemize}
+        \item \textbf{Comparison Tool:} Unlike histograms, these allow for direct comparison between different category types.
+        \item \textbf{Visualization:} Displays mean response and variance ($\pm 2$ standard deviations) for each band.
+        \item \textbf{Key Insight:} Reveals spectral overlap between classes (e.g., Hay vs. Corn).
+        \item \textbf{Band Selection:} Helps identify which bands offer the best ``reversals'' or gaps for class separation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Multispectral Images}
+    \centering
+    \includegraphics[width=0.425\textwidth]{figures/fig43}
+\end{frame}
+
+\begin{frame}{Scatter Diagrams (Measurement Space)}
+    \begin{itemize}
+        \item \textbf{Multi-Band View:} Captures relationships that single-band histograms miss.
+        \item \textbf{Correlation Analysis:}
+        \begin{itemize}
+            \item \textbf{High Correlation:} Near-linear ``cloud of points'' (e.g., Visible Green vs. Red). Harder to separate classes.
+            \item \textbf{Low Correlation:} Expanded ``measurement space'' (e.g., Red vs. Near-IR). Much easier to separate land cover types.
+        \end{itemize}
+        \item \textbf{Practical Application:} Often, just two well-chosen, low-correlation bands are enough for generalized classification.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Histograms and two-dimensional scatter diagram}
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/fig44}
+\end{frame}
+
+\begin{frame}{Histograms and two-dimensional scatter diagram}
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/fig45}
+\end{frame}
+
+\begin{frame}{Quantitative Separability Measures}
+    \begin{itemize}
+        \item \textbf{Statistical Distance:} Computing a ``matrix of divergence'' between all class pairs.
+        \item \textbf{Transformed Divergence (TD):} A covariance-weighted distance.
+        \begin{itemize}
+            \item Values $>1500$ generally indicate good separation.
+            \item Values $<1500$ suggest problematic spectral overlap.
+        \end{itemize}
+        \item \textbf{Jeffries-Matusita (JM) Distance:} Similar to TD but with a fixed scale (maximum 1414).
+        \item \textbf{Diagnosis:} If overlap occurs between \textit{different} information classes (e.g., Hay and Corn), refinement is needed.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Divergence Matrix}
+    \centering
+    \includegraphics[width=\textwidth]{figures/tab1}
+\end{frame}
+
+\begin{frame}{Self-Classification of Training Data}
+    \begin{itemize}
+        \item \textbf{The ``Preliminary Test'':} Classifying only the training pixels to see if the computer assigns them correctly.
+        \item \textbf{The Error Matrix:} Displays percentages of ``as expected'' vs. ``misclassified'' training pixels.
+        \item \alert{The Warning:} Do NOT confuse this with final map accuracy.
+        \begin{itemize}
+            \item Training areas are ``pure'' examples; the rest of the scene is usually much ``messier''.
+            \item High training accuracy does not guarantee high scene-wide accuracy.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Interactive Preliminary Classification}
+    \begin{itemize}
+        \item \textbf{Real-Time Feedback:} Using efficient algorithms (like parallelepiped) to highlight areas the current statistics would capture.
+        \item \textbf{Visual Approximation:} Highlighting ``classified'' pixels in color over the raw imagery.
+        \item \textbf{Representative Subsets:} Classifying a small, diverse section of the image first to verify the logic before committing to the full scene.
+        \item \textbf{Iteration:} ``Trial and error'' testing of alternative deletions and poolings of training classes.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tactics for Difficult Overlaps}
+    When spectral classes refuse to separate, the analyst has several choices:
+    \vspace{0.2cm}
+    \begin{enumerate}
+        \item \textbf{Merger/Aggregation:} Combine specific classes into broader categories (e.g., Merge ``Birch'' and ``Aspen'' into ``Deciduous'').
+        \item \textbf{Deletion:} Eliminate rare problem classes to preserve the accuracy of extensive, similar classes.
+        \item \textbf{Trial and Error:} Adjust sample sizes or re-evaluate the identity of training sites.
+    \end{enumerate}
+    \vfill
+    \centering
+    \textit{``If classes are inherently similar, no amount of retraining will make them separable!''}
+\end{frame}
+
+\begin{frame}{Multi-Image and Ancillary Data}
+    \begin{itemize}
+        \item \textbf{The Multi-Image Problem:} Atmospheric and sun-angle changes mean ``signatures'' from one date rarely work on another.
+        \item \textbf{Radiometric Normalization:} Matching secondary images to a ``base'' image to allow signature extension.
+        \item \textbf{The Hybrid Future:}
+        \begin{itemize}
+            \item Incorporating \textbf{GIS data} (elevation, soil type).
+            \item Using \textbf{Multitemporal} data (seasonal changes).
+            \item \textbf{Spatial Pattern Recognition} to mimic human visual interpretation.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}{}
+%\end{frame}
+
+\end{document}
