@@ -12,6 +12,7 @@
 \usepackage{algorithmic}
 \usepackage{minted}
 \usepackage{listings}
+\usepackage{tabularx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
 \usetikzlibrary{arrows,shapes}
@@ -127,8 +128,23 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Indexes (Cont.)}
+  \centering
+  \scriptsize
+  \begin{tabularx}{\textwidth}{@{} l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X @{}}
+    \toprule
+      \textbf{Type} & \textbf{Pros} & \textbf{Cons} & \textbf{Best Example} \\
+    \midrule
+      \textbf{B-Tree} & Versatile; supports sorting, ranges, and unique constraints. & Can grow very large; high overhead on frequent updates. & Primary Keys: Searching for a specific \texttt{user\_id} or price ranges. \\
+      \textbf{Hash} & Faster than B-Tree for exact equality (\texttt{=}) matches. & No support for ranges (\texttt{>}, \texttt{<}) or sorting. & Unique Tokens: Looking up a specific \texttt{session\_id} or API key. \\
+      \textbf{GiST} & Highly flexible; handles complex geometry, ranges, and KNN. & Slower to build and search than GIN or B-Tree. & Geography: Finding coffee shops within 1km of a coordinate. \\
+      \textbf{GIN} & Best for multi-value data; lightning-fast read performance. & Heavy ``write tax''; slow to update or insert new rows. & JSONB/Arrays: Finding products with the tag \texttt{'organic'}. \\
+      \textbf{BRIN} & Extremely small footprint; minimal overhead on massive tables. & Only effective if data is physically sorted on disk. & Time-Series: Scanning logs from a billion-row table by timestamp. \\
+    \bottomrule
+  \end{tabularx}
+\end{frame}
 
-\begin{frame}[fragile]{Indexes}
+\begin{frame}[fragile]{Indexes  (Cont.)}
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{text}
 CREATE [ UNIQUE ] INDEX [ CONCURRENTLY ] [ [ IF NOT EXISTS ] name ] ON
@@ -152,22 +168,13 @@ CREATE INDEX <schema_name>.<index_name> on <table_name> (<column/column-list>)
 
 \begin{frame}{Index Creation Notes}
   \begin{itemize}
-    \item \textbf{CREATE} and \textbf{DROP} indexes are not online activities by default.
-          The table is locked for modifications during these operations.
-
-    \item Read operations can still be performed during index creation/modification
-          if the \texttt{CONCURRENTLY} keyword is used.
-
-    \item Multi-column indexes can be created to improve performance on queries
-          involving multiple columns.
-
-    \item When creating multi-column indexes, ensure the column order matches
-          the order used in the query’s \texttt{WHERE} clause.
+    \item \textbf{CREATE} and \textbf{DROP} indexes are not online activities by default.  The table is locked for modifications during these operations.
+    \item Read operations can still be performed during index creation/modification if the \texttt{CONCURRENTLY} keyword is used.
+    \item Multi-column indexes can be created to improve performance on queries involving multiple columns.
+    \item When creating multi-column indexes, ensure the column order matches the order used in the query’s \texttt{WHERE} clause.
   \end{itemize}
 \end{frame}
 
-
-% Reindexing
 \begin{frame}{Reindexing}
     \begin{itemize}
         \item Rebuilding an index can help maintain performance.
@@ -186,9 +193,9 @@ REINDEX [ ( option [, ...] ) ] { INDEX | TABLE | SCHEMA | DATABASE | SYSTEM }
     where option can be one of:
     \begin{minted}
     [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize]{text}
-CONCURRENTLY [ boolean ] – Reindex can be created concurrently online
-TABLESPACE new_tablespace – Reindexing could be done in tablespace new
-VERBOSE [ boolean ] – Logs will be printed while reindexing
+CONCURRENTLY [ boolean ]: Reindex can be created concurrently online
+TABLESPACE new_tablespace: Reindexing could be done in a new tablespace
+VERBOSE [ boolean ]: Logs will be printed while reindexing
     \end{minted}
 \end{frame}
 
@@ -256,7 +263,6 @@ VERBOSE [ boolean ] – Logs will be printed while reindexing
   \end{itemize}
 \end{frame}
 
-% Statistics
 \section{Statistics}
 
 \begin{frame}{Statistics in PostgreSQL}
@@ -431,19 +437,16 @@ FORMAT { TEXT | XML | JSON | YAML }
     \end{minted}
 \end{frame}
 
-
-\begin{frame}{In action}
-    \centering
-    \includegraphics[width=0.95\textwidth]{figures/explain1}
-\end{frame}
-
-
 \begin{frame}{In action}
     \centering
     \includegraphics[width=0.95\textwidth]{figures/explain2}
 \end{frame}
 
-% Best Practices
+\begin{frame}{In action (Cont.)}
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/explain1}
+\end{frame}
+
 \section{Best Practices}
 
 \begin{frame}{Best Practices for Performance Tuning}
