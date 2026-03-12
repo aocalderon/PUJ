@@ -129,7 +129,7 @@ Before comparing two images, they must be ``radiometrically comparable.''
 \end{itemize}
 
 \subsection*{Phase 3: Image Processing \& Analysis}
-Students should choose a combination of the following methods:
+Students should choose a combination of the following methods (see Table \ref{tab:techniques} for details):
 
 \begin{enumerate}
   \item Spectral Indices and Land Use Change.
@@ -138,15 +138,19 @@ Students should choose a combination of the following methods:
 
 
 \begin{table}[!ht]
-\centering
-\small
-\begin{tabular}{lp{3.5cm}p{6.5cm}}
-\toprule
-\textbf{Method} & \textbf{Best For...} & \textbf{Technique} \\ \midrule
-Spectral Indices & Vegetation or Water & Calculate $\text{NDVI}$ or $\text{NDWI}$ for both dates and subtract them: $\Delta \text{Index} = \text{Index}_{t2} - \text{Index}_{t1}$. \\ \addlinespace
-Image Differencing & General Land Cover & Subtracting raw bands (e.g., Near-Infrared) to identify high-magnitude change. \\ \addlinespace
-Post-Classification & Land Use Change & Perform a Supervised Classification (Random Forest or SVM) on both $t_1$ and $t_2$, then create a ``From-To'' change matrix. \\ \bottomrule
-\end{tabular}
+    \centering
+    \caption{Applied Change Detection Methodologies}
+    \label{tab:techniques}
+    \small
+    \begin{tabular}{l p{3.5cm} p{6.5cm}}
+        \toprule
+            \textbf{Method} & \textbf{Best For...} & \textbf{Technique} \\
+        \midrule
+            Spectral Indices & Vegetation or Water & Calculate $\text{NDVI}$ or $\text{NDWI}$ for both dates and subtract them: $\Delta \text{Index} = \text{Index}_{t2} - \text{Index}_{t1}$. \\ \addlinespace
+            Image Differencing & General Land Cover & Subtracting raw bands (e.g., Near-Infrared) to identify high-magnitude change. \\ \addlinespace
+            Post-Classification & Land Use Change & Perform a Supervised Classification (Random Forest or SVM) on both $t_1$ and $t_2$, then create a ``From-To'' change matrix. \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 \subsection*{Phase 4: Post-Processing \& Accuracy Assessment}

@@ -4,10 +4,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath, amssymb} % For math and symbols
-\usepackage{graphicx}
+\usepackage{graphicx} % For figures
 \usepackage{booktabs} % For professional tables
-\usepackage{geometry}
-\geometry{margin=1in}
+\usepackage{geometry} % For page margins
+\geometry{margin=2cm}
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,       % Enables colored links instead of boxes
@@ -17,7 +17,7 @@
     urlcolor=cyan,         % Color for external URLs
     pdftitle={Satellite-Based Change Detection Implementation}
 }
-\usepackage[backend=biber, style=authoryear]{biblatex}
+\usepackage[backend=biber, style=authoryear]{biblatex} % For references
 \addbibresource{references.bib}
 
 % --- Project Metadata ---
@@ -79,7 +79,7 @@ We utilized specific methods based on the event type.  Table \ref{tab:techniques
 
 \begin{figure}
  \centering
- \includegraphics{figures/vectorization}
+ \includegraphics[width=0.75\textwidth]{figures/vectorization}
  \caption{An example of vectorization in QGIS}
  \label{fig:vectorization}
 \end{figure}
@@ -90,7 +90,7 @@ We utilized specific methods based on the event type.  Table \ref{tab:techniques
 \subsection{Thematic Maps}
 \ldots
 
-\subsection{Statistics:}
+\subsection{Statistics}
 \ldots
 
 \subsection{Storytelling \& Discussion}
