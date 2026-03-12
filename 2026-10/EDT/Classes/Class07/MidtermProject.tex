@@ -1,0 +1,210 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{amsfonts}
+\usepackage[printonlyused]{acronym}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+}
+
+\title{Midterm Project \\ Satellite-Based Change Detection Implementation}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In an era of rapid environmental flux and frequent geohazards, the ability to monitor the Earth's surface with precision and frequency is no longer a luxury, but a necessity. This midterm project moves beyond theoretical concepts to a real-world application of \textbf{Satellite-Based Change Detection}. By utilizing data from the Copernicus and Landsat programs, students will bridge the gap between traditional remote sensing and contemporary data science practices.
+
+The core of this project is to transform raw satellite imagery into actionable insights by analyzing significant global events—ranging from hydrological disasters like the \textit{Mocoa landslide} to cryospheric changes such as the \textit{death of the Okjökull glacier}. Through a structured five-phase workflow, we will navigate the complexities of radiometric comparability, spectral index calculation, and machine learning classification. Our objective is not only to detect that a change occurred, but to quantify its magnitude, validate its accuracy, and understand its broader socio-environmental implications.
+
+\section{Possible Regions of Interest (ROI)}
+
+Your team should pick one of the following use cases.  It is not allowed that two teams implement a solution over the same event.  Feel free to propose your own ROI and use case if you want.
+
+\begin{enumerate}
+    \item \textbf{Hydrological and Geological Disasters}
+    \begin{itemize}
+        \item \textbf{The Mocoa Landslide, Colombia (April 2017):}
+        \begin{itemize}
+            \item \textbf{The Event:} Heavy rainfall triggered a massive mudflow and landslide that devastated the city of Mocoa in Putumayo.
+            \item \textbf{Project Focus:} This is an excellent local case study for assessing land cover change and urban damage. Students can use Sentinel-2 or Landsat 8 data to calculate NDVI (Normalized Difference Vegetation Index) before and after to map the landslide scars, \textbf{Bonus:} use SAR (Synthetic Aperture Radar) data from Sentinel-1 to detect changes in urban infrastructure.
+        \end{itemize}
+        \item \textbf{Hunga Tonga-Hunga Ha'apai Volcanic Eruption (January 2022):}
+        \begin{itemize}
+            \item \textbf{The Event:} A massive submarine volcanic eruption that literally destroyed most of the uninhabited island and created new landforms.
+            \item \textbf{Project Focus:} This provides one of the most dramatic topographic and coastline changes in recent history. It is ideal for exploring coastal extraction algorithms and analyzing atmospheric ash plumes immediately following the event.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Infrastructure and Urban Change}
+    \begin{itemize}
+        \item \textbf{Kakhovka Dam Collapse, Ukraine (June 2023):}
+        \begin{itemize}
+            \item \textbf{The Event:} The destruction of the dam led to massive downstream flooding along the Dnipro River and the rapid draining of the massive Kakhovka Reservoir upstream.
+            \item \textbf{Project Focus:} Perfect for exploring water detection indices like NDWI (Normalized Difference Water Index). Students can create a time-series analysis showing the progression of the floodwaters and the subsequent drying of the reservoir bed over the following weeks.
+        \end{itemize}
+        \item \textbf{Beirut Port Explosion, Lebanon (August 2020):}
+        \begin{itemize}
+            \item \textbf{The Event:} A massive explosion of ammonium nitrate destroyed the port and heavily damaged the surrounding urban area.
+            \item \textbf{Project Focus:} This is highly suited for high-resolution optical imagery analysis. Students can work on urban damage assessment, comparing building footprints before the event to the rubble fields afterward, which is a great use case for applying spatial analysis and machine learning classification.
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Environmental and Ecological Events}
+    \begin{itemize}
+        \item \textbf{``Black Summer'' Bushfires, Australia (2019-2020):}
+        \begin{itemize}
+            \item \textbf{The Event:} Unprecedented wildfires burned millions of hectares across Australia, particularly in New South Wales and Victoria.
+            \item \textbf{Project Focus:} Ideal for calculating the NBR (Normalized Burn Ratio) and dNBR (differenced NBR) to assess burn severity. Students can map the extent of the fire scars and track vegetation recovery in the years following 2020.
+        \end{itemize}
+        \item \textbf{Brumadinho Dam Disaster, Brazil (January 2019):}
+        \begin{itemize}
+            \item \textbf{The Event:} A tailings dam collapsed, releasing a catastrophic mudflow that destroyed the mine's offices, houses, and farms, heavily polluting the Paraopeba River.
+            \item \textbf{Project Focus:} Students can track the trajectory of the toxic mudflow through the valley and assess the long-term impact on the river's turbidity and surrounding vegetation health.
+        \end{itemize}
+        \item \textbf{The Los Angeles Wildfire Event, USA (January 2025):}
+        \begin{itemize}
+            \item \textbf{The Event:} A rare and devastating winter wildfire event, primarily the Palisades and Eaton fires, fueled by intense Santa Ana winds, destroying over 16,000 structures in the Wildland-Urban Interface (WUI).
+            \item \textbf{Project Focus:} This case is perfect for analyzing fire impacts in densely populated regions. Students can use multi-temporal classification to distinguish between burned vegetation and destroyed building footprints, providing a modern example of WUI risk assessment.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Amazon Deforestation and Glacier Loss}
+    \begin{itemize}
+        \item \textbf{Tinigua National Park, Colombia (2015 vs. 2019):}
+        \begin{itemize}
+            \item \textbf{The Event:} Following the 2016 Peace Agreement, a sudden surge in land grabbing led to the loss of 12,000 hectares of primary forest in a single year.
+            \item \textbf{Project Focus:} An exceptional case for tracking rapid land-cover conversion. Students can utilize supervised classification (e.g., Random Forest) to map the aggressive transition from primary forest to pasture.
+        \end{itemize}
+        \item \textbf{Belo Monte Dam Complex, Brazil (2011 vs. 2016):}
+        \begin{itemize}
+            \item \textbf{The Event:} The construction of the Belo Monte hydroelectric dam involved flooding vast areas of tropical forest and altering local hydrology.
+            \item \textbf{Project Focus:} Students can map the newly formed reservoir using NDWI while quantifying secondary, fragmented deforestation along new access roads using NDVI or EVI.
+        \end{itemize}
+        \item \textbf{The ``Death'' of Okjökull Glacier, Iceland (2014 vs. 2019):}
+        \begin{itemize}
+            \item \textbf{The Event:} In 2014, Okjökull was the first Icelandic glacier to lose its status as a glacier due to thinning ice; it was officially declared ``vanished'' in 2019.
+            \item \textbf{Project Focus:} This provides a profound example of long-term cryospheric change. Students can use the NDSI (Normalized Difference Snow Index) across a five-year time series to quantify the exact moment the ice mass retreated below the threshold of an active glacier.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\section{Project Methodology}
+
+For this project, a structured and reproducible workflow is essential. This methodology tries to balance traditional remote sensing with modern data science practices.
+
+\subsection*{Phase 1: Problem Definition \& Data Acquisition}
+\begin{description}
+    \item[Event Selection:] Define the ``Before'' ($t_1$) and ``After'' ($t_2$) dates based on the specific event (e.g., the 2017 Mocoa landslide).
+    \item[Data Sourcing:] \text{}
+    \begin{itemize}
+        \item \textbf{Optical:} Download Sentinel-2 (10m resolution) or Landsat 8/9 (30m) via the Copernicus Browser or EarthExplorer portal.
+        \item \textbf{SAR (Optional):} Use Sentinel-1 if the area is frequently cloudy (common in the Amazon/Mocoa).
+    \end{itemize}
+    \item[ROI Definition:] Create a GeoPackage in QGIS to clip the study area and reduce processing time.
+\end{description}
+
+\subsection*{Phase 2: Pre-processing}
+Before comparing two images, they must be ``radiometrically comparable.''
+\begin{itemize}
+    \item \textbf{Atmospheric Correction:} Ensure images are Bottom-of-Atmosphere (BOA/Level-2A).
+    \item \textbf{Co-registration:} Verify that pixels in $t_1$ align perfectly with pixels in $t_2$.
+    \item \textbf{Resampling:} If using different sensors, resample them to the same spatial resolution.
+    \item \textbf{Cloud Masking:} Use the QA (Quality Assessment) bands to remove cloud interference.
+\end{itemize}
+
+\subsection*{Phase 3: Image Processing \& Analysis}
+Students should choose a combination of the following methods:
+
+\begin{enumerate}
+  \item Spectral Indices and Land Use Change.
+  \item Image Differencing and Land Use Change.
+\end{enumerate}
+
+
+\begin{table}[!ht]
+\centering
+\small
+\begin{tabular}{lp{3.5cm}p{6.5cm}}
+\toprule
+\textbf{Method} & \textbf{Best For...} & \textbf{Technique} \\ \midrule
+Spectral Indices & Vegetation or Water & Calculate $\text{NDVI}$ or $\text{NDWI}$ for both dates and subtract them: $\Delta \text{Index} = \text{Index}_{t2} - \text{Index}_{t1}$. \\ \addlinespace
+Image Differencing & General Land Cover & Subtracting raw bands (e.g., Near-Infrared) to identify high-magnitude change. \\ \addlinespace
+Post-Classification & Land Use Change & Perform a Supervised Classification (Random Forest or SVM) on both $t_1$ and $t_2$, then create a ``From-To'' change matrix. \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Phase 4: Post-Processing \& Accuracy Assessment}
+\begin{itemize}
+    \item \textbf{Thresholding:} Apply a threshold to the difference map (e.g., $\pm 2$ standard deviations) to separate real change from sensor noise.
+    \item \textbf{Validation:}
+    \begin{itemize}
+        \item Compare the results with high-resolution imagery (Google Earth Pro).
+        \item Generate a Confusion Matrix to calculate Kappa Coefficient and F1-Score to evaluate the classifiers.
+    \end{itemize}
+    \item \textbf{Vectorization:} Convert the resulting change raster into polygons for further spatial analysis.
+\end{itemize}
+
+\subsection*{Phase 5: Visualization \& Reporting}
+\begin{itemize}
+    \item \textbf{Thematic Maps:} Create maps in QGIS showing the spatial distribution of change.
+    \item \textbf{Statistics:} Calculate the total area (hectares or km$^2$) of the detected change.
+    \item \textbf{Storytelling \& Discussion:} Relate the findings to the socio-environmental context of the event (e.g., ``The 2018 surge in Tinigua was driven by pasture expansion'').
+\end{itemize}
+
+\section{Project Deliverables and Evaluation}
+
+The project is structured into three main milestones to ensure continuous progress and feedback. All written reports must be prepared using the provided \LaTeX\ template and submitted through the Brightspace\texttrademark\ platform.
+
+\subsection*{Submission Schedule}
+
+\begin{description}
+    \item[First Delivery (Phase 1):] Focuses on \textbf{Problem Definition and Data Acquisition}. Teams must submit a document defining their chosen event, the study area boundaries (including a locator map), and metadata for the selected satellite imagery (Sentinel or Landsat).  \\
+    \textbf{[March 19, 2026].}
+
+    \item[Second Delivery (Phases 2 \& 3):] Focuses on \textbf{Pre-processing and Analysis}. This submission should document the atmospheric corrections, cloud masking, and the specific change detection algorithms applied (e.g., Spectral Indices and Machine Learning classification). \\
+    \textbf{[March 26, 2026].}
+
+
+    \item[Final Delivery (Phases 4 \& 5) and Defense:] The \textbf{Complete Technical Report}. This includes the post-processing results, accuracy assessment (Confusion Matrix/Kappa), finalized thematic maps, and the socio-environmental discussion of the findings in addition with the Oral Presentation. \\
+    \textbf{[April 09, 2026].}
+
+\end{description}
+
+\subsection*{Final Defense and Evaluation}
+
+Upon completion of the final report, a formal defense session will be conducted:
+
+\begin{itemize}
+    \item \textbf{Oral Presentation:} To ensure concise communication, only \textbf{two members} of each team will be randomly selected to defend the project. However, all team members must be prepared to answer technical questions during the Q\&A.
+    \item \textbf{Evaluation Methodology:} The defense session will utilize a collaborative assessment approach:
+    \begin{itemize}
+        \item \textbf{Auto-evaluation:} Each team will reflect on their own performance and technical depth.
+        \item \textbf{Co-evaluation:} Peers will provide feedback and scores based on the clarity, methodology, and visual quality of the maps presented by other teams.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Submission Requirements}
+All final files, including the \textbf{\texttt{.tex} source code}, the compiled \textbf{\texttt{.pdf} report}, and any supplementary project files (slides or maps), must be uploaded to Brightspace\texttrademark\ as a \textbf{ZIP} file by the specified deadline.
+
+\section{Conclusion}
+This project serves as a comprehensive synthesis of the remote sensing pipeline, from initial data acquisition to the final thematic reporting. By navigating the technical hurdles of \textbf{atmospheric correction}, \textbf{cloud masking}, and \textbf{multi-temporal co-registration}, we ensure that the detected changes reflect physical reality rather than sensor noise.
+
+The transition from a difference raster to a validated ``From-To'' change matrix marks the culmination of the technical analysis, providing a rigorous foundation for calculating the total area of impacted landscapes. However, the ultimate value of this work lies in \textbf{storytelling}—relating these digital pixels back to the human and ecological contexts they represent, such as urban damage in Beirut or deforestation in Tinigua National Park. As we finalize this technical report and prepare for the oral defense, we reflect on how these tools empower us to document a changing planet with scientific integrity and clarity.
+
+\end{document}
