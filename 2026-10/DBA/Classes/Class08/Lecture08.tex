@@ -270,6 +270,19 @@ language 'plpgsql';
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Function Volatility Categories}
+  \centering
+  \scriptsize
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabular}{|l|c|l|l|}
+    \hline
+    \textbf{Category} & \textbf{Can Modify DB?} & \textbf{Result for Same Input} & \textbf{Optimizer Behavior} \\ \hline
+    VOLATILE & Yes & Can change (Default) & Re-evaluates every row \\ \hline
+    STABLE & No & Same within transaction & Can optimize to single call \\ \hline
+    IMMUTABLE & No & Constant forever & Pre-evaluates constants \\ \hline
+  \end{tabular}
+\end{frame}
+
 \begin{frame}[fragile]{Conditional Logic - IF Statement}
   \begin{minted}
   [tabsize=4, obeytabs, breaklines=true, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
