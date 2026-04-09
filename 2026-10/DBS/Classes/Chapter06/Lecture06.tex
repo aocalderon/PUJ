@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 %% Packages
 \usepackage{graphicx}
@@ -29,7 +29,7 @@
 %% Theme...
 \usefonttheme{serif} 
 
-\title[Chapter 6: E-R Models]{Database System Concepts, $7^{th}$ Edition \\ Chapter 6: Database Design Using the E-R Model}
+\title[E-R Models]{Database System Concepts, $7^{th}$ Edition \\ Chapter 6: Database Design Using the E-R Model}
 \author{Silberschatz, Korth and Sudarshan}
 \date{\today}
 
@@ -93,7 +93,7 @@
 
 \begin{frame}{Database System Concepts}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/book_cover.jpg} \\
+    \includegraphics[width=0.35\textwidth]{figures/book_cover.jpg} \\
     \vspace{5mm}
     {
         \tiny
@@ -226,7 +226,7 @@
         \item Pictorially, we draw a line between related entities.
     \end{itemize}
     \centering
-    \includegraphics[trim={6.50cm 5cm 6.00cm 17.50cm}, clip, width=0.7\textwidth]{figures/p246}
+    \includegraphics[trim={6.50cm 5cm 6.00cm 17.50cm}, clip, width=0.6\textwidth]{figures/p246}
 \end{frame}
 
 \begin{frame}{Representing Relationship Sets via ER Diagrams}
@@ -244,13 +244,13 @@
     \end{itemize}
     \bigskip
     \centering
-    \includegraphics[trim={4.80cm 2cm 6.5cm 8cm}, clip, width=\textwidth]{figures/attr_rel}
+    \includegraphics[trim={4.80cm 2cm 6.5cm 8cm}, clip, width=0.8\textwidth]{figures/attr_rel}
 \end{frame}
 
 \begin{frame}{Relationship Sets with Attributes}
     \vspace{20mm}
     \centering
-    \includegraphics[trim={5.10cm 4cm 3.50cm 5.5cm}, clip, width=\textwidth]{figures/attr_rel2}
+    \includegraphics[trim={5.10cm 4cm 3.50cm 5.5cm}, clip, width=0.9\textwidth]{figures/attr_rel2}
 \end{frame}
 
 \begin{frame}{Roles}
@@ -321,8 +321,10 @@
 
 \begin{frame}{Representing Complex Attributes in ER Diagram}
     \centering
-    \includegraphics[trim={5cm 15.25cm 5cm 4cm}, clip, width=\textwidth]{figures/p252}
+    \includegraphics[trim={5cm 15.25cm 5cm 4cm}, clip, width=0.75\textwidth]{figures/p252}
 \end{frame}
+
+\section{Mapping Cardinalities}
 
 \begin{frame}{Mapping Cardinality Constraints}
     \begin{itemize}
@@ -338,11 +340,9 @@
     \end{itemize}
 \end{frame}
 
-\section{Mapping Cardinalities}
-
 \begin{frame}{Mapping Cardinalities}
     \centering
-    \includegraphics[trim={6.75cm 17.5cm 3.75cm 4cm}, clip, width=0.9\textwidth]{figures/p253}
+    \includegraphics[trim={6.75cm 17.5cm 3.75cm 4cm}, clip, width=0.7\textwidth] {figures/p253}
     \begin{tabularx}{\textwidth}{@{} Y Y @{}}
         one to one & one to many \\
     \end{tabularx}
@@ -351,9 +351,9 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Mapping Cardinalities}
+\begin{frame}{Mapping Cardinalities (Cont.)}
     \centering
-    \includegraphics[trim={6.75cm 5cm 3.75cm 17cm}, clip, width=0.9\textwidth]{figures/p253}
+    \includegraphics[trim={6.75cm 5cm 3.75cm 17cm}, clip, width=0.7\textwidth]{figures/p253}
     \begin{tabularx}{\textwidth}{@{} Y Y @{}}
         many to one & many to many \\
     \end{tabularx}
@@ -545,7 +545,7 @@
         \item Primary key for section --(course\_id, sec\_id, semester, year).
     \end{itemize}
     \centering
-    \includegraphics[trim={5cm 4.5cm 5cm 19.5cm}, clip, width=\textwidth]{figures/p260}
+    \includegraphics[trim={5cm 4.5cm 5cm 19.5cm}, clip, width=0.8\textwidth]{figures/p260}
 \end{frame}
 
 \section{Removing Redundant Attributes in Entity Sets}
@@ -565,12 +565,12 @@
         \item BUT: when converting back to tables, in some cases the attribute gets reintroduced, as we will see later.
     \end{itemize}
     \centering
-    \includegraphics[trim={5cm 2cm 5cm 13.5cm}, clip, width=0.75\textwidth]{figures/redundant_attr}
+    \includegraphics[trim={5cm 2cm 5cm 13.5cm}, clip, width=0.7\textwidth]{figures/redundant_attr}
 \end{frame}
 
 \begin{frame}{E-R Diagram for a University Enterprise}
     \centering
-    \includegraphics[trim={4.55cm 10.80cm 4.00cm 4.85cm}, clip, width=0.8\textwidth]{figures/p264}
+    \includegraphics[trim={4.55cm 10.80cm 4.00cm 4.85cm}, clip, width=0.975\textheight]{figures/p264}
 \end{frame}
 
 \section{Reducing E-R Diagrams to Relational Schemas}
@@ -689,7 +689,7 @@
         \item Total and partial.
     \end{itemize}
     \centering
-    \includegraphics[trim={6cm 16cm 4cm 4.8cm}, clip, width=\textwidth]{figures/specialization}
+    \includegraphics[trim={6cm 16cm 4cm 4.8cm}, clip, width=0.75\textwidth]{figures/specialization}
 \end{frame}
 
 \begin{frame}{Representing Specialization via Schemas}
@@ -761,7 +761,7 @@
         \item Suppose we want to record evaluations of a student by a guide on a project.
     \end{itemize}
     \centering
-    \includegraphics[trim={4cm 4.25cm 4cm 16cm}, clip, width=\textwidth]{figures/redundat_relationships}
+    \includegraphics[trim={4cm 4.25cm 4cm 16cm}, clip, width=0.75\textwidth]{figures/redundat_relationships}
 \end{frame}
 
 \begin{frame}{Aggregation (Cont.)}
@@ -792,7 +792,7 @@
         \end{itemize}
     \end{itemize}
     \centering
-    \includegraphics[trim={2cm 15cm 2cm 4cm}, clip, width=\textwidth]{figures/aggregation_relationships}
+    \includegraphics[trim={2cm 15cm 2cm 4cm}, clip, width=0.75\textwidth]{figures/aggregation_relationships}
 \end{frame}
 
 \begin{frame}{Reduction to Relational Schemas}
@@ -819,18 +819,18 @@
         \item Example of erroneous E-R diagrams:
     \end{itemize}
     \centering
-    \includegraphics[trim={4cm 16cm 4cm 4cm}, clip, width=\textwidth]{figures/incorrect_use}
+    \includegraphics[trim={4cm 16cm 4cm 4cm}, clip, width=0.85\textwidth]{figures/incorrect_use}
 \end{frame}
 
 \begin{frame}{Common Mistakes in E-R Diagrams (Cont.)}
     \centering
-    \includegraphics[trim={5.5cm 14cm 2.4cm 4.5cm}, clip, width=\textwidth]{figures/incorrect_use2}
+    \includegraphics[trim={5.5cm 14cm 2.4cm 4.5cm}, clip, width=0.85\textwidth]{figures/incorrect_use2}
 \end{frame}
 
 \begin{frame}{Entities vs. Attributes}
     \begin{itemize}
         \item Use of entity sets vs. attributes:
-        \includegraphics[trim={5cm 20.30cm 4cm 4.75cm}, clip, width=\textwidth]{figures/phones}
+        \includegraphics[trim={5cm 20.30cm 4cm 4.75cm}, clip, width=0.8\textwidth]{figures/phones}
         \item Use of phone as an entity allows extra information about phone numbers (plus multiple phone numbers).
     \end{itemize}
 \end{frame}
@@ -869,7 +869,7 @@
             \item $R_C$, a many-to-one relationship set from E to C.
         \end{enumerate}
     \end{itemize}
-    \includegraphics[trim={5cm 4.5cm 4.75cm 19cm}, clip, width=\textwidth]{figures/ternary}
+    \includegraphics[trim={5cm 4.5cm 4.75cm 19cm}, clip, width=0.9\textwidth]{figures/ternary}
 \end{frame}
 
 \begin{frame}{E-R Design Decisions}
@@ -885,12 +885,12 @@
 
 \begin{frame}{Summary of Symbols Used in E-R Notation}
     \centering
-    \includegraphics[trim={5.45cm 8.75cm 5.05cm 4.8cm}, clip, width=0.6\textwidth]{figures/symbols}
+    \includegraphics[trim={5.45cm 8.75cm 5.05cm 4.8cm}, clip, height=0.9\textheight]{figures/symbols}
 \end{frame}
 
 \begin{frame}{Alternative ER Notations}
     \centering
-    \includegraphics[trim={6.25cm 12cm 3.63cm 4.6cm}, clip, width=0.8\textwidth]{figures/alternative_notations}
+    \includegraphics[trim={6.25cm 12cm 3.63cm 4.6cm}, clip, height=0.9\textheight]{figures/alternative_notations}
 \end{frame}
 
 \begin{frame}{UML}
@@ -903,7 +903,7 @@
 
 \begin{frame}{ER vs. UML Class Diagrams}
     \centering
-    \includegraphics[trim={5cm 9cm 3.63cm 4.6cm}, clip, width=0.7\textwidth]{figures/uml}
+    \includegraphics[trim={5cm 9cm 3.63cm 4.6cm}, clip, height=0.9\textheight]{figures/uml}
 \end{frame}
 
 \begin{frame}{UML Class Diagrams (Cont.)}
@@ -940,12 +940,12 @@
 % Tim Duncan's Top 5 Fundamental Takeaways of the Today's Class
 \begin{frame}{TDT5FTOTTC}
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/tim.png}
+    \includegraphics[width=0.55\textwidth]{figures/tim.png}
 \end{frame}
 
 \begin{frame}{Top 5 Fundamental Takeaways}
     \small
-    \begin{enumerate} \pause
+    \begin{enumerate}
         \item[5] \textbf{Design Phases:} Database design progresses from understanding user requirements to creating a conceptual schema and finally defining logical and physical structures. \pause
 
         \item[4] \textbf{E-R Model Basics:} The E-R model uses entities, attributes, and relationships to represent and organize data meaningfully. \pause
@@ -960,7 +960,7 @@
 
 \begin{frame}{Database System Concepts}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/book_cover.jpg} \\
+    \includegraphics[width=0.35\textwidth]{figures/book_cover.jpg} \\
     \vspace{5mm}
     {
         \tiny
