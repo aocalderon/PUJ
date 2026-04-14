@@ -93,7 +93,7 @@
 
 \begin{frame}{Database System Concepts}
     \centering
-    \includegraphics[width=0.35\textwidth]{figures/book_cover.jpg} \\
+    \includegraphics[width=0.36\textwidth]{figures/book_cover.jpg} \\
     \vspace{5mm}
     {
         \tiny
@@ -226,7 +226,7 @@
         \item Pictorially, we draw a line between related entities.
     \end{itemize}
     \centering
-    \includegraphics[trim={6.50cm 5cm 6.00cm 17.50cm}, clip, width=0.6\textwidth]{figures/p246}
+    \includegraphics[trim={6.50cm 5cm 6.00cm 17.50cm}, clip, width=0.7\textwidth]{figures/p246}
 \end{frame}
 
 \begin{frame}{Representing Relationship Sets via ER Diagrams}
@@ -250,7 +250,7 @@
 \begin{frame}{Relationship Sets with Attributes}
     \vspace{20mm}
     \centering
-    \includegraphics[trim={5.10cm 4cm 3.50cm 5.5cm}, clip, width=0.9\textwidth]{figures/attr_rel2}
+    \includegraphics[trim={5.10cm 4cm 3.50cm 5.5cm}, clip, width=\textwidth]{figures/attr_rel2}
 \end{frame}
 
 \begin{frame}{Roles}
@@ -324,8 +324,6 @@
     \includegraphics[trim={5cm 15.25cm 5cm 4cm}, clip, width=0.75\textwidth]{figures/p252}
 \end{frame}
 
-\section{Mapping Cardinalities}
-
 \begin{frame}{Mapping Cardinality Constraints}
     \begin{itemize}
         \item Express the number of entities to which another entity can be associated via a relationship set.
@@ -340,9 +338,11 @@
     \end{itemize}
 \end{frame}
 
+\section{Mapping Cardinalities}
+
 \begin{frame}{Mapping Cardinalities}
     \centering
-    \includegraphics[trim={6.75cm 17.5cm 3.75cm 4cm}, clip, width=0.7\textwidth] {figures/p253}
+    \includegraphics[trim={6.75cm 17.5cm 3.75cm 4cm}, clip, width=0.75\textwidth]{figures/p253}
     \begin{tabularx}{\textwidth}{@{} Y Y @{}}
         one to one & one to many \\
     \end{tabularx}
@@ -351,9 +351,9 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Mapping Cardinalities (Cont.)}
+\begin{frame}{Mapping Cardinalities}
     \centering
-    \includegraphics[trim={6.75cm 5cm 3.75cm 17cm}, clip, width=0.7\textwidth]{figures/p253}
+    \includegraphics[trim={6.75cm 5cm 3.75cm 17cm}, clip, width=0.75\textwidth]{figures/p253}
     \begin{tabularx}{\textwidth}{@{} Y Y @{}}
         many to one & many to many \\
     \end{tabularx}
@@ -545,7 +545,7 @@
         \item Primary key for section --(course\_id, sec\_id, semester, year).
     \end{itemize}
     \centering
-    \includegraphics[trim={5cm 4.5cm 5cm 19.5cm}, clip, width=0.8\textwidth]{figures/p260}
+    \includegraphics[trim={5cm 4.5cm 5cm 19.5cm}, clip, width=\textwidth]{figures/p260}
 \end{frame}
 
 \section{Removing Redundant Attributes in Entity Sets}
@@ -570,7 +570,7 @@
 
 \begin{frame}{E-R Diagram for a University Enterprise}
     \centering
-    \includegraphics[trim={4.55cm 10.80cm 4.00cm 4.85cm}, clip, width=0.975\textheight]{figures/p264}
+    \includegraphics[trim={4.55cm 10.80cm 4.00cm 4.85cm}, clip, height=0.9\textheight]{figures/p264}
 \end{frame}
 
 \section{Reducing E-R Diagrams to Relational Schemas}
@@ -689,7 +689,7 @@
         \item Total and partial.
     \end{itemize}
     \centering
-    \includegraphics[trim={6cm 16cm 4cm 4.8cm}, clip, width=0.75\textwidth]{figures/specialization}
+    \includegraphics[trim={6cm 16cm 4cm 4.8cm}, clip, width=0.775\textwidth]{figures/specialization}
 \end{frame}
 
 \begin{frame}{Representing Specialization via Schemas}
@@ -761,7 +761,7 @@
         \item Suppose we want to record evaluations of a student by a guide on a project.
     \end{itemize}
     \centering
-    \includegraphics[trim={4cm 4.25cm 4cm 16cm}, clip, width=0.75\textwidth]{figures/redundat_relationships}
+    \includegraphics[trim={4cm 4.25cm 4cm 16cm}, clip, width=0.875\textwidth]{figures/redundat_relationships}
 \end{frame}
 
 \begin{frame}{Aggregation (Cont.)}
@@ -792,7 +792,7 @@
         \end{itemize}
     \end{itemize}
     \centering
-    \includegraphics[trim={2cm 15cm 2cm 4cm}, clip, width=0.75\textwidth]{figures/aggregation_relationships}
+    \includegraphics[trim={2cm 15cm 2cm 4cm}, clip, width=0.875\textwidth]{figures/aggregation_relationships}
 \end{frame}
 
 \begin{frame}{Reduction to Relational Schemas}
@@ -819,12 +819,12 @@
         \item Example of erroneous E-R diagrams:
     \end{itemize}
     \centering
-    \includegraphics[trim={4cm 16cm 4cm 4cm}, clip, width=0.85\textwidth]{figures/incorrect_use}
+    \includegraphics[trim={4cm 16cm 4cm 4cm}, clip, width=0.8\textwidth]{figures/incorrect_use}
 \end{frame}
 
 \begin{frame}{Common Mistakes in E-R Diagrams (Cont.)}
     \centering
-    \includegraphics[trim={5.5cm 14cm 2.4cm 4.5cm}, clip, width=0.85\textwidth]{figures/incorrect_use2}
+    \includegraphics[trim={5.5cm 14cm 2.4cm 4.5cm}, clip, width=0.8\textwidth]{figures/incorrect_use2}
 \end{frame}
 
 \begin{frame}{Entities vs. Attributes}
@@ -839,7 +839,7 @@
     \begin{itemize}
         \item \textbf{Use of entity sets vs. relationship sets:}\\
         Possible guideline is to designate a relationship set to describe an action that occurs between entities.
-        \includegraphics[trim={5cm 18.5cm 0cm 4cm}, clip, width=\textwidth]{figures/registration}
+        \includegraphics[trim={5cm 18.5cm 0cm 4cm}, clip, width=0.8\textwidth]{figures/registration}
         \item \textbf{Placement of relationship attributes:}\\
         For example, attribute date as attribute of advisor or as attribute of student.
     \end{itemize}
@@ -945,7 +945,7 @@
 
 \begin{frame}{Top 5 Fundamental Takeaways}
     \small
-    \begin{enumerate}
+    \begin{enumerate} \pause
         \item[5] \textbf{Design Phases:} Database design progresses from understanding user requirements to creating a conceptual schema and finally defining logical and physical structures. \pause
 
         \item[4] \textbf{E-R Model Basics:} The E-R model uses entities, attributes, and relationships to represent and organize data meaningfully. \pause
@@ -960,7 +960,7 @@
 
 \begin{frame}{Database System Concepts}
     \centering
-    \includegraphics[width=0.35\textwidth]{figures/book_cover.jpg} \\
+    \includegraphics[width=0.36\textwidth]{figures/book_cover.jpg} \\
     \vspace{5mm}
     {
         \tiny
