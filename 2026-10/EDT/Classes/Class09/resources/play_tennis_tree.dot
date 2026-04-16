@@ -1,0 +1,35 @@
+digraph PlayTennisTree {
+    // General Graph Styling
+    node [shape=box, fontname="Helvetica", style="filled, rounded", color="#333333", fillcolor="#f9f9f9"];
+    edge [fontname="Helvetica", fontsize=10, color="#666666"];
+    rankdir=TB;
+
+    // Attribute Nodes (Decision Points)
+    Outlook [shape=diamond, label="Outlook?", fillcolor="#ffffff", color="#004a99", penwidth=2];
+    Humidity [shape=diamond, label="Humidity?", fillcolor="#ffffff", color="#004a99", penwidth=2];
+    Wind [shape=diamond, label="Wind?", fillcolor="#ffffff", color="#004a99", penwidth=2];
+
+    // Leaf Nodes (Outcomes)
+    //YesLeaf [label="Yes (Yummy)", fillcolor="#d4edda", color="#155724"];
+    //NoLeaf [label="No (Mejor no)", fillcolor="#f8d7da", color="#721c24"];
+
+    // Root Level Splits
+    Outlook -> LeafOvercast [label="Overcast"];
+    Outlook -> Humidity [label="Sunny"];
+    Outlook -> Wind [label="Rain"];
+
+    // Overcast Branch (Immediate Purity)
+    LeafOvercast [label="Yes", fillcolor="#d4edda", color="#155724"];
+
+    // Sunny Branch (Splits on Humidity)
+    Humidity -> SunnyNo [label="High"];
+    Humidity -> SunnyYes [label="Normal"];
+    SunnyNo [label="No", fillcolor="#f8d7da", color="#721c24"];
+    SunnyYes [label="Yes", fillcolor="#d4edda", color="#155724"];
+
+    // Rain Branch (Splits on Wind)
+    Wind -> RainNo [label="Strong"];
+    Wind -> RainYes [label="Weak"];
+    RainNo [label="No", fillcolor="#f8d7da", color="#721c24"];
+    RainYes [label="Yes", fillcolor="#d4edda", color="#155724"];
+}
