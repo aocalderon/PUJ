@@ -1,0 +1,77 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{svg}
+\usepackage{xcolor}
+
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+    colorlinks,
+    linkcolor = blue,
+    urlcolor  = blue
+}
+
+\title{Database Administration \\ Lab 09: DB Security.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This laboratory is designed to deepen the understanding of advanced security protocols and practical defensive strategies within Database Administration. Students will engage with high-level access control models and real-world vulnerability assessments.
+
+The lab is structured into three main thematic blocks:
+\begin{itemize}
+    \item \textbf{Label-Based Access Control (LBAC):} An exploration of privilege management using the LBAC model to handle sensitive data with greater precision.
+    \item \textbf{SQL Injection Analysis:} A practical approach to identifying and mitigating SQLi vulnerabilities, including bypass techniques and unauthorized data retrieval via the PortSwigger academy labs.
+    \item \textbf{DBMS Enforcement and Identity:} An autonomous investigation into open-source tools such as \texttt{credcheck}, \texttt{OpenBao}, and \texttt{Keycloak} to understand automation and identity management in modern database environments.
+\end{itemize}
+
+By completing these tasks, students will develop the technical proficiency required to secure database systems against contemporary threats.
+
+\section{Learning more about Label-Based Access Control (LBAC)}\label{sec:lbac}
+We will explore in greater detail several key aspects of privilege management using LBAC. The textbook provides a comprehensive introduction and relevant data regarding the topic. As part of this lab, you will read and summarize, in your own words, the section ``Label-Based Access Control'' on \textit{page 463} of the textbook. The summary must be completed by \textbf{\large handwriting} and then scanned and attached as a copy in your report.
+
+\section{Exploring SQL Injection Techniques}\label{sec:sqli}
+Next, we will follow an excellent tutorial hosted on the \href{https://portswigger.net/}{PortSwigger} portal. The tutorial ``SQL injection'' can be found \href{https://portswigger.net/web-security/sql-injection}{here}. You are required to create an account and complete the following three interactive labs:
+
+\begin{enumerate}
+    \item SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
+    \item SQL injection vulnerability allowing login bypass.
+    \item SQL injection with filter bypass via XML encoding.
+\end{enumerate}
+
+Please take screenshots of each lab once they are solved and ensure they are included in your report. As each team member must complete this section individually, the final report should contain six screenshots in total (three for each person).
+
+\section{Autonomous Work} \label{sec:work}
+To conclude, you will explore one of the open-source tools discussed in the lecture regarding DBMS Enforcement, Automation, and Identity. These include:
+
+\begin{itemize}
+    \item \texttt{\href{https://github.com/HexaCluster/credcheck}{credcheck}} in PostgreSQL.
+    \item \texttt{\href{https://dev.mysql.com/doc/refman/8.4/en/validate-password-options-variables.html}{validate\_password}} in MySQL/MariaDB.
+    \item \texttt{\href{https://openbao.org/}{OpenBao}}
+    \item \texttt{\href{https://goauthentik.io/}{Authentik}}
+    \item \texttt{\href{https://www.keycloak.org/}{Keycloak}}
+\end{itemize}
+
+Select one of these tools and write a concise tutorial detailing its installation, core functionalities, and the primary features it provides. Please attach your tutorial to the end of your report.
+
+\section{What We Expect}
+Please submit a well-structured report in \textbf{PDF} format presenting your work and including the deliverables requested in sections \ref{sec:lbac}, \ref{sec:sqli}, and \ref{sec:work}. Your report must be uploaded to the corresponding Brightspace\texttrademark ~assignment no later than \textbf{\href{https://www.starwars.com/star-wars-day}{May the $4^{th}$}, 2026}.
+
+\vspace{5mm}
+Happy Hacking \includesvg[width=4mm]{figures/sunglasses}!
+
+\end{document}
+
