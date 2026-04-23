@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{minted} % compile with -shell-escape
+\usepackage{caption}
+\usepackage{longtable}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  urlcolor=blue,
+  citecolor=blue!60!black
+}
+
+\title{\vspace{-1em}Project: Designing a Telemetry and UX Database for \textit{Chocolate-Doom} Research \\
+\includegraphics[width=5cm]{figures/doomguy2.png}
+}
+\author{DBS -- Semester Project Brief}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Context and Motivation}
+A research group is collecting gameplay telemetry from a \href{https://github.com/aocalderon/trajectory_doom}{\emph{hacked} version}\footnote{The source code is available at \url{https://github.com/aocalderon/trajectory_doom}} of \href{https://www.chocolate-doom.org/wiki/index.php/Chocolate_Doom}{\texttt{chocolate-doom}}. This build emits per-tic data (on screen and/or to file) that includes the player position $(x,y,z)$, facing \emph{angle}, \emph{momentum} vector, \emph{point-of-view} (FOV/camera), and combat stats (health, armor, ammo). It also logs meta-information such as \emph{tic} number, \emph{episode}, \emph{map}, and \emph{sector}.
+
+The team aims to aggregate data across multiple play sessions to identify movement trends and behavioral patterns. This analysis will facilitate the detection of player cooperation or potential sabotage. Student volunteers provide demographics (age, gender, experience) and complete \emph{one} of these UX instruments:
+\begin{itemize}[leftmargin=*]
+  \item \href{https://selfdeterminationtheory.org/player-experience-of-needs-satisfaction-pens}{\textbf{PENS}} (Player Experience of Need Satisfaction).
+  \item \href{https://uxpajournal.org/wp-content/uploads/sites/7/pdf/JUS_Keebler_GUESS-18%20Scoring%20Guidelines.pdf}{\textbf{GUESS}} (Game User-Experience Satisfaction Scale).
+  \item \href{https://www.sciencedirect.com/science/article/pii/S1071581924000739}{\textbf{BANGS}} (Basic Needs in Games; open-access).
+\end{itemize}
+
+\textbf{Goal:} Design and prototype a relational database that ingests telemetry and survey data, supports exploratory queries and analytics for movement/cooperation trends, and enforces data quality and research ethics.
+
+\section{Learning Objectives}
+By completing this project, you will:
+\begin{enumerate}[leftmargin=*]
+  \item Model a real-world domain into entities, attributes, and relationships (ER \& relational schema).
+  \item Normalize tables to at least 3NF (justify any denormalizations for performance).
+  \item Define keys, constraints, and reference integrity for high-frequency telemetry.
+  \item Design an ingestion pipeline for semi-structured logs (TSV $\rightarrow$ staging $\rightarrow$ core).
+  \item Implement indices and assess their impact with query plans and timings.
+  \item Formulate SQL queries for trajectory, proximity, and cooperation analyses.
+  \item Integrate user demographics and UX scales (PENS/GUESS/BANGS) with telemetry.
+  \item Address privacy, consent, and research-ethics constraints in schema \& process.
+\end{enumerate}
+
+\section{Domain Overview and Core Concepts}
+\textbf{Proposed high-level entities:}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{User}: volunteer student providing consent and demographics.
+  \item \textbf{Player}: in-game identity (may be linked 1:1 to a User or support multiple aliases).
+  \item \textbf{Game}: a single gameplay session instance (start/end timestamps and settings).
+  \item \textbf{Time/Tic}: per-tic (or per-frame) temporal index emitted by the engine.
+  \item \textbf{Episode/Map/Sector}: level structure; sectors partition maps.
+  \item \textbf{TelemetryEvent}: atomic record of state at a tic (position, momentum, stats, and more).
+  \item \textbf{UXInstrument}: instrument metadata (PENS/GUESS/BANGS definitions).
+  \item \textbf{UXResponse}: a user's instrument responses.
+\end{itemize}
+
+\paragraph{Movement \& Cooperation Signals (to inform schema/queries).}
+\begin{itemize}[leftmargin=*]
+  \item \emph{Trajectories}: sequence of $(x,y,z)$ ordered by tic per player per game.
+  \item \emph{Proximity events}: players within a spatial threshold for $\geq k$ tics.
+  \item \emph{Co-occurrence in sectors}: overlapping time in same sector (optional:
+  adjacent sectors).
+\end{itemize}
+
+\section{Data Model (Conceptual \textrightarrow Logical)}
+
+\subsection*{Conceptual ER (deliverable)}
+Produce an ER diagram capturing main relationships.  The following entities and relationships are provided as examples; you are encouraged to propose your own.
+
+  \begin{itemize}
+    \item \texttt{User}--\texttt{Player},
+    \item \texttt{Player}--\texttt{Game} (via \texttt{GameParticipant}),
+    \item \texttt{Game}--\texttt{TelemetryEvent},
+    \item \texttt{Map}--\texttt{Sector} (1:many),
+    \item \texttt{User}--\texttt{UXResponse},
+    \item \texttt{UXInstrument}--\texttt{UXItem}--\texttt{UXResponseItem} .
+  \end{itemize}
+
+\paragraph{Indexing Suggestions (implement and evaluate).}
+\begin{minted}[fontsize=\small]{sql}
+  CREATE INDEX ON TelemetryEvent (game_id, player_id, tic);
+  CREATE INDEX ON TelemetryEvent (episode, map_code, sector_id);
+  CREATE INDEX ON TelemetryEvent USING gist ((pos_x, pos_y));
+  CREATE INDEX ON GameParticipant (player_id, game_id);
+\end{minted}
+
+\section{Data Ingestion (ETL) Guidance}
+Assume the hacked engine emits TSV lines.
+
+\noindent \textbf{Recommended pipeline:}
+\begin{enumerate}[leftmargin=*]
+  \item Load raw logs to a \emph{staging} table (text fields) with minimal constraints.
+  \item Validate \& transform into typed core tables using \texttt{INSERT ... SELECT}.
+  \item Deduplicate on \texttt{(game\_id, tic, player\_id)}; reject malformed records with an \emph{error log} table.
+\end{enumerate}
+
+\section{Analytics Queries} \label{sec:queries}
+Implement SQL solutions for \textbf{any six (6) of the eight (8)} proposed analytical queries. \textit{Note: The provided hints utilize generic table and attribute names; you are required to adapt these to the specific nomenclature defined in your database schema.}
+
+\begin{enumerate}
+  \item Average duration of game sessions per map. \\
+  \textbf{Hint:} Use the `Game' table and the \texttt{AVG} aggregation function on the `timestamp' or `tic' field, grouped by the `map\_id'.
+
+  \item Players with the highest average proximity. \\
+  \textbf{Hint} Perform a self-join on the `TelemetryEvent' table (matching on `game\_id' and/or `tic' -- actually I am not sure) to calculate the \textit{Euclidean distance}\footnote{\url{https://en.wikipedia.org/wiki/Euclidean_distance}} between player pairs, then filter for proximity thresholds (maybe $<= 5.0$?) and aggregate the results to find the pairs with the highest average closeness.
+
+  \item Shortest and longest trajectory distances per player. \\
+  \textbf{Hint} Calculate the total length of each game's trajectory by summing the Euclidean distances between consecutive tics (using a self-join or \textit{window function}\footnote{If you use window functions, that will be a bonus.}), then group by player to find the minimum and maximum of those totals.
+
+  \item List UX survey responses for players with above-average trajectories duration. \\
+  \textbf{Hint} Calculate the average duration of all trajectories (using total tics or time differences), then use a subquery to select players whose individual duration exceeds this global average and JOIN them to the `UXResponse' table to retrieve their survey answers.
+
+  \item Most Visited Sector (Hotspot) per Episode and Map. \\
+  \textbf{Hint} Group the `TelemetryEvent' records by `episode', `map', and `sector'.  The sector should be a cell in a grid of a $250 \times 250$ units covering the current map.  Then use the \texttt{COUNT} function to calculate the frequency of player presence in each area, sorting the results in descending order to identify the hotspots.
+
+  \item Number of Tics Where Players Were Together in a Sector. \\
+  \textbf{Hint} Perform a self-join on the `TelemetryEvent' table matching records by `game\_id', `tic', and `sector\_id' to identify co-presence while filtering for distinct `player\_ids', and then apply \texttt{COUNT(DISTINCT tic)} to calculate the total duration of these overlapping moments.
+
+  \item Average UX Score for Players with the Shortest Trajectory per Episode. \\
+  \textbf{Hint} Identify the players with the minimum total trajectory distance for each episode (using a \textit{window function}  or subquery), then JOIN those players to the `UXResponse' table to calculate the average of their survey scores.
+
+  \item Total Distance Traveled and Average Speed per Player, Analyzing All Games for a Player. \\
+  \textbf{Hint} Sum the Euclidean distances between consecutive tics across all sessions to determine the total distance, then divide this by the total duration (calculated from the aggregated tic counts or game timestamps) to derive the average speed, grouping the results by player identity.
+
+\end{enumerate}
+
+\section{Project Tasks \& Deliverables}
+
+\subsection*{Part A: Conceptual and Logical Design (Week 1--2)}
+\begin{enumerate}[leftmargin=*]
+  \item Write assumptions and requirements (functional/non-functional, ethics).
+  \item Produce an initial draft of ER diagram with cardinalities and key attributes.
+  \item Derive relational schema; list all FKs, PKs, and constraints (Data Dictionary).
+\end{enumerate}
+
+\subsection*{Part B: Implementation \& Ingestion (Week 3--4)}
+\begin{enumerate}[leftmargin=*]
+  \item Implement DDL in your DBMS (PostgreSQL recommended).
+  \item Create scripts and \textit{optional} staging tables to load sample telemetry logs (TSV).
+  \item Populate the \textit{UX Instrument} tables with the survey of your choice (PENS,GUESS or BANGS).
+  \item Insert synthetic sample data (at least 3 different episodes, 6+ players, $\geq$ 20k telemetry rows).
+\end{enumerate}
+
+\subsection*{Part C: Queries, Indexing, and Reporting (Week 5--6)}
+\begin{enumerate}[leftmargin=*]
+  \item Implement at least 6 analytical queries (see Section \ref{sec:queries}).
+  \item Create at least 3 indexes. Show \texttt{EXPLAIN(ANALYZE)} before/after and discuss.
+  \item Provide 2 views and 1 materialized view for frequent analyses.
+  \item Provide and document a simple mechanism (could be a \href{https://en.wikipedia.org/wiki/Make_(software)}{\texttt{Makefile}} or shell script) to recreate the schema and load samples.
+\end{enumerate}
+
+\section{Submission Format}
+
+Submit a single \textbf{\large PDF} report with:
+\begin{itemize}[leftmargin=*]
+  \item \textbf{ER diagram}, \textbf{relational schema}, and \textbf{rationale} (brief explanation about your model and schema).
+  \item \textbf{DDL/constraints} (appendix with code snippets).
+  \item \textbf{ETL description} + sample of raw telemetry.
+  \item \textbf{Queries + results} (screenshots/tables).
+  \item \textbf{Index evaluation}.
+  \item \textbf{Data dictionary}.
+\end{itemize}
+
+\section{Grading Rubric (100 pts)}
+\begin{center}
+\begin{tabular}{p{0.48\linewidth}r}
+\toprule
+\textbf{Criterion} & \textbf{Points} \\
+\midrule
+Problem framing, assumptions, requirements clearly stated & 10 \\
+Conceptual ER correctness (entities, keys, cardinalities) \& data dictionary & 20 \\
+Relational design \& normalization (3NF), constraints & 15 \\
+Implementation quality (DDL, integrity, sample data) & 10 \\
+ETL pipeline (staging $\rightarrow$ core, validation) & 10 \\
+Analytics queries (6+) correctness \& insight & 15 \\
+Indexing \& performance evaluation (EXPLAIN/ANALYZE) & 10 \\
+Views/materialized view for reuse & 5 \\
+Report quality (clarity, organization, reproducibility) & 5 \\
+\midrule
+\textbf{Total} & \textbf{100} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Bonus}
+\begin{itemize}[leftmargin=*]
+  \item If available, enable extensions like \texttt{citext}, \texttt{uuid-ossp} or \texttt{pgcrypto} for authorization or \texttt{postgis} for spatial indexing and analysis.
+\end{itemize}
+
+\href{https://youtu.be/F7GM4aJ39Ks?si=H3JMy9Td1j-eG4kL}{\textsc{RIP \& TEAR}}
+
+\vspace{1cm}
+\centering
+\includegraphics[width=3cm]{figures/doomguy1}
+\hspace{5mm}
+\includegraphics[width=3.6cm]{figures/demon}
+
+
+\end{document}
