@@ -1,0 +1,225 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  urlcolor=blue
+}
+
+\title{Databases \\ Lab 10: A `gentle' Preparatory Guide for the Second Exam.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Welcome to Lab 10. This session is specifically designed as your primary study resource for the \textbf{second partial exam}. In this lab, we adopt a hands-on approach to data modeling methodologies and formal normalization exercises.
+
+By exploring diverse case studies spanning multiple industries and applications, you will gain the practical experience necessary to architect robust data models and construct professional Entity-Relationship (E-R) diagrams. Furthermore, integrated practical examples will reinforce the theoretical foundations of normalization. Consider this lab a ``dry run'' for the logical challenges and structural problems you will encounter in the upcoming evaluation.
+
+\section{Exam Preparation Objectives}
+To ensure comprehensive preparation for the partial exam, this lab focuses on two core pillars of basic and intermediate Database Design:
+
+\begin{itemize}
+    \item \textbf{Database Design Using the E-R Model:} This objective focuses on the conceptual phase of the database lifecycle. You will practice eliciting high-level business requirements and translating them into formal \textbf{Entities}, \textbf{Attributes}, and \textbf{Relationships}. The goal is to master the visual abstraction of complex data structures through E-R Diagrams (ERDs), ensuring the logic of the real-world system is accurately captured before implementation.
+
+    \item \textbf{Relational Database Design \& Normalization:} Once a conceptual model is established, it must be refined to ensure structural integrity and efficiency. This objective covers the systematic mapping of ER diagrams into relational tables and the rigorous application of \textbf{Normalization} rules (specifically 3NF, BCNF, and 4NF). You will learn to eliminate redundant data and prevent operational anomalies (update, insertion, and deletion), resulting in a streamlined, logical schema that guarantees data consistency.
+\end{itemize}
+
+\section{Database Design Using the E-R Model}
+
+Mastering the construction of Entity-Relationship (E-R) models requires consistent, hands-on practice. To prepare for this portion of the evaluation, you are encouraged to review the case studies in the textbook ``\textit{Desarrollo de Bases de Datos: Casos prácticos desde el análisis a la implementación}'' (2nd ed.) by Cuadra et al. (2014). The relevant chapters and sections are as follows:
+
+\begin{itemize}
+    \item \textbf{Chapter 1: Diseño Conceptual} (Section 1.3: ``\textit{Cómo se estructuran los problemas}''). Pages 25--119. This section contains 10 practical exercises along with their detailed solutions.
+
+    \item \textbf{Chapter 2: Diseño Lógico} (Section 2.4: ``\textit{Cómo se estructuran los problemas}''). Pages 141--264. This chapter provides 20 additional exercises and solutions for advanced analysis and logic mapping.
+\end{itemize}
+
+In addition to these resources, Stanford Online offers an excellent open-access course titled ``\textit{Databases: Relational Databases and SQL},'' taught by Professor Jennifer Widom. The course is available via the \href{https://www.edx.org/learn/relational-databases/stanford-university-databases-relational-databases-and-sql}{edX platform}\footnote{\url{https://www.edx.org/learn/relational-databases/stanford-university-databases-relational-databases-and-sql}}. You may access the full content through the \textbf{Audit course} option (note that a registered user account is required).
+
+Within this course, the most critical module for our purposes is ``\textit{Databases: Modeling and Theory}''.  Inside this module, the cardinal sections are:
+
+\begin{itemize}
+    \item ``\textit{The data-modeling component of the Unified Modeling Language (UML)}''
+    \item ``\textit{Dependency theory and normal forms}''
+\end{itemize}
+
+\section{Relational Database Design \& Normalization}
+To prepare this part of the exam, we will explore three kind of exercises:
+
+\subsection{Amstrong's Axioms I}
+
+\subsubsection*{Question:}
+Given the relational schema:
+    $$R = \{P, Q, R, S, T\}$$
+
+and the set F of functional dependencies
+
+    $$F = \{ P \rightarrow Q, QR \rightarrow S, S \rightarrow T \}$$
+
+Show step by step, clearly citing each applied rule, that $\mathbf{PR \rightarrow T}$ is a valid dependency in $\mathbf{F^+}$.
+
+\subsubsection*{Solution:}
+    \begin{enumerate}
+        \item $P \rightarrow Q$ \hfill [Given in $F$]
+        \item $PR \rightarrow QR$ \hfill [Augmentation in (1) using attribute $R$]
+        \item $QR \rightarrow S$ \hfill [Given in $F$]
+        \item $PR \rightarrow S$ \hfill [Transitivity in (2) and (3)]
+        \item $S \rightarrow T$ \hfill [Given in $F$]
+        \item $\mathbf{PR \rightarrow T}$ \hfill [Transitivity in (4) and (5)]
+    \end{enumerate}
+
+\subsection{Amstrong's Axioms II}
+
+\subsubsection*{Question:}
+Given the relational schema
+    $$R = \{W, X, Y, Z, M, N\}$$
+    and the set of functional dependencies
+    $$F = \{ W \rightarrow XY, Y \rightarrow Z, XZ \rightarrow MN \}$$
+    demonstrate step-by-step a member of $\mathbf{F^+}$ using:
+
+    \begin{enumerate}
+        \item The rule of pseudotransitivity.
+        \item The rule of decomposition.
+    \end{enumerate}
+
+\subsubsection*{Solution:}
+   \begin{enumerate}
+       \item \textbf{Use of the Pseudotransitivity Rule ($\alpha \rightarrow \beta$ and $\gamma\beta \rightarrow \delta \implies \alpha\gamma \rightarrow \delta$):}
+       \begin{itemize}
+           \item Consider $W \rightarrow XY$. By decomposition, we obtain $W \rightarrow X$.
+           \item Consider $Y \rightarrow Z$.
+           \item By applying augmentation to $W \rightarrow X$ with $Z$, we get $WZ \rightarrow XZ$.
+           \item Now, using $W \rightarrow X$ (where $\alpha=W, \beta=X$) and $XZ \rightarrow MN$ (where $\gamma=Z, \delta=MN$):
+           \item Applying Pseudotransitivity: $\mathbf{WZ \rightarrow MN}$ (since $\alpha\gamma = WZ$).
+           \item Therefore, $WZ \rightarrow MN$ is a member of $\mathbf{F^+}$.
+       \end{itemize}
+
+       \item \textbf{Use of the Decomposition Rule ($\alpha \rightarrow \beta\gamma \implies \alpha \rightarrow \beta$ and $\alpha \rightarrow \gamma$):}
+       \begin{itemize}
+           \item Using the given dependency: $XZ \rightarrow MN$ (where $\alpha=XZ, \beta=M, \gamma=N$).
+           \item Applying Decomposition:
+           $$XZ \rightarrow M$$
+           $$XZ \rightarrow N$$
+           \item Therefore, $\mathbf{XZ \rightarrow M}$ and $\mathbf{XZ \rightarrow N}$ are members of $\mathbf{F^+}$.
+       \end{itemize}
+   \end{enumerate}
+
+\subsection{BCNF Decomposition}
+
+\subsubsection*{Question:}
+Given the relational schema
+
+$$R = \{A, B, C, D\}$$
+
+with the set of functional dependencies
+
+$$F = \{ A \rightarrow B, C \rightarrow D \}$$
+
+and the
+
+$$Superkey = AC$$
+
+illustrate an initial decomposition to correct a BCNF violation by:
+
+\begin{enumerate}
+    \item Identify a functional dependency ($\alpha \rightarrow \beta$) that violates BCNF.
+    \item Identify the resulting attribute sets from the first decomposition.
+\end{enumerate}
+
+\subsubsection*{Solution:}
+The candidate key for $R$ is $\mathbf{AC}$. \\
+
+\textbf{1. Identification of BCNF Violation} \\
+
+A relation $R$ is in BCNF if for every non-trivial functional dependency $\alpha \rightarrow \beta$, $\alpha$ is a superkey. In this case, both given dependencies violate BCNF:
+
+\begin{itemize}
+    \item \textbf{Violation 1:} $A \rightarrow B$
+        \begin{itemize}
+            \item The determinant $\alpha = A$.
+            \item $A$ is not a superkey of $R$.
+        \end{itemize}
+    \item \textbf{Violation 2:} $C \rightarrow D$
+        \begin{itemize}
+            \item The determinant $\alpha = C$.
+            \item $C$ is not a superkey of $R$.
+        \end{itemize}
+\end{itemize}
+
+We select $\mathbf{A \rightarrow B}$ for the initial decomposition, where $\alpha=A$ and $\beta=B$. \\
+
+\textbf{2. Calculation of the First Decomposition} \\
+
+The BCNF decomposition algorithm replaces $R$ with two new relational schemas: $R_1 = (\alpha \cup \beta)$ and $R_2 = (R - (\beta - \alpha))$.
+
+\begin{enumerate}
+    \item \textbf{First Schema ($R_1$):}
+    $$R_1 = (\alpha \cup \beta) = (A \cup B) = \mathbf{\{A, B\}}$$
+
+    \item \textbf{Second Schema ($R_2$):}
+    $$R_2 = (R - (\beta - \alpha))$$
+    $$R_2 = (\{A, B, C, D\} - (\{B\} - \{A\}))$$
+    $$R_2 = (\{A, B, C, D\} - \{B\}) = \mathbf{\{A, C, D\}}$$
+\end{enumerate}
+
+\textbf{3. Result of the Initial Decomposition:} \\
+
+The set of relational schemas replacing $R$ is:
+
+$$\mathbf{\{R_1(A, B), R_2(A, C, D)\}}$$
+
+\subsection{MVD Decomposition}
+
+\subsubsection*{Question:}
+Given $R = (A, B, C, D, E, F)$ \\
+
+\begin{equation*}
+    \begin{align*}
+        \mathfrak{D} = \{ A &\twoheadrightarrow BC, \\
+                D &\twoheadrightarrow E, \\
+                A &\twoheadrightarrow D \}
+    \end{align*}
+\end{equation*}
+
+$R$ is not in 4NF since $A \twoheadrightarrow BC$ and $A$ is not a superkey for $R$. Perform a 4NF decomposition.
+
+\subsubsection*{Solution:}
+\begin{enumerate}
+    \item $R_1 = (A, B, C)$         \quad [$R_1$ is in 4NF]
+    \item $R_2 = (A, D, E, F)$       \quad [$R_2$ is not in 4NF, decompose into $R_3$ and $R_4$]
+    \item $R_3 = (D, E)$            \quad [$R_3$ is in 4NF]
+    \item $R_4 = (A, D, F)$         \quad [$R_4$ is not in 4NF, decompose into $R_5$ and $R_6$]
+        \begin{itemize}
+            \item $A \twoheadrightarrow D$ is in $F$,
+            \item and hence $A \twoheadrightarrow D$ holds in $R_4$ (MVD restriction to $R_4$).
+        \end{itemize}
+    \item $R_5 = (A, D)$            \quad [$R_5$ is in 4NF]
+    \item $R_6 = (A, F)$            \quad [$R_6$ is in 4NF]
+\end{enumerate}
+
+
+\section{What We Expect}
+Just have fun.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
