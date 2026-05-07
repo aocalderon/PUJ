@@ -15,7 +15,7 @@
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \addbibresource{references.bib}
 
-\title{Lab 06: A ``gentle'' Introduction to Artificial Neural Networks in R}
+\title{Lab 07: A ``gentle'' Introduction to Artificial Neural Networks in R}
 \author{Andrés Oswaldo Calderón Romero, PhD.}
 \date{\today}
 
@@ -39,9 +39,11 @@ To begin, we utilize the ``\texttt{neuralnet}'' package \parencite{fritsch2019ne
     bgcolor=bg,
     fontsize=\footnotesize
     ]{r}
+
 # Install and load the library
 if(!require(neuralnet)) install.packages("neuralnet")
 library(neuralnet)
+
     \end{minted}
     \caption{Environment setup and library initialization. This step involves installing and loading the ``\texttt{neuralnet}'' package required for training feed-forward networks.}
 \end{listing}
@@ -106,7 +108,7 @@ nn <- neuralnet(is_setosa ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Wi
 \end{listing}
 
 \section{Visualization}
-The architecture of a multilayer feed-forward network consists of an input layer, one or more hidden layers, and an output layer.
+The architecture of a multilayer feed-forward network consists of an input layer, one or more hidden layers, and an output layer.  Figure \ref{fig:nn} shows the architecture of the network.
 
 \begin{listing}[H]
     \begin{minted}[
@@ -123,6 +125,13 @@ plot(nn)
     \end{minted}
     \caption{Visualization of the network architecture. This command generates a visual representation of the input, hidden, and output layers of the trained model.}
 \end{listing}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/nn}
+    \caption{This diagram illustrates a feed-forward ANN with four input nodes, a single three-unit hidden layer, and a binary output for setosa identification.  It visualizes the specific connection weights and bias values refined through training to achieve minimal prediction error.}
+    \label{fig:nn}
+\end{figure}
 
 \section{Evaluation}
 To classify unknown tuples, we input them into the trained network and compute the output units' values. For binary tasks, a value $\ge$ 0.5 is typically considered the positive class.
@@ -145,7 +154,13 @@ conf_matrix <- table(Actual = test_set$is_setosa, Predicted = predictions)
 accuracy <- sum(diag(conf_matrix)) / sum(conf_matrix)
 
 print(conf_matrix)
+#       Predicted
+# Actual  0  1
+#      0 33  0
+#      1  0 12
+
 print(paste("Test Accuracy: ", round(accuracy, 4)))
+#[1] "Test Accuracy:  1"
 
     \end{minted}
     \caption{Model evaluation and performance metrics. This section calculates predictions on test data, generates a confusion matrix, and computes the final test accuracy.}
@@ -170,10 +185,25 @@ new_scaled <- as.data.frame(scale(new_tuple, center = mins, scale = maxs - mins)
 # Compute prediction
 pred_new <- compute(nn, new_scaled)
 print(paste("Probability of Setosa: ", round(pred_new$net.result, 4)))
+# [1] "Probability of Setosa:  0.9897"
 
     \end{minted}
     \caption{Predictive inference for a new data observation. This final step scales a new data tuple and uses the trained network to compute the probability of it belonging to a specific class.}
 \end{listing}
+
+\section{Autonomous Work}
+
+\begin{enumerate}
+
+    \item Reproduce the Artificial Neural Network (ANN) implementation using the ``Advertisement'' dataset as detailed in Section 3 of Lab 05.
+
+    \item Generate a confusion matrix and calculate validation metrics. Compare these results with the performance of the Decision Tree and SVM models developed in previous labs.
+
+    \item Choose any dataset available at the UC Irvine Machine Learning Repository\footnote{\url{https://archive.ics.uci.edu/datasets/}} \parencite{Dua2019}. Replicate the procedures demonstrated in this lab to develop an interpretable ANN classifier and report all relevant evaluation metrics.
+
+\end{enumerate}
+
+\textit{Note: You can use the programming language of your choice.}
 
 \printbibliography[title={References}]
 
