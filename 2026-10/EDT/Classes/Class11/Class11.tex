@@ -47,7 +47,7 @@
 
 \title[ANN]{Emergent Digital Technologies}
 \subtitle{Artificial Neural Networks (ANN)}
-\author{Brad Boehmke \& Brandon Greenwell}
+\author{Jiawei Han \& Jian Pei \& Hanghang Tong}
 \date{\today}
 
 % Remove navigation symbols...
@@ -160,12 +160,18 @@
 \begin{frame}{Activation Functions}
     \begin{itemize}
         \item Activation functions are typically nonlinear.
-        \item \textbf{Sign Function:} Used in perceptrons; outputs 1 if $z \ge 0$, else 0.
+        \item \textbf{Step Function:} Used in perceptrons; outputs 1 if $z \ge n$, else 0.
         \item \textbf{Sigmoid Function ($\sigma$):} Maps input to (0, 1).
         \[ \sigma(z) = \frac{1}{1 + e^{-z}} \]
         \item \textbf{ReLU (Rectified Linear Unit):} $f(I) = I$ if $I > 0$, and 0 otherwise.
         \item Nonlinearity allows ANNs to model complex, linearly inseparable data.
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Activation Functions (Cont.)}
+    \centering
+    \includegraphics[height=0.85\textheight]{figures/af}
+    \toRight{Source: The Click Reader (\url{theclickreader.com})}
 \end{frame}
 
 \begin{frame}{Multilayer Feed-forward Networks}
