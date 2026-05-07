@@ -178,15 +178,15 @@
     \begin{itemize}
         \item This is a powerful and common type of ANN architecture.
         \item Consists of an \textbf{input layer}, one or more \textbf{hidden layers}, and an \textbf{output layer}.
-        \item It is "feed-forward" because weights do not cycle back to previous units or layers.
-        \item It is "fully connected" if each unit provides input to every unit in the next layer.
+        \item It is ``feed-forward'' because weights do not cycle back to previous units or layers.
+        \item It is ``fully connected'' if each unit provides input to every unit in the next layer.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Layer Roles in ANN}
     \begin{itemize}
         \item \textbf{Input Layer:} Units correspond to the attributes of the input tuple and pass values unchanged.
-        \item \textbf{Hidden Layers:} "Neuron-like" units that perform nonlinear transformations.
+        \item \textbf{Hidden Layers:} ``Neuron-like'' units that perform nonlinear transformations.
         \item \textbf{Output Layer:} Emits the final network predictions (e.g., class labels or numeric values).
         \item A ``two-layer'' network typically refers to one hidden layer and one output layer (input layer is not counted).
     \end{itemize}
@@ -259,7 +259,7 @@
 \begin{frame}{Phase 2: Backward Propagation of Error}
     \begin{itemize}
         \item The error ($\delta$) is calculated starting from the output layer.
-        \item For an output unit $j$:
+        \item For an output unit $j$ \footnote{assuming a \textit{sigmoid} activation function.}:
         \[ \delta_j = O_j(1 - O_j)(T_j - O_j) \]
         \item For a hidden unit $j$, error is a weighted sum of the errors of the units in the next higher layer ($l$):
         \[ \delta_j = O_j(1 - O_j) \sum_l \delta_l w_{jl} \]
