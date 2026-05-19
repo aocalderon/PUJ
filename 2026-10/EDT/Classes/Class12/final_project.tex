@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{amsfonts}
+\usepackage[printonlyused]{acronym}
+\usepackage{wasysym}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{booktabs}
+
+\hypersetup{
+  urlcolor=blue,
+  linkcolor=black,
+}
+
+\title{Final Project: A Comparative Analysis of Machine Learning Architectures for Satellite-Based Surface Monitoring}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In an era of unprecedented global change, modern geoinformatics has transitioned from traditional, static map-making to dynamic, real-time environmental monitoring. This project provides a comprehensive framework for students to apply the fundamentals of Geospatial Artificial Intelligence (GeoAI) to real-world scenarios, leveraging satellite imagery to quantify and analyze Earth surface covers.  By integrating open-source tools with advanced machine learning architectures, students move beyond passive observation toward hands-on, structured spatial analysis. This pedagogical approach mirrors professional GeoAI applications, where model development and deployment occur within specialized computational frameworks independently of traditional GIS software. Through this workflow, participants will bridge the gap between raw spectral data and actionable environmental intelligence.
+
+\section{Possible Regions of Interest (ROI)}
+For this project, teams may choose to revisit the study areas analyzed in previous assignments. However, you are also free to select a new Region of Interest (ROI) from the curated list of case studies, such as Mocoa, Hunga Tonga, or the Kakhovka Dam, or propose a custom area that aligns with the project’s objectives.  You should pick just one image.
+
+\section{Supervised Classification and Spatial Prediction}
+In this phase, we move from basic image analysis to supervised machine learning. You will structure pixel-level information into training datasets, following a standard deployment workflow that operates independently of external GIS software. This approach mirrors real-world GeoAI applications where model development occurs in specialized computational frameworks.
+
+\subsection{Data Extraction and Table Construction}
+Students must transform the multi-spectral Sentinel bands into a non-spatial, tabular format suitable for machine learning training. Using a programming language of your choice,\footnote{Common choices include Python (e.g., using \texttt{rasterio} and \texttt{geopandas}) or R (e.g., using \texttt{terra} and \texttt{sf}).} you will develop scripts to read the satellite imagery and extract pixel values located within your training polygons. Each polygon serves as a ground-truth sample representing specific land cover classes within the scene, allowing you to build a structured dataset where each row corresponds to an individual pixel's spectral signature and its associated label.
+
+\begin{itemize}
+    \item \textbf{Format:} Export data as a Tab-Separated Values (TSV) file.
+
+    \item \textbf{Columns:} The table must include Latitude, Longitude, at least eight spectral bands (e.g., B2--B11), and a categorical class label (e.g., ``Vegetation'', ``Water'', ``Bare soil'', etc).
+\end{itemize}
+
+\subsection{Model Implementation and Training}
+Once the training dataset is prepared, students must implement and compare five distinct machine learning architectures. This comparative analysis is designed to evaluate how different mathematical approaches handle the high-dimensional spectral data of your selected scene. You will assess each model's performance using standard validation metrics, including the Confusion Matrix, Kappa Coefficient, and F1-Score.
+
+\begin{enumerate}
+    \item \textbf{Decision Trees (DT):} A logic-based model that utilizes a hierarchical tree structure to split data based on spectral thresholds. This approach is particularly useful for identifying which specific bands are most influential in distinguishing land cover classes.
+
+    \item \textbf{Support Vector Machines (SVM):} A kernel-based algorithm that identifies the optimal hyperplane to maximize the margin between class clusters in a multi-dimensional feature space. It is highly effective for complex classification tasks where classes are not linearly separable.
+
+    \item \textbf{Artificial Neural Networks (ANN):} A computational model composed of interconnected layers of neurons that learn complex, non-linear relationships between spectral signatures and land cover categories.
+
+    \item \textbf{K-Nearest Neighbor (KNN):} A non-parametric method that assigns a class membership based on a plurality vote of its neighbors. Pixels are classified according to the most common category among the ``k'' nearest training samples in the spectral feature space.
+
+    \item \textbf{Naive Bayes (NB):} A probabilistic classifier based on Bayes' Theorem that assumes strong (naive) independence between the input spectral bands. It calculates the probability of each class given the observed pixel values and selects the most likely outcome.
+\end{enumerate}
+
+\subsection{Model Comparison and Performance Evaluation}
+To identify the most robust classification architecture, teams must perform an exhaustive Hyperparameter Optimization (HPO) process. This involves systematically testing and adjusting the internal settings of each algorithm to maximize its predictive power for your specific study area.
+
+Once the models are tuned, you must conduct a rigorous performance assessment by comparing their resulting Confusion Matrices. Students are required to compute and analyze the following evaluation metrics:
+\begin{itemize}
+    \item \textbf{Overall Accuracy:} To quantify the total percentage of correctly classified pixels.
+    \item \textbf{Kappa Coefficient:} To measure the agreement between predicted and reference data beyond what is expected by chance.
+    \item \textbf{Precision and Recall:} To assess the model's reliability and completeness for each land-cover category.
+    \item \textbf{F1-Score:} To determine the harmonic balance between precision and recall, ensuring the model remains accurate across all classes.
+\end{itemize}
+
+Finally, you must synthesize your findings into a comprehensive summary table. This table should facilitate a direct comparison between the five architectures, clearly highlighting the ``best'' performance based on the metrics listed above.
+
+\subsection{Final Raster Prediction (Inference)}
+The culmination of the classification pipeline is the generation of a comprehensive thematic land-cover map through full-scene inference. Once the optimal model has been identified and validated, having achieved the highest statistical performance in terms of F1-Score and Kappa Coefficient, it must be deployed to classify the remaining pixels that comprise the rest of the study area.
+
+Unlike the training phase, which utilized a discrete Tab-Separated Values (TSV) dataset derived from specific polygons, the inference phase requires the model to process the original multidimensional raster stack. The model will iterate through each pixel, treating its eight or more spectral bands as input features to predict its most likely class membership. This process transforms raw reflectance data into a new, single-band categorical raster.
+
+The output of this operation must be exported as a georeferenced GeoTIFF. In this final product, each pixel value corresponds to a specific integer code representing its predicted category (e.g., 1 for ``Vegetation,'' 2 for ``Water'', 3 for ``Bare soil'' and so on). To ensure the result is of professional quality, students must address the following requirements:
+
+\begin{itemize}
+    \item \textbf{Spatial Consistency:} The final raster must retain the original Coordinate Reference System (CRS) and affine transformation parameters. This ensures that the predictions align perfectly with the original satellite imagery and other geospatial layers.
+    \item \textbf{Thematic Visualization:} Students must import the resulting GeoTIFF into a GIS environment (such as QGIS) and apply a discrete color symbology. This visualization should clearly distinguish between different land-cover types.
+    \item \textbf{Area Quantification:} Beyond visual representation, you are required to generate spatial statistics. Use the predicted raster to calculate the total area (in hectares or square kilometers) for each class.
+\end{itemize}
+
+\section{Project Phases and Weekly Deliverables}
+The project is divided into three milestones, each to be submitted at the end of its respective week:
+
+\subsection*{Phase 1: Problem Definition (Week 1)}
+Focuses on event selection and data tranformation.
+\begin{itemize}
+    \item \textbf{Deliverables:} A document defining the chosen event, study area boundaries, satellite imagery metadata, and dataset creation.
+\end{itemize}
+
+\subsection*{Phase 2: Pre-processing and Training (Week 2)}
+Focuses on technical preparation and initial model testing.
+\begin{itemize}
+    \item \textbf{Deliverables:} Documentation of the exported TSV training file, and initial model evaluation metrics (at least Confusion Matrix and Overall Accuracy).
+\end{itemize}
+
+\subsection*{Phase 3: Synthesis and Prediction (Week 3)}
+Final analysis and reporting.
+\begin{itemize}
+    \item \textbf{Deliverables:} The predicted thematic raster (GeoTIFF), the complete technical report, and the source code (ZIP).
+\end{itemize}
+
+\subsection*{Final Defense and Evaluation}
+The project results will be presented in a formal oral defense during the last session of the course. To ensure collective technical mastery, two team members will be randomly selected to lead the presentation at the start of the session, so everyone should be ready to step into the spotlight. Teams must prepare professional slides and supporting documentation for a presentation not exceeding 20 minutes. The evaluation will follow a collaborative framework, incorporating both auto-evaluation (self-assessment) and co-evaluation (peer review) to assess technical accuracy, methodology, and communication clarity.
+
+\section{Conclusion}
+This project represents a complete synthesis of the remote sensing pipeline, from initial data acquisition to high-level machine learning inference. By navigating the complexities of multi-spectral data extraction , Hyperparameter Optimization (HPO) , and full-scene prediction, students transform raw reflectance values into a meaningful, single-band categorical raster.  Beyond the technical mastery of scripts and algorithms , the true value of this work lies in the ability to document our changing planet using ground-truth validation and scientific integrity. As students finalize their thematic visualizations and quantitative area assessments, they transition from being observers of environmental flux to active participants in the modern geospatial landscape.
+
+\end{document}
