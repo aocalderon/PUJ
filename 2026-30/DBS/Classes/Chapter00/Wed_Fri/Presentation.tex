@@ -1,0 +1,145 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{hyperref}
+\usepackage{qrcode}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+
+%% Theme...
+\usefonttheme{serif}
+
+%% Footer...
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft DBS
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\title{Bases de Datos}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{Contenido}
+
+\begin{frame}{Información}
+\begin{itemize}
+    \item Profesor: Andrés Oswaldo Calderón Romero, Ph.D.
+    \item \textbf{Correo}: \href{mailto:andrescalderonr@javeriana.edu.co}{andrescalderonr@javeriana.edu.co} (Iniciar el asunto con ``[DBS]'').
+    \item \textbf{Web}: \href{https://www.cs.ucr.edu/~acald013/}{https://www.cs.ucr.edu/$\sim$acald013/}.
+    \item Páginas importantes: \url{https://github.com/aocalderon/PUJ/} $\longrightarrow$ \texttt{2026-30}.
+    \item Plataformas: 
+    \begin{itemize}
+        \item BrightSpace (Anuncios y entregas).
+        \item GitHub (Material de clase).
+    \end{itemize}
+    \item Herramientas:  \href{https://www.postgresql.org/}{PostgreSQL}, \href{https://www.pgadmin.org/}{PgAdmin}.
+    \item Horario de atención (Office Hours):
+    \begin{itemize}
+        \item Martes: 10:00 a 11:00am (FIFO).
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Los Estudiantes}
+
+\begin{frame}{Los Estudiantes}
+\begin{itemize}
+    \item ¿Nombre? 
+    \item ¿Experiencia en programación? ¿Lenguajes? 
+    \item ¿Experiencia en bases de datos? ¿DBMSs?
+    \item ¿Algo puntual que espera aprender en este curso?
+\end{itemize}
+\end{frame}
+
+\section{Sobre el Curso}
+
+\begin{frame}{Sobre el Curso}
+\begin{itemize}
+    \item ¿Qué sabemos?
+    \item ¿Qué nos han dicho?
+    \item ¿Qué expectativas tengo?
+\end{itemize}
+
+    \centering
+    \vspace{10mm}
+    {\small \href{https://www.mentimeter.com/app/presentation/aljzuorbyosmeh7v9vvh4ik9e9y3zdcn/edit}{Veámos:}}\\
+    \vspace{2mm}
+  
+    \qrcode[hyperlink,height=0.75in]{https://www.menti.com/alqgaa5yhyd4}\\
+    \vspace{2mm}
+    \footnotesize  o ingresa a \href{https://www.menti.com/alqgaa5yhyd4}{menti.com}\\ con el código \textbf{5629 0857}
+\end{frame}
+
+\section{Objetivos}
+
+\begin{frame}{Objetivos}
+\begin{itemize}
+    \item Brindar los conceptos necesarios para el diseño y manipulación de Bases de Datos relacionales.
+    \item Explicar diferentes tipos de bases de datos y los criterios para escoger la más adecuada en el marco de un problema específico.
+    \item Explicar los mecanismos que mejoran el desempeño de las Bases de Datos y las consecuencias de utilizar dichos mecanismos.
+\end{itemize}
+\end{frame}
+
+\section{Contenido}
+
+\begin{frame}{Contenido}
+\begin{itemize}
+    \item Modelo relacional
+    \item SQL
+    \item Diseño de Bases de Datos relacionales
+\end{itemize}
+\end{frame}
+
+\section{Evaluación y Fechas}
+
+\begin{frame}{Evaluación y Fechas}
+    \begin{itemize}
+        \item 20\% → Primer Parcial (Semana 6).
+        \item 15\% → Segundo Parcial (Semana 12).
+        \item 15\% → Examen Final (Semana 17).
+        \item 20\% → Laboratorios (Semanales).
+        \item 30\% → Proyecto Final (Segunda parte del semestre, 3 entregas).
+    \end{itemize}
+\end{frame}
+
+\section{Reglas de Juego}
+
+\begin{frame}{Reglas de Juego}
+\begin{itemize}
+    \item Trabajo Individual: Tareas, Parciales y Examen.
+    \item Trabajo en Equipo: Talleres y Proyecto.
+    \item Grupos de 2 personas para talleres y hasta 4 personas para el proyecto.
+\end{itemize}
+\end{frame}
+
+\end{document}
