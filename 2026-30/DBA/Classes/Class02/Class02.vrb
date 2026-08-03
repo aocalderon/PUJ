@@ -1,0 +1,19 @@
+\frametitle{Retrieving Size Information}
+    \begin{itemize}
+        \item To get the size of tables:
+    \end{itemize}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\scriptsize, linenos]{sql}
+    SELECT
+        oid::regclass AS table_name,
+        pg_size_pretty(pg_table_size(oid)) AS size
+    FROM
+        pg_class
+    WHERE
+        relkind = 'r'
+    ORDER BY
+        pg_table_size(oid) DESC;
+    \end{minted}
+    \begin{itemize}
+        \item \texttt{pg\_size\_pretty} formats sizes into readable units.
+    \end{itemize}
