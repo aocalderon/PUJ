@@ -1,0 +1,102 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+    \renewcommand{\fcolorbox}[4][]{#4}
+}
+
+\usefonttheme{serif}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\title[Regression]{ML101 \\ Lecture 02: Regression}
+\author{James, Witten, Hastie \& Tibshirani}
+\date{\today}
+
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft ML101
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{An Introduction to Statistical Learning with Applications in R}{a.k.a. ISLR}
+    \centering
+    \includegraphics[height=0.75\textheight]{figures/book_cover} \\
+    \vspace{2mm}
+    {
+        \tiny
+        Content has been extracted from \textit{An Introduction to Statistical Learning with Applications in R}, Second Edition, by James, Witten, Hastie \& Tibshirani. Springer. 2023.\\
+        Visit \url{https://https://www.statlearning.com//}.\\
+    }
+\end{frame}
+
+
+
+
+\end{document}
