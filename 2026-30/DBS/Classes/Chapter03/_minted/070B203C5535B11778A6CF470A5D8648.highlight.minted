@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{SELECT}
+\PYG{+w}{            }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{avg\PYGZus{}salary}
+\PYG{+w}{        }\PYG{k}{FROM}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{avg}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{salary}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{as}\PYG{+w}{ }\PYG{n}{avg\PYGZus{}salary}
+\PYG{+w}{                }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}
+\PYG{+w}{                }\PYG{k}{GROUP}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{WHERE}
+\PYG{+w}{            }\PYG{n}{avg\PYGZus{}salary}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{42000}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,0 +1,3338 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.28)  12 AUG 2026 08:32
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**Lecture03.tex
+(./Lecture03.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
+Document Class: beamer 2026/01/22 v3.77 A class for typesetting presentations
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count275
+)
+\beamer@tempbox=\box53
+\beamer@tempcount=\count276
+\c@beamerpauses=\count277
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+\beamer@slideinframe=\count278
+\beamer@minimum=\count279
+\beamer@decode@box=\box54
+)
+\beamer@commentbox=\box55
+\beamer@modecount=\count280
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+\headdp=\dimen148
+\footheight=\dimen149
+\sidebarheight=\dimen150
+\beamer@tempdim=\dimen151
+\beamer@finalheight=\dimen152
+\beamer@animht=\dimen153
+\beamer@animdp=\dimen154
+\beamer@animwd=\dimen155
+\beamer@leftmargin=\dimen156
+\beamer@rightmargin=\dimen157
+\beamer@leftsidebar=\dimen158
+\beamer@rightsidebar=\dimen159
+\beamer@boxsize=\dimen160
+\beamer@vboxoffset=\dimen161
+\beamer@descdefault=\dimen162
+\beamer@descriptionwidth=\dimen163
+\beamer@lastskip=\skip49
+\beamer@areabox=\box56
+\beamer@animcurrent=\box57
+\beamer@animshowbox=\box58
+\beamer@sectionbox=\box59
+\beamer@logobox=\box60
+\beamer@linebox=\box61
+\beamer@sectioncount=\count281
+\beamer@subsubsectionmax=\count282
+\beamer@subsectionmax=\count283
+\beamer@sectionmax=\count284
+\beamer@totalheads=\count285
+\beamer@headcounter=\count286
+\beamer@partstartpage=\count287
+\beamer@sectionstartpage=\count288
+\beamer@subsectionstartpage=\count289
+\beamer@animationtempa=\count290
+\beamer@animationtempb=\count291
+\beamer@xpos=\count292
+\beamer@ypos=\count293
+\beamer@ypos@offset=\count294
+\beamer@showpartnumber=\count295
+\beamer@currentsubsection=\count296
+\beamer@coveringdepth=\count297
+\beamer@sectionadjust=\count298
+\beamer@toclastsection=\count299
+\beamer@tocsectionnumber=\count300
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+))
+\beamer@paperwidth=\skip50
+\beamer@paperheight=\skip51
+
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count301
+\Gm@cntv=\count302
+\c@Gm@tempcnt=\count303
+\Gm@bindingoffset=\dimen164
+\Gm@wd@mp=\dimen165
+\Gm@odd@mp=\dimen166
+\Gm@even@mp=\dimen167
+\Gm@layoutwidth=\dimen168
+\Gm@layoutheight=\dimen169
+\Gm@layouthoffset=\dimen170
+\Gm@layoutvoffset=\dimen171
+\Gm@dimlist=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks19
+\pgfutil@tempdima=\dimen172
+\pgfutil@tempdimb=\dimen173
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box62
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks20
+\pgfkeys@temptoks=\toks21
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered
+.code.tex
+\pgfkeys@tmptoks=\toks22
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen174
+\pgf@xa=\dimen175
+\pgf@xb=\dimen176
+\pgf@xc=\dimen177
+\pgf@y=\dimen178
+\pgf@ya=\dimen179
+\pgf@yb=\dimen180
+\pgf@yc=\dimen181
+\c@pgf@counta=\count304
+\c@pgf@countb=\count305
+\c@pgf@countc=\count306
+\c@pgf@countd=\count307
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen182
+\pgfmath@count=\count308
+\pgfmath@box=\box63
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count309
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen183
+\Gin@req@width=\dimen184
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@x=\dimen185
+\pgf@y=\dimen186
+\pgf@xa=\dimen187
+\pgf@ya=\dimen188
+\pgf@xb=\dimen189
+\pgf@yb=\dimen190
+\pgf@xc=\dimen191
+\pgf@yc=\dimen192
+\pgf@xd=\dimen193
+\pgf@yd=\dimen194
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count310
+\c@pgf@countb=\count311
+\c@pgf@countc=\count312
+\c@pgf@countd=\count313
+\t@pgf@toka=\toks26
+\t@pgf@tokb=\toks27
+\t@pgf@tokc=\toks28
+\pgf@sys@id@count=\count314
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count315
+\pgfsyssoftpath@bigbuffer@items=\count316
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen195
+\pgf@picmaxx=\dimen196
+\pgf@picminy=\dimen197
+\pgf@picmaxy=\dimen198
+\pgf@pathminx=\dimen199
+\pgf@pathmaxx=\dimen256
+\pgf@pathminy=\dimen257
+\pgf@pathmaxy=\dimen258
+\pgf@xx=\dimen259
+\pgf@xy=\dimen260
+\pgf@yx=\dimen261
+\pgf@yy=\dimen262
+\pgf@zx=\dimen263
+\pgf@zy=\dimen264
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen265
+\pgf@path@lasty=\dimen266
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen267
+\pgf@shorten@start@additional=\dimen268
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count317
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen269
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen270
+\pgf@pt@y=\dimen271
+\pgf@pt@temp=\dimen272
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen273
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen274
+\pgf@sys@shading@range@num=\count318
+\pgf@shadingcount=\count319
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box67
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count320
+\XC@countmixins=\count321
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count322
+)
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen275
+\Hy@linkcounter=\count323
+\Hy@pagecounter=\count324
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count325
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4066.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4066.
+Package hyperref Info: Option `implicit' set `false' on input line 4066.
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count326
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen276
+
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count327
+\Field@Width=\dimen277
+\Fld@charsize=\dimen278
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count328
+
+
+Package hyperref Message: Stopped early.
+
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count329
+\c@bookmark@seq@number=\count330
+
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecompatibility.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks29
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2020/01/31
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2025/12/01 v3.49 KOMA-Script package (file load hooks)
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2025/12/01 v3.49 KOMA-Script package (using LaTeX hooks)
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2025/12/01 v3.49 KOMA-Script package (logo)
+)))))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+\beamer@argscount=\count331
+\beamer@lastskipcover=\skip52
+\beamer@trivlistdepth=\count332
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetitle.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+\c@lecture=\count333
+\c@part=\count334
+\c@section=\count335
+\c@subsection=\count336
+\c@subsubsection=\count337
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+\beamer@framebox=\box68
+\beamer@frametitlebox=\box69
+\beamer@zoombox=\box70
+\beamer@zoomcount=\count338
+\beamer@zoomframecount=\count339
+\beamer@frametextheight=\dimen279
+\c@subsectionslide=\count340
+\beamer@frametopskip=\skip53
+\beamer@framebottomskip=\skip54
+\beamer@frametopskipautobreak=\skip55
+\beamer@framebottomskipautobreak=\skip56
+\beamer@envbody=\toks30
+\framewidth=\dimen280
+\c@framenumber=\count341
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+\beamer@verbatimfileout=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+\beamer@splitbox=\box71
+\beamer@autobreakcount=\count342
+\beamer@autobreaklastheight=\dimen281
+\beamer@frametitletoks=\toks31
+\beamer@framesubtitletoks=\toks32
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.sty
+\beamer@colheight=\skip57
+\beamer@footins=\box72
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasecolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+\beamer@frameboxcopy=\box73
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetoc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+\beamer@sbttoks=\toks33
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+\bmb@box=\box74
+\bmb@colorbox=\box75
+\bmb@boxwidth=\dimen282
+\bmb@boxheight=\dimen283
+\bmb@prevheight=\dimen284
+\bmb@temp=\dimen285
+\bmb@dima=\dimen286
+\bmb@dimb=\dimen287
+\bmb@prevheight=\dimen288
+)
+\beamer@blockheadheight=\dimen289
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2023/07/04 v3.00 enumerate extensions (DPC)
+\@enLab=\toks34
+)
+\beamer@bibiconwidth=\skip58
+\c@figure=\count343
+\c@table=\count344
+\abovecaptionskip=\skip59
+\belowcaptionskip=\skip60
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasenavigationsymbols.tex
+)
+\beamer@section@min@dim=\dimen290
+) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip61
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks35
+\ex@=\dimen291
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen292
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count345
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count346
+\leftroot@=\count347
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count348
+\DOTSCASE@=\count349
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box76
+\strutbox@=\box77
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen293
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count350
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count351
+\dotsspace@=\muskip18
+\c@parentequation=\count352
+\dspbrk@lvl=\count353
+\tag@help=\toks36
+\row@=\count354
+\column@=\count355
+\maxfields@=\count356
+\andhelp@=\toks37
+\eqnshift@=\dimen294
+\alignsep@=\dimen295
+\tagshift@=\dimen296
+\tagwidth@=\dimen297
+\totwidth@=\dimen298
+\lineht@=\dimen299
+\@envbody=\toks38
+\multlinegap=\skip62
+\multlinetaggap=\skip63
+\mathdisplay@stack=\toks39
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks40
+\thm@bodyfont=\toks41
+\thm@headfont=\toks42
+\thm@notefont=\toks43
+\thm@headpunct=\toks44
+\thm@preskip=\skip64
+\thm@postskip=\skip65
+\thm@headsep=\skip66
+\dth@everypar=\toks45
+)
+\c@theorem=\count357
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemedefault.sty
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemedefault.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
+\beamer@dima=\dimen300
+\beamer@dimb=\dimen301
+)
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemedefault.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks46
+\inpenc@posthook=\toks47
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2026/01/18 v26.1 The multilingual framework for LuaLaTeX, pdfLaT
+eX and XeLaTeX
+\babel@savecnt=\count358
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
+ne 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
+ne 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
+e 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
+e 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
+on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
+on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
+on input line 2111.
+\U@D=\dimen302
+\l@unhyphenated=\language90
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read3
+LaTeX Info: Redefining \textlatin on input line 3974.
+\bbl@dirlevel=\count359
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex)
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 4330.
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks48
+\es@quotdepth=\count360
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+))
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) 
+on input line 5.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1)
+ on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen303
+\lightrulewidth=\dimen304
+\cmidrulewidth=\dimen305
+\belowrulesep=\dimen306
+\belowbottomsep=\dimen307
+\aboverulesep=\dimen308
+\abovetopsep=\dimen309
+\cmidrulesep=\dimen310
+\cmidrulekern=\dimen311
+\defaultaddspace=\dimen312
+\@cmidla=\count361
+\@cmidlb=\count362
+\@aboverulesep=\dimen313
+\@belowrulesep=\dimen314
+\@thisruleclass=\count363
+\@lastruleclass=\count364
+\@thisrulewidth=\dimen315
+)
+(/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip67
+\RaggedLeftLeftskip=\skip68
+\RaggedRightLeftskip=\skip69
+\CenteringRightskip=\skip70
+\RaggedLeftRightskip=\skip71
+\RaggedRightRightskip=\skip72
+\CenteringParfillskip=\skip73
+\RaggedLeftParfillskip=\skip74
+\RaggedRightParfillskip=\skip75
+\JustifyingParfillskip=\skip76
+\CenteringParindent=\skip77
+\RaggedLeftParindent=\skip78
+\RaggedRightParindent=\skip79
+\JustifyingParindent=\skip80
+)
+(/usr/share/texlive/texmf-dist/tex/latex/minted/minted.sty
+Package: minted 2025/05/14 v3.7.0 Yet another Pygments shim for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/catchfile/catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/fvextra/fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyv
+rb
+
+(/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count365
+\FV@InFile=\read4
+\FV@TabBox=\box78
+\c@FancyVerbLine=\count366
+\FV@StepNumber=\count367
+\FV@OutFile=\write5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2025/05/13 line numbers on paragraphs v5.5
+\linenopenalty=\count368
+\output=\toks49
+\linenoprevgraf=\count369
+\linenumbersep=\dimen316
+\linenumberwidth=\dimen317
+\c@linenumber=\count370
+\c@pagewiselinenumber=\count371
+\c@LN@truepage=\count372
+\c@internallinenumber=\count373
+\c@internallinenumbers=\count374
+\quotelinenumbersep=\dimen318
+\bframerule=\dimen319
+\bframesep=\dimen320
+\bframebox=\box79
+\@LN@amsmath@ams@eqpen=\count375
+)
+\c@FancyVerbWriteLine=\count376
+\c@FancyVerbBufferLine=\count377
+\c@FV@TrueTabGroupLevel=\count378
+\c@FV@TrueTabCounter=\count379
+\FV@TabBox@Group=\box80
+\FV@bgcolorstructbox=\box81
+\FV@TmpLength=\skip81
+\c@FV@HighlightLinesStart=\count380
+\c@FV@HighlightLinesStop=\count381
+\FV@LoopCount=\count382
+\FV@NCharsBox=\box82
+\FV@BreakIndent=\dimen321
+\FV@BreakIndentNChars=\count383
+\FV@BreakSymbolSepLeft=\dimen322
+\FV@BreakSymbolSepLeftNChars=\count384
+\FV@BreakSymbolSepRight=\dimen323
+\FV@BreakSymbolSepRightNChars=\count385
+\FV@BreakSymbolIndentLeft=\dimen324
+\FV@BreakSymbolIndentLeftNChars=\count386
+\FV@BreakSymbolIndentRight=\dimen325
+\FV@BreakSymbolIndentRightNChars=\count387
+\c@FancyVerbLineBreakLast=\count388
+\FV@LineBox=\box83
+\FV@LineIndentBox=\box84
+\c@FV@BreakBufferDepth=\count389
+\FV@LineWidth=\dimen326
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latex2pydata/latex2pydata.sty
+Package: latex2pydata 2025/03/26 v0.6.0 latex2pydata - write data to file in Py
+thon literal format
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks50
+\pgfopts@list@add@b@toks=\toks51
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count390
+\float@exts=\toks52
+\float@box=\box85
+\@float@everytoks=\toks53
+\@floatcapt=\box86
+)
+\c@minted@FancyVerbLineTemp=\count391
+\@float@every@listing=\toks54
+\c@listing=\count392
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box87
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen327
+\pgf@nodesepend=\dimen328
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen329
+\pgffor@skip=\dimen330
+\pgffor@stack=\toks55
+\pgffor@toks=\toks56
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count393
+\pgfplotmarksize=\dimen331
+)
+\tikz@lastx=\dimen332
+\tikz@lasty=\dimen333
+\tikz@lastxsaved=\dimen334
+\tikz@lastysaved=\dimen335
+\tikz@lastmovetox=\dimen336
+\tikz@lastmovetoy=\dimen337
+\tikzleveldistance=\dimen338
+\tikzsiblingdistance=\dimen339
+\tikz@figbox=\box88
+\tikz@figbox@bg=\box89
+\tikz@tempbox=\box90
+\tikz@tempbox@bg=\box91
+\tikztreelevel=\count394
+\tikznumberofchildren=\count395
+\tikznumberofcurrentchild=\count396
+\tikz@fig@count=\count397
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count398
+\pgfmatrixcurrentcolumn=\count399
+\pgf@matrix@numberofcolumns=\count400
+)
+\tikz@expandcount=\count401
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks57
+\c@algorithm=\count402
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count403
+\c@ALC@line=\count404
+\c@ALC@rem=\count405
+\c@ALC@depth=\count406
+\ALC@tlm=\skip82
+\algorithmicindent=\skip83
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count407
+\lst@gtempboxa=\box92
+\lst@token=\toks58
+\lst@length=\count408
+\lst@currlwidth=\dimen340
+\lst@column=\count409
+\lst@pos=\count410
+\lst@lostspace=\dimen341
+\lst@width=\dimen342
+\lst@newlines=\count411
+\lst@lineno=\count412
+\lst@maxwidth=\dimen343
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count413
+\lst@skipnumbers=\count414
+\lst@framebox=\box93
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen344
+\pgfarrowlength=\dimen345
+\pgfarrowwidth=\dimen346
+\pgfarrowlinewidth=\dimen347
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
+tex
+File: pgflibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\arrowsize=\dimen348
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodepartlowerbox=\box94
+\pgfnodeparttwobox=\box95
+\pgfnodepartthreebox=\box96
+\pgfnodepartfourbox=\box97
+\pgfnodeparttwentybox=\box98
+\pgfnodepartnineteenbox=\box99
+\pgfnodeparteighteenbox=\box100
+\pgfnodepartseventeenbox=\box101
+\pgfnodepartsixteenbox=\box102
+\pgfnodepartfifteenbox=\box103
+\pgfnodepartfourteenbox=\box104
+\pgfnodepartthirteenbox=\box105
+\pgfnodeparttwelvebox=\box106
+\pgfnodepartelevenbox=\box107
+\pgfnodeparttenbox=\box108
+\pgfnodepartninebox=\box109
+\pgfnodeparteightbox=\box110
+\pgfnodepartsevenbox=\box111
+\pgfnodepartsixbox=\box112
+\pgfnodepartfivebox=\box113
+)))
+Package hyperref Info: Option `colorlinks' set `true' on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 103.
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count415
+)
+(./Lecture03.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 11.
+)
+\openout1 = `Lecture03.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(28.45274pt, 398.3386pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 256.0748pt, 0.0pt)
+* \paperwidth=455.24408pt
+* \paperheight=256.0748pt
+* \textwidth=398.3386pt
+* \textheight=227.62207pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count416
+\scratchdimen=\dimen349
+\scratchbox=\box114
+\nofMPsegments=\count417
+\nofMParguments=\count418
+\everyMPshowfont=\toks59
+\MPscratchCnt=\count419
+\MPscratchDim=\dimen350
+\MPnumerator=\count420
+\makeMPintoPDFobject=\count421
+\everyMPtoPDFconversion=\toks60
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring ON on input line 103.
+
+(./Lecture03.out) (./Lecture03.out)
+\@outlinefile=\write6
+\openout6 = `Lecture03.out'.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
+-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-bibliography-dic
+tionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-environment-dict
+ionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-months-dictionar
+y-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-numbers-dictiona
+ry-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictiona
+ry-English.dict
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+\c@lstlisting=\count422
+
+(./Lecture03.nav)
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 103--103
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 105--105
+[][][][]  
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 105
+.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 105
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 116--116
+[][][][]  
+ []
+
+<figures/book_cover.jpg, id=68, 508.7808pt x 626.21954pt>
+File: figures/book_cover.jpg Graphic file (type jpg)
+<use figures/book_cover.jpg>
+Package pdftex.def Info: figures/book_cover.jpg  used on input line 116.
+(pdftex.def)             Requested size: 149.37697pt x 183.85406pt.
+
+Overfull \vbox (0.6436pt too high) detected at line 116
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[2
+
+ <./figures/book_cover.jpg>]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 118--118
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[3
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 137--137
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[4
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 145--145
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[5
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 153--153
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[6
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 155--155
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[7
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 166--166
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[8
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 175--175
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[9
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 184--184
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[10
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 186--186
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 204--204
+[][][][]  
+ []
+
+(./Lecture03.vrb (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[11
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 206--206
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 218--218
+[][][][]  
+ []
+
+(./Lecture03.vrb
+\pydata@fh@0=\write7
+\openout7 = `_02C6DC3D94FAFC9B8A5E27CFA2E793FF.data.minted'.
+
+runsystem(latexminted config  --timestamp 20260812083216 02C6DC3D94FAFC9B8A5E27
+CFA2E793FF)...executed.
+
+ (./_02C6DC3D94FAFC9B8A5E27CFA2E793FF.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20260812083216 02C6DC3D94FAFC9B8
+A5E27CFA2E793FF)...executed.
+
+
+(./_minted/default.style.minted)
+(./_minted/23DB89FD285973F9B78EAE249D4B2298.highlight.minted
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[12
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 230--230
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[13
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 232--232
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 246--246
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/8717976FD5E8EE8381EBFE0B6BF15F87.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[14
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 248--248
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 262--262
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/0B5AA91DE5E41BBF4C2D2A2F11088120.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[15
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 264--264
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 282--282
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/13981B5571D02E30FF528B1E41A2E2A4.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[16
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 284--284
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 298--298
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/2AB3B68C34294C601C97C2C11DCAB92E.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[17
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 300--300
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 323--323
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/3EAFA83F5EA1E3D1290B2C16EBAE32DB.highlight.minted)
+(./_minted/20A510823669D481E02441F26325C69C.highlight.minted)
+(./_minted/101A99D67B2916E4BAD98572506AED07.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[18
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 325--325
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 347--347
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[19
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 349--349
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[20
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 351--351
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 369--369
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[21
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 371--371
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 385--385
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/200576B4F14B5EC725A98F6D9488E61B.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[22
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 395--395
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[23
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 397--397
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 416--416
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/4FA56D8A4A0451310C2A5B53344B2CB7.highlight.minted)
+(./_minted/2B3A915939F36D77348AA3776276B2AF.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[24
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 418--418
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 434--434
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/E6B79BA34034C980664D618CE98AD334.highlight.minted)
+(./_minted/17A50087C8C2AFA2F09159546D073E80.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[25
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 436--436
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 452--452
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/76AAD81B58D77A286AFC2062492926E5.highlight.minted)
+(./_minted/1E30CD4DB2F81C0D594853D35FD3A573.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[26
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 454--454
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 472--472
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/8605C15294A3DD13150029AD194DD5B3.highlight.minted)
+(./_minted/D13718006EAE64BDDC618C1E6F4900AE.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[27
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 474--474
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 491--491
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/EB3AE98060ABF2EDB885C0C9D77E026E.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[28
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 493--493
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 509--509
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/FA57BAA25023DFA2189D88F6EBF13761.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[29
+
+] (./Lecture03.vrb
+(./_minted/FA57BAA25023DFA2189D88F6EBF13761.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[30
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 511--511
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 528--528
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/3A2258E6C345EF5B586A33FD6A0516CC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[31
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 539--539
+[][][][]  
+ []
+
+
+LaTeX Warning: Command \textendash invalid in math mode on input line 539.
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[32
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 541--541
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 555--555
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/0B4BD0C08B50ABF3B33592D8751E80DC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[33
+
+] (./Lecture03.vrb
+(./_minted/0B4BD0C08B50ABF3B33592D8751E80DC.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[34
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 557--557
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 572--572
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/FC4A0BF2142C927DA697C2EFAA95B0E8.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[35
+
+] (./Lecture03.vrb
+(./_minted/FC4A0BF2142C927DA697C2EFAA95B0E8.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[36
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 574--574
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[37
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 576--576
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 597--597
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/B24932723E70074F06701A7F3C62E617.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[38
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 599--599
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 606--606
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[39
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 629--629
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[40
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 636--636
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[41
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 638--638
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 649--649
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[42
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 651--651
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 670--670
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/37C892EF010D0FAD6A1BAEBE6F675A16.highlight.minted)
+(./_minted/B947029DB9C36A39554526CB34C86564.highlight.minted)
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+8.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[43
+
+] (./Lecture03.vrb
+(./_minted/37C892EF010D0FAD6A1BAEBE6F675A16.highlight.minted)
+(./_minted/B947029DB9C36A39554526CB34C86564.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[44
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 672--672
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 689--689
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[45
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 691--691
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 704--704
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/F3DD58762A071C06C7E5477D4B40BAE5.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[46
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 706--706
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 719--719
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/C3C69554EC09D28F3CA1397E9C5547C2.highlight.minted)
+(./_minted/44B83AA9E503D1848684F62CC355BA36.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[47
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 721--721
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 737--737
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/8FBC18970832811CDA4E86AE87D76350.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[48
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 739--739
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 752--752
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/CC476B95E737BBBF2B201EEB9B0571C9.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[49
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 754--754
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[50
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 756--756
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 776--776
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/9D5A7AF04AD76298D875C6D76BF5B6AB.highlight.minted
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+)
+(./_minted/58D3485C6696EF5426A5E7EE1CF2BBC0.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[51
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 778--778
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 792--792
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/54140F3B5FEC6536929B870F072B6A26.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[52
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 794--794
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[53
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 796--796
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 805--805
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[54
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 807--807
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 820--820
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/62E5FF26807BB0E01F58F0263D34BF62.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[55
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 822--822
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 829--829
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[56
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 831--831
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 846--846
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[57
+
+] (./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[58
+
+] (./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[59
+
+] (./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[60
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 848--848
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[61
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 850--850
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 861--861
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[62
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 863--863
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 876--876
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/E098ADEBB3D4CCB99D9062A2EAB411F5.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[63
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 878--878
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 891--891
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/A3E5AC1A6AFB6BAE4A3C30A0C1133E10.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[64
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 893--893
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 904--904
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/762BE533C08033D32EC4906A08D8D3A5.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[65
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 906--906
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 922--922
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/B04517EDBB6DF91905B914D8BFFA15A2.highlight.minted)
+<figures/db_agg.pdf, id=646, 614.295pt x 794.97pt>
+File: figures/db_agg.pdf Graphic file (type pdf)
+<use figures/db_agg.pdf>
+Package pdftex.def Info: figures/db_agg.pdf  used on input line 11.
+(pdftex.def)             Requested size: 167.30318pt x 138.35527pt.
+File: figures/db_agg.pdf Graphic file (type pdf)
+<use figures/db_agg.pdf>
+Package pdftex.def Info: figures/db_agg.pdf  used on input line 15.
+(pdftex.def)             Requested size: 95.60258pt x 102.89502pt.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[66
+
+ <./figures/db_agg.pdf>]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 924--924
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 938--938
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/7EF29E30BF074E03B322C945C1991C5F.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[67
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 940--940
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 953--953
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/9FB9CF037759EA34DC664659717BB0EC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[68
+
+] (./Lecture03.vrb
+(./_minted/9FB9CF037759EA34DC664659717BB0EC.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[69
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 955--955
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[70
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 957--957
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 971--971
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[71
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 973--973
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 995--995
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[72
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 997--997
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1016--1016
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/FF7242DB886FB4970B79C21E5D64146A.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[73
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1018--1018
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1037--1037
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/49387BC9CB065BBFCCC66D8870CA39D3.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[74
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1039--1039
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1050--1050
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/5902F4002F5221344ACB815202D47D04.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[75
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1052--1052
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1072--1072
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/DCCB26C48231EFED313A49109D8639DC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[76
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1074--1074
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1086--1086
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/D71BD75ECFED95BF786BE9017A931D16.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[77
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1088--1088
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1106--1106
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/674D10DC58711B163B39F1AD331FFCBC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[78
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1165--1165
+[][][][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1165
+ []\OT1/cmr/m/n/6 read: 5 $\OML/cmm/m/it/6 <$ \OT1/cmr/m/n/6 so-me tu-ple in th
+e re-la-tion.
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[79
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1167--1167
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1185--1185
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/538B19C86FE188A0240923E9A74D7E5D.highlight.minted))
+
+Overfull \vbox (2.70364pt too high) detected at line 1185
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[80
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1243--1243
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[81
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1259--1259
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[82
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1261--1261
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1281--1281
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/6A2D6B77A5F3A27338AF0FB3E5301FB4.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[83
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1283--1283
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1305--1305
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/6A2D6B77A5F3A27338AF0FB3E5301FB4.highlight.minted
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 2.
+))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[84
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1307--1307
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1328--1328
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/BEC75CADDC219658EE48A371E9F599E8.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[85
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1330--1330
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1357--1357
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/BEC75CADDC219658EE48A371E9F599E8.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[86
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1359--1359
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1364--1364
+[][][][]  
+ []
+
+(./Lecture03.vrb)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[87
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1366--1366
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1387--1387
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/15FD533A669E2D8B54B8008B15ABD85B.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[88
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1389--1389
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1406--1406
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/070B203C5535B11778A6CF470A5D8648.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[89
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1408--1408
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1424--1424
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/DAAB0747402C175C03878F66F7921897.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[90
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1426--1426
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1445--1445
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/3E62CAC4C1612013240219FA2082B6A0.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[91
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1447--1447
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1467--1467
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/7D4E3145F322FA8F5A920EDDD758CA05.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[92
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1469--1469
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1490--1490
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/D55879797C0C0DE64CC919FB92B583D0.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[93
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1492--1492
+[][][][]  
+ []
+
+(./Lecture03.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[94
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1500--1500
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[95
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1502--1502
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1533--1533
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/FCF9A725A93945B6CC1D66594A98B8BF.highlight.minted)
+(./_minted/F80214C4D62921BE3F5411231359C003.highlight.minted)
+(./_minted/64DE2F12CAC625F48F4BD75AF5685A25.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[96
+
+] (./Lecture03.vrb
+(./_minted/FCF9A725A93945B6CC1D66594A98B8BF.highlight.minted)
+(./_minted/F80214C4D62921BE3F5411231359C003.highlight.minted)
+(./_minted/64DE2F12CAC625F48F4BD75AF5685A25.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[97
+
+] (./Lecture03.vrb
+(./_minted/FCF9A725A93945B6CC1D66594A98B8BF.highlight.minted)
+(./_minted/F80214C4D62921BE3F5411231359C003.highlight.minted)
+(./_minted/64DE2F12CAC625F48F4BD75AF5685A25.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[98
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1535--1535
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1555--1555
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/777C481CA6712949464C17435057D181.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[99
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1557--1557
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1587--1587
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/D34DEEBAA614BC8A3273EAADD3A0028F.highlight.minted)
+(./_minted/2E83FAF07390F3C20A89378EC4375EE7.highlight.minted)
+(./_minted/A5A0236BB508BD9271358EAAABCD5C65.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[100
+
+] (./Lecture03.vrb
+(./_minted/D34DEEBAA614BC8A3273EAADD3A0028F.highlight.minted)
+(./_minted/2E83FAF07390F3C20A89378EC4375EE7.highlight.minted)
+(./_minted/A5A0236BB508BD9271358EAAABCD5C65.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[101
+
+] (./Lecture03.vrb
+(./_minted/D34DEEBAA614BC8A3273EAADD3A0028F.highlight.minted)
+(./_minted/2E83FAF07390F3C20A89378EC4375EE7.highlight.minted)
+(./_minted/A5A0236BB508BD9271358EAAABCD5C65.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[102
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1589--1589
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1601--1601
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/74F172D9218D11951D98E1FEEC0441B2.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[103
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1603--1603
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1611--1611
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/B004E20A2D088FA0E2F1A1CB7D6F6400.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[104
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1613--1613
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1649--1649
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/C38049B9FECEE00920B78FEBCEBE3D19.highlight.minted)
+(./_minted/D7D9716EAD1944009E42D583C2061A5A.highlight.minted)
+(./_minted/0915F477B930902201B7791F44CB99CF.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[105
+
+] (./Lecture03.vrb
+(./_minted/C38049B9FECEE00920B78FEBCEBE3D19.highlight.minted)
+(./_minted/D7D9716EAD1944009E42D583C2061A5A.highlight.minted)
+(./_minted/0915F477B930902201B7791F44CB99CF.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[106
+
+] (./Lecture03.vrb
+(./_minted/C38049B9FECEE00920B78FEBCEBE3D19.highlight.minted)
+(./_minted/D7D9716EAD1944009E42D583C2061A5A.highlight.minted)
+(./_minted/0915F477B930902201B7791F44CB99CF.highlight.minted))
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[107
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1651--1651
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1667--1667
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/DFAC5A4AFF9C8628B94A767CA78FD0A1.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[108
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1669--1669
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1681--1681
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/02EB4A00D4CD273A456BB33BA0E736DC.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[109
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1683--1683
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1701--1701
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/47639BD00E144B2C5157DE0DB75CD5F5.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[110
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1703--1703
+[][][][]  
+ []
+
+\openout4 = `Lecture03.vrb'.
+
+
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1715--1715
+[][][][]  
+ []
+
+(./Lecture03.vrb (./_minted/980F84CA3351CDCAF85436EBBC10D495.highlight.minted))
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[111
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1720--1720
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[112
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1728--1728
+[][][][]  
+ []
+
+<figures/tim.png, id=1078, 3179.88pt x 1349.04pt>
+File: figures/tim.png Graphic file (type png)
+<use figures/tim.png>
+Package pdftex.def Info: figures/tim.png  used on input line 1728.
+(pdftex.def)             Requested size: 398.3386pt x 168.97952pt.
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[113
+
+ <./figures/tim.png>]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1739--1739
+[][][][]  
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[114
+
+]
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[115
+
+]
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[116
+
+]
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[117
+
+]
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[118
+
+]
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[119
+
+]
+Overfull \hbox (5.44984pt too wide) in paragraph at lines 1750--1750
+[][][][]  
+ []
+
+File: figures/book_cover.jpg Graphic file (type jpg)
+<use figures/book_cover.jpg>
+Package pdftex.def Info: figures/book_cover.jpg  used on input line 1750.
+(pdftex.def)             Requested size: 149.37697pt x 183.85406pt.
+
+Overfull \vbox (0.6436pt too high) detected at line 1750
+ []
+
+
+Overfull \hbox (5.44984pt too wide) has occurred while \output is active
+[][][][] 
+ []
+
+[120
+
+]
+\tf@nav=\write8
+\openout8 = `Lecture03.nav'.
+
+\tf@toc=\write9
+\openout9 = `Lecture03.toc'.
+
+\tf@snm=\write10
+\openout10 = `Lecture03.snm'.
+
+\openout7 = `_02C6DC3D94FAFC9B8A5E27CFA2E793FF.data.minted'.
+
+runsystem(latexminted clean  --timestamp 20260812083216 02C6DC3D94FAFC9B8A5E27C
+FA2E793FF)...executed.
+
+ (./Lecture03.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+Package rerunfilecheck Info: File `Lecture03.out' has not changed.
+(rerunfilecheck)             Checksum: 98B3634A8B1A6BF2FE06CC0FDAF0E9AC;1565.
+ ) 
+Here is how much of TeX's memory you used:
+ 37035 strings out of 467533
+ 785905 string characters out of 5422138
+ 1432785 words of memory out of 5000000
+ 64586 multiletter control sequences out of 15000+600000
+ 644307 words of font info for 106 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 128i,19n,123p,470b,1484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on Lecture03.pdf (120 pages, 8241335 bytes).
+PDF statistics:
+ 1308 PDF objects out of 1440 (max. 8388607)
+ 923 compressed objects within 10 object streams
+ 251 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+

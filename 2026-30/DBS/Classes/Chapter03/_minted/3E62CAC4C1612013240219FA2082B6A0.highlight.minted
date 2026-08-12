@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{WITH}\PYG{+w}{ }\PYG{n}{max\PYGZus{}budget}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{+w}{        }\PYG{p}{(}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{k}{MAX}\PYG{p}{(}\PYG{n}{budget}\PYG{p}{)}
+\PYG{+w}{          }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{department}\PYG{+w}{ }\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{SELECT}
+\PYG{+w}{            }\PYG{n}{department}\PYG{p}{.}\PYG{n}{name}
+\PYG{+w}{        }\PYG{k}{FROM}
+\PYG{+w}{            }\PYG{n}{department}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{max\PYGZus{}budget}
+\PYG{+w}{        }\PYG{k}{WHERE}
+\PYG{+w}{            }\PYG{n}{department}\PYG{p}{.}\PYG{n}{budget}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{max\PYGZus{}budget}\PYG{p}{.}\PYG{n}{value}\PYG{p}{;}
+\end{MintedVerbatim}

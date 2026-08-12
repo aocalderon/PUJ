@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}
+\PYG{+w}{        }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{k}{IN}\PYG{+w}{ }\PYG{p}{(}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}
+\PYG{+w}{            }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{department}
+\PYG{+w}{            }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{building}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Watson\PYGZsq{}}\PYG{+w}{ }\PYG{p}{);}
+\end{MintedVerbatim}

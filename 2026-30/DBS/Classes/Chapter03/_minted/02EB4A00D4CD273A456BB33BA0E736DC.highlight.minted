@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{UPDATE}
+\PYG{+w}{        }\PYG{n}{instructor}
+\PYG{+w}{    }\PYG{k}{SET}
+\PYG{+w}{        }\PYG{n}{salary}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{CASE}
+\PYG{+w}{                    }\PYG{k}{WHEN}\PYG{+w}{ }\PYG{n}{salary}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{l+m+mi}{100000}\PYG{+w}{ }\PYG{k}{THEN}\PYG{+w}{ }\PYG{n}{salary}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{.}\PYG{l+m+mi}{05}
+\PYG{+w}{                    }\PYG{k}{ELSE}\PYG{+w}{ }\PYG{n}{salary}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{.}\PYG{l+m+mi}{03}
+\PYG{+w}{                 }\PYG{k}{END}
+\end{MintedVerbatim}

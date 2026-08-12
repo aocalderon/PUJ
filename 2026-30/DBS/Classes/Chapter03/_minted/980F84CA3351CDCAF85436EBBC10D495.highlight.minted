@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{    }\PYG{k}{CASE}
+\PYG{+w}{        }\PYG{k}{WHEN}\PYG{+w}{ }\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{credits}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{IS}\PYG{+w}{ }\PYG{k}{NOT}\PYG{+w}{ }\PYG{k}{NULL}\PYG{+w}{ }\PYG{k}{THEN}\PYG{+w}{ }\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{credits}\PYG{p}{)}
+\PYG{+w}{        }\PYG{k}{ELSE}\PYG{+w}{ }\PYG{l+m+mi}{0}
+\PYG{+w}{    }\PYG{k}{END}
+\end{MintedVerbatim}

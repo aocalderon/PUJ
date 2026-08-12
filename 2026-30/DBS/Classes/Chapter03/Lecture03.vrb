@@ -1,0 +1,12 @@
+\frametitle{Updates with Scalar Subqueries (Cont.)}
+\begin{itemize}
+        \item Sets \texttt{tot\_creds} to \textbf{null} for students who have not taken any course.
+        \item Instead of \texttt{SUM(credits)}, use:
+    \end{itemize}
+    \begin{minted}
+    [tabsize=4, obeytabs, frame=lines, framesep=2mm, baselinestretch=1.2, bgcolor=LightGray, fontsize=\footnotesize, linenos]{sql}
+    CASE
+        WHEN SUM(credits) IS NOT NULL THEN SUM(credits)
+        ELSE 0
+    END
+    \end{minted}
