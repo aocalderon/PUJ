@@ -1,4 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{instructor}
-\PYG{+w}{        }\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Finance\PYGZsq{}}\PYG{p}{;}
-\end{MintedVerbatim}

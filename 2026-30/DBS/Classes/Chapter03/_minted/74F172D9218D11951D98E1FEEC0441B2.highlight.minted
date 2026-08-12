@@ -1,9 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{instructor}
-\PYG{+w}{        }\PYG{k}{SELECT}
-\PYG{+w}{            }\PYG{n}{ID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dept\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{18000}
-\PYG{+w}{        }\PYG{k}{FROM}
-\PYG{+w}{            }\PYG{n}{student}
-\PYG{+w}{        }\PYG{k}{WHERE}
-\PYG{+w}{            }\PYG{n}{dept\PYGZus{}name}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Music\PYGZsq{}}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{total\PYGZus{}cred}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{144}\PYG{p}{;}
-\end{MintedVerbatim}

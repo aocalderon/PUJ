@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{    }\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{table1}\PYG{+w}{ }\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{table1}\PYG{p}{;}
-\end{MintedVerbatim}
