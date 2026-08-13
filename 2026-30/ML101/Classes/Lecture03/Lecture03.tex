@@ -2,7 +2,6 @@
 
 % Packages
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -132,11 +131,11 @@
   \begin{itemize}
     \item We assume a model:
     \[ Y = \beta_0 + \beta_1 X + \epsilon \]
-    where $\beta_0$ and $\beta_1$ are two unknown constants that represent the intercept and slope, also known as coefficients or parameters, and $\epsilon$ is the error term.
+    where $\beta_0$ and $\beta_1$ are two unknown constants that represent the \textbf{intercept} and \textbf{slope}, also known as \textbf{coefficients} or \textbf{parameters}, and $\epsilon$ is the error term.
     
     \item Given some estimates $\hat{\beta}_0$ and $\hat{\beta}_1$ for the model coefficients, we predict future sales using:
     \[ \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x \]
-    where $\hat{y}$ indicates a prediction of $Y$ on the basis of $X = x$. The hat symbol denotes an estimated value.
+    where $\hat{y}$ indicates a prediction of $Y$ on the basis of $X = x$. The \textbf{hat} symbol denotes an estimated value.
   \end{itemize}
 \end{frame}
 
@@ -144,8 +143,8 @@
 
 \begin{frame}{Estimation of the Parameters by Least Squares}
   \begin{itemize}
-    \item Let $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$ be the prediction for $Y$ based on the $i$-th value of $X$. Then $e_i = y_i - \hat{y}_i$ represents the $i$-th residual.
-    \item We define the residual sum of squares (RSS) as:
+    \item Let $\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i$ be the prediction for $Y$ based on the $i$-th value of $X$. Then $e_i = y_i - \hat{y}_i$ represents the $i$-th \textbf{residual}.
+    \item We define the \textbf{residual sum of squares} (RSS) as:
     \[ RSS = e_1^2 + e_2^2 + \dots + e_n^2 \]
     or equivalently as:
     \[ RSS = (y_1 - \hat{\beta}_0 - \hat{\beta}_1 x_1)^2 + (y_2 - \hat{\beta}_0 - \hat{\beta}_1 x_2)^2 + \dots + (y_n - \hat{\beta}_0 - \hat{\beta}_1 x_n)^2 \]
@@ -203,10 +202,10 @@
 % Frame 8
 \begin{frame}{Hypothesis Testing -- continued}
   \begin{itemize}
-    \item To test the null hypothesis, we compute a \textbf{$t$-statistic}, given by:
+    \item To test the null hypothesis, we compute a \textcolor{orange}{\textit{t-statistic}}, given by:
     \[ t = \frac{\hat{\beta}_1 - 0}{SE(\hat{\beta}_1)} \]
     \item This will have a $t$-distribution with $n-2$ degrees of freedom, assuming $\beta_1 = 0$.
-    \item Using statistical software, it is easy to compute the probability of observing any value equal to $|t|$ or larger. We call this probability the \textbf{$p$-value}.
+    \item Using statistical software, it is easy to compute the probability of observing any value equal to $|t|$ or larger. We call this probability the \textcolor{orange}{\textit{p-value}}.
   \end{itemize}
 \end{frame}
 
