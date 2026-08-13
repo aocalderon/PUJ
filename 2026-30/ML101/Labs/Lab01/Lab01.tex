@@ -1,0 +1,103 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{ML101 \\ Lab 01: A `gentle' to Linear Regression.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Linear regression is one of the most fundamental and widely used foundational algorithms in supervised machine learning. Despite its simplicity, it provides powerful intuition regarding continuous variable prediction, feature relationship assessment, and goodness-of-fit diagnostic modeling.
+
+The main objective of this lab is to move beyond abstract theory into practical computational workflows. You will begin by exploring the classical Linear Regression lab in R provided by \textit{An Introduction to Statistical Learning} (ISLRv2). Following this guided walkthrough, you will extend your understanding by applying these same statistical diagnostic and modeling principles using a novel dataset and a programming environment of your group's choice (e.g., Python, C++, Rust, or Java).
+
+\section{Additional Resources}
+\label{sec:resources}
+
+First, we explore \textit{Logistic Regression}, which is closely related to the concepts previously covered in linear regression. For an intuitive visual introduction, refer to the video titled \textit{``Logistic Regression (and why it's different from Linear Regression)''} by the \textit{Visually Explained} YouTube channel, available \href{https://youtu.be/3bvM3NyMiE0?si=kUwYNpsyWxoPzzPI}{here}.
+
+Watch this resource at your own pace; no deliverable is required for this section, so... enjoy it!.
+
+\section{Lab: Linear Regression}
+\label{sec:lab}
+
+It is time for some hands-on practice. In this lab, we will work through the Linear Regression module from ISLRv2\footnote{James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2023). \textit{An Introduction to Statistical Learning: with Applications in R} (2nd ed.). Springer. \url{https://www.statlearning.com/}}. The lab covers pages 110 to 121.
+
+Although no formal report is required for this section, you must complete each step carefully to prepare for the autonomous work in Section~\ref{sec:work}.
+
+\section{Autonomous Work}
+\label{sec:work}
+
+Now that you are familiar with applying linear regression in R, you will explore these same concepts using alternative programming tools. Table~\ref{tab:languages} lists several popular language environments and libraries for statistical computing. In addition, you will work with a new dataset to determine which procedures from the previous lab can be replicated.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Programming Languages and Recommended Libraries for the Linear Regression Lab}
+  \label{tab:languages}
+  \small
+  \begin{tabularx}{\textwidth}{l X X}
+    \toprule
+    \textbf{Language} & \textbf{Primary Libraries / Tools} & \textbf{Key Capabilities \& Notes} \\
+    \midrule
+    \textbf{Python} &
+      \texttt{statsmodels}, \texttt{scikit-learn}, \texttt{pandas}, \texttt{matplotlib} &
+      Direct equivalent to R; provides statistical summaries ($p$-values, $R^2$), diagnostic plots, and pipeline models. \\
+    \addlinespace
+    \textbf{Rust} &
+      \texttt{polars}, \texttt{linfa}, \texttt{statrs}, \texttt{ndarray} &
+      Type-safe, high-performance data manipulation, basic OLS regression models, and statistical distribution helpers. \\
+    \addlinespace
+    \textbf{C++} &
+      \texttt{Eigen}, \texttt{mlpack}, \texttt{DataFrame-cpp} &
+      Low-level linear algebra matrix operations ($(X^T X)^{-1} X^T Y$, QR decomposition), fast native execution. \\
+    \addlinespace
+    \textbf{Java} &
+      \texttt{Apache Commons Math}, \texttt{Smile}, \texttt{Weka}, \texttt{Tablesaw} &
+      \texttt{OLSMultipleLinearRegression} class with explicit residuals, standard errors, and enterprise integration. \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+
+To select a dataset, explore the options available in the UCI Machine Learning Repository\footnote{Kelly, M., Longjohn, R., \& Nottingham, K. (2023). UCI Machine Learning Repository. University of California, Irvine, Donald Bren School of Information and Computer Sciences. \url{https://archive.ics.uci.edu}}. Use the repository search filter at \url{https://archive.ics.uci.edu/datasets} to select a dataset that satisfies the following criteria:
+
+\begin{itemize}
+  \item \textbf{Dataset Type:} Multivariate
+  \item \textbf{Task:} Regression
+  \item \textbf{Feature Type:} Real / Numerical
+\end{itemize}
+
+Choose a dataset that catches your interest and send your selection via email to reserve it. Datasets cannot be shared between groups; each team must work with a unique combination of tool and dataset.
+
+\section{Deliverables}
+Each group must submit a well-structured PDF report replicating the diagnostic, modeling, and evaluation procedures performed in Section~\ref{sec:lab}. Submissions must be uploaded via the corresponding Brightspace\texttrademark{} assignment link within 14 days of this lab session.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
