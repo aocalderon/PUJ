@@ -1,0 +1,464 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\addbibresource{Class02.bib}
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+  \renewcommand{\fcolorbox}[4][]{#4}}
+
+\usefonttheme{serif}
+
+\usepackage{listings}
+\lstdefinestyle{myCustomSQLStyle}{
+  language=SQL,
+  numbers=left,
+  stepnumber=1,
+  numbersep=10pt,
+  tabsize=4,
+  frame=single,
+  backgroundcolor=\color{LightGray},
+  breaklines=true,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\title[Class 04]{Spectral Signatures and Indices}
+\author{\includegraphics[width=0.35\textwidth]{figures/G4S} \\ \url{https://gis4schools.readthedocs.io/en/latest/credits.html}}
+\date{\today}
+
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft EDT
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{The Spectral Signature}
+
+\begin{frame}{What is a Spectral Signature?}
+    \begin{itemize}
+        \item Every material (natural or manmade) reflects sunlight uniquely.
+        \item Reflection depends on:
+        \begin{itemize}
+            \item Chemical composition and physical properties.
+            \item Texture and surface roughness.
+            \item Moisture and degradation state.
+        \end{itemize}
+        \item This reflected sunlight is called \textbf{reflectance} ($\rho$).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Defining the ``Fingerprint''}
+    \begin{itemize}
+        \item Properties define the brightness (reflectance) of ``colors'' (wavelengths) in different ``lights'' (spectral bands).
+        \item \textbf{Spectral Signature:} The variation of reflectance across different wavelengths.
+        \item Because these are unique, they act like a \textbf{fingerprint} for material identification.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Signature Concept}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/hyperspectral}
+\end{frame}
+
+\begin{frame}{Why do we use Spectral Signatures?}
+    \begin{block}{1. Monitoring Health/Status}
+        If the material is known, signatures reveal degradation or health (e.g., crop monitoring).
+    \end{block}
+    \begin{block}{2. Identification}
+        If the material is unknown, the signature allows for automatic land cover mapping.
+    \end{block}
+\end{frame}
+
+\section{Land Cover vs. Land Use}
+
+\begin{frame}{Distribution of main land covers on Earth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/Fig1_signature.png}
+\end{frame}
+
+\begin{frame}{Land Cover}
+    \begin{itemize}
+        \item Describes the \textbf{physical coverage} of the Earth's surface.
+        \item \textbf{Examples:}
+        \begin{itemize}
+            \item Farmlands, Glaciers, Forests, Lakes.
+        \end{itemize}
+        \item Satellite imagery is a highly efficient method for determining land cover.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Land Use}
+    \begin{itemize}
+        \item Describes \textbf{how humans use} the land and the activities performed there.
+        \item \textbf{Examples:}
+        \begin{itemize}
+            \item Recreational, Residential, Commercial, Industrial.
+        \end{itemize}
+        \item \textbf{Warning:} Remote sensing systems provide info \textit{only} on physical coverage. Land use \textbf{cannot} be directly determined by satellite images alone.
+    \end{itemize}
+\end{frame}
+
+\section{Macro Land Cover Classes}
+
+\begin{frame}{Monitoring Global Ecosystems}
+    \begin{itemize}
+        \item Satellites track how land cover signatures change over time to monitor planetary health.
+        \item We focus on "Macro" classes that dominate the Earth's surface.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Water}
+    \begin{itemize}
+        \item \textbf{Clear Water:} High absorption in the NIR/SWIR; reflects primarily in blue-green visible light.
+        \item \textbf{Polluted Water:} Presence of chlorophyll or sediment shifts the signature, increasing reflectance in specific bands.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Water}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig2_signature.png}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Water}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig7_signature.png}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Snow vs. Clouds}
+    \begin{itemize}
+        \item \textbf{Snow/Ice:} High visible reflectance, but very low reflectance in Short-Wave Infrared (SWIR).
+        \item \textbf{Clouds:} High reflectance across both visible and SWIR bands.
+        \item This difference is key for cloud masking in satellite imagery.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Snow vs. Clouds}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig3_signature.png}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Snow vs. Clouds}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig4_signature.png}
+\end{frame}
+
+% Slide 11: Soil and Vegetation
+\begin{frame}{Spectral Signature: Soil and Vegetation}
+    \begin{itemize}
+        \item \textbf{Bare Soil:} Generally shows a steady increase in reflectance as wavelength increases.
+        \item \textbf{Healthy Vegetation:} Low red reflectance (chlorophyll absorption) and very high NIR reflectance (leaf structure).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Soil and Vegetation}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig5_signature.png}
+\end{frame}
+
+\begin{frame}{Spectral Signature: Soil and Vegetation}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Fig6_signature.png}
+\end{frame}
+
+\section{Measuring with Satellites}
+
+\begin{frame}{Satellite Measurements}
+    \begin{itemize}
+        \item Satellites record reflectance in discrete \textbf{spectral bands}.
+        \item They produce multiband grayscale images.
+        \item We approximate the continuous signature curve by plotting values as a \textbf{polyline}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Satellite Measurements}
+    \centering
+    \includegraphics[height=0.925\textheight]{figures/Fig8tris_signature.png}
+\end{frame}
+
+\begin{frame}{The Necessity of Atmospheric Correction}
+    \begin{alertblock}{Warning}
+        Use ONLY atmospherically corrected images!
+    \end{alertblock}
+    \begin{itemize}
+        \item Satellites capture both surface reflectance and atmospheric scattering (noise).
+        \item Scattering must be removed to analyze the true signal of the Earth's surface.
+    \end{itemize}
+\end{frame}
+
+\section{Comparing Signatures}
+
+\begin{frame}{The Feature Space}
+    \begin{itemize}
+        \item Comparing ``curves'' visually is difficult.
+        \item We use a reference system of orthogonal axes where \textbf{each axis is a spectral band}.
+        \item In this space, a spectral signature becomes a single \textbf{point}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Feature Space}
+    \centering
+    \includegraphics[height=0.925\textheight]{figures/Fig8bis1_signature.png}
+\end{frame}
+
+\begin{frame}{Similarity via Euclidean Distance}
+    Similarity is determined by how close points are in the feature space.
+    \begin{equation}
+        D = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+    \end{equation}
+    \begin{itemize}
+        \item $x, y, z$ represent reflectances in different bands.
+        \item Closer points = More similar materials.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Similarity via Euclidean Distance}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/Fig8bis2_signature.png}
+\end{frame}
+
+\begin{frame}{Spectral Classes}
+    \begin{itemize}
+        \item Points that group together in the feature space form a \textbf{cluster}.
+        \item These clusters are referred to as \textbf{spectral classes}.
+        \item This is the mathematical basis for automatic land cover mapping.
+    \end{itemize}
+\end{frame}
+
+\section{Spectral Indices}
+
+\begin{frame}{What is a Spectral Index?}
+    \begin{itemize}
+        \item A mathematical expression applied to a multispectral image.
+        \item \textbf{Goal:} Highlight specific properties (health, moisture, mineral abundance).
+        \item Transforms qualitative images into \textbf{quantitative numerical tools}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Mathematical Families of Indices}
+    \begin{table}
+        \begin{tabular}{lll}
+            \toprule
+            \textbf{Family} & \textbf{Example} & \textbf{Pros} \\
+            \midrule
+            Difference & CRI & Simple calculation \\
+            Ratio & RVI & Reduces atmospheric effects \\
+            Normalized & NDVI & Bounded range (-1 to 1) \\
+            Complex & EVI & Highly accurate mapping \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Designing Indices: The Vegetation Gap}
+    \begin{itemize}
+        \item Healthy leaves have a massive gap between \textbf{Red} (absorption) and \textbf{NIR} (reflectance).
+        \item As vigor or biomass increases, this gap widens.
+        \item Most vegetation indices use the relationship between these two bands.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Designing Indices: The Vegetation Gap}
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/Fig1_SI.png}
+\end{frame}
+
+\begin{frame}{Designing Indices: The Vegetation Gap}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Fig2_SI.png}
+\end{frame}
+
+
+\begin{frame}{Ratio Vegetation Index (RVI)}
+    The simplest greenness index:
+    \begin{equation}
+        RVI = \frac{NIR}{Red}
+    \end{equation}
+    \begin{itemize}
+        \item Always positive ($RVI \ge 0$).
+        \item Larger ratio = healthier/denser vegetation.
+        \item \textbf{Limitation:} Not bounded from above, making comparisons difficult.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{RVI Typical Values}
+    \begin{itemize}
+        \item \textbf{4 to 10:} General healthy vegetation.
+        \item \textbf{Up to 30:} Very dense, very healthy vegetation.
+        \item \textbf{Below 4:} Sparse or ``sick'' vegetation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Normalized Difference Vegetation Index (NDVI)}
+    The most widely used index in remote sensing:
+    \begin{equation}
+        NDVI = \frac{NIR - Red}{NIR + Red}
+    \end{equation}
+    \begin{itemize}
+        \item Normalized range: \textbf{-1 to 1}.
+        \item For vegetated land, values are always positive.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{NDVI Thresholds for Land Cover}
+    \begin{itemize}
+        \item \textbf{NDVI $<$ 0.2:} Bare ground / Soil.
+        \item \textbf{0.2 to 0.6:} Shrubs, grass, and crops.
+        \item \textbf{NDVI $>$ 0.6:} Dense forests.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{NDVI: Interpreting the Signal}
+    \begin{itemize}
+        \item \textbf{For Mixed Pixels (Amount):}
+        \begin{itemize}
+            \item Low (0.2 - 0.4): Sparse veg.
+            \item High ($>$ 0.6): High-density veg.
+        \end{itemize}
+        \item \textbf{For Full Cover (Health):}
+        \begin{itemize}
+            \item Low (0 - 0.2): Very sick veg.
+            \item High ($>$ 0.6): Very healthy veg.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{NDVI Beyond Vegetation}
+    \begin{itemize}
+        \item \textbf{Close to -1:} Clear water.
+        \item \textbf{-1 to 0:} Polluted water, snow, or ice.
+        \item \textbf{Close to 0:} Clouds.
+        \item \textbf{0 to 0.2:} Bare soil.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Normalized Difference Water Index (NDWI)}
+    Designed to highlight water bodies:
+    \begin{equation}
+        NDWI = \frac{Green - NIR}{Green + NIR}
+    \end{equation}
+    \begin{itemize}
+        \item Positive for water.
+        \item \textbf{Threshold 0.3:} Often used to separate flooded from non-flooded areas.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{NDWI for Water Stress}
+    \begin{alertblock}{Caution}
+        A different index, also called NDWI, is used for vegetation.
+    \end{alertblock}
+    \begin{equation}
+        NDWI_{stress} = \frac{NIR - SWIR}{NIR + SWIR}
+    \end{equation}
+    \begin{itemize}
+        \item Used to detect drought or water stress in plants.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Normalized Difference Snow Index (NDSI)}
+    Differentiates snow from clouds using the SWIR band:
+    \begin{equation}
+        NDSI = \frac{Green - SWIR}{Green + SWIR}
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Snow:} High Green, Low SWIR.
+        \item \textbf{Clouds:} High Green, High SWIR.
+        \item \textbf{Threshold 0.4:} Differentiates snow cover.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Applications}
+    \begin{itemize}
+        \item \textbf{Agriculture:} Monitoring crop health and yield prediction.
+        \item \textbf{Biodiversity:} Mapping tropical forest cover and detecting deforestation.
+        \item \textbf{Geology:} Identifying mineral compositions through SWIR absorption bands.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Build Your Own Spectral Index}
+    \begin{enumerate}
+        \item Identify the spectral signature of the standard state.
+        \item Determine how your target phenomenon affects reflectance.
+        \item Create a math expression using specific bands.
+        \item Ensure the output is proportional to the observed phenomenon.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Summary}
+    \begin{itemize}
+        \item Spectral signatures are the ``fingerprints'' of the Earth's surface.
+        \item Indices (NDVI, NDWI, NDSI) turn raw imagery into quantitative data.
+        \item Understanding these principles is essential for environmental monitoring, agriculture, and climate change studies.
+    \end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(1229)https://rdrr.io/snippets/embed/?code=%23%23%20Load%20libraries%0Alibrary(RStoolbox)%0Alibrary(raster)%0Alibrary(ggplot2)%0A%0A%23%23%20Load%20test%20image%0Adata(lsat)%20%0A%0A%23%23%20Collect%20training%20samples%20%0A%23%23%20First%20location%20is%20water%2C%20second%20is%20open%20agricultural%20vegetation%0Apts%20%3C-%20data.frame(x%20%3D%20c(624720%2C%20627480)%2C%20y%20%3D%20c(-414690%2C%20-411090))%0Atraining_samples%20%3C-%20extract(lsat%2C%20pts)%0Arownames(training_samples)%20%3C-%20c(%22water%22%2C%20%22vegetation%22)%0A%0A%23%23%20Calculate%20spectral%20angles%0Alsat_sam%20%3C-%20sam(lsat%2C%20training_samples%2C%20angles%20%3D%20TRUE)%0A%0A%23%23%20Plot%20spectral%20angles%20(spectral%20signatures%27%20similarity)%0Aplot(lsat_sam)%0A%0A%23%23%20Classify%20based%20on%20minimum%20angle%0Alsat_sam%20%3C-%20sam(lsat%2C%20training_samples%2C%20angles%20%3D%20FALSE)%0A%0A%23%23%20Show%20classification%20map%0AggR(lsat_sam%2C%20forceCat%20%3D%20TRUE%2C%20geom_raster%3DTRUE)%20%2B%20%0A%20%20%20%20%20%20%20%20scale_fill_manual(values%20%3D%20c(%22blue%22%2C%20%22green%22)%2C%20labels%20%3D%20c(%22water%22%2C%20%22vegetation%22))%0A%0A%23%23%20Show%20test%20image%0AggRGB(lsat%2C%20stretch%20%3D%20%22lin%22) -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>rdrr.io Snippets Embed</title>
+
+    <script async="" src="./js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LRSBGK4Q35');
+    </script>
+
+    <link rel="stylesheet" href="./04def20124a5.css" type="text/css">
+  </head>
+
+  <body>
+    <div class="ui fluid grid container">
+      <div class="sixteen wide column">
+        <div class="ui form">
+          <div class="field">
+            <textarea class="fullwidth mousetrap snip-input" id="snip" rows="10" cols="80" style="font-size: 13px; font-family: Menlo,Monaco,Consolas,&quot;Courier New&quot;,monospace !important" data-tag="snrub">## Load libraries
+library(RStoolbox)
+library(raster)
+library(ggplot2)
+
+## Load test image
+data(lsat) 
+
+## Collect training samples 
+## First location is water, second is open agricultural vegetation
+pts &lt;- data.frame(x = c(624720, 627480), y = c(-414690, -411090))
+training_samples &lt;- extract(lsat, pts)
+rownames(training_samples) &lt;- c("water", "vegetation")
+
+## Calculate spectral angles
+lsat_sam &lt;- sam(lsat, training_samples, angles = TRUE)
+
+## Plot spectral angles (spectral signatures' similarity)
+plot(lsat_sam)
+
+## Classify based on minimum angle
+lsat_sam &lt;- sam(lsat, training_samples, angles = FALSE)
+
+## Show classification map
+ggR(lsat_sam, forceCat = TRUE, geom_raster=TRUE) + 
+        scale_fill_manual(values = c("blue", "green"), labels = c("water", "vegetation"))
+
+## Show test image
+ggRGB(lsat, stretch = "lin")</textarea>
+          </div>
+
+          <div class="ui stackable two column grid">
+            <div class="column">
+              <button class="ui huge green fluid button snip-run" data-tag="snrub" type="button" id="run">Run  (Ctrl-Enter)</button>
+            </div>
+
+            <div class="column">
+              <p>You should assume that any scripts or data that you put into this service are public. <a href="https://rdrr.io/snippets/privacy" target="_blank" rel="noopener">Privacy policy.</a></p>
+              <p><b>Computation provided by <a href="https://rdrr.io/">rdrr.io</a>: hosting documentation for all R packages.</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sixteen wide column">
+        <div class="ui icon warning message snip-spinner hidden" data-tag="snrub">
+          <i class="notched circle loading icon"></i>
+          <div class="content">
+            <div class="header snip-status" data-tag="snrub">Nothing</div>
+          </div>
+        </div>
+
+        <pre class="highlight hidden snip-output" data-tag="snrub"></pre>
+        <div class="snip-images hidden" data-tag="snrub"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./19aedbecbc13.js"></script>
+
+    <link rel="stylesheet" href="./css">
+    <link rel="stylesheet" href="./css(1)">
+  
+
+</body></html>
