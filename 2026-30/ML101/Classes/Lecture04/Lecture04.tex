@@ -1,0 +1,888 @@
+\documentclass[aspectratio=169, 11pt]{beamer}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+    \renewcommand{\fcolorbox}[4][]{#4}
+}
+
+\title[Classification]{ML101 \\ Lecture 04: Classification}
+\subtitle{An Introduction to Statistical Learning}
+\author{James, Witten, Hastie \& Tibshirani}
+\date{\today}
+
+% Remove navigation symbols...
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft ML101
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\usefonttheme{serif}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{An Introduction to Statistical Learning with Applications in R}{a.k.a. ISLR}
+    \centering
+    \includegraphics[height=0.7\textheight]{figures/book_cover} \\
+    \vspace{4mm}
+    {
+        \tiny
+        Content has been extracted from \textit{An Introduction to Statistical Learning with Applications in R}, Second Edition, by James, Witten, Hastie \& Tibshirani. Springer. 2023.\\
+        Visit \url{https://www.statlearning.com/}.\\
+    }
+\end{frame}
+
+\section{An Overview of Classification}
+
+\begin{frame}{Classification}
+  \begin{itemize}
+    \item Qualitative variables take values in an unordered set $\mathcal{C}$, such as:
+    \begin{align*}
+      \text{\texttt{eye color}} &\in \{\text{\texttt{brown}, \texttt{blue}, \texttt{green}}\} \\
+      \text{\texttt{email}} &\in \{\text{\texttt{spam}, \texttt{ham}}\}.
+    \end{align*}
+    \item Given a feature vector $X$ and a qualitative response $Y$ taking values in the set $\mathcal{C}$, the classification task is to build a function $C(X)$ that takes as input the feature vector $X$ and predicts its value for $Y$; i.e. $C(X) \in \mathcal{C}$.
+    \item Often we are more interested in estimating the \textit{\textbf{probabilities}} that $X$ belongs to each category in $\mathcal{C}$.
+    \item For example, it is more valuable to have an estimate of the probability that an insurance claim is fraudulent, than a hard classification fraudulent or not.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: Credit Card Default}
+  \begin{block}{}
+    \textbf{Default Data Set:} Boxplots and scatterplots showing the relationship between \texttt{balance}, \texttt{income}, and credit card \texttt{default} status (\texttt{No} vs. \texttt{Yes}).
+    \begin{itemize}
+      \item Individuals who defaulted tended to have significantly higher credit card balances than those who did not.
+      \item In contrast, income levels appear very similar between those who defaulted and those who did not.
+    \end{itemize}
+  \end{block}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/p02}
+\end{frame}
+
+\begin{frame}{Can we use Linear Regression?}
+  Suppose for the Default classification task that we code
+  \[
+    Y = \begin{cases}
+      0 & \text{if No} \\
+      1 & \text{if Yes.}
+    \end{cases}
+  \]
+  Can we simply perform a linear regression of $Y$ on $X$ and classify as Yes if $\hat{Y} > 0.5$?
+  \begin{itemize}
+    \item In this case of a binary outcome, linear regression does a good job as a classifier, and is equivalent to linear discriminant analysis which we discuss later.
+    \item Since in the population $\text{E}(Y \mid X = x) = \Pr(Y = 1 \mid X = x)$, we might think that regression is perfect for this task.
+    \item However, linear regression might produce probabilities less than zero or bigger than one. Logistic regression is more appropriate.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Linear versus Logistic Regression}
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/p04} \\
+  \small
+  \textbf{Linear vs. Logistic Regression Fits for Binary Data:}
+  \begin{itemize}
+    \item \textbf{Left (Linear Regression):} A straight regression line fitted to binary 0/1 data results in predicted probabilities that dip below $0.0$ for low balances and exceed $1.0$ for high balances.
+    \item \textbf{Right (Logistic Regression):} The S-shaped logistic curve naturally asymptotes at $0.0$ and $1.0$, guaranteeing sensible probability estimates $\Pr(Y = 1 \mid X) \in [0, 1]$ everywhere.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Linear Regression continued}
+  Now suppose we have a response variable with three possible values. A patient presents at the emergency room, and we must classify them according to their symptoms:
+  \[
+    Y = \begin{cases}
+      1 & \text{if stroke;} \\
+      2 & \text{if drug overdose;} \\
+      3 & \text{if epileptic seizure.}
+    \end{cases}
+  \]
+  \begin{itemize}
+    \item This coding suggests an ordering, and in fact implies that the difference between stroke and drug overdose is the same as between drug overdose and epileptic seizure.
+    \item Linear regression is not appropriate here.
+    \item Multiclass Logistic Regression or Discriminant Analysis are more appropriate.
+  \end{itemize}
+\end{frame}
+
+\section{Logistic Regression}
+
+\begin{frame}{Logistic Regression}
+  Let's write $p(X) = \Pr(Y = 1 \mid X)$ for short and consider using \texttt{balance} to predict \texttt{default}. Logistic regression uses the form:
+  \[
+    p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}.
+  \]
+  ($e \approx 2.71828$ is Euler's number.)
+  \begin{itemize}
+    \item It is easy to see that no matter what values $\beta_0, \beta_1$ or $X$ take, $p(X)$ will have values between 0 and 1.
+    \item A bit of rearrangement gives:
+    \[
+      \log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X.
+    \]
+    \item This monotone transformation is called the \textbf{log odds} or \textbf{logit} transformation of $p(X)$ (by $\log$ we mean natural log: $\ln$).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Maximum Likelihood}
+  We use \textbf{maximum likelihood} to estimate the parameters:
+  \[
+    \ell(\beta_0, \beta_1) = \prod_{i: y_i = 1} p(x_i) \prod_{i: y_i = 0} (1 - p(x_i)).
+  \]
+  \begin{itemize}
+    \item This likelihood gives the probability of the observed zeros and ones in the data. We pick $\beta_0$ and $\beta_1$ to maximize the likelihood of the observed data.
+    \item In R we use the \texttt{glm} function with \texttt{family = binomial}.
+  \end{itemize}
+  \vspace{0.2cm}
+  \begin{table}
+    \centering
+    \small
+    \begin{tabular}{l c c c c}
+      \toprule
+      & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+      \midrule
+      \textbf{Intercept} & -10.6513 & 0.3612 & -29.5 & $< 0.0001$ \\
+      \textbf{balance}   &   0.0055 & 0.0002 &  24.9 & $< 0.0001$ \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Making Predictions}
+  \begin{itemize}
+    \item What is our estimated probability of default for someone with a balance of \$1000?
+    \[
+      \hat{p}(X) = \frac{e^{\hat{\beta}_0 + \hat{\beta}_1 X}}{1 + e^{\hat{\beta}_0 + \hat{\beta}_1 X}} = \frac{e^{-10.6513 + 0.0055 \times 1000}}{1 + e^{-10.6513 + 0.0055 \times 1000}} = 0.006
+    \]
+    \item With a balance of \$2000?
+    \[
+      \hat{p}(X) = \frac{e^{\hat{\beta}_0 + \hat{\beta}_1 X}}{1 + e^{\hat{\beta}_0 + \hat{\beta}_1 X}} = \frac{e^{-10.6513 + 0.0055 \times 2000}}{1 + e^{-10.6513 + 0.0055 \times 2000}} = 0.586
+    \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Using \texttt{student} as the Predictor}
+  Let's fit a logistic regression model with \texttt{student} as the single predictor:
+  \begin{table}
+    \centering
+    \small
+    \begin{tabular}{l c c c c}
+      \toprule
+      & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+      \midrule
+      \textbf{Intercept}    & -3.5041 & 0.0707 & -49.55 & $< 0.0001$ \\
+      \textbf{student[Yes]} &  0.4049 & 0.1150 &   3.52 &   0.0004   \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \vspace{0.2cm}
+  Predicted probabilities:
+  \begin{align*}
+    \widehat{\Pr}(\text{default} = \text{Yes} \mid \text{student} = \text{Yes}) &= \frac{e^{-3.5041 + 0.4049 \times 1}}{1 + e^{-3.5041 + 0.4049 \times 1}} = 0.0431, \\
+    \widehat{\Pr}(\text{default} = \text{Yes} \mid \text{student} = \text{No})  &= \frac{e^{-3.5041 + 0.4049 \times 0}}{1 + e^{-3.5041 + 0.4049 \times 0}} = 0.0292.
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Logistic Regression with Several Variables}
+  \[
+    \log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \implies p(X) = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}}
+  \]
+  \begin{table}
+    \centering
+    \small
+    \begin{tabular}{l c c c c}
+      \toprule
+      & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+      \midrule
+      \textbf{Intercept}    & -10.8690 & 0.4923 & -22.08 & $< 0.0001$ \\
+      \textbf{balance}      &   0.0057 & 0.0002 &  24.74 & $< 0.0001$ \\
+      \textbf{income}       &   0.0030 & 0.0082 &   0.37 &   0.7115   \\
+      \textbf{student[Yes]} &  -0.6468 & 0.2362 &  -2.74 &   0.0062   \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \vspace{0.2cm}
+  \textit{Why is the coefficient for \texttt{student} negative now, while it was positive in the simple model?}
+\end{frame}
+
+\begin{frame}{Confounding in the Credit Card Data}
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/p12} \\
+  {\tiny \textbf{Confounding Phenomenon (Simpson's Paradox):} \textbf{Left (Default Rate vs. Balance):} For any given credit card balance level, students (orange line) have a lower default rate than non-students (blue line). \textbf{Right (Student vs. Balance Boxplot):} However, students tend to hold substantially higher credit card balances on average compared to non-students.}
+  \begin{itemize}
+    \footnotesize
+    \item Students have higher overall (marginal) default rate because they carry more debt.
+    \item But controlling for balance, being a student is associated with lower default risk.
+    \item Multiple logistic regression teases this out!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example: South African Heart Disease}
+  \begin{itemize}
+    \item 160 cases of MI (myocardial infarction) and 302 controls (all male in age range 15--64), from Western Cape, South Africa in the early 1980s.
+    \item Overall prevalence is very high in this region: 5.1\%.
+    \item Measurements on seven predictors (risk factors): \texttt{sbp} (systolic blood pressure), \texttt{tobacco}, \texttt{ldl} (low density lipoprotein cholesterol), \texttt{famhist} (family history of heart disease), \texttt{obesity}, \texttt{alcohol}, and \texttt{age}.
+    \item Goal is to identify relative strengths and directions of risk factors.
+    \item Part of an intervention study aimed at educating the public on healthier diets.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{South African Heart Disease: Scatterplot Matrix}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/p14}\\
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      Scatterplot matrix of the South African Heart Disease data. The response is color coded ---the cases (MI) are red, and the controls are turquoise. \texttt{famhist} is a binary variable, with 1 indicating family history of MI.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{SA Heart Disease: Logistic Regression Model Output}
+  \begin{minted}[fontsize=\footnotesize]{r}
+> heartfit <- glm(chd ~ ., data = heart, family = binomial)
+> summary(heartfit)
+Coefficients:
+                Estimate Std. Error z value Pr(>|z|)    
+(Intercept)    -4.1295997  0.9641558  -4.283 1.84e-05 ***
+sbp             0.0057607  0.0056326   1.023  0.30643    
+tobacco         0.0795256  0.0262150   3.034  0.00242 ** 
+ldl             0.1847793  0.0574115   3.219  0.00129 ** 
+famhistPresent  0.9391855  0.2248691   4.177 2.96e-05 ***
+obesity        -0.0345434  0.0291053  -1.187  0.23529    
+alcohol         0.0006065  0.0044550   0.136  0.89171    
+age             0.0425412  0.0101749   4.181 2.90e-05 ***
+---
+Null deviance: 596.11 on 461 degrees of freedom
+Residual deviance: 483.17 on 454 degrees of freedom; AIC: 499.17
+  \end{minted}
+\end{frame}
+
+\begin{frame}{Case-Control Sampling and Logistic Regression}
+  \begin{itemize}
+    \item In the SA data, there are 160 cases and 302 controls ($\tilde{\pi} = 0.35$ cases). Yet the true population prevalence is $\pi = 0.05$.
+    \item With case-control samples, we can estimate slope parameters $\beta_j$ accurately (if our model is correct); only the constant term $\beta_0$ is biased.
+    \item We can correct the estimated intercept by:
+    \[
+      \hat{\beta}_0^* = \hat{\beta}_0 + \log\left(\frac{\pi}{1 - \pi}\right) - \log\left(\frac{\tilde{\pi}}{1 - \tilde{\pi}}\right)
+    \]
+    \item Often cases are rare and we take all of them; up to 5 times that number of controls is sufficient.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Diminishing Returns in Unbalanced Binary Data}
+
+  \centering
+  \fbox{\parbox[c][0.4\textheight][c]{0.8\textwidth}{\centering \textbf{[Figure: Variance vs. Control/Case Ratio]}\\\vspace{0.5em}\small Sampling more than 5 controls per case yields diminishing returns in estimation precision.}}
+\end{frame}
+
+\begin{frame}{Diminishing Returns in Unbalanced Binary Data}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/p17}\\
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      Sampling controls than cases reduces the variance of the parameter estimates.  But after a of about 55 to 11 the variance reduction flattens out.
+    \end{column}
+  \end{columns}
+  \begin{block}{}
+    \textbf{Control/Case Ratio vs. Coefficient Variance:} As the control-to-case sampling ratio increases from 1 to 14, the variance of the parameter estimates decreases rapidly up to a ratio of about $5:1$, after which the variance reduction flattens out.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Logistic Regression with More than Two Classes}
+  \begin{itemize}
+    \item Generalizes naturally to $K > 2$ classes (Multinomial Logistic Regression).
+    \item Symmetric (softmax) formulation:
+    \[
+      \Pr(Y = k \mid X) = \frac{e^{\beta_{0k} + \beta_{1k} X_1 + \dots + \beta_{pk} X_p}}{\sum_{\ell=1}^K e^{\beta_{0\ell} + \beta_{1\ell} X_1 + \dots + \beta_{p\ell} X_p}}
+    \]
+    \item Here there is a linear function for each class.
+    \item Redundancy: only $K - 1$ linear functions are required (one class serves as baseline).
+    \item Multiclass logistic regression is also referred to as \textbf{multinomial regression}.
+  \end{itemize}
+\end{frame}
+
+\section{Linear Discriminant Analysis}
+
+\begin{frame}{Discriminant Analysis}
+  \begin{itemize}
+    \item \textbf{Generative approach:} Model the distribution of $X$ in each of the classes separately ($f_k(x)$), and then use Bayes' theorem to flip things around to obtain $\Pr(Y \mid X)$.
+    \item When we use normal (Gaussian) distributions for each class:
+    \begin{itemize}
+      \item Common covariance matrix $\mathbf{\Sigma} \implies$ \textbf{Linear Discriminant Analysis (LDA)}.
+      \item Class-specific covariance matrix $\mathbf{\Sigma}_k \implies$ \textbf{Quadratic Discriminant Analysis (QDA)}.
+    \end{itemize}
+    \item The approach is quite general: other densities lead to other classifiers (e.g. Naive Bayes).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Bayes' Theorem for Classification}
+  Bayes' theorem flips the conditional probabilities:
+  \[
+    \Pr(Y = k \mid X = x) = \frac{\Pr(X = x \mid Y = k) \cdot \Pr(Y = k)}{\Pr(X = x)}
+  \]
+  For discriminant analysis, this is written as:
+  \[
+    p_k(x) = \Pr(Y = k \mid X = x) = \frac{\pi_k f_k(x)}{\sum_{\ell=1}^K \pi_\ell f_\ell(x)}
+  \]
+  where:
+  \begin{itemize}
+    \item $f_k(x) = \Pr(X = x \mid Y = k)$ is the \textbf{class-conditional density} for $X$ in class $k$.
+    \item $\pi_k = \Pr(Y = k)$ is the marginal or \textbf{prior probability} for class $k$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Classify to the Highest Density}
+  \begin{block}{}
+    \textbf{1D Densities and Bayes Decision Boundary:}
+    \begin{itemize}
+      \item \textbf{Equal Priors ($\pi_1 = 0.5, \pi_2 = 0.5$):} Decision boundary is at the point where the two density curves intersect ($x = (\mu_1 + \mu_2)/2$).
+      \item \textbf{Unequal Priors ($\pi_1 = 0.3, \pi_2 = 0.7$):} The decision boundary shifts toward class 1 (left) to favor the higher prior probability of class 2.
+    \end{itemize}
+  \end{block}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/p21}
+\end{frame}
+
+\begin{frame}{Why Discriminant Analysis?}
+  \begin{itemize}
+    \item \textbf{Separation problem:} When classes are well-separated, logistic regression parameter estimates are surprisingly unstable (coefficients diverge to $\pm \infty$). LDA does not suffer from this.
+    \item \textbf{Small sample size:} If $n$ is small and the distribution of predictors is approximately Gaussian in each class, LDA is more stable and efficient than logistic regression.
+    \item \textbf{Multiclass ($K > 2$):} LDA provides convenient low-dimensional visualizations and projections of the data.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Linear Discriminant Analysis when $p = 1$}
+  The Gaussian (normal) density is:
+  \[
+    f_k(x) = \frac{1}{\sqrt{2\pi}\sigma_k} \exp\left(-\frac{1}{2}\left(\frac{x - \mu_k}{\sigma_k}\right)^2\right)
+  \]
+  Assuming shared variance $\sigma_1^2 = \dots = \sigma_K^2 = \sigma^2$, Bayes' formula gives:
+  \[
+    p_k(x) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x - \mu_k}{\sigma}\right)^2\right)}{\sum_{\ell=1}^K \pi_\ell \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{1}{2}\left(\frac{x - \mu_\ell}{\sigma}\right)^2\right)}
+  \]
+\end{frame}
+
+\begin{frame}{Discriminant Functions ($p=1$)}
+  Taking logs and removing common constants, maximizing $p_k(x)$ is equivalent to maximizing the \textbf{linear discriminant score}:
+  \[
+    \delta_k(x) = x \cdot \frac{\mu_k}{\sigma^2} - \frac{\mu_k^2}{2\sigma^2} + \log(\pi_k)
+  \]
+  \begin{itemize}
+    \item $\delta_k(x)$ is a linear function of $x$.
+    \item For $K = 2$ classes and equal priors ($\pi_1 = \pi_2 = 0.5$), the decision boundary ($\delta_1(x) = \delta_2(x)$) is:
+    \[
+      x = \frac{\mu_1 + \mu_2}{2}
+    \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/p25} \\
+  Example with $\mu_1 = -1.5$, $\mu_2 = 1.5$, $\pi_1 = \pi_2 = 0.5$, and $\sigma^2 = 1$. \\
+  Typically we don’t know these parameters; we just have the training data. In that case we simply estimate the parameters and plug them into the rule.
+\end{frame}
+
+
+\begin{frame}{Estimating the Parameters for LDA}
+  In practice, true parameters are unknown and estimated from training data:
+  \begin{align*}
+    \hat{\pi}_k &= \frac{n_k}{n} \\
+    \hat{\mu}_k &= \frac{1}{n_k} \sum_{i: y_i = k} x_i \\
+    \hat{\sigma}^2 &= \frac{1}{n - K} \sum_{k=1}^K \sum_{i: y_i = k} (x_i - \hat{\mu}_k)^2 = \sum_{k=1}^K \frac{n_k - 1}{n - K} \hat{\sigma}_k^2
+  \end{align*}
+  where $\hat{\sigma}_k^2 = \frac{1}{n_k - 1}\sum_{i: y_i = k} (x_i - \hat{\mu}_k)^2$ is the sample variance in class $k$.
+\end{frame}
+
+\begin{frame}{Linear Discriminant Analysis when $p > 1$}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/p27} \\
+  Density: $f(x) = \frac{1}{(2\pi)^{\frac{p}{2}}|\mathbf{\Sigma}|^{\frac{1}{2}}}e^{-\frac{1}{2}(x - \mu)^T \mathbf{\Sigma}^{-1} (x - \mu)}$ \\
+  \pause
+  Discriminant function: $\delta_k(x) = x^T \mathbf{\Sigma}^{-1} \mu_k - \frac{1}{2} \mu_k^T \mathbf{\Sigma}^{-1} \mu_k + \log \pi_k$ \\
+  \pause
+  Despite its complex form, \\
+  $\delta_k(x) = c_{k0} + c_{k1} x_1 + c_{k2} x_2 + \dots + c_{kp} x_p$ is a \textbf{linear function} of $x$.
+\end{frame}
+
+% \begin{frame}{Linear Discriminant Analysis when $p > 1$}
+%   Multivariate Gaussian density:
+%   \[
+%     f(x) = \frac{1}{(2\pi)^{p/2} |\mathbf{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu)^T \mathbf{\Sigma}^{-1} (x - \mu)\right)
+%   \]
+%   Assuming shared covariance matrix $\mathbf{\Sigma}$, the discriminant function is:
+%   \[
+%     \delta_k(x) = x^T \mathbf{\Sigma}^{-1} \mu_k - \frac{1}{2} \mu_k^T \mathbf{\Sigma}^{-1} \mu_k + \log \pi_k
+%   \]
+%   Notice that $\delta_k(x) = c_{k0} + c_{k1} x_1 + c_{k2} x_2 + \dots + c_{kp} x_p$ is a \textbf{linear function} of $x$.
+% \end{frame}
+
+\begin{frame}{Illustration: $p = 2$ and $K = 3$ Classes}
+  \begin{block}{}
+    \textbf{2D Gaussian LDA Contours and Decision Boundaries:}
+    \begin{itemize}
+      \item Elliptical contour lines represent bivariate Gaussian densities for 3 classes with equal priors ($\pi_1 = \pi_2 = \pi_3 = 1/3$) and shared covariance $\mathbf{\Sigma}$.
+      \item Dashed lines represent optimal Bayes decision boundaries where $\delta_k(x) = \delta_\ell(x)$, dividing the plane into three polygonal regions.
+    \end{itemize}
+  \end{block}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/p28}
+\end{frame}
+
+\begin{frame}{Fisher's Iris Data}
+  \begin{columns}[c]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{figures/p29}\\
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item 4 continuous measurements: \texttt{Sepal.Length}, \texttt{Sepal.Width}, \texttt{Petal.Length}, \texttt{Petal.Width}.
+        \item 3 species ($K = 3$): \textit{Setosa (blue)}, \textit{Versicolor (orange)}, \textit{Virginica (green)} (50 samples per class, $n = 150$).
+        \item LDA correctly classifies all but 3 of the 150 training samples (2\% training error).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Fisher's Discriminant Plot}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/p30}
+  \begin{block}{}
+    \textbf{Fisher's Linear Discriminants for Iris Data:}
+    \begin{itemize}
+      \item When there are K classes, linear discriminant analysis can be viewed exactly in a K − 1 dimensional plot.
+      \item Why?
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Fisher's Discriminant Plot}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/p30}
+  \begin{itemize}
+    \item When there are K classes, linear discriminant analysis can be viewed exactly in a $K - 1$ dimensional plot.
+    \item \textbf{Why?} Because LDA essentially classifies to the closest centroid in Mahalanobis distance, and $K$ centroids span at most a $(K - 1)$-dimensional hyperplane. \pause
+    \item Even when $K > 3$, we can find the ``best'' 2-dimensional plane for visualizing the discriminant rule.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{From $\delta_k(x)$ to Class Probabilities}
+  Once we have estimates $\hat{\delta}_k(x)$, we convert them into posterior class probabilities:
+  \[
+    \widehat{\Pr}(Y = k \mid X = x) = \frac{e^{\hat{\delta}_k(x)}}{\sum_{\ell=1}^K e^{\hat{\delta}_\ell(x)}}
+  \]
+  \begin{itemize}
+    \item Classifying to the largest $\hat{\delta}_k(x)$ is identical to classifying to the class with highest posterior probability.
+    \item For $K = 2$, we predict class 2 if $\widehat{\Pr}(Y = 2 \mid X = x) \ge 0.5$, else class 1.
+  \end{itemize}
+\end{frame}
+
+% \section{Classification Evaluation \& Other Classifiers}
+%
+% \begin{frame}{LDA on Credit Data: Confusion Matrix}
+%   \begin{table}
+%     \centering
+%     \begin{tabular}{l c c c c}
+%       \toprule
+%       & & \multicolumn{2}{c}{\textbf{True Default Status}} & \\
+%       \cmidrule(lr){3-4}
+%       & & \textbf{No} & \textbf{Yes} & \textbf{Total} \\
+%       \midrule
+%       \textbf{Predicted} & \textbf{No}  & 9644 & 252 & 9896 \\
+%       \textbf{Default Status} & \textbf{Yes} & 23   & 81  & 104  \\
+%       \midrule
+%       & \textbf{Total} & 9667 & 333 & 10000 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+%   \vspace{0.2cm}
+%   $(23 + 252)/10000 = 275/10000$ errors --- an apparent error rate of $2.75\%$.
+%   \begin{itemize}
+%     \item A trivial \textbf{null classifier} (always predicting No) has an error rate of $333/10000 = 3.33\%$.
+%     \item \textbf{False Positive Rate:} $23 / 9667 = 0.2\%$.
+%     \item \textbf{False Negative Rate:} $252 / 333 = 75.7\%$ (missed 75.7\% of defaults!).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Types of Errors \& Varying the Threshold}
+%   \begin{itemize}
+%     \item Defaulting threshold was set at $0.5$: predict default if $\widehat{\Pr}(\text{Default} = \text{Yes} \mid X) \ge 0.5$.
+%     \item In credit card default, a false negative is much more costly than a false positive.
+%     \item We can vary the threshold to any value in $[0, 1]$:
+%     \[
+%       \widehat{\Pr}(\text{Default} = \text{Yes} \mid X) \ge \text{threshold}.
+%     \]
+%   \end{itemize}
+%   \begin{block}{Description of Figure}
+%     \textbf{Threshold vs. Error Rates:} Lowering threshold from $0.5$ down to $0.1$ dramatically drops the false negative rate with only a modest increase in false positives and overall error.
+%   \end{block}
+% \end{frame}
+%
+% \begin{frame}{ROC Curve}
+%   \begin{block}{Description of Figure}
+%     \textbf{Receiver Operating Characteristic (ROC) Curve:}
+%     \begin{itemize}
+%       \item Displays \textbf{True Positive Rate} (Sensitivity) vs. \textbf{False Positive Rate} ($1 - \text{Specificity}$) across all possible classification thresholds.
+%       \item An ideal ROC curve hugs the top-left corner.
+%     \end{itemize}
+%   \end{block}
+%   \begin{itemize}
+%     \item The performance is summarized by the \textbf{AUC} (Area Under the ROC Curve).
+%     \item AUC ranges from $0.5$ (random guessing) to $1.0$ (perfect classification). Higher AUC is better.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Other Forms of Discriminant Analysis}
+%   Recall Bayes' formula:
+%   \[
+%     \Pr(Y = k \mid X = x) = \frac{\pi_k f_k(x)}{\sum_{\ell=1}^K \pi_\ell f_\ell(x)}
+%   \]
+%   By changing assumptions about $f_k(x)$, we obtain different classifiers:
+%   \begin{itemize}
+%     \item \textbf{LDA:} $f_k(x)$ is Gaussian with shared covariance matrix $\mathbf{\Sigma}$.
+%     \item \textbf{QDA (Quadratic DA):} $f_k(x)$ is Gaussian with class-specific covariance matrices $\mathbf{\Sigma}_k$.
+%     \item \textbf{Naive Bayes:} $f_k(x) = \prod_{j=1}^p f_{kj}(x_j)$ assumes conditional independence across features within each class.
+%     \item \textbf{Non-parametric DA:} Uses kernel density estimation or histograms for $f_k(x)$.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Quadratic Discriminant Analysis (QDA)}
+%   When $\mathbf{\Sigma}_k$ are distinct for each class $k$, the quadratic terms no longer cancel:
+%   \[
+%     \delta_k(x) = -\frac{1}{2}(x - \mu_k)^T \mathbf{\Sigma}_k^{-1}(x - \mu_k) - \frac{1}{2}\log|\mathbf{\Sigma}_k| + \log \pi_k
+%   \]
+%   \begin{block}{Description of Figure}
+%     \textbf{QDA vs. LDA Decision Boundaries:}
+%     \begin{itemize}
+%       \item When classes have different correlation structures/variances, the Bayes boundary is curved (quadratic).
+%       \item QDA fits curved quadratic boundaries, capturing complex interactions at the cost of estimating $K \times p(p+1)/2$ covariance parameters.
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
+%
+% \begin{frame}{Naive Bayes}
+%   \begin{itemize}
+%     \item Assumes features are conditionally independent in each class: $f_k(x) = \prod_{j=1}^p f_{kj}(x_j)$.
+%     \item Useful when $p$ is large (where covariance estimation in LDA/QDA breaks down).
+%     \item \textbf{Gaussian Naive Bayes:} $\mathbf{\Sigma}_k$ is diagonal ($\sigma_{kj}^2$):
+%     \[
+%       \delta_k(x) \propto \log\left[\pi_k \prod_{j=1}^p f_{kj}(x_j)\right] = -\frac{1}{2}\sum_{j=1}^p \left[\frac{(x_j - \mu_{kj})^2}{\sigma_{kj}^2} + \log \sigma_{kj}^2\right] + \log \pi_k
+%     \]
+%     \item \textbf{Mixed features:} Easily handles qualitative features using discrete probability tables/histograms.
+%     \item Despite strong independence assumptions, Naive Bayes often performs surprisingly well.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Logistic Regression versus LDA}
+%   For a two-class problem, the log-odds for LDA is:
+%   \[
+%     \log\left(\frac{p_1(x)}{1 - p_1(x)}\right) = \log\left(\frac{p_1(x)}{p_2(x)}\right) = c_0 + c_1 x_1 + \dots + c_p x_p
+%   \]
+%   Both models produce linear decision boundaries! The key difference lies in estimation:
+%   \begin{itemize}
+%     \item \textbf{Logistic Regression (Discriminative):} Maximizes conditional likelihood $\Pr(Y \mid X)$. Makes fewer distributional assumptions.
+%     \item \textbf{LDA (Generative):} Maximizes full joint likelihood $\Pr(X, Y)$ assuming Gaussianity. More efficient when normality holds.
+%     \item Logistic regression can fit non-linear boundaries by explicitly adding polynomial or interaction terms.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Summary of Classification Methods}
+%   \begin{itemize}
+%     \item \textbf{Logistic Regression:} Very popular and robust for binary ($K = 2$) and multiclass problems.
+%     \item \textbf{LDA:} Well-suited when $n$ is small, classes are well-separated, or normality holds; provides dimension reduction.
+%     \item \textbf{QDA:} Useful when sample size is large and covariance matrices differ noticeably between classes.
+%     \item \textbf{Naive Bayes:} Ideal when $p$ is very large or features are mixed categorical/continuous.
+%     \item \textbf{KNN:} Non-parametric, flexible when decision boundary is highly irregular, but suffers in high dimensions.
+%   \end{itemize}
+% \end{frame}
+%
+% \section{New Topics in Chapter 4 (ISLR 2nd Edition)}
+%
+% \begin{frame}{New Topics in Chapter Four}
+%   In this section we cover three topics in Chapter 4 that are new in the second edition of ISLR:
+%   \begin{itemize}
+%     \item \textbf{Multinomial logistic regression}
+%     \item \textbf{Na\"{\i}ve Bayes classification}
+%     \item \textbf{Generalized linear models (GLMs)}
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Multinomial Logistic Regression (Details)}
+%   When $K > 2$ classes, the softmax representation models class probabilities:
+%   \[
+%     \Pr(Y = k \mid X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + \dots + \beta_{kp}x_p}}{\sum_{\ell=1}^K e^{\beta_{\ell 0} + \beta_{\ell 1}x_1 + \dots + \beta_{\ell p}x_p}}
+%   \]
+%   \begin{itemize}
+%     \item Log-odds relative to a baseline class $K$:
+%     \[
+%       \log\left(\frac{\Pr(Y = k \mid X = x)}{\Pr(Y = K \mid X = x)}\right) = (\beta_{k0} - \beta_{K0}) + \sum_{j=1}^p (\beta_{kj} - \beta_{Kj}) x_j
+%     \]
+%     \item Fit by maximizing the multinomial log-likelihood (\textbf{cross-entropy loss}).
+%     \item Commonly applied in deep learning and image classification (e.g. MNIST handwritten digits).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generative Models and Na\"{\i}ve Bayes}
+%   \begin{itemize}
+%     \item \textbf{Discriminative vs. Generative:} Logistic regression models $\Pr(Y = k \mid X = x)$ directly. Generative models start with the conditional distribution of $X \mid Y = k$ ($f_k(x)$) and prior $\pi_k$:
+%     \[
+%       \Pr(Y = k \mid X = x) = \frac{\pi_k f_k(x)}{\sum_{\ell=1}^K \pi_\ell f_\ell(x)}
+%     \]
+%     \item \textbf{Na\"{\i}ve Bayes assumption:} The features are conditionally independent given class $Y = k$:
+%     \[
+%       f_k(x) = f_{k1}(x_1) \times f_{k2}(x_2) \times \dots \times f_{kp}(x_p)
+%     \]
+%     \item Plugging into Bayes' formula:
+%     \[
+%       \Pr(Y = k \mid X = x) = \frac{\pi_k \prod_{j=1}^p f_{kj}(x_j)}{\sum_{\ell=1}^K \pi_\ell \prod_{j=1}^p f_{\ell j}(x_j)}
+%     \]
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes -- Implementation Details}
+%   Why the independence assumption?
+%   \begin{itemize}
+%     \item Estimating a $p$-dimensional joint density is very hard (curse of dimensionality), while estimating $p$ one-dimensional densities is straightforward.
+%     \item \textbf{Quantitative features:}
+%     \begin{itemize}
+%       \item Fit a 1D Gaussian: $X_j \mid Y = k \sim \mathcal{N}(\mu_{jk}, \sigma_{jk}^2)$.
+%       \item Non-parametric: use 1D kernel density estimation or histogram binning.
+%     \end{itemize}
+%     \item \textbf{Qualitative features:}
+%     \begin{itemize}
+%       \item Count the proportion of training observations in class $k$ that take each category level.
+%     \end{itemize}
+%     \item Drastically reduces variance in high dimensions.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes -- Toy Example}
+%   \begin{block}{Description of Figure}
+%     \textbf{Toy Classification Example ($p=3, K=2$):}
+%     \begin{itemize}
+%       \item Features $X_1, X_2$ are continuous (Gaussian densities $\hat{f}_{k1}, \hat{f}_{k2}$); $X_3$ is categorical with 3 levels ($\hat{f}_{k3}$).
+%       \item For test observation $x^* = (0.4, 1.5, 1)^T$ with equal priors $\hat{\pi}_1 = \hat{\pi}_2 = 0.5$:
+%     \end{itemize}
+%   \end{block}
+%   \begin{columns}
+%     \begin{column}{0.48\textwidth}
+%       \textbf{Class 1 Density Estimates:}
+%       \begin{align*}
+%         \hat{f}_{11}(0.4) &= 0.368 \\
+%         \hat{f}_{12}(1.5) &= 0.484 \\
+%         \hat{f}_{13}(1)   &= 0.226
+%       \end{align*}
+%     \end{column}
+%     \begin{column}{0.48\textwidth}
+%       \textbf{Class 2 Density Estimates:}
+%       \begin{align*}
+%         \hat{f}_{21}(0.4) &= 0.030 \\
+%         \hat{f}_{22}(1.5) &= 0.130 \\
+%         \hat{f}_{23}(1)   &= 0.616
+%       \end{align*}
+%     \end{column}
+%   \end{columns}
+%   \vspace{0.2cm}
+%   \[
+%     \Pr(Y = 1 \mid X = x^*) = \frac{0.5 \times 0.368 \times 0.484 \times 0.226}{0.5(0.368 \cdot 0.484 \cdot 0.226) + 0.5(0.030 \cdot 0.130 \cdot 0.616)} = 0.944
+%   \]
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes and Generalized Additive Models (GAMs)}
+%   Taking the log-odds of posterior probabilities under Na\"{\i}ve Bayes:
+%   \begin{align*}
+%     \log\left(\frac{\Pr(Y = k \mid X = x)}{\Pr(Y = K \mid X = x)}\right) &= \log\left(\frac{\pi_k \prod_{j=1}^p f_{kj}(x_j)}{\pi_K \prod_{j=1}^p f_{Kj}(x_j)}\right) \\
+%     &= \log\left(\frac{\pi_k}{\pi_K}\right) + \sum_{j=1}^p \log\left(\frac{f_{kj}(x_j)}{f_{Kj}(x_j)}\right) \\
+%     &= a_k + \sum_{j=1}^p g_{kj}(x_j)
+%   \end{align*}
+%   where $a_k = \log(\pi_k/\pi_K)$ and $g_{kj}(x_j) = \log(f_{kj}(x_j)/f_{Kj}(x_j))$.
+%   \begin{itemize}
+%     \item Na\"{\i}ve Bayes takes the exact form of a \textbf{Generalized Additive Model (GAM)}!
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generalized Linear Models (GLMs)}
+%   \begin{itemize}
+%     \item \textbf{Linear Regression:} quantitative responses, assumes Gaussian errors $Y \sim \mathcal{N}(\mu, \sigma^2)$.
+%     \item \textbf{Logistic Regression:} binary response, models logit of success probability $\log(\mu/(1-\mu)) = X\beta$.
+%     \item \textbf{Count / Non-negative responses:} counts of events (e.g. number of users, web visits, hospital visits) cannot be negative and often exhibit variance increasing with the mean.
+%     \item \textbf{Generalized Linear Models (GLMs)} provide a unified statistical framework for diverse response distributions (Exponential Family).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Example: Bikeshare Data}
+%   Linear regression on hourly bike rentals (\texttt{bikers}) in Washington, DC:
+%   \begin{table}
+%     \centering
+%     \small
+%     \begin{tabular}{l c c c c}
+%       \toprule
+%       & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+%       \midrule
+%       \textbf{Intercept} & 73.60 & 5.13 & 14.34 & 0.00 \\
+%       \textbf{workingday} & 1.27 & 1.78 & 0.71 & 0.48 \\
+%       \textbf{temp} & 157.21 & 10.26 & 15.32 & 0.00 \\
+%       \textbf{weathersit[cloudy/misty]} & -12.89 & 1.96 & -6.56 & 0.00 \\
+%       \textbf{weathersit[light rain/snow]} & -66.49 & 2.97 & -22.43 & 0.00 \\
+%       \textbf{weathersit[heavy rain/snow]} & -109.75 & 76.67 & -1.43 & 0.15 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+%   \begin{block}{Description of Figure}
+%     \textbf{Coefficients by Month and Hour:} Hourly bike rental predictions show strong peaks during morning and evening rush hours, and higher rentals during summer months.
+%   \end{block}
+% \end{frame}
+%
+% \begin{frame}{Mean/Variance Relationship in Count Data}
+%   \begin{block}{Description of Figure}
+%     \textbf{Mean vs. Variance in Bikeshare Data:}
+%     \begin{itemize}
+%       \item \textbf{Left (Raw Scale):} Number of bikers vs. hour. The variance is small when the mean is small (night) and large when the mean is large (peak hours).
+%       \item \textbf{Right (Log Scale):} $\log(\text{bikers})$ stabilizes the variance, but predicting $\log(Y)$ produces bias when transforming back, and fails when $Y = 0$.
+%     \end{itemize}
+%   \end{block}
+%   \begin{itemize}
+%     \item About 10\% of linear regression predictions on raw scale are negative!
+%     \item Linear regression violates count data assumptions (non-negativity and heteroscedasticity).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Poisson Regression Model}
+%   \begin{itemize}
+%     \item \textbf{Poisson distribution} for modeling counts $Y \in \{0, 1, 2, \dots\}$:
+%     \[
+%       \Pr(Y = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \dots
+%     \]
+%     \item Mean and variance are equal: $\text{E}(Y) = \text{Var}(Y) = \lambda$.
+%     \item \textbf{Log-linear link:} We model the mean $\lambda(X)$ as:
+%     \[
+%       \log(\lambda(X)) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \iff \lambda(X) = e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}
+%     \]
+%     \item Automatically guarantees strictly positive expected counts $\lambda(X) > 0$.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Poisson Regression on Bikeshare Data}
+%   \begin{table}
+%     \centering
+%     \small
+%     \begin{tabular}{l c c c c}
+%       \toprule
+%       & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+%       \midrule
+%       \textbf{Intercept} & 4.12 & 0.01 & 683.96 & 0.00 \\
+%       \textbf{workingday} & 0.01 & 0.00 & 7.50 & 0.00 \\
+%       \textbf{temp} & 0.79 & 0.01 & 68.43 & 0.00 \\
+%       \textbf{weathersit[cloudy/misty]} & -0.08 & 0.00 & -34.53 & 0.00 \\
+%       \textbf{weathersit[light rain/snow]} & -0.58 & 0.00 & -141.91 & 0.00 \\
+%       \textbf{weathersit[heavy rain/snow]} & -0.93 & 0.17 & -5.55 & 0.00 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+%   \begin{itemize}
+%     \item In Poisson regression, coefficients act multiplicatively: a unit increase in $X_j$ multiplies expected count by $e^{\beta_j}$.
+%     \item \textit{*Note: In this data, the variance exceeds the mean (overdispersion), so standard errors are underestimated and $z$-statistics are inflated.}
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generalized Linear Models: General Framework}
+%   \begin{itemize}
+%     \item A GLM consists of three components:
+%     \begin{enumerate}
+%       \item \textbf{Random component:} Distribution of $Y$ from Exponential Family (Gaussian, Binomial, Poisson, Gamma, Negative Binomial).
+%       \item \textbf{Systematic component:} Linear predictor $\eta = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p$.
+%       \item \textbf{Link function $\eta(\mu)$:} Relates the mean $\mu = \text{E}(Y \mid X)$ to the linear predictor $\eta(\mu) = X\beta$.
+%     \end{enumerate}
+%     \item \textbf{Common link functions:}
+%     \begin{itemize}
+%       \item \textbf{Linear regression:} $\eta(\mu) = \mu$ (Identity link).
+%       \item \textbf{Logistic regression:} $\eta(\mu) = \log(\mu / (1 - \mu))$ (Logit link).
+%       \item \textbf{Poisson regression:} $\eta(\mu) = \log(\mu)$ (Log link).
+%     \end{itemize}
+%     \item All GLMs are fit via Maximum Likelihood Estimation using IRLS (\texttt{glm()} in R).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{}
+%      \centering
+%      \Huge End of Chapter 4.
+% \end{frame}
+
+% \begin{frame}{An Introduction to Statistical Learning with Applications in R}{a.k.a. ISLR}
+%     \centering
+%     \fbox{\parbox[c][0.55\textheight][c]{0.65\textwidth}{\centering \textbf{[Figure: ISLR Book Cover]}\\\vspace{1em}\small An Introduction to Statistical Learning with Applications in R (2nd Edition)}} \\
+%     \vspace{4mm}
+%     {
+%         \tiny
+%         Content has been extracted from \textit{An Introduction to Statistical Learning with Applications in R}, Second Edition, by James, Witten, Hastie \& Tibshirani. Springer. 2023.\\
+%         Visit \url{https://www.statlearning.com/}.\\
+%     }
+% \end{frame}
+
+\end{document}
