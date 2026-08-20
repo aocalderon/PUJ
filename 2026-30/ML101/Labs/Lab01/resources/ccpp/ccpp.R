@@ -1,0 +1,91 @@
+library(ggplot2)
+library(GGally)
+
+# Read the tsv dataset...
+data <- read.delim("ccpp.tsv", header = TRUE)
+
+# View dataset dimensions, structure, and basic summary
+dim(data)
+str(data)
+summary(data)
+head(data)
+
+# Plot correlation matrix...
+pairs_plot <- ggpairs(
+  data,
+  lower = list(continuous = wrap("points", alpha = 0.1, size = 0.5, color = "#2c3e50")),
+  diag  = list(continuous = wrap("densityDiag", fill = "#3498db", alpha = 0.5)),
+  upper = list(continuous = wrap("cor", size = 4.5, color = "black"))
+) +
+  theme_minimal(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
+  ) +
+  labs(title = "Combined Cycle Power Plant: Pairwise Feature Matrix")
+
+pairs_plot
+ggsave("figures/pairwise_matrix.pdf", plot = pairs_plot, width = 7, height = 7, units = "in")
+
+# Fit a simple linear model: PE ~ AT (Ambient Temperature)
+lm.fit_simple <- lm(PE ~ AT, data = data)
+# Summary of the model (Coefficients, t-statistics, p-values, R-squared)
+summary(lm.fit_simple)
+# Extract specific components
+coef(lm.fit_simple)              # Coefficients (Intercept, beta_1)
+confint(lm.fit_simple)           # 95% Confidence intervals for coefficients
+
+
+# Fit a multiple linear model: PE ~ AT (Ambient Temperature)
+lm.fit_multiple <- lm(PE ~ ., data = data)
+# Summary of the model (Coefficients, t-statistics, p-values, R-squared)
+summary(lm.fit_multiple)
+# Extract specific components
+coef(lm.fit_multiple)              # Coefficients (Intercept, beta_1)
+confint(lm.fit_multiple)           # 95% Confidence intervals for coefficients
+
+# Predictions and Confidence/Prediction intervals for new values of AT
+predict(lm.fit_simple, 
+        data.frame(AT = c(10, 20, 30)), 
+        interval = "confidence")
+
+predict(lm.fit_simple, 
+        data.frame(AT = c(10, 20, 30)), 
+        interval = "prediction")
+
+# Plotting simple model...
+p_slr <- ggplot(data, aes(x = AT, y = PE)) +
+  # Semi-transparent points to handle dense scatter
+  geom_point(color = "#4A5568", alpha = 0.4, size = 1.5) +
+  # Linear regression fit line with 95% Confidence Interval band
+  geom_smooth(
+    method = "lm", 
+    formula = y ~ x, 
+    color = "red",      # Red OLS line
+    fill = "lightblue",       # Shaded 95% CI
+    alpha = 0.2,
+    linewidth = 1.1
+  ) +
+  labs(
+    title = "Simple Linear Regression: PE vs. AT",
+    subtitle = expression(paste("Model: ", widehat(PE), " = ", beta[0], " + ", beta[1], "(AT)")),
+    x = "Ambient Temperature (AT) [°C]",
+    y = "Electrical Power Output (PE) [MW]"
+  ) +
+  theme_bw(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(color = "gray30", size = 10),
+    panel.grid.minor = element_blank()
+  )
+# Display plot
+print(p_slr)
+# Export for LaTeX report...
+ggsave("figures/simple_regression.pdf", plot = p_slr, width = 7, height = 4.5, units = "in")
+
+# Interaction between Ambient Temperature (AT) and Exhaust Vacuum (V)
+lm.fit_interaction <- lm(PE ~ AT * V, data = data)
+summary(lm.fit_interaction)
+
+# Polynomial regression: Quadratic term for Ambient Temperature (AT^2)
+lm.fit_poly <- lm(PE ~ AT + I(AT^2) + V + AP + RH, data = data)
+summary(lm.fit_poly)
