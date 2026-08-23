@@ -1,0 +1,53 @@
+Locating the database server’s message log
+The database server’s message log is a record of all messages recorded by the database server. This is the first place to look if you have server problems and is a good place to check regularly.
+
+This log will include messages that look something like the following:
+
+2023-09-01 19:37:41 GMT [2507-1] LOG: database system was shut down at
+2023-09-01 19:37:41 GMT [2506-1] LOG:database system is ready to accept
+connections
+
+We’ll explain some more about these logs once we’ve located the files.
+
+Getting ready
+You’ll need to get operating system access to the database system, which is what we call the platform on which the database runs.
+The server log can be in a few different places, so let’s list all of them first so that we can locate the log or decide where we want it to be placed:
+•It may be in a directory beneath the data directory.
+•It may be in a directory elsewhere on the filesystem.
+•It may be redirected to syslog.
+•There may be no server log at all. In this case, it’s time to add a log soon.
+
+If not redirected to syslog, the server log consists of one or more files. You can change the names of these files, so it may not always be the same on every system.
+
+How to do it...
+The following are the default server log locations:
+•Debian or Ubuntu systems: /var/log/postgresql
+•Red Hat, RHEL, CentOS, and Fedora: /var/lib/pgsql/data/pg_log
+•System deployed with TPA: Messages are sent to syslog, and to /var/log/postgres/
+postgres.log
+•Windows systems: The messages are sent to the Windows Event Log
+
+The current server log file is named postgresql-MAJOR_RELEASE-SERVER.log, where SERVER is the name of the server (by default, main), and MAJOR_RELEASE represents the major release of
+the server, for example, 9.6 or 11 (as we mentioned in a prior recipe, from release 10 onward, the major release is composed of just one number). An example is postgresql-14-main.log, while older log files are numbered as postgresql-14-main.log.1. The higher the final number, the older the file, since they are being rotated by the logrotate utility.
+
+As already explained in this chapter, TPA intentionally uses a default location that is different from the OS defaults, so it avoids any conflict with the PostgreSQL configurations and services from the OS distribution.
+
+How it works...
+The server log is just a file that records messages from the server. Each message has a severity level, the most typical of them being LOG, although there are others, as shown in the following table:
+
+[Here comes the table]
+Table 2.3: PostgreSQL message severity levels
+
+Watch out for FATAL and PANIC. This shouldn’t happen in most cases during normal server operation, apart from certain cases related to replication, for which we refer you to Chapter 12, Replication and Upgrades.
+You can adjust the number of messages that appear in the log by changing the log_min_messages server parameter. You can also change the amount of information that is displayed for each event by changing the log_error_verbosity parameter. If the messages are sent to a standard log file, then each line in the log will have a prefix of useful information that can also be controlled by the system administrator, with a parameter named log_line_prefix.
+
+You can also alter the what and the how much that goes into the logs by changing other settings, such as log_statements, log_checkpoints, log_connections/log_disconnections, log_verbosity, and log_lock_waits.
+
+There’s more...
+The log_destination parameter controls where log messages are stored. The valid values are stderr, csvlog, syslog, and eventlog (the latter is only on Windows).
+
+The logging collector is a background process that writes to a log file everything that the PostgreSQL server outputs to stderr. This is probably the most reliable way to log messages in case of problems, since it depends on fewer services.
+Log rotation can be controlled with settings such as log_rotation_age and log_rotation_size if you are using the logging collector. Alternatively, it is possible to configure the logrotate utility to perform log rotation, which is the default on Debian and Ubuntu systems.
+In general, monitoring activities are covered in Chapter 8, Monitoring and Diagnosis, and examining the message log is just one part of it. Refer to the Monitoring the PostgreSQL message log recipe in Chapter 8, Monitoring and Diagnosis, for more details.
+
+
