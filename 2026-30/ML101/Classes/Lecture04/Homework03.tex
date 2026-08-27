@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{ML101 \\ Homework 03: A `gentle' Introduction to Classification and Model Selection.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+This assignment introduces fundamental concepts in supervised classification and linear model selection. The primary objectives are:
+
+\begin{itemize}
+    \item \textbf{Non-Parametric Classification:} Build intuitive foundations for the $K$-Nearest Neighbors ($K$-NN) algorithm through selected introductory literature.
+    \item \textbf{Applied Classification:} Implement foundational classification algorithms using R/Python, covering Sections 4.7.1--4.7.5 of \textit{An Introduction to Statistical Learning} to support upcoming laboratory work.
+    \item \textbf{Model Selection and Regularization:} Prepare for upcoming coursework via a flipped-classroom study of Chapter~6 video lectures, focusing on subset selection, stepwise methods, and validation-based test error estimation.
+\end{itemize}
+
+\section{Reading Material}
+\label{sec:reading}
+
+To develop an intuitive understanding of the $K$-Nearest Neighbors ($K$-NN) algorithm, select and review \textbf{one} of the following introductory articles:
+
+\begin{itemize}
+  \item \textit{``K-Nearest Neighbor (KNN) Explained''} by Diego Lopez Yse (2023). Available at \href{https://www.pinecone.io/learn/k-nearest-neighbor/}{Pinecone.com}.
+  \item \textit{``What is the k-nearest neighbors (KNN) algorithm?''} by Eda Kavlakoglu (2022). Available at \href{https://www.ibm.com/think/topics/knn}{IBM.com}.
+  \item \textit{``K-Nearest Neighbor (KNN) Algorithm''} by GeeksforGeeks Community (2026). Available at \href{https://www.geeksforgeeks.org/machine-learning/k-nearest-neighbours/}{GeeksforGeeks.org}.
+\end{itemize}
+
+This reading is intended for conceptual preparation; no deliverable is required for this section.
+
+\section{Lab: Classification Methods}
+\label{sec:lab}
+
+To gain hands-on experience with classification methods, work through the Chapter~4 laboratory exercises from \textit{An Introduction to Statistical Learning Using R} (Sections 4.7.1--4.7.5, pp.~171--181). Given the fact that all of you are pythonistas, you can cover the similar sections in the Python book.
+
+While no formal deliverable is required for this section, working through these exercises is essential preparation for the upcoming laboratory assignment.
+
+\section{Flipped Classroom}
+\label{sec:flipped}
+
+To prepare for next week's lectures, review the assigned video recordings for Chapter~6 (``Linear Model Selection and Regularization''). These lectures are provided by Stanford Online and are hosted on their YouTube channel and the edX platform\footnote{Hastie, T., \& Tibshirani, R. (2023). \textit{Statistical learning} (STATSX0001) [MOOC]. edX; Stanford Online. \url{https://www.statlearning.com/online-courses}}.
+
+Refer to Table~\ref{tab:videos} for the required playlist. You must take handwritten notes for each lecture video, which will constitute the primary deliverable for this assignment.
+
+\begin{table}
+  \centering
+  \caption{Required Video Lectures for Chapter 6: Linear Model Selection and Regularization}
+  \label{tab:videos}
+  \begin{tabular}{c l c c c c c}
+    \toprule
+      Section & Title & Duration & Links & & & \\
+    \midrule
+      6.1 & Introduction and Best Subset Selection & 13:45 &
+      \href{https://youtu.be/nsv5rEV3mVI?si=l85FAQRbUhYeuaQ0}{YouTube} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Transcript} \\
+      6.2 & Stepwise Selection & 12:27 &
+      \href{https://youtu.be/ynXq-Gw1xfE?si=MTcilvJexgyJULhq}{YouTube} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Transcript} \\
+      6.3 & Backward Stepwise Selection & 5:27 &
+      \href{https://youtu.be/c5aI9cowjRI?si=G60SfaXBt6DU2FxT}{YouTube} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Transcript} \\
+      6.4 & Estimating test error & 14:07 &
+      \href{https://youtu.be/48P-oV6cH44?si=OMwV3cCBfeSiSZl7}{YouTube} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Transcript} \\
+      6.5 & Validation and cross validation & 8:44 &
+      \href{https://youtu.be/mzb5Xs58bb0?si=RNIM797vRbxlgyex}{YouTube} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/1nqH4_lnJA7RIghWuMf0VKDTElWQlDkc3?usp=sharing}{Transcript} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Expected Deliverable}
+\label{sec:deliverables}
+
+You will prepare a simple report sharing your handwritten lecture notes of the videos presented in section~\ref{sec:flipped}.  Please submit your report in \textbf{PDF format} through the corresponding BrightSpace\texttrademark{} assignment for next week.
+
+\vspace{5mm}
+Happy Learning! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+

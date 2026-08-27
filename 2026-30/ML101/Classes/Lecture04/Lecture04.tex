@@ -293,6 +293,11 @@ $t$-tests account for the additional uncertainty of estimating the unknown error
 \end{frame}
 
 \begin{frame}{Logistic Regression with Several Variables}
+  \centering
+  \includegraphics[width=\textwidth]{figures/lr3d}
+\end{frame}
+
+\begin{frame}{Logistic Regression with Several Variables --continued}
   \[
     \log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \implies p(X) = \frac{e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}}{1 + e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}}
   \]
@@ -422,37 +427,26 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
 
 \begin{frame}{South African Heart Disease: Scatterplot Matrix}
   \begin{columns}[c]
-    \begin{column}{0.48\textwidth}
+    \begin{column}{0.52\textwidth}
       \centering
-      \includegraphics[width=\linewidth]{figures/p14}\\
+      \includegraphics[width=\linewidth]{figures/SAheart_pairs_plot}\\
     \end{column}
-    \begin{column}{0.48\textwidth}
-      Scatterplot matrix of the South African Heart Disease data. The response is color coded ---the cases (MI) are red, and the controls are turquoise. \texttt{famhist} is a binary variable, with 1 indicating family history of MI.
+    \begin{column}{0.46\textwidth}
+      Scatterplot matrix of the South African Heart Disease data. The response is color coded ---the cases (MI) are red, and the controls are turquoise. \texttt{famhist} is a binary variable, with 1 indicating family history of MI.  \\
+      \vspace{5mm}
+      { \footnotesize
+        \textit{\textbf{MI}: myocardial infarction;} \\
+        \textit{\textbf{sbp}: systolic blood pressure;} \\
+        \textit{\textbf{ldl}: low-density lipoprotein;} \\
+        \textit{\textbf{chd}: coronary heart disease.}
+      }
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{SA Heart Disease: Logistic Regression Model Output}
-%   \begin{minted}[fontsize=\footnotesize]{r}
-% > heartfit <- glm(chd ~ ., data = heart, family = binomial)
-% > summary(heartfit)
-% Coefficients:
-%                 Estimate Std. Error z value Pr(>|z|)
-% (Intercept)    -4.1295997  0.9641558  -4.283 1.84e-05 ***
-% sbp             0.0057607  0.0056326   1.023  0.30643
-% tobacco         0.0795256  0.0262150   3.034  0.00242 **
-% ldl             0.1847793  0.0574115   3.219  0.00129 **
-% famhistPresent  0.9391855  0.2248691   4.177 2.96e-05 ***
-% obesity        -0.0345434  0.0291053  -1.187  0.23529
-% alcohol         0.0006065  0.0044550   0.136  0.89171
-% age             0.0425412  0.0101749   4.181 2.90e-05 ***
-% ---
-% Null deviance: 596.11 on 461 degrees of freedom
-% Residual deviance: 483.17 on 454 degrees of freedom; AIC: 499.17
-%   \end{minted}
-
- \centering
- \includegraphics[width=0.75\textwidth]{figures/p15}
+\begin{frame}{SA Heart Disease: Logistic Regression Model Output}
+  \centering
+ \includegraphics[width=0.8\textwidth]{figures/p15}
 \end{frame}
 
 \begin{frame}{Case-Control Sampling and Logistic Regression}
@@ -614,15 +608,17 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
 \end{frame}
 
 \begin{frame}{Classify to the Highest Density}
-  \begin{block}{}
-    \textbf{1D Densities and Bayes Decision Boundary:}
-    \begin{itemize}
-      \item \textbf{Equal Priors ($\pi_1 = 0.5, \pi_2 = 0.5$):} Decision boundary is at the point where the two density curves intersect ($x = (\mu_1 + \mu_2)/2$).
-      \item \textbf{Unequal Priors ($\pi_1 = 0.3, \pi_2 = 0.7$):} The decision boundary shifts toward class 1 (left) to favor the higher prior probability of class 2.
-    \end{itemize}
-  \end{block}
+  \textbf{1D Densities and Bayes Decision Boundary:}
+  \begin{itemize}
+    \item \textbf{Equal Priors ($\pi_1 = 0.5, \pi_2 = 0.5$):} Decision boundary is at the point where the two density curves intersect ($x = \frac{\mu_1 + \mu_2}{2}$).
+    \item \textbf{Unequal Priors ($\pi_1 = 0.3, \pi_2 = 0.7$):} The decision boundary shifts toward class 1 (left) to favor the higher prior probability of class 2.
+  \end{itemize}
   \centering
-  \includegraphics[width=0.6\textwidth]{figures/p21}
+  \includegraphics[width=0.75\textwidth]{figures/p21}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node at (-11.25, 2.00) (y) {$\pi_k f(x)$};
+    \node at ( -8.35,-0.25) (y) {$x$};
+  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Why Discriminant Analysis?}
@@ -902,5 +898,228 @@ means the $\mathbf{\Sigma}_k$ are diagonal).
     \item \textbf{KNN:} Non-parametric, flexible when decision boundary is highly irregular, but suffers in high dimensions (Section 4.5).
   \end{itemize}
 \end{frame}
+
+% \section{New Topics in Chapter 4 (ISLR 2nd Edition)}
+%
+% \begin{frame}{New Topics in Chapter Four}
+%   In this section we cover three topics in Chapter 4 that are new in the second edition of ISLR:
+%   \begin{itemize}
+%     \item \textbf{Multinomial logistic regression}
+%     \item \textbf{Na\"{\i}ve Bayes classification}
+%     \item \textbf{Generalized linear models (GLMs)}
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Multinomial Logistic Regression (Details)}
+%   When $K > 2$ classes, the softmax representation models class probabilities:
+%   \[
+%     \Pr(Y = k \mid X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + \dots + \beta_{kp}x_p}}{\sum_{\ell=1}^K e^{\beta_{\ell 0} + \beta_{\ell 1}x_1 + \dots + \beta_{\ell p}x_p}}
+%   \]
+%   \begin{itemize}
+%     \item Log-odds relative to a baseline class $K$:
+%     \[
+%       \log\left(\frac{\Pr(Y = k \mid X = x)}{\Pr(Y = K \mid X = x)}\right) = (\beta_{k0} - \beta_{K0}) + \sum_{j=1}^p (\beta_{kj} - \beta_{Kj}) x_j
+%     \]
+%     \item Fit by maximizing the multinomial log-likelihood (\textbf{cross-entropy loss}).
+%     \item Commonly applied in deep learning and image classification (e.g. MNIST handwritten digits).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generative Models and Na\"{\i}ve Bayes}
+%   \begin{itemize}
+%     \item \textbf{Discriminative vs. Generative:} Logistic regression models $\Pr(Y = k \mid X = x)$ directly. Generative models start with the conditional distribution of $X \mid Y = k$ ($f_k(x)$) and prior $\pi_k$:
+%     \[
+%       \Pr(Y = k \mid X = x) = \frac{\pi_k f_k(x)}{\sum_{\ell=1}^K \pi_\ell f_\ell(x)}
+%     \]
+%     \item \textbf{Na\"{\i}ve Bayes assumption:} The features are conditionally independent given class $Y = k$:
+%     \[
+%       f_k(x) = f_{k1}(x_1) \times f_{k2}(x_2) \times \dots \times f_{kp}(x_p)
+%     \]
+%     \item Plugging into Bayes' formula:
+%     \[
+%       \Pr(Y = k \mid X = x) = \frac{\pi_k \prod_{j=1}^p f_{kj}(x_j)}{\sum_{\ell=1}^K \pi_\ell \prod_{j=1}^p f_{\ell j}(x_j)}
+%     \]
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes -- Implementation Details}
+%   Why the independence assumption?
+%   \begin{itemize}
+%     \item Estimating a $p$-dimensional joint density is very hard (curse of dimensionality), while estimating $p$ one-dimensional densities is straightforward.
+%     \item \textbf{Quantitative features:}
+%     \begin{itemize}
+%       \item Fit a 1D Gaussian: $X_j \mid Y = k \sim \mathcal{N}(\mu_{jk}, \sigma_{jk}^2)$.
+%       \item Non-parametric: use 1D kernel density estimation or histogram binning.
+%     \end{itemize}
+%     \item \textbf{Qualitative features:}
+%     \begin{itemize}
+%       \item Count the proportion of training observations in class $k$ that take each category level.
+%     \end{itemize}
+%     \item Drastically reduces variance in high dimensions.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes -- Toy Example}
+%   \begin{block}{Description of Figure}
+%     \textbf{Toy Classification Example ($p=3, K=2$):}
+%     \begin{itemize}
+%       \item Features $X_1, X_2$ are continuous (Gaussian densities $\hat{f}_{k1}, \hat{f}_{k2}$); $X_3$ is categorical with 3 levels ($\hat{f}_{k3}$).
+%       \item For test observation $x^* = (0.4, 1.5, 1)^T$ with equal priors $\hat{\pi}_1 = \hat{\pi}_2 = 0.5$:
+%     \end{itemize}
+%   \end{block}
+%   \begin{columns}
+%     \begin{column}{0.48\textwidth}
+%       \textbf{Class 1 Density Estimates:}
+%       \begin{align*}
+%         \hat{f}_{11}(0.4) &= 0.368 \\
+%         \hat{f}_{12}(1.5) &= 0.484 \\
+%         \hat{f}_{13}(1)   &= 0.226
+%       \end{align*}
+%     \end{column}
+%     \begin{column}{0.48\textwidth}
+%       \textbf{Class 2 Density Estimates:}
+%       \begin{align*}
+%         \hat{f}_{21}(0.4) &= 0.030 \\
+%         \hat{f}_{22}(1.5) &= 0.130 \\
+%         \hat{f}_{23}(1)   &= 0.616
+%       \end{align*}
+%     \end{column}
+%   \end{columns}
+%   \vspace{0.2cm}
+%   \[
+%     \Pr(Y = 1 \mid X = x^*) = \frac{0.5 \times 0.368 \times 0.484 \times 0.226}{0.5(0.368 \cdot 0.484 \cdot 0.226) + 0.5(0.030 \cdot 0.130 \cdot 0.616)} = 0.944
+%   \]
+% \end{frame}
+%
+% \begin{frame}{Na\"{\i}ve Bayes and Generalized Additive Models (GAMs)}
+%   Taking the log-odds of posterior probabilities under Na\"{\i}ve Bayes:
+%   \begin{align*}
+%     \log\left(\frac{\Pr(Y = k \mid X = x)}{\Pr(Y = K \mid X = x)}\right) &= \log\left(\frac{\pi_k \prod_{j=1}^p f_{kj}(x_j)}{\pi_K \prod_{j=1}^p f_{Kj}(x_j)}\right) \\
+%     &= \log\left(\frac{\pi_k}{\pi_K}\right) + \sum_{j=1}^p \log\left(\frac{f_{kj}(x_j)}{f_{Kj}(x_j)}\right) \\
+%     &= a_k + \sum_{j=1}^p g_{kj}(x_j)
+%   \end{align*}
+%   where $a_k = \log(\pi_k/\pi_K)$ and $g_{kj}(x_j) = \log(f_{kj}(x_j)/f_{Kj}(x_j))$.
+%   \begin{itemize}
+%     \item Na\"{\i}ve Bayes takes the exact form of a \textbf{Generalized Additive Model (GAM)}!
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generalized Linear Models (GLMs)}
+%   \begin{itemize}
+%     \item \textbf{Linear Regression:} quantitative responses, assumes Gaussian errors $Y \sim \mathcal{N}(\mu, \sigma^2)$.
+%     \item \textbf{Logistic Regression:} binary response, models logit of success probability $\log(\mu/(1-\mu)) = X\beta$.
+%     \item \textbf{Count / Non-negative responses:} counts of events (e.g. number of users, web visits, hospital visits) cannot be negative and often exhibit variance increasing with the mean.
+%     \item \textbf{Generalized Linear Models (GLMs)} provide a unified statistical framework for diverse response distributions (Exponential Family).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Example: Bikeshare Data}
+%   Linear regression on hourly bike rentals (\texttt{bikers}) in Washington, DC:
+%   \begin{table}
+%     \centering
+%     \small
+%     \begin{tabular}{l c c c c}
+%       \toprule
+%       & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+%       \midrule
+%       \textbf{Intercept} & 73.60 & 5.13 & 14.34 & 0.00 \\
+%       \textbf{workingday} & 1.27 & 1.78 & 0.71 & 0.48 \\
+%       \textbf{temp} & 157.21 & 10.26 & 15.32 & 0.00 \\
+%       \textbf{weathersit[cloudy/misty]} & -12.89 & 1.96 & -6.56 & 0.00 \\
+%       \textbf{weathersit[light rain/snow]} & -66.49 & 2.97 & -22.43 & 0.00 \\
+%       \textbf{weathersit[heavy rain/snow]} & -109.75 & 76.67 & -1.43 & 0.15 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+%   \begin{block}{Description of Figure}
+%     \textbf{Coefficients by Month and Hour:} Hourly bike rental predictions show strong peaks during morning and evening rush hours, and higher rentals during summer months.
+%   \end{block}
+% \end{frame}
+%
+% \begin{frame}{Mean/Variance Relationship in Count Data}
+%   \begin{block}{Description of Figure}
+%     \textbf{Mean vs. Variance in Bikeshare Data:}
+%     \begin{itemize}
+%       \item \textbf{Left (Raw Scale):} Number of bikers vs. hour. The variance is small when the mean is small (night) and large when the mean is large (peak hours).
+%       \item \textbf{Right (Log Scale):} $\log(\text{bikers})$ stabilizes the variance, but predicting $\log(Y)$ produces bias when transforming back, and fails when $Y = 0$.
+%     \end{itemize}
+%   \end{block}
+%   \begin{itemize}
+%     \item About 10\% of linear regression predictions on raw scale are negative!
+%     \item Linear regression violates count data assumptions (non-negativity and heteroscedasticity).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Poisson Regression Model}
+%   \begin{itemize}
+%     \item \textbf{Poisson distribution} for modeling counts $Y \in \{0, 1, 2, \dots\}$:
+%     \[
+%       \Pr(Y = k) = \frac{e^{-\lambda} \lambda^k}{k!}, \quad k = 0, 1, 2, \dots
+%     \]
+%     \item Mean and variance are equal: $\text{E}(Y) = \text{Var}(Y) = \lambda$.
+%     \item \textbf{Log-linear link:} We model the mean $\lambda(X)$ as:
+%     \[
+%       \log(\lambda(X)) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p \iff \lambda(X) = e^{\beta_0 + \beta_1 X_1 + \dots + \beta_p X_p}
+%     \]
+%     \item Automatically guarantees strictly positive expected counts $\lambda(X) > 0$.
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Poisson Regression on Bikeshare Data}
+%   \begin{table}
+%     \centering
+%     \small
+%     \begin{tabular}{l c c c c}
+%       \toprule
+%       & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{$Z$-statistic} & \textbf{$P$-value} \\
+%       \midrule
+%       \textbf{Intercept} & 4.12 & 0.01 & 683.96 & 0.00 \\
+%       \textbf{workingday} & 0.01 & 0.00 & 7.50 & 0.00 \\
+%       \textbf{temp} & 0.79 & 0.01 & 68.43 & 0.00 \\
+%       \textbf{weathersit[cloudy/misty]} & -0.08 & 0.00 & -34.53 & 0.00 \\
+%       \textbf{weathersit[light rain/snow]} & -0.58 & 0.00 & -141.91 & 0.00 \\
+%       \textbf{weathersit[heavy rain/snow]} & -0.93 & 0.17 & -5.55 & 0.00 \\
+%       \bottomrule
+%     \end{tabular}
+%   \end{table}
+%   \begin{itemize}
+%     \item In Poisson regression, coefficients act multiplicatively: a unit increase in $X_j$ multiplies expected count by $e^{\beta_j}$.
+%     \item \textit{*Note: In this data, the variance exceeds the mean (overdispersion), so standard errors are underestimated and $z$-statistics are inflated.}
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{Generalized Linear Models: General Framework}
+%   \begin{itemize}
+%     \item A GLM consists of three components:
+%     \begin{enumerate}
+%       \item \textbf{Random component:} Distribution of $Y$ from Exponential Family (Gaussian, Binomial, Poisson, Gamma, Negative Binomial).
+%       \item \textbf{Systematic component:} Linear predictor $\eta = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p$.
+%       \item \textbf{Link function $\eta(\mu)$:} Relates the mean $\mu = \text{E}(Y \mid X)$ to the linear predictor $\eta(\mu) = X\beta$.
+%     \end{enumerate}
+%     \item \textbf{Common link functions:}
+%     \begin{itemize}
+%       \item \textbf{Linear regression:} $\eta(\mu) = \mu$ (Identity link).
+%       \item \textbf{Logistic regression:} $\eta(\mu) = \log(\mu / (1 - \mu))$ (Logit link).
+%       \item \textbf{Poisson regression:} $\eta(\mu) = \log(\mu)$ (Log link).
+%     \end{itemize}
+%     \item All GLMs are fit via Maximum Likelihood Estimation using IRLS (\texttt{glm()} in R).
+%   \end{itemize}
+% \end{frame}
+%
+% \begin{frame}{}
+%      \centering
+%      \Huge End of Chapter 4.
+% \end{frame}
+
+% \begin{frame}{An Introduction to Statistical Learning with Applications in R}{a.k.a. ISLR}
+%     \centering
+%     \fbox{\parbox[c][0.55\textheight][c]{0.65\textwidth}{\centering \textbf{[Figure: ISLR Book Cover]}\\\vspace{1em}\small An Introduction to Statistical Learning with Applications in R (2nd Edition)}} \\
+%     \vspace{4mm}
+%     {
+%         \tiny
+%         Content has been extracted from \textit{An Introduction to Statistical Learning with Applications in R}, Second Edition, by James, Witten, Hastie \& Tibshirani. Springer. 2023.\\
+%         Visit \url{https://www.statlearning.com/}.\\
+%     }
+% \end{frame}
 
 \end{document}
