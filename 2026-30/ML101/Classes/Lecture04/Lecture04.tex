@@ -616,7 +616,7 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
   \centering
   \includegraphics[width=0.75\textwidth]{figures/p21}
   \begin{tikzpicture}[remember picture, overlay]
-    \node at (-11.25, 2.00) (y) {$\pi_k f(x)$};
+    \node at (-11.25, 2.00) (y) {$\pi_k f_k(x)$};
     \node at ( -8.35,-0.25) (y) {$x$};
   \end{tikzpicture}
 \end{frame}
@@ -630,11 +630,12 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
 \end{frame}
 
 \begin{frame}{Linear Discriminant Analysis when $p = 1$}
+  \small
   The Gaussian (normal) density has the form:
   \[
     f_k(x) = \frac{1}{\sqrt{2\pi}\sigma_k} e^{-\frac{1}{2}\left(\frac{x - \mu_k}{\sigma_k}\right)^2}
   \]
-  Here $\mu_k$ is the mean, and $\sigma_k^2$ the variance (in class $k$). We will assume that all the $\sigma_k = \sigma$ are the same ($\sigma_1^2 = \dots = \sigma_k^2 = \sigma^2$).  \\
+  Here $\mu_k$ is the mean, and $\sigma_k^2$ the variance (in class $k$). We will assume that all the $\sigma_k = \sigma$ are the same ($\sigma_1^2 = \dots = \sigma_k^2 = \sigma^2$).\\
   \pause
 
   So,  Bayes' formula gives us a rather complex expression for $p_k(x) = Pr(Y = k|X = x)$:
@@ -642,7 +643,7 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
     p_k(x) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}\left(\frac{x - \mu_k}{\sigma_k}\right)^2}}{\sum_{\ell=1}^K \pi_\ell \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{1}{2}\left(\frac{x - \mu_k}{\sigma_k}\right)^2}}
   \]
   \pause
-  Happily, there are simplifications and cancellations.
+  Happily, there are simplifications and cancellations\footnote{Shared variance across all classes is the foundational assumption that defines LDA in order to cancel quadratic terms.}.
 \end{frame}
 
 \begin{frame}{Discriminant Functions ($p=1$)}
@@ -682,7 +683,7 @@ In simple regression, \texttt{Student} absorbs the omitted effect of \texttt{Bal
 
 \begin{frame}{Linear Discriminant Analysis when $p > 1$}
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/p27} \\
+  \includegraphics[width=0.85\textwidth]{figures/p27} \\
   Density: $f(x) = \frac{1}{(2\pi)^{\frac{p}{2}}|\mathbf{\Sigma}|^{\frac{1}{2}}}e^{-\frac{1}{2}(x - \mu)^T \mathbf{\Sigma}^{-1} (x - \mu)}$ \\
   \pause
   \begin{itemize}
