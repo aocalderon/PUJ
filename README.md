@@ -7,7 +7,7 @@ Teaching materials, lecture notes, lab guides, and sample implementations for Co
 Clone the repository locally:
 
 ```bash
-git clone [https://github.com/aocalderon/PUJ.git](https://github.com/aocalderon/PUJ.git)
+git clone https://github.com/aocalderon/PUJ.git
 ```
 
 Instructor: Andrés Oswaldo Calderón Romero, PhD. (@aocalderon)
