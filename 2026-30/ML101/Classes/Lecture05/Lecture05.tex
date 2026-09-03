@@ -369,13 +369,13 @@
             \item As $\lambda \to \infty$: shrinkage penalty dominates $\implies \hat{\beta}^R_\lambda \to 0$.
         \end{itemize}
         \item The intercept $\beta_0$ is \emph{not} penalized (estimated simply as $\bar{y}$ when predictors are centered).
-        \item Uses the squared $\ell_2$ penalty: $\|\beta\|_2^2 = \sum_{j=1}^p \beta_j^2$.
+        \item Uses the squared $\ell_2$ penalty: $\|\beta\|_2 = \sqrt{\sum_{j=1}^p \beta_j^2}$.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Ridge Regression: Coefficient Profiles on Credit Data}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/6_4}
+    \includegraphics[width=0.9\textwidth]{figures/6_4}
     \begin{itemize}
         \footnotesize
         \item \textbf{Left Panel:} Standardized ridge regression coefficients for \texttt{Credit} predictors plotted against $\lambda$. As $\lambda$ increases, all coefficients shrink continuously towards zero.
@@ -479,7 +479,7 @@
     \includegraphics[width=0.9\textwidth]{figures/6_8}
     \begin{itemize}
         \footnotesize
-        \item \textbf{Left}: Plots of squared bias (black), variance (green), and test MSE (purple) for the lasso on simulated data set of Slide 32.
+        \item \textbf{Left}: Plots of squared bias (black), variance (green), and test MSE (purple) for the lasso on simulated data set ($n=50$ and $p=45$).
         \item \textbf{Right}: Comparison of squared bias, variance and test \textit{MSE} between lasso (solid) and ridge (dashed). Both are plotted against their $R^2$ on the training data, as a common form of indexing. The crosses in both plots indicate the lasso model for which the \textit{MSE} is smallest.
     \end{itemize}
 \end{frame}
@@ -489,7 +489,7 @@
     \includegraphics[width=0.9\textwidth]{figures/6_9}
     \begin{itemize}
         \footnotesize
-        \item \textbf{Left}: Plots of squared bias (black), variance (green), and test \textit{MSE} (purple) for the lasso. The simulated data is similar to that in Slide 38, except that now only two predictors are related to the response.
+        \item \textbf{Left}: Plots of squared bias (black), variance (green), and test \textit{MSE} (purple) for the lasso. The simulated data is similar to that in previous slide, except that now only two predictors are related to the response.
         \item \textbf{Right}: Comparison of squared bias, variance and test \textit{MSE} between lasso (solid) and ridge (dashed). Both are plotted against their R2 on the training data, as a common form of indexing. The crosses in both plots indicate the lasso model for which the \textit{MSE} is smallest.
     \end{itemize}
 \end{frame}
