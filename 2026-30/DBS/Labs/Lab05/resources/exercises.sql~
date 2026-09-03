@@ -1,0 +1,47 @@
+-- Messi's stats.
+
+SELECT 
+	* 
+FROM 
+	public.players
+JOIN
+	public.player_attributes
+USING
+	(player_api_id)
+WHERE
+	player_name LIKE '%Messi%'
+ORDER BY
+	moment DESC;
+	
+
+-- Teams that have both a 0–0 draw and at least one 5+ goal victory.
+
+WITH A AS (
+  SELECT home_team_id AS team_api_id
+  FROM public.matches
+  WHERE home_goals = 0 AND away_goals = 0
+  UNION
+  SELECT away_team_id
+  FROM public.matches
+  WHERE home_goals = 0 AND away_goals = 0
+),
+B AS (
+  SELECT home_team_id AS team_api_id
+  FROM public.matches
+  WHERE (home_goals - away_goals) >= 5
+  UNION
+  SELECT away_team_id
+  FROM public.matches
+  WHERE (away_goals - home_goals) >= 5
+)
+SELECT t.team_long_name
+FROM (
+	SELECT team_api_id
+	FROM A
+	INTERSECT
+	SELECT team_api_id 
+	FROM B) AS foo
+JOIN 
+	public.teams t
+USING (team_api_id);
+
