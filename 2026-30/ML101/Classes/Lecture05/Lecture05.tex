@@ -193,9 +193,31 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Extension to Other Models}
+    \begin{itemize}
+        \item Although we have presented best subset selection here for least squares regression, the same ideas apply to other types of models, such as logistic regression.
+        \item The \textit{deviance}\textbf{} --negative two times the maximized log-likelihood-- plays the role of RSS for a broader class of models.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Stepwise Selection}
+    \begin{itemize}
+        \item For computational reasons, best subset selection cannot be applied with very large $p$. \textbf{Why not?} \pause
+        $2^p \implies 2^{10} \approx 1000$ but $2^{40} \approx 1.1 \times 10^{12}$
+
+        \item Best subset selection may also suffer from statistical problems when $p$ is large: larger the search space, the higher the chance of finding models that look good on the training data, even though they might not have any predictive power on future data.\pause
+
+        \item Thus an enormous search space can lead to \textbf{overfitting} and high variance of the coefficient estimates (we could find an extremely good model in the training data by chance, some combination of noise features will align with the training response simply by random chance).\pause
+
+        \item For both of these reasons, \textbf{stepwise} methods, which explore a far more restricted set of models, are attractive alternatives to best subset selection.
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}{Forward Stepwise Selection}
     \begin{itemize}
-        \item Best subset selection is computationally intractable for large $p$ (searches $2^p$ models; if $p=40$, $2^{40} \approx 1.1 \times 10^{12}$ models).
+        \item Best subset selection is computationally intractable for large $p$.
         \item \textbf{Forward stepwise selection} offers a greedy, computationally efficient alternative:
     \end{itemize}
     \begin{block}{Algorithm: Forward Stepwise Selection}
@@ -204,13 +226,13 @@
         \item For $k = 0, 1, \dots, p-1$:
         \begin{enumerate}[(a)]
             \item Consider all $p - k$ models that augment $\mathcal{M}_k$ with one additional predictor.
-            \item Choose the best among these $p - k$ models (smallest RSS / highest $R^2$), and call it $\mathcal{M}_{k+1}$.
+            \item Choose the \textbf{best} among these $p - k$ models (smallest RSS / highest $R^2$), and call it $\mathcal{M}_{k+1}$.
         \end{enumerate}
         \item Select the overall best model among $\mathcal{M}_0, \dots, \mathcal{M}_p$ via CV, $C_p$, AIC, BIC, or adjusted $R^2$.
     \end{enumerate}
     \end{block}
     \begin{itemize}
-        \item Fits only $1 + \sum_{k=0}^{p-1}(p-k) = 1 + \frac{p(p+1)}{2}$ models (for $p=20$: 211 vs. 1,048,576).
+        \item Fits only $1 + \sum_{k=0}^{p-1}(p-k) = 1 + \frac{p(p+1)}{2} \approx p^2$ models (for $p=20$: 211 vs. 1,048,576).
     \end{itemize}
 \end{frame}
 
@@ -221,13 +243,13 @@
         \item For $k = p, p-1, \dots, 1$:
         \begin{enumerate}[(a)]
             \item Consider all $k$ models that contain all but one predictor in $\mathcal{M}_k$ ($k - 1$ predictors).
-            \item Choose the best among these $k$ models (smallest RSS / highest $R^2$), and call it $\mathcal{M}_{k-1}$.
+            \item Choose the \textbf{best} among these $k$ models (smallest RSS / highest $R^2$), and call it $\mathcal{M}_{k-1}$.
         \end{enumerate}
         \item Select the single best model among $\mathcal{M}_0, \dots, \mathcal{M}_p$ using CV, $C_p$, AIC, BIC, or adjusted $R^2$.
     \end{enumerate}
     \end{block}
     \begin{itemize}
-        \item Like forward stepwise, considers only $1 + p(p+1)/2$ models.
+        \item Like forward stepwise, considers only $1 + \frac{p(p+1)}{2} \approx p^2$ models.
         \item \textbf{Constraint:} Requires $n > p$ so that the initial full model $\mathcal{M}_p$ can be fit by least squares.
         \item In contrast, forward stepwise can be used when $n < p$ (constructing submodels up to $\mathcal{M}_{n-1}$).
     \end{itemize}
@@ -259,15 +281,16 @@
     To compare models with different numbers of predictors $d$, we adjust training RSS:
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \begin{block}{Mallows' $C_p$ and AIC}
+            \begin{block}{Mallows' $C_p$ and Akaike Information Criteria ($AIC$)}
                 \[
                     C_p = \frac{1}{n}\left(\text{RSS} + 2d\hat{\sigma}^2\right)
                 \]
                 \[
-                    \text{AIC} = \frac{1}{n\hat{\sigma}^2}\left(\text{RSS} + 2d\hat{\sigma}^2\right)
+                    AIC = -2 \log{L} + 2 \cdot d
                 \]
                 \begin{itemize}
                     \small
+                    \item where $L$ is the \textit{maximized value of the likelihood} fucntion.
                     \item $\hat{\sigma}^2$ is an unbiased estimate of error variance $\sigma^2$ from the full model.
                     \item Penalizes model size by adding $2d\hat{\sigma}^2$.
                 \end{itemize}
@@ -275,12 +298,12 @@
         \end{column}
 
         \begin{column}{0.48\textwidth}
-            \begin{block}{BIC and Adjusted $R^2$}
+            \begin{block}{Bayesian Information Criteria ($BIC$)  and Adjusted $R^2$}
                 \[
-                    \text{BIC} = \frac{1}{n}\left(\text{RSS} + \log(n)d\hat{\sigma}^2\right)
+                    BIC = \frac{1}{n}\left(\text{RSS} + \log(n)d\hat{\sigma}^2\right)
                 \]
                 \[
-                    \text{Adjusted } R^2 = 1 - \frac{\text{RSS}/(n-d-1)}{\text{TSS}/(n-1)}
+                    Adjusted \text{ } R^2 = 1 - \frac{\text{RSS}/(n-d-1)}{\text{TSS}/(n-1)}
                 \]
                 \begin{itemize}
                     \small
@@ -293,13 +316,18 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}{Cross-validation}
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/cross}
+\end{frame}
+
 \begin{frame}{Model Selection: Adjusted Criteria vs. Validation/CV}
     \centering
     \includegraphics[width=0.9\textwidth]{figures/6_2}
     \begin{itemize}
         \footnotesize
-        \item Plots of $C_p$, BIC, and Adjusted $R^2$ (top row) alongside Validation Set and 10-Fold Cross-Validation error curves (bottom row) for \texttt{Credit} data models.
-        \item BIC chooses a parsimonious 4-variable model (\texttt{income}, \texttt{limit}, \texttt{cards}, \texttt{student}), while $C_p$ and Adjusted $R^2$ choose 6 variables.
+        \item Plots of $C_p$, $BIC$, and Adjusted $R^2$ for \texttt{Credit} data models.
+        \item $BIC$ chooses a parsimonious 4-variable model (\texttt{income}, \texttt{limit}, \texttt{cards}, \texttt{student}), while $C_p$ and Adjusted $R^2$ choose 6 variables.
     \end{itemize}
 \end{frame}
 
