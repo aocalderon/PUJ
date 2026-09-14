@@ -1,0 +1,58 @@
+
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Expanded List of Open-Source and Commercial Database Backup Tools}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+Here’s a list of database backup tools that support multiple database management systems (DBMS), categorized into open-source and commercial solutions:
+
+\textbf{\\Open-Source Database Backup Tools}
+
+\begin{enumerate}
+    \item \textbf{Barman} -- Backup and Recovery Manager for PostgreSQL.
+    \item \textbf{pgBackRest} -- Reliable PostgreSQL backup and restore solution.
+    \item \textbf{pg\_probackup} -- Fork of pgBackRest with incremental backup, PITR, and parallelism.
+    \item \textbf{wal-g} -- Successor to WAL-E, supports streaming WAL archiving and cloud storage (S3, GCS, Azure).
+    \item \textbf{MyDumper / MyLoader} -- High-performance logical backup and restore with parallel export/import.
+    \item \textbf{MariaBackup} -- Fork of Percona XtraBackup tailored for MariaDB with hot backup support.
+    \item \textbf{mydba} -- Lightweight community scripts for consistent snapshots with minimal downtime.
+    \item \textbf{mongodump / mongorestore} -- Official utilities for logical backups and restores.
+    \item \textbf{Kopia} -- Deduplicating backup tool with encryption, supports integration with databases.
+    \item \textbf{BorgBackup (Borg)} -- Efficient deduplicating backup system, often paired with DB dump scripts.
+    \item \textbf{Rclone} -- Syncs DB dumps to cloud storage, widely used for offsite backup.
+    \item \textbf{Bareos} -- Fork of Bacula, community-driven with extended database plugins.
+    \item \textbf{Velero} -- Kubernetes-native backup and restore, useful for stateful DB workloads.
+    \item \textbf{Stash by AppsCode} -- Kubernetes backup operator supporting PostgreSQL, MySQL, MongoDB, Elasticsearch, etc.
+    \item \textbf{Percona XtraBackup} -- Open-source hot backup tool for MySQL, MariaDB.
+    \item \textbf{Duplicity} -- Supports encrypted, incremental backups across multiple databases.
+    \item \textbf{Bacula} -- Enterprise-grade backup system with database plugins.
+    \item \textbf{Restic} -- Secure and efficient backup tool with support for MySQL, PostgreSQL, and more.
+    \item \textbf{Amanda} -- Advanced Maryland Automatic Network Disk Archiver, Enterprise backup tool with support for MySQL, PostgreSQL.
+    \item \textbf{Dumper} -- Simple tool for backing up MySQL, PostgreSQL, and MongoDB.
+    \item \textbf{AutoMySQLBackup} -- Automated MySQL backup tool with rotation features.
+    \item \textbf{ClusterControl Backup Manager} -- Open-source backup solution supporting MySQL, PostgreSQL, MongoDB.
+\end{enumerate}
+
+\textbf{\\Commercial Database Backup Tools}
+
+\begin{enumerate}
+    \item \textbf{Veeam Backup \& Replication} -- Supports SQL Server, PostgreSQL, Oracle, MySQL.
+    \item \textbf{Commvault} -- Enterprise-grade backup and disaster recovery solution.
+    \item \textbf{Veritas NetBackup} -- Supports multiple DBMS, including Oracle, SQL Server, PostgreSQL.
+    \item \textbf{IBM Spectrum Protect} -- Scalable backup and recovery solution (formerly TSM).
+    \item \textbf{Acronis Cyber Protect} -- Multi-DBMS backup and security tool.
+    \item \textbf{Rubrik} -- Cloud and on-premises database backup for MySQL, PostgreSQL, Oracle.
+    \item \textbf{Arcserve UDP} -- Comprehensive backup and disaster recovery for SQL Server, Oracle.
+    \item \textbf{Iperius Backup} -- Supports SQL Server, MySQL, MariaDB, and PostgreSQL.
+    \item \textbf{N-able Cove Data Protection} -- Cloud-based backup with database support.
+    \item \textbf{Quest Rapid Recovery} -- Backup and disaster recovery for SQL Server, Oracle.
+\end{enumerate}
+
+\end{document}
