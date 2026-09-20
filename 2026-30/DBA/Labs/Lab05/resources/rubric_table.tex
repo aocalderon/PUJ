@@ -1,0 +1,36 @@
+\documentclass[10pt, landscape]{article}
+\usepackage[utf8]{inputenc}   % UTF-8 encoding
+\usepackage[T1]{fontenc}      % Better font encoding
+%\usepackage[spanish]{babel}   % Spanish hyphenation/labels
+\usepackage{booktabs}    % For \toprule, \midrule, \bottomrule
+\usepackage{array}       % For p{..} column types
+\usepackage{graphicx}    % For \resizebox
+\usepackage{float}       % For [H] placement specifier
+\usepackage{geometry}
+\geometry{
+    margin=1cm,
+    bottom = 2cm
+}
+\begin{document}
+\pagenumbering{gobble}
+\begin{table}
+\centering
+\caption{Rubric for Lab 05: Backup \& Restoring}
+\label{tab:lab05-rubric}
+%\resizebox{\textwidth}{!}{%
+%\large
+\begin{tabular}{@{}p{4cm}p{5cm}p{5cm}p{4cm}p{4cm}c@{}}
+\toprule
+\textbf{Criteria} & \textbf{Exemplary (5 pts)} & \textbf{Competent (4 pts)} & \textbf{Developing (3--2 pts)} & \textbf{Insufficient (1--0 pts)} & \textbf{Weight} \\ \midrule
+\textbf{Database Setup} & Successfully created and populated a database with SUMO/TAPAS data using scripts or tools; schema design is clear and efficient. & Database created and populated, but minor inefficiencies or unclear schema design. & Database partially populated, schema has significant flaws or inconsistencies. & Database not created or incomplete. & 20\% \\ \midrule
+\textbf{Backup \& Restore Tool Configuration} & Correctly installed and configured chosen B\&R tool (open-source or commercial); demonstrates automated periodic backups. & Configured tool but with minor errors; periodic backups not fully automated. & Tool used only manually or inconsistently; limited understanding shown. & No functional tool setup. & 25\% \\ \midrule
+\textbf{Catastrophic Event Simulation} & Realistic data loss simulated (e.g., DELETE injection); clearly documented; integrates well with backup cycle. & Event simulated but with limited scope or minor issues in documentation. & Event simulated partially or with unclear execution steps. & Event not simulated. & 15\% \\ \midrule
+\textbf{Recovery \& Analysis} & Fully demonstrates recovery process; evaluates effectiveness and limitations of the B\&R tool; compares recovered vs. lost data. & Recovery demonstrated, but evaluation of effectiveness is brief or incomplete. & Recovery attempted but incomplete; weak analysis of effectiveness. & No recovery shown. & 20\% \\ \midrule
+\textbf{Presentation \& Communication} & Clear, engaging presentation; explains technical process, challenges, and insights; excellent visuals and structure. & Presentation covers main points but lacks depth or clarity in some areas. & Presentation incomplete, poorly structured, or difficult to follow. & No presentation or major parts missing. & 15\% \\ \midrule
+\textbf{Collaboration \& Peer Evaluation} & Actively participates in auto- and co-evaluation; provides constructive peer feedback. & Participates but feedback is limited or superficial. & Minimal peer feedback given. & No participation in evaluation. & 5\% \\ \bottomrule
+\end{tabular}%
+%}
+\end{table}
+
+
+\end{document}
