@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{ML101 \\ Homework 04: A `gentle' Introduction to Tree-based Methods.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Welcome to Homework 04. This week, we embark on a ``gentle'' introduction to tree-based methods, a family of algorithms renowned for their intuitive appeal and interpretability. Unlike many opaque ``black-box'' models, decision trees closely mirror human decision-making processes. They work by stratifying the predictor space into simple, easily understandable rules, allowing us to break down complex relationships organically.
+
+In this assignment, we will approach these methods from multiple angles. First, you will build a strong conceptual foundation by reviewing highly acclaimed visual essays that demystify how decision trees partition data. Next, you will transition from theory to practice by working through a laboratory session based on \textit{An Introduction to Statistical Learning}, equipping you with the practical skills needed to grow and prune your own trees. Finally, as part of our flipped classroom methodology, you will look ahead to our next major topic, Support Vector Machines (SVM), by reviewing and taking notes on specialized video lectures.
+
+By the end of this homework, you will not only appreciate the ``unreasonable power of nested decision rules'' but also be well-prepared to tackle advanced classification problems in our upcoming sessions.
+
+\section{Additional Material}
+\label{sec:reading}
+
+To develop an intuitive understanding of decision trees algorithms review the following introductory resources:
+
+\begin{enumerate}
+  \item ``A Visual Introduction to Machine Learning'' by Stephanie Yee and Tony Chu (2015).  Available at \url{https://r2d3.us/visual-intro-to-machine-learning-part-1/}
+  \item ``Decision Trees: The unreasonable power of nested decision rules'' by Jared Wilber and Lucía Santamaría (2022).  Available at \url{https://mlu-explain.github.io/decision-tree/}
+\end{enumerate}
+
+\noindent This reading is intended for conceptual preparation; no deliverable is required for this section.
+
+\section{Lab: Decision Trees}
+\label{sec:lab}
+
+To gain hands-on experience, this time we will work through the Chapter~8 laboratory exercises from \textit{An Introduction to Statistical Learning Using R}.  In particular, we will focus on Sections 8.3.1--8.3.4, pp.~353--360). Again, you can cover the similar contents in the Python book.
+
+Remember that while no formal deliverable is required for this section, working through these exercises will be mandatory for the upcoming laboratory assignment.
+
+\section{Flipped Classroom}
+\label{sec:flipped}
+
+To prepare for next week's lectures, review the assigned video recordings for Chapter~9 (``Support Vector Machines''). These lectures are provided by Stanford Online and are hosted on their YouTube channel and the edX platform\footnote{Hastie, T., \& Tibshirani, R. (2023). \textit{Statistical learning} (STATSX0001) [MOOC]. edX; Stanford Online. \url{https://www.statlearning.com/online-courses}}.
+
+Refer to Table~\ref{tab:videos} for the required playlist. You must take handwritten notes for each lecture video, which will constitute the primary deliverable for this assignment.
+
+\begin{table}
+  \centering
+  \caption{Required Video Lectures for Chapter 9: Support Vector Machines}
+  \label{tab:videos}
+  \begin{tabular}{c l c c c c c}
+    \toprule
+      Section & Title & Duration & Links & & & \\
+    \midrule
+      9.1 & Optimal Separating Hyperplane & 11:35 &
+      \href{https://youtu.be/Op0OyOuDjcQ?si=AIDVK3V8UJm1ZF6d}{YouTube} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Transcript} \\
+      9.2 & Support Vector Classifier & 8:04 &
+      \href{https://youtu.be/pjvnCEfAswc?si=tIAVWqSq9LJINIB4}{YouTube} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Transcript} \\
+      9.3 & Feature Expansion and the SVM & 15:04 &
+      \href{https://youtu.be/02icdqOJsH4?si=NXI1yGPRjaCeJlh_}{YouTube} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Transcript} \\
+      9.4 & Example and Comparison with Logistic Regression & 14:77 &
+      \href{https://youtu.be/48P-oV6cH44?si=OMwV3cCBfeSiSZl7}{YouTube} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/18XPpCin0sGCLQ1QS0QHu1_YRrw-_XSi_?usp=sharing}{Transcript} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Expected Deliverable}
+\label{sec:deliverables}
+
+You will prepare a simple report sharing your handwritten lecture notes of the videos presented in section~\ref{sec:flipped}.  Please submit your report in \textbf{PDF format} through the corresponding BrightSpace\texttrademark{} assignment for next week.
+
+\vspace{5mm}
+Happy Learning! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
