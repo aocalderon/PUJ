@@ -1,0 +1,50 @@
+% Source - https://tex.stackexchange.com/a/418835
+% Posted by cfr
+% Retrieved 2026-04-15, License - CC BY-SA 3.0
+
+\documentclass[border=10pt]{standalone}
+\usepackage{forest}
+\usepackage{amsmath}
+\usetikzlibrary{arrows.meta}
+
+\forestset{
+  default preamble={
+    before typesetting nodes={
+      !r.replace by={[, coordinate, append]}
+    },
+    where n children=0{
+      tier=word,
+    }{
+      diamond, aspect=2,
+    },
+    where level=0{}{
+      if n=1{
+        edge label={node[pos=.2, above] {Si}},
+      }{
+        edge label={node[pos=.2, above] {No}},
+      }
+    },
+    for tree={
+      edge+={thick, -Latex},
+      math content,
+      font=\large,
+      s sep'+=3.25cm,
+      draw,
+      thick,
+      align=center,
+      edge path'={ (!u) -| (.parent)},
+    }
+  }
+}
+
+\begin{document}
+\begin{forest}
+    [Es verde\\ brillante?
+        [Esta\\ lunarejo?
+            [Mejor no]
+            [Esta\\ caro? [Mejor no] [Yummy]]
+        ]
+        [Se le siente\\ la pepa? [Mejor no] [Yummy] ]
+    ]
+\end{forest}
+\end{document}
