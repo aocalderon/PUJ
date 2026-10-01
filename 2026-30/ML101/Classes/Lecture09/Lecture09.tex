@@ -215,13 +215,38 @@
     $\epsilon_{i} \ge 0, \quad \sum_{i=1}^{n}\epsilon_{i} \le C$
 \end{frame}
 
+\begin{frame}{Support Vector Classifier --continued}
+  \begin{itemize}
+    \item \textbf{The Problem:} Real-world data is often noisy or non-separable. A strict maximal margin classifier is highly sensitive to outliers and can overfit.
+    \item \textbf{Soft Margin Solution:} We allow some observations to violate the margin, or even fall on the wrong side of the separating hyperplane.
+    \item \textbf{Slack Variables ($\epsilon_i$):} The $\epsilon_i$ values are ``slack variables'' that measure how much an individual data point is allowed to violate its margin:
+      \begin{itemize}
+          \item $\epsilon_i = 0$: Point is on the correct side of the margin.
+          \item $\epsilon_i > 0$: Point has violated the margin and sits on the wrong side of it.
+          \item $\epsilon_i > 1$: Point has violated the margin so severely that it is located on the wrong side of the separating hyperplane itself (a misclassification).
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Support Vector Classifier --continued}
+  \begin{itemize}
+    \item \textbf{The Problem:} Real-world data is often noisy or non-separable. A strict maximal margin classifier is highly sensitive to outliers and can overfit.
+    \item \textbf{Soft Margin Solution:} We allow some observations to violate the margin, or even fall on the wrong side of the separating hyperplane.
+    \item \textbf{Regularization Budget ($C$):} The tuning parameter $C$ bounds the total sum of margin violations ($\sum \epsilon_i \le C$):
+    \begin{itemize}
+        \item $C$ acts as a regularization parameter that controls the bias-variance trade-off of the classifier.
+        \item A larger $C$ provides a higher tolerance for overlap and margin violations, resulting in a wider margin that is influenced by more points (yielding lower variance but potentially higher bias).
+        \item A smaller $C$ strictly limits the allowed slack, forcing a narrower margin that fits the training data more rigidly (yielding lower bias but higher variance).
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Support Vector Classifier}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/9_7} \\
-    \textit{\tiny The effect of varying the regularization parameter C on the soft margin width and decision boundary.} \\
-    \begin{itemize}
-        \item C is a regularization parameter.
-    \end{itemize}
+    \includegraphics[width=0.55\textwidth]{figures/9_7} \\
+    \vspace{-3mm}
+    \textit{\tiny The effect of varying the regularization parameter C on the soft margin width and decision boundary.}
 \end{frame}
 
 \begin{frame}{Linear boundary can fail}
@@ -271,6 +296,13 @@
     This leads to nonlinear decision boundaries in the original space (quadratic conic sections).
 \end{frame}
 
+\begin{frame}{Feature Expansion --continued}
+    \centering
+    \includegraphics[height=0.925\textheight]{figures/fs} \\
+    \vspace{-7mm}
+    {\tiny \url{https://www.freecodecamp.org/news/svm-kernels-how-to-tackle-nonlinear-data-in-machine-learning/}}
+\end{frame}
+
 \begin{frame}{Cubic Polynomials}
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -283,11 +315,13 @@
         \begin{column}{0.5\textwidth}
             \centering
             \includegraphics[trim={0cm 0cm 9cm 0cm}, clip, width=0.9\textwidth]{figures/9_9} \\
+            \vspace{-3mm}
             \textit{\tiny Decision boundary of a Support Vector Classifier using a cubic polynomial kernel, successfully separating the non-linear classes.}
         \end{column}
     \end{columns}
     \pause
-    {\footnotesize
+    \vspace{2mm}
+    {\scriptsize
     \[ \beta_{0} + \beta_{1}X_{1} + \beta_{2}X_{2} + \beta_{3}X_{1}^{2} + \beta_{4}X_{2}^{2} + \beta_{5}X_{1}X_{2} + \beta_{6}X_{1}^{3} + \beta_{7}X_{2}^{3} + \beta_{8}X_{1}X_{2}^{2} + \beta_{9}X_{1}^{2}X_{2} = 0 \]
     }
 \end{frame}
@@ -300,7 +334,46 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Inner products and support vectors}
+\begin{frame}{The Inner Product}
+    \begin{itemize}
+        \item The equation \(\langle x_i, x_{i'} \rangle = \sum_{j=1}^p x_{ij}x_{i'j}\) calculates the inner product between two distinct observation vectors.
+        \item This mathematical operation multiplies the corresponding individual components of the two vectors and sums the cross products together.
+        \item In the context of support vector machines, this inner product functions as an abstract measure of ``similarity'' between those two observations.
+        \pause
+        \begin{itemize}
+            \item When two observations share large feature values in the same direction, multiplying them together yields large positive numbers.
+            \item Summing these cross-products results in a large total inner product, indicating a strong similarity between the two data points.
+        \end{itemize}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Classifier Function}
+    \begin{itemize}
+        \item The equation \(f(x) = \beta_0 + \sum_{i=1}^n \alpha_i \langle x, x_i \rangle\) shows that the classifier can be written entirely in terms of these inner products.
+        \item Instead of using a parameter for each original feature, the model assigns a specific weight parameter (\(\alpha_i\)) to every single training observation (\(n\) parameters total).
+        \item To evaluate a new point (\(x\)), the model computes its inner product (similarity) with every existing training point (\(x_i\)) and multiplies it by that point's weight.
+        \pause
+        \begin{itemize}
+            \footnotesize
+            \item The inner product directly quantifies the relationship between observations by functioning as a measure of similarity.
+            \item This mathematical property allows a linear support vector machine to evaluate new data without applying rigid formulas to isolated feature coordinates.
+            \item The model classifies a new point by calculating its pairwise similarity exclusively against the specific, borderline training observations, which are known as support vectors.
+        \end{itemize}
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Support Set}
+    \begin{itemize}
+        \item The formula \(f(x) = \beta_0 + \sum_{i \in S} \hat{\alpha}_i \langle x, x_i \rangle\) reveals the efficiency of this method.
+        \item When the model is fitted, many of the \(\alpha_i\) weights end up being exactly zero.
+        \item The specific training observations that retain a non-zero weight (\(\alpha_i > 0\)) form the ``support set'' ($\mathcal{S}$) and are known as the support vectors.
+        \item Because most points have a weight of zero, evaluating a new observation only requires computing its similarity to this small handful of support vectors, effectively ignoring the rest of the dataset for the final calculation.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Inner products and support vectors --summary}
     \footnotesize
     \begin{itemize}
         \item Inner product between vectors...
@@ -316,7 +389,7 @@
 
     It turns out that most of the $\hat{\alpha}_{i}$ can be zero:
     \[ f(x) = \beta_{0} + \sum_{i \in \mathcal{S}} \hat{\alpha}_{i} \langle x, x_{i} \rangle \]
-    $\mathcal{S}$ is the \textbf{support set} of indices $i$ such that $\hat{\alpha}_{i} > 0$ [see slide 10]
+    $\mathcal{S}$ is the \textbf{support set} of indices $i$ such that $\hat{\alpha}_{i} > 0$.
 \end{frame}
 
 \begin{frame}{Kernels and Support Vector Machines}
@@ -324,7 +397,7 @@
         \item If we can compute inner-products between observations, we can fit a SV classifier. Can be quite abstract!
         \pause
 
-        \item Some special \textbf{kernel functions} can do this for us. E.g.
+        \item Some special (\textit{polynomial}) \textbf{kernel functions} can do this for us. E.g.
         \[ K(x_{i}, x_{i'}) = \left(1 + \sum_{j=1}^{p} x_{ij} x_{i'j}\right)^{d} \]
         computes the inner-products needed for $d$ dimensional polynomials - $\binom{p+d}{d}$ basis functions! \\
         \textbf{Try it for $p=2$ and $d=2$.}
@@ -343,11 +416,17 @@
             \textit{\tiny Radial kernel cleanly encapsulating non-linear clusters.}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \[ K(x_{i}, x_{i'}) = \exp\left(-\gamma \sum_{j=1}^{p} (x_{ij} - x_{i'j})^{2}\right). \]
+            \small
+            \[ K(x_{i}, x_{i'}) = \exp\left(-\gamma \sum_{j=1}^{p} (x_{ij} - x_{i'j})^{2}\right) \]
             \[ f(x) = \beta_{0} + \sum_{i \in \mathcal{S}} \hat{\alpha}_{i} K(x, x_{i}) \]
-            Implicit feature space; very high dimensional. \\
-            \vspace{1em}
-            Controls variance by squashing down most dimensions severely.
+            The calculation mirrors the core of a multivariate Gaussian distribution. \\
+            \vspace{1mm}
+            Dimensionality ``Squashing'': Controls variance by squashing down most dimensions severely. \\
+            \vspace{1mm}
+            Local Behavior: Distant training observations have virtually no impact on predicting a specific test point\\
+            \vspace{1mm}
+            $\gamma$ parameter: a positive tuning parameter that controls the flexibility of the boundary.
+
         \end{column}
     \end{columns}
 \end{frame}
@@ -391,6 +470,7 @@
             \textit{\tiny Line plot comparing Hinge Loss (SVM) and Negative Log-Likelihood Loss (Logistic Regression). Both look very similar.}
         \end{column}
         \begin{column}{0.5\textwidth}
+            \small
             With $f(X) = \beta_{0} + \beta_{1}X_{1} + \dots + \beta_{p}X_{p}$ can rephrase support-vector classifier optimization as
             \[ \min_{\beta_{0},\beta_{1},\dots,\beta_{p}} \left\{ \sum_{i=1}^{n} \max[0, 1 - y_{i}f(x_{i})] + \lambda \sum_{j=1}^{p} \beta_{j}^{2} \right\} \]
             This has the form \textbf{loss plus penalty}. \\
