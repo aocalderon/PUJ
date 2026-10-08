@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{ML101 \\ Lab 03: A `gentle' Introduction to Supervised Classification.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+Welcome to Lab 03. In this practical session, we will expand our predictive modeling toolkit by exploring some of the most powerful and widely used machine learning algorithms. The primary objective of this lab is to provide a hands-on foundation in Support Vector Machines (SVM), Deep Learning (including standard, Convolutional, and Recurrent Neural Networks), and Tree-based methods.
+
+This laboratory is structured into two main phases. Initially, you will engage in a guided learning experience by following expert video walkthroughs based on Chapters 9 and 10 of \textit{An Introduction to Statistical Learning} (ISLRv2). This guided portion is designed to familiarize you with the underlying concepts and the practical implementation of these models in a structured environment.
+
+Following the guided tutorials, you will transition to the autonomous portion of the lab. You will be tasked with sourcing a multivariate, categorical classification dataset from the UC Irvine Machine Learning Repository and applying the techniques you have just learned. By the end of this lab, you will have gained practical experience in training, evaluating, and comparing different supervised classification models, culminating in a comprehensive report that analyzes their performance and trade-offs on a real-world dataset.
+
+\section{Lab: Support Vector Machines}
+\label{sec:lab1}
+
+We will explore Section ``9.6 Lab: Support Vector Machines'' in Chapter~9 of ISLRv2\footnote{James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2023). \textit{An Introduction to Statistical Learning: with Applications in R} (2nd ed.). Springer. \url{https://www.statlearning.com/}}. This time, we will follow a video explanation provided by the author, which is available on the course's \href{https://youtu.be/WCRwbrNWrpw?si=C0IG8lw0GodNo86o}{YouTube channel}. You can also access the video, subtitles, and transcript via the following \href{https://drive.google.com/drive/folders/1Pkx3m8-cWBMfvwm-xwTh9dnTMLt9ukHj?usp=sharing}{link}. You are not required to submit any deliverables for this section; however, you will need to apply these techniques in the subsequent sections.
+
+\section{Lab: Deep Learning}
+\label{sec:lab2}
+
+In the same fashion as previous section, we will follow the ``10.9 Lab: Deep Learning'' in Chapter~10.  Table~\ref{tab:videos} provides the links to the YouTube videos and additional materials.
+
+\begin{table}
+  \centering
+  \caption{Required Video Lectures for Chapter 9: Support Vector Machines}
+  \label{tab:videos}
+  \begin{tabular}{c l c c c c c}
+    \toprule
+      Section & Title & Duration & Links & & & \\
+    \midrule
+      10.1 & Neural Networks in R and the MNIST data& 29:34 &
+      \href{https://youtu.be/Ut647c_aZoc?si=auAF7JIdAZMae3Zd}{YouTube} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Transcript} \\
+      10.2 & Convolutional Neural Networks in R & 13:20 &
+      \href{https://youtu.be/cVtL_ITG8po?si=1WLZ8oY0Z_iZGLhE}{YouTube} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Transcript} \\
+      10.3 & Document Classification in R & 8:28 &
+      \href{https://youtu.be/SFHNg2X9o60?si=oarAOSCj-JyKWgF-}{YouTube} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Transcript} \\
+      10.4 & Recurrent Neural Networks in R & 15:05 &
+      \href{https://youtu.be/bi34fBER1ds?si=lYm_xcfWxtCt6aaa}{YouTube} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Video} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Subtitles} &
+      \href{https://drive.google.com/drive/folders/15vUND0nRTPGUduXl6VK-ioQa1lPOi6G2?usp=sharing}{Transcript} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Similarly, you are not required to include evidence from this walkthrough in your lab report; however, familiarizing yourself with these tools is essential for completing the autonomous work in the subsequent section.
+
+\section{Autonomous Work}
+\label{sec:work}
+
+Building on what we have learned in previous sections and assignments, we will analyze a new dataset from the \href{https://archive.ics.uci.edu/datasets}{UC Irvine Machine Learning Repository}. This repository provides a wide variety of datasets across numerous disciplines and for various analytical purposes. For this exercise, filter the available datasets using the following criteria:
+
+\begin{itemize}
+  \item Data Type = Multivariate
+  \item Task = Classification
+  \item Feature Type = Categorical
+\end{itemize}
+
+Select exactly one dataset that meets these criteria and use it to train models employing the following techniques:
+
+\begin{enumerate}
+  \item \textbf{Logistic regression}.
+  \item \textbf{Tree-based methods}.
+  \item \textbf{SVM}.
+  \item \textbf{Neural Networks}.
+\end{enumerate}
+
+Be sure to capture the basic evaluation metrics for each approach to establish an informed ranking of the best methods for your specific dataset. Ideally, you should briefly discuss the confusion matrix, along with the overall accuracy, precision, recall, and F1-score for each model.
+
+\section{Deliverables}
+Each group must submit a well-structured \textbf{PDF} report detailing the implementation and results of the methods described in Section~\ref{sec:work}. The report should provide a concise evaluation of each technique, thoroughly discussing key findings, performance trade-offs, and main observations. Submissions must be uploaded via the designated Brightspace\texttrademark{} assignment link within \textbf{21 days} of this lab session.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
