@@ -30,7 +30,7 @@
 Modern geoinformatics has evolved from static cartography into a dynamic discipline essential for real-time environmental monitoring. This project offers a comprehensive framework for applying machine learning fundamentals to real-world scenarios, utilizing multispectral satellite imagery to quantify and analyze land cover. By integrating open-source tools with advanced machine learning architectures, this workflow moves beyond passive observation into rigorous spatial analysis. Mirroring professional GeoAI pipelines, model development and deployment are executed within specialized computational environments rather than traditional GIS software. Ultimately, this approach equips participants to bridge the gap between raw geospatial data and actionable environmental intelligence.
 
 \section{Region of Interest (ROI)}
-This project utilizes a multispectral scene from the Sentinel-2 satellite constellation, captured over Bogotá on August 10, 2026. Sentinel imagery is operated by the European Space Agency (ESA) under the Copernicus Earth observation program. Specifically, the dataset corresponds to a Level-2A product (Tile: T18NWL), which provides bottom-of-atmosphere reflectance.
+This project utilizes a multispectral scene from the Sentinel-2 satellite constellation, captured over Bogotá on August 10, 2026. Sentinel imagery is operated by the European Space Agency (ESA) under the Copernicus Earth observation program\footnote{\url{https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2}}. Specifically, the dataset corresponds to a Level-2A product (Tile: T18NWL), which provides bottom-of-atmosphere reflectance.
 
 The selected scene comprises 10 spectral bands spanning the visible, near-infrared (NIR), and short-wave infrared (SWIR) regions of the electromagnetic spectrum. While the native spatial resolutions of these bands vary (10m, 20m, and 60m), all image arrays in this specific dataset have been resampled to a uniform 20-meter spatial resolution to facilitate consistent pixel-level machine learning analysis. Figure~\ref{fig:roi} depicts the geographic extent of the study area.
 
@@ -43,7 +43,7 @@ The selected scene comprises 10 spectral bands spanning the visible, near-infrar
 
 \subsection{Sentinel-2 Band Characteristics}
 
-The provided dataset is derived from a Sentinel-2 Level-2A product (Tile: T18NWL, Date: August 10, 2026)[cite: 1]. The \texttt{\_20m.jp2} suffix appended to the filenames indicates that all included image arrays have been harmonized to a 20-meter spatial resolution[cite: 1]. While certain bands natively possess 10-meter or 60-meter resolutions, this resampling process is a necessary preprocessing step to ensure dimensional consistency across the multi-dimensional feature space required for machine learning model training and inference.
+The dataset is expected to be derived from a Sentinel-2 Level-2A product\footnote{\url{https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel-2/bands/}} (Tile: T18NWL, Date: August 10, 2026). Teams have access to the scene's imagery through the following \href{https://drive.google.com/drive/folders/1PcY6xgIXweaTyFkotvhcjVsLUVlv5oAY?usp=sharing}{link}.  The \texttt{\_20m.jp2} suffix appended to the filenames indicates that all included image arrays have been harmonized to a 20-meter spatial resolution. While certain bands natively possess 10-meter or 60-meter resolutions, this resampling process is a necessary preprocessing step to ensure dimensional consistency across the multi-dimensional feature space required for machine learning model training and inference.
 
 Table~\ref{tab:bands} summarizes the physical properties of the selected spectral bands. This specific subset of 10 bands was chosen for its high utility in land-cover classification; for instance, the visible spectrum (B02--B04) captures basic color properties, the Red Edge bands (B05--B07, B8A) are critical for distinguishing vegetation health and types, and the Short Wave Infrared bands (B11, B12) provide essential data on moisture content and built-up surfaces.
 
@@ -75,13 +75,13 @@ Table~\ref{tab:bands} summarizes the physical properties of the selected spectra
 In this phase, the workflow transitions from basic image analysis to supervised machine learning. Students are required to structure pixel-level information into training datasets, following a standard deployment pipeline that operates independently of external GIS software. This methodology mirrors real-world GeoAI applications, where model development and deployment occur within specialized computational frameworks.
 
 \subsection{Data Extraction and Table Construction}
-Students must transform the multispectral Sentinel-2 bands into a non-spatial, tabular format suitable for algorithmic training. Using a programming language of choice\footnote{Common environments include Python (e.g., utilizing \texttt{rasterio} and \texttt{geopandas}) or R (e.g., utilizing \texttt{terra} and \texttt{sf}).}, participants will develop scripts to ingest the satellite imagery and extract pixel values located within predefined training polygons.
+Students must transform the multispectral Sentinel-2 bands into a non-spatial, tabular format suitable for algorithmic training. Using a programming language of choice\footnote{Common environments include Python (e.g., utilizing \texttt{rasterio} and \texttt{geopandas}) or R (e.g., utilizing \texttt{terra} and \texttt{sf}).}, participants will develop scripts to ingest the satellite imagery and extract pixel values located within predefined \textit{training polygons}.  Teams have access to the set of polygons following this \href{https://drive.google.com/file/d/19E7njT_QE5ZU0msz4hN3p5qaGq5h3mnp/view?usp=sharing}{link}.
 
 Each polygon serves as a ground-truth sample representing specific land-cover classes within the scene. This extraction process yields a structured dataset where every row corresponds to an individual pixel's spectral signature and its associated categorical label. The integer labels for each class must strictly follow the convention shown in Figure~\ref{fig:labels}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/classes}
+    \includegraphics[width=0.4\textwidth]{figures/classes}
     \caption{Discrete classification labels and their corresponding land-cover categories.}
     \label{fig:labels}
 \end{figure}
@@ -133,8 +133,15 @@ The output of this process must be exported as a georeferenced raster file (e.g.
 
     \item \textbf{Area Quantification:} Beyond visual representation, students are required to generate spatial statistics. Using the predicted categorical raster, calculate the total spatial area (in hectares or square kilometers) for each land-cover class.
 
-    \item \textbf{(Optional) Thematic Visualization:} Participants are encouraged to import the resulting GeoTIFF into an open-source GIS environment, such as QGIS, to apply a discrete color symbology. This thematic visualization should clearly and intuitively distinguish between the different land-cover types.
+    \item \textbf{Thematic Visualization:} Participants are encouraged to import the resulting GeoTIFF or JP2 into an open-source GIS environment, such as QGIS\footnote{\url{https://qgis.org/}} or other similar tool, to apply a discrete color symbology. This thematic visualization should clearly and intuitively distinguish between the different land-cover types.  See figure~\ref{fig:expected_output} as reference.
 \end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/expected_output}
+    \caption{Expected thematic land-cover map of Bogotá generated via full-scene spatial inference. The legend details the discrete land-cover classifications applied to the region of interest.}
+    \label{fig:expected_output}
+\end{figure}
 
 \section{Project Phases and Weekly Deliverables}
 The project is structured around two primary milestones, with specific components to be submitted at the conclusion of their respective weeks:
@@ -142,16 +149,18 @@ The project is structured around two primary milestones, with specific component
 \subsection*{Phase 1: Pre-processing and Training (Week 2)}
 This phase focuses on technical data preparation, feature extraction, and initial model testing.
 \begin{itemize}
-    \item \textbf{Deliverables:} Documentation of the exported TSV training dataset and preliminary evaluation metrics (specifically, the Confusion Matrix and Overall Accuracy) for a minimum of two implemented classification architectures.
+    \item \textbf{Deliverables:} A \textbf{PDF report} with the documentation of the TSV training dataset construction and preliminary evaluation metrics (specifically, the Confusion Matrix and Overall Accuracy) for a minimum of \textbf{three} implemented classification architectures.
+    \item \textbf{Deadline:} November 13, 2026. Midnight.
 \end{itemize}
 
 \subsection*{Phase 2: Synthesis and Prediction (Week 4)}
 This final phase encompasses model optimization, full-scene spatial inference, and comprehensive reporting.
 \begin{itemize}
-    \item \textbf{Deliverables:} The predicted thematic raster exported as a georeferenced image (GeoTIFF), the complete technical report detailing the comparative analysis, and a compressed archive (ZIP) containing all reproducible source code.
+    \item \textbf{Deliverables:} The predicted thematic raster exported as a georeferenced image (GeoTIFF or JP2), the complete technical report detailing the comparative analysis (PDF and \LaTeX), and a compressed archive (ZIP or TAR.GZ) containing all reproducible source code.
+    \item \textbf{Deadline:} November 27, 2026. 7:00PM.
 \end{itemize}
 
 \section{Conclusion}
-This project represents a complete synthesis of the remote sensing pipeline, from initial data acquisition to high-level machine learning inference. By navigating the complexities of multi-spectral data extraction , Hyperparameter Optimization (HPO) , and full-scene prediction, students transform raw reflectance values into a meaningful, single-band categorical raster.  Beyond the technical mastery of scripts and algorithms , the true value of this work lies in the ability to document our changing planet using ground-truth validation and scientific integrity. As students finalize their thematic visualizations and quantitative area assessments, they transition from being observers of environmental flux to active participants in the modern geospatial landscape.
+This project represents a complete synthesis of the applied GeoAI pipeline, guiding students from raw multispectral data acquisition to advanced spatial inference. By leveraging computational environments to extract Sentinel-2 spectral signatures, optimize machine learning architectures, and generate thematic land-cover maps, participants successfully bridge the gap between theoretical data science and practical geoinformatics. Beyond the technical execution of data extraction and algorithmic tuning, the ultimate value of this exercise lies in producing rigorous, actionable environmental intelligence. As students finalize their spatial statistics and thematic visualizations, they transition from passive observers of geospatial data into capable architects of modern environmental monitoring systems.
 
 \end{document}
