@@ -98,6 +98,30 @@
     }
 \end{frame}
 
+\begin{frame}{The Network Prediction Model ($f(x_i)$)}
+    \begin{equation*}
+    f(x_i) = \beta_0 + \sum_{k=1}^{K} \beta_k g\left(w_{k0} + \sum_{j=1}^{p} w_{kj}x_{ij}\right)
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Hidden Unit Pre-Activation ($w_{k0} + \sum_{j=1}^{p} w_{kj}x_{ij}$):} For observation $i$ and hidden unit $k \in \{1, \dots, K\}$, the network computes a linear combination of the $p$ input features $x_{ij}$ using input-to-hidden weights $w_{kj}$ and a bias/intercept term $w_{k0}$. \pause
+
+        \item \textbf{Nonlinear Activation ($g(\cdot)$):} Each linear combination is passed through an activation function $g(\cdot)$ to produce the hidden unit's output. \pause
+
+        \item \textbf{Output Combination ($\beta_0 + \sum_{k=1}^{K} \beta_k g(\cdot)$):} The $K$ activated hidden units are weighted by hidden-to-output parameters $\beta_1, \dots, \beta_K$ and added to an output intercept $\beta_0$ to produce the final prediction $f(x_i)$.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Optimization Objective (Loss Function)}
+    \begin{equation*}
+    \min_{\{w_k\}_1^K, \beta} \frac{1}{2} \sum_{i=1}^{n} (y_i - f(x_i))^2
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Least Squares Fitting:} Fitting the neural network requires finding the weight vectors $\{w_k\}_1^K$ and output weights $\beta$ that minimize the sum of squared errors between the observed responses $y_i$ and the network predictions $f(x_i)$ over all $n$ training observations. \pause
+
+        \item \textbf{Role of $\frac{1}{2}$:} Scaling the squared error by $\frac{1}{2}$ is a mathematical convenience so that the factor of $2$ cancels out when differentiating the loss during backpropagation.
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{Fitting Neural Networks}
     \begin{columns}[c]
         \begin{column}{0.48\textwidth}
@@ -182,8 +206,8 @@
 \begin{frame}{Tricks of the Trade}
     \begin{itemize}
         \item<1-> \textbf{Slow learning}. Gradient descent is slow, and a small learning rate $\rho$ slows it even further. With early stopping, this is a form of regularization.
-        \item<2-> \textbf{Stochastic gradient descent}. Rather than compute the gradient using all the data, use a small minibatch drawn at random at each step. E.g. for MNIST data, with $n=60K$, we use minibatches of 128 observations.
-        \item<3-> An \textbf{epoch} is a count of iterations and amounts to the number of minibatch updates such that $n$ samples in total have been processed; i.e. $60K/128\approx469$ for MNIST.
+        \item<2-> \textbf{Stochastic gradient descent}. Rather than compute the gradient using all the data, use a small minibatch drawn at random at each step. E.g. for \texttt{MNIST} data, with $n=60K$, we use minibatches of 128 observations.
+        \item<3-> An \textbf{epoch} is a count of iterations and amounts to the number of minibatch updates such that $n$ samples in total have been processed; i.e. $60K/128\approx469$ for \texttt{MNIST}.
         \item<4-> \textbf{Regularization}. Ridge and lasso regularization can be used to shrink the weights at each layer. Two other popular forms of regularization are dropout and augmentation, discussed next.
     \end{itemize}
 \end{frame}
