@@ -1,0 +1,105 @@
+\documentclass[10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Page geometry
+\geometry{a4paper, margin=1cm}
+
+% Color definitions
+\definecolor{navyblue}{HTML}{1A365D}
+\definecolor{steelblue}{HTML}{2B6CB0}
+\definecolor{zebra}{HTML}{F7FAFC}
+\definecolor{headerblue}{HTML}{EBF8FF}
+
+% Section formatting
+\titleformat{\section}{\color{navyblue}\normalfont\Large\bfseries}{\thesection}{1em}{}[{\color{navyblue}\titlerule}]
+\titleformat{\subsection}{\color{steelblue}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% Custom column type for tabularx to center-align text slightly if needed or keep it left
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\title{\textbf{Evaluation Rubric: DS Final Project} \\
+\large A Comparative Analysis of Machine Learning Architectures for Satellite-Based Surface Monitoring}
+\author{\textbf{Instructor:} Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{table}[h!]
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\fontseries{b}\selectfont}p{2.2cm} L L L L}
+\toprule
+\rowcolor{zebra}
+Criteria & Excellent (9--10 pts) & Proficient (6--8 pts) & Developing (2--5 pts) & Unacceptable (0--1 pts) \\
+\midrule
+Data Extraction \& Formatting &
+Successfully exports a \textbf{TSV} file containing Latitude, Longitude, $\ge 8$ spectral bands, and correct categorical class labels. High-quality extraction via scripts (Python/R). &
+Exports a TSV file with minor omissions (e.g., missing 1--2 spectral bands or minor coordinate format issues). &
+Wrong file format used (e.g., CSV instead of TSV) or critical columns missing. Script execution errors. &
+No dataset or data extraction script provided. \\
+
+\rowcolor{zebra}
+Model Implementation &
+Correctly implements, trains, and documents \textbf{all five required architectures}: DT, SVM, ANN, KNN, and NB. &
+Implements 4 out of 5 required models, or models are implemented with minor technical execution flaws. &
+Implements 2--3 models only, or models are poorly configured with no regard for their structural logic. &
+Fails to implement the machine learning models. \\
+
+Hyperparameter Optimization (HPO) &
+Demonstrates an \textbf{exhaustive HPO process} for all algorithms; settings are systematically adjusted to maximize performance. &
+HPO is attempted for all models, but the optimization process lacks depth or systematic testing. &
+HPO is only performed on a couple of models, or parameters are modified randomly without tuning logic. &
+No hyperparameter optimization is performed. \\
+
+\rowcolor{zebra}
+Performance Evaluation \& Synthesis &
+Generates precise Confusion Matrices and correctly computes \textbf{Overall Accuracy, Kappa, Precision, Recall, and F1-Score}. Synthesizes findings into a clear direct-comparison table. &
+Computes performance metrics, but has minor calculation errors or misses one key metric. Comparison table is present but hard to read. &
+Misses multiple evaluation metrics or fails to create a unified synthesis comparison table. &
+Evaluation metrics and comparison tables are entirely missing. \\
+Raster Prediction \& Inference &
+Successfully deploys the optimal model to run full-scene inference on the original multidimensional raster stack, exporting a georeferenced \textbf{GeoTIFF}. &
+Generates the GeoTIFF inference raster, but contains minor spatial alignment issues or projection hitches. &
+The output raster is corrupt, lacks spatial georeferencing, or fails to map integer codes to correct categories. &
+Fails to generate or export the final prediction raster. \\
+
+\rowcolor{zebra}
+Spatial Consistency \& GIS Visualization &
+Perfect retention of original CRS and affine parameters. High-quality discrete color symbology in GIS and accurate class area quantification (ha/km$^2$). &
+CRS/affine parameters align, but GIS visualization symbology is unclear or area statistics contain minor calculation errors. &
+The final map lacks spatial consistency with original imagery, or area statistics are missing. &
+No GIS visualization or area quantification provided. \\
+
+Technical Mastery \& Readiness &
+\textbf{Randomly selected presenters} demonstrate absolute mastery of the code, algorithms, and workflows, proving collective team knowledge. &
+Selected presenters understand the project well but struggle to answer deep technical questions about specific model mechanics. &
+Selected presenters show a clear lack of familiarity with parts of the workflow, indicating uneven team workload distribution. &
+Presenters are unable to explain the code, methodology, or project architecture. \\
+
+\rowcolor{zebra}
+Communication \& Time Management &
+Professional slide design. High clarity of speech and seamless delivery. Presentation is comprehensive and strictly \textbf{does not exceed 20 minutes}. &
+Presentation is clear but slightly unpolished. Timing is marginally over or under the 20-minute threshold. &
+Slides are chaotic or text-heavy. Presenters significantly breach the time limit or fail to convey core concepts clearly. &
+Presentation is unstructured, unprofessional, or completely misses the core project constraints. \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+
+\end{document}
