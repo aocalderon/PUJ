@@ -201,9 +201,14 @@
             \item Input: Raw pixels.
             \item Layer 1: Edges.
             \item Layer 2: Contours/Corners.
-            \item Layer 3: Object parts (e.g., wheels).
+            \item Layer 3: Object parts (e.g., nose).
         \end{itemize}
     \end{itemize}
+\end{frame}
+
+\begin{frame}{Feature Learning Hierarchy (Cont.)}
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/tiger}
 \end{frame}
 
 \begin{frame}{The XOR Problem}
@@ -226,7 +231,7 @@
 
 \begin{frame}{Solving XOR with Neural Networks (Cont.)}
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/fig3}
+    \includegraphics[width=\textwidth]{figures/fig3}
 \end{frame}
 
 \begin{frame}{The Backpropagation Algorithm}
@@ -281,6 +286,133 @@
     \centering
     \includegraphics[width=0.70\textwidth]{figures/fig5}
 \end{frame}
+
+\begin{frame}{Phase 1: Forward Propagation (Making a Guess)}
+\framesubtitle{Passing Clues Forward from the Front Row to the Back}
+
+\begin{block}{The Classroom Game Setup}
+    \scriptsize
+    Imagine kids sitting in rows (\textbf{layers}) playing a guessing game: \textit{``Is this picture a cat or a dog?''} The front row sees the picture, whispers clues to the middle rows, and the last kid shouts the team's guess.
+\end{block}
+
+\begin{itemize}
+    \scriptsize
+    \item \textbf{1. The First Row (Input Layer):}
+    Inputs are fed to the network and pass through unchanged. The front-row kids get raw clues (\textit{pointy ears, whiskers, furry}) and pass them straight back.
+
+    \item \textbf{2. The Middle Rows (Hidden Layers):}
+    Each kid $j$ listens to the row in front of them and does two steps:
+    \begin{enumerate}
+        \scriptsize
+        \item \textbf{Gather \& Weigh the Clues (Net Input):}
+        $I_j = \sum_i w_{ij} O_i + b_j$ \\
+        Kid $j$ listens to every friend's whisper ($O_i$), multiplies it by how much they \textbf{trust} that friend ($w_{ij}$, the \textbf{weight}), and adds their own personal hunch ($b_j$, the \textbf{bias}).
+        \item \textbf{Decide How Loud to Whisper (Output):}
+        $O_j = f(I_j)$ \\
+        Using a special squishing rule ($f$), kid $j$ turns all those clues ($I_j$) into a neat score between $0$ and $1$ and whispers it to the next row.
+    \end{enumerate}
+
+    \item \textbf{3. The Final Guess (Output Layer):}
+    Whispers travel layer by layer until the very last kid shouts the final prediction!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Phase 2: Backward Propagation of Error (Sharing the Blame)}
+\framesubtitle{Walking Backward from the Last Kid to See Who Messed Up}
+
+\begin{itemize}
+    \scriptsize
+    \item \textbf{Starting at the End:}
+    Suppose the picture was a \textbf{cat}, but the last kid shouted \textbf{dog}! We calculate the mistake ($\delta$, called ``delta'') starting at the output layer and walking \textit{backward} row by row.
+
+    \item \textbf{1. The Last Kid's Mistake (Output Unit $j$, using a sigmoid rule):}
+    \[
+        \delta_j = O_j(1 - O_j)(T_j - O_j)
+    \]
+    \vspace{-5mm}
+    \begin{itemize}
+        \scriptsize
+        \item $T_j - O_j$: The gap between the \textbf{True answer} ($T_j$) and the \textbf{Kid's guess} ($O_j$).
+        \item $O_j(1 - O_j)$: Checks how \textit{stubborn or unsure} the kid was. A kid who was unsure (guessing near $0.5$) is much easier to correct!
+    \end{itemize}
+
+    \item \textbf{2. Passing the Blame to the Middle Rows (Hidden Unit $j$):}
+    \[
+        \delta_j = O_j(1 - O_j) \sum_l \delta_l w_{jl}
+    \]
+    \vspace{-5mm}
+    \begin{itemize}
+        \scriptsize
+        \item Middle kids didn't shout the final answer, so how do we know their mistake?
+        \item We check the blame of the kids behind them ($\delta_l$) and how strongly kid $j$ was connected to them ($w_{jl}$). If you whispered loudly to someone who made a huge mistake, you share a big chunk of their blame!
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Phase 3: Weight and Bias Updates (Learning for Next Time)}
+\framesubtitle{Adjusting Who You Trust Using Gradient Descent}
+
+\begin{itemize}
+    \scriptsize
+    \item \textbf{Gradient Descent (Stepping Downhill):}
+    Imagine walking downhill blindfolded by feeling the slope with your feet and taking careful steps. The network takes small steps to shrink its mistakes after every round.
+
+    \item \textbf{1. Changing How Much You Trust Friends (Weight Update):}
+    \[
+        w_{ij} = w_{ij} - \Delta w_{ij} \qquad \text{where} \qquad \Delta w_{ij} = \eta \delta_j O_i
+    \]
+    \vspace{-5mm}
+    \begin{itemize}
+        \scriptsize
+        \item $\Delta w_{ij}$ is the nudge we make to kid $j$'s trust in kid $i$.
+        \item It depends on three things: how loudly friend $i$ whispered ($O_i$), how much blame kid $j$ got ($\delta_j$), and the learning rate ($\eta$). If friend $i$ said nothing ($O_i = 0$), they get zero blame!
+    \end{itemize}
+
+    \item \textbf{2. Fixing Your Own Personal Hunch (Bias Update):}
+    \[
+        b_j = b_j - \Delta b_j \qquad \text{where} \qquad \Delta b_j = \eta \delta_j
+    \]
+    \vspace{-5mm}
+    \begin{itemize}
+        \scriptsize
+        \item Because a hunch comes from inside kid $j$'s own head rather than a friend's whisper, the change only depends on kid $j$'s blame ($\delta_j$) and $\eta$.
+    \end{itemize}
+
+    \item \textbf{3. The Patience Knob ($\eta$, Learning Rate between $0.0$ and $1.0$):}
+    Controls how fast the kids change their minds—too close to $0.0$ means they learn too slowly; too close to $1.0$ means they overreact and flip-flop every round!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Quick Cheat Sheet: Kid Game vs. Grown-Up Math}
+    \framesubtitle{Every Symbol Explained in Plain Language}
+
+    \begin{table}
+    \footnotesize
+    \centering
+    \renewcommand{\arraystretch}{1}
+    \begin{tabular}{lll}
+    \toprule
+    \textbf{Symbol} & \textbf{Classroom Kid Game Meaning} & \textbf{Grown-Up Math Name} \\
+    \midrule
+    $O_i, \; O_j$ & How loudly a kid whispers their clue ($0$ to $1$) & \textbf{Output} of a unit \\
+    $w_{ij}$ & How much kid $j$ trusts kid $i$'s whisper & \textbf{Weight} of the connection \\
+    $b_j$ & Kid $j$'s own personal hunch & \textbf{Bias} \\
+    $I_j$ & All the weighted clues and hunch added together & \textbf{Net Input} \\
+    $T_j$ & The real answer from the teacher (Cat or Dog) & \textbf{Target} value \\
+    $\delta_j$ & How much blame kid $j$ gets for a wrong guess & \textbf{Error} signal \\
+    $\eta$ & The ``patience knob'' ($0.0$ to $1.0$) for changing minds & \textbf{Learning Rate} \\
+    $\Delta w_{ij}, \; \Delta b_j$ & The exact amount a kid nudges their trust or hunch & \textbf{Weight / Bias Update} \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \begin{exampleblock}{The Big Takeaway}
+        \scriptsize
+
+        \textbf{Phase 1 (Forward)} passes clues forward to make a guess $\rightarrow$ \textbf{Phase 2 (Backward)} passes blame backward to find out who caused the mistake $\rightarrow$ \textbf{Phase 3 (Updates)} nudges everyone's trust and hunches so the team guesses better next time!
+    \end{exampleblock}
+\end{frame}
+
 
 \begin{frame}{Weight Initialization}
     \begin{itemize}
