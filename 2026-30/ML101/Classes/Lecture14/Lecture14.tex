@@ -1,0 +1,129 @@
+\documentclass[aspectratio=169, 11pt]{beamer}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{pgffor} % Required for \foreach
+
+\usetikzlibrary{arrows.meta,positioning,fit,shapes.symbols}
+\usetikzlibrary{arrows,shapes}
+\definecolor{LightGray}{gray}{0.975}
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=blue}
+\AtBeginEnvironment{minted}{%
+    \renewcommand{\fcolorbox}[4][]{#4}
+}
+
+\title[SOM]{ML101 \\ Self-Organizing Maps}
+\subtitle{ITA Institute of Technology in Architecture }
+\author{Faculty of Architecture / ETH Zurich \\ \url{caad.arch.ethz.ch/blog}}
+\date{\today}
+%/  / Chair for CAAD / Map & Models
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+\defbeamertemplate*{footline}{shadow theme}{
+    \leavevmode
+    \hbox{
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \flushleft ML101
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{author in head/foot}
+            \insertshorttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[
+                wd =        0.33\paperwidth,
+                ht =        2.5ex,
+                dp =        1.125ex,
+                leftskip =  0.3cm plus1fil,
+                rightskip = 0.3cm
+            ]{title in head/foot}
+            \hfill \insertframenumber\,/\,\inserttotalframenumber%
+        \end{beamercolorbox}
+    }
+}
+
+\AtBeginSection[]
+{
+     \begin{frame}<beamer>
+     \frametitle{Plan}
+     \tableofcontents[currentsection]
+     \end{frame}
+}
+
+\usefonttheme{serif}
+
+\newcommand\Wider[2][18mm]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            \raggedright#2
+        \end{minipage}%
+    }%
+}
+\newcommand\userinput[1]{\textbf{#1}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+% \begin{frame}{Data Mining: Concepts and Techniques}
+%     \centering
+%     \includegraphics[height=0.7\textheight]{figures/cover} \\
+%     \vspace{4mm}
+%     {
+%         \tiny
+%         Content has been extracted from \textit{Data Mining: Concepts and Techniques}, Fourth Edition, by Jiawei Han, Jian Pei \& Hanghang Tong. Morgan Kaufmann Publishers. 2023.\\
+%         Visit \url{https://hanj.cs.illinois.edu/bk4/}.\\
+%     }
+% \end{frame}
+
+% \begin{frame}{}
+%     \includegraphics[trim={0cm 2.9cm 0cm 2.9cm}, clip, width=\textwidth]{resources/01.png}
+% \end{frame}
+
+
+\foreach \n in {1,...,42} {
+    % Format single-digit numbers with a leading zero (01, 02, ..., 09)
+    \edef\num{\ifnum\n<10 0\fi\n}
+
+    % Set the trim value (3cm for slide 1, 3cm for all others)
+    \def\trimval{\ifnum\n=1 3cm\else 3cm\fi}
+
+    \begin{frame}{}
+        \includegraphics[trim={0cm \trimval{} 0cm \trimval}, clip, width=\textwidth]{resources/\num.png}
+    \end{frame}
+}
+
+\begin{frame}{Some resources}
+    \begin{itemize}
+        \item \href{https://youtube.com/shorts/1wz_pQJQSfI?si=kxlq-mhFVeyacYQC}{A spring grid bend to fit the shape of the data.}
+        \item \href{https://youtube.com/shorts/YbZHc0VNXrE?si=qkxOUQOMr-jBWeye}{UbiSOM3}
+        \item \href{https://youtu.be/TQkZiroLKxM?si=gsZolEin1s9JIOsb}{Kohonen's Self-Organizing Map (SOM) Visualised}
+        \item \href{https://youtu.be/OJT_57s0SHo?si=9S_gEZjpnaDw0-Dv}{Map\&Models - Lecture 08- Self Organizing Maps}
+    \end{itemize}
+\end{frame}
+
+\end{document}
