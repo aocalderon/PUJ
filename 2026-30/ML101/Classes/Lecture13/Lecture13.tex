@@ -415,14 +415,6 @@
     \end{itemize}
 \end{frame}
 
-
-
-
-
-
-
-
-
 \begin{frame}{Expressing Patterns in Compressed Form: Closed Patterns}
     \begin{itemize}
         \item \textbf{How to handle such a challenge?}
@@ -475,6 +467,8 @@
         \item Mining Closed Patterns
     \end{itemize}
 \end{frame}
+
+\subsection{Apriori}
 
 \begin{frame}{The Downward Closure Property of Frequent Patterns}
     \begin{itemize}
@@ -618,12 +612,12 @@
     \begin{itemize}
         \item \textbf{Reduce passes of transaction database scans}
         \begin{itemize}
-            \item Partitioning (e.g., Savasere, et al., 1995) \textit{[To be discussed in subsequent slides]}
+            \item Partitioning (e.g., Savasere, et al., 1995) %\textit{[To be discussed in subsequent slides]}
             \item Dynamic itemset counting (Brin, et al., 1997)
         \end{itemize}
         \item \textbf{Shrink the number of candidates}
         \begin{itemize}
-            \item Hashing (e.g., DHP: Park, et al., 1995) \textit{[To be discussed in subsequent slides]}
+            \item Hashing (e.g., DHP: Park, et al., 1995) %\textit{[To be discussed in subsequent slides]}
             \item Pruning by support lower bounding (e.g., Bayardo, 1998)
             \item Sampling (e.g., Toivonen, 1996)
         \end{itemize}
@@ -636,7 +630,264 @@
     \end{itemize}
 \end{frame}
 
+\subsection{FPGrowth}
 
+\begin{frame}{Why Mining Frequent Patterns by Pattern Growth?}
+    \begin{block}{Apriori: A breadth-first search mining algorithm}
+        \begin{itemize}
+            \item First find the complete set of frequent $k$-itemsets
+            \item Then derive frequent $(k+1)$-itemset candidates
+            \item Scan DB again to find true frequent $(k+1)$-itemsets
+        \end{itemize}
+    \end{block}
+    \vspace{0.2cm}
+    \begin{block}{Motivation for a different mining methodology}
+        \begin{itemize}
+            \item Can we develop a \textbf{depth-first search} mining algorithm?
+            \item For a frequent itemset $\rho$, can subsequent search be confined to only those transactions containing $\rho$?
+        \end{itemize}
+    \end{block}
+    \vspace{0.2cm}
+    \begin{alertblock}{Such thinking leads to a frequent pattern growth approach: \textbf{FPGrowth}}
+        \footnotesize FPGrowth (J. Han, J. Pei, Y. Yin, ``Mining Frequent Patterns without Candidate Generation,'' \textit{SIGMOD 2000})
+    \end{alertblock}
+\end{frame}
+
+\begin{frame}{Example: From Transactional DB to Ordered Frequent Itemlist}
+
+    \begin{columns}[T]
+        % Left Column: Steps and Parameters
+        \begin{column}{0.44\textwidth}
+            \textbf{Let $\text{min\_support} = 3$}
+            \vspace{0.2cm}
+            \begin{itemize}
+                \item \textbf{Scan DB once}, find single-item frequent patterns: \\
+                \texttt{f:4, a:3, c:4, b:3, m:3, p:3}
+                \vspace{0.15cm}
+                \item \textbf{Sort frequent items} in frequency-descending order ($f$-list): \\
+                \textbf{F-list = \texttt{f-c-a-b-m-p}}
+                \vspace{0.15cm}
+                \item \textbf{Scan DB again}, use the ordered frequent itemlist for each transaction to construct an FP-tree.
+            \end{itemize}
+        \end{column}
+
+        % Right Column: Transactional Database Table
+        \begin{column}{0.55\textwidth}
+            \small
+            \begin{tabular}{@{}lll@{}}
+                \toprule
+                             & \textbf{Items in}    & \textbf{Ordered Freq.} \\
+                \textbf{TID} & \textbf{Transaction} & \textbf{Itemlist} \\
+                \midrule
+                100 & $\{f, a, c, d, g, i, m, p\}$ & $f, c, a, m, p$ \\
+                200 & $\{a, b, c, f, l, m, o\}$    & $f, c, a, b, m$ \\
+                300 & $\{b, f, h, j, o, w\}$       & $f, b$ \\
+                400 & $\{b, c, k, s, p\}$          & $c, b, p$ \\
+                500 & $\{a, f, c, e, l, p, m, n\}$ & $f, c, a, m, p$ \\
+                \bottomrule
+            \end{tabular}
+            \vspace{4mm}
+            \begin{block}{FP-Tree Construction:}
+                For each transaction,insert the ordered frequent itemlist into an FP-tree,  with shared sub-branches merged, counts accumulated.
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Example: Construct FP-tree from Transaction DB}
+    \centering
+    \includegraphics[width=\textwidth]{figures/4_5}
+\end{frame}
+
+\begin{frame}{Mining FP-Tree: Divide and Conquer Based on Patterns and Data}
+    \centering
+    \includegraphics[width=0.475\textwidth]{figures/4_6} \\
+    \begin{block}{Partitioning Pattern Mining}
+        \begin{itemize}
+            \item Pattern mining can be partitioned according to current patterns:
+            \begin{itemize}
+                \item \textbf{Patterns containing $p$:} $p$'s conditional database: \texttt{fcam:2, cb:1}
+                \begin{itemize}
+                    \item $p$'s conditional database (i.e., the database under the condition that $p$ exists):
+                    \item \textit{transformed prefix paths of item $p$}
+                \end{itemize}
+                \item \textbf{Patterns having $m$ but no $p$:} $m$'s conditional database: \texttt{fca:2, fcab:1}
+            \end{itemize}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Mine Each Conditional Database Recursively}
+    \begin{columns}[T]
+        \begin{column}{0.39\textwidth}
+            \begin{exampleblock}{$\text{min\_support} = 3$}
+                \centering
+                \begin{tabular}{@{}cl@{}}
+                    \toprule
+                                  & \textbf{Conditional} \\
+                    \textbf{Item} & \textbf{Database} \\
+                    \midrule
+                    $c$ & \texttt{f:3} \\
+                    $a$ & \texttt{fc:3} \\
+                    $b$ & \texttt{fca:1, f:1, c:1} \\
+                    $m$ & \texttt{fca:2, fcab:1} \\
+                    $p$ & \texttt{fcam:2, cb:1} \\
+                    \bottomrule
+                \end{tabular}
+            \end{exampleblock}
+            \vspace{3mm}
+            \includegraphics[width=\textwidth]{figures/4_7}
+        \end{column}
+        \begin{column}{0.60\textwidth}
+            \begin{block}{For Each Conditional Database}
+                \begin{itemize}
+                    \item Mine single-item patterns
+                    \item Construct its conditional FP-tree \& mine it
+                \end{itemize}
+            \end{block}
+            \vspace{0.1cm}
+            \begin{alertblock}{Conditional FP-Tree Results}
+                \footnotesize
+                \begin{itemize}
+                    \item \textbf{$p$'s conditional DB:} \texttt{fcam:2, cb:1} $\rightarrow$ \texttt{c:3}
+                    \vspace{0.15cm}
+                    \item \textbf{$m$'s conditional DB:} \texttt{fca:2, fcab:1} $\rightarrow$ \texttt{fca:3}
+                    \vspace{0.15cm}
+                    \item \textbf{$b$'s conditional DB:} \texttt{fca:1, f:1, c:1} $\rightarrow \emptyset$
+                \end{itemize}
+                \textit{Actually, for single branch FP-tree, all the frequent patterns can be generated in one shot}
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{FPGrowth: Mining Frequent Patterns by Pattern Growth}
+    \begin{block}{Essence of Frequent Pattern Growth (FPGrowth) Methodology}
+        \begin{itemize}
+            \item Find frequent single items and partition the database based on each such single-item pattern
+            \item Recursively grow frequent patterns by doing the above for each partitioned database (also called the pattern's \textbf{conditional database})
+            \item To facilitate efficient processing, an efficient data structure, \textbf{FP-tree}, can be constructed
+        \end{itemize}
+    \end{block}
+    \vspace{2mm}
+    \begin{alertblock}{Mining Process}
+        \begin{itemize}
+            \item \textbf{Recursively construct and mine} (conditional) FP-trees
+            \item \textbf{Termination condition:} Until the resulting FP-tree is empty, or until it contains only \textbf{one path}, a single path will generate all the combinations of its sub-paths, each of which is a frequent pattern
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+
+\section{Which Patterns Are Interesting? Pattern Evaluation Methods}
+
+\begin{frame}{How to Judge if a Rule/Pattern Is Interesting?}
+    \begin{alertblock}{The Challenge}
+        \begin{itemize}
+            \item Pattern-mining will generate a large set of patterns/rules
+            \item \textbf{Not all} the generated patterns/rules are interesting
+        \end{itemize}
+    \end{alertblock}
+    \vspace{0.2cm}
+    \begin{block}{Interestingness Measures: Objective vs. Subjective}
+        \begin{columns}[T]
+            % Left Column: Objective Measures
+            \begin{column}{0.46\textwidth}
+                \textbf{Objective Interestingness Measures}
+                \begin{itemize}
+                    \item Data-driven statistical metrics:
+                    \begin{itemize}
+                        \item Support
+                        \item Confidence
+                        \item Correlation, \dots
+                    \end{itemize}
+                \end{itemize}
+            \end{column}
+            % Right Column: Subjective Measures
+            \begin{column}{0.50\textwidth}
+                \textbf{Subjective Interestingness Measures}
+                \begin{itemize}
+                    \item Different users may judge interestingness differently
+                    \item Let a user specify:
+                    \begin{itemize}
+                        \item \textbf{Query-based:} Relevant to a user's particular request
+                        \item \textbf{Against knowledge-base:} Unexpected, freshness, timeliness
+                    \end{itemize}
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Limitation of the Support-Confidence Framework}
+    \begin{alertblock}{Are $s$ and $c$ interesting in association rules: ``$A \Rightarrow B$'' $[s, c]$?}
+        \textbf{Be careful!} High support and confidence can still produce misleading rules.
+    \end{alertblock}
+    \vspace{0.1cm}
+    \begin{exampleblock}{Example: School Student Statistics}
+        \centering
+        \footnotesize
+        \begin{tabular}{@{}lccc@{}}
+            \toprule
+            & \textbf{play-bball} & \textbf{not play-bball} & \textbf{sum (row)} \\
+            \midrule
+            \textbf{eat-cereal}     & 400 & 350 & 750 \\
+            \textbf{not eat-cereal} & 200 & 50  & 250 \\
+            \midrule
+            \textbf{sum (col.)}     & 600 & 400 & 1000 \\
+            \bottomrule
+        \end{tabular}
+    \end{exampleblock}
+    \begin{block}{Association Rule Analysis}
+        \footnotesize
+        \begin{itemize}
+            \item \textbf{Generated Rule:} $\text{play-basketball} \Rightarrow \text{eat-cereal}\ [40\%, 66.7\%]$ \textit{(higher $s$ \& $c$)}
+            \item \textbf{Why it is misleading:} Overall $\%$ of students eating cereal is $\mathbf{75\% > 66.7\%}$ (playing basketball actually lowers the likelihood!).
+            \item \textbf{A more telling rule:} $\neg\text{play-basketball} \Rightarrow \text{eat-cereal}\ [35\%, 87.5\%]$ \textit{(high $s$ \& $c$)}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Interestingness Measure: Lift}
+    \begin{columns}[T]
+        \begin{column}{0.49\textwidth}
+            \footnotesize
+            \begin{block}{Measure of Dependent/Correlated Events}
+                \[
+                    \text{lift}(B, C) = \frac{c(B \rightarrow C)}{s(C)} = \frac{s(B \cup C)}{s(B) \times s(C)}
+                \]
+            \end{block}
+            \vspace{0.1cm}
+            \begin{block}{Lift(B, C) may tell how $B$ and $C$ are correlated}
+                \begin{itemize}
+                    \item $\text{lift}(B, C) = 1$: $B$ and $C$ are \textbf{independent}
+                    \item $\text{lift}(B, C) > 1$: \textbf{positively} correlated
+                    \item $\text{lift}(B, C) < 1$: \textbf{negatively} correlated
+                \end{itemize}
+            \end{block}
+        \end{column}
+        \begin{column}{0.49\textwidth}
+            \footnotesize
+            \begin{exampleblock}{For Our Example ($B$: basketball, $C$: cereal)}
+                \vspace{-0.2cm}
+                \begin{align*}
+                    \text{lift}(B, C) &= \frac{400 / 1000}{(600 / 1000) \times (750 / 1000)} = \mathbf{0.89} \\[0.2cm]
+                    \text{lift}(B, \neg C) &= \frac{200 / 1000}{(600 / 1000) \times (250 / 1000)} = \mathbf{1.33}
+                \end{align*}
+            \end{exampleblock}
+            \vspace{0.1cm}
+            \begin{alertblock}{Conclusion}
+                \footnotesize
+                \begin{itemize}
+                    \item $B$ and $C$ are \textbf{negatively correlated} since $\text{lift}(B, C) < 1$
+                    \item $B$ and $\neg C$ are \textbf{positively correlated} since $\text{lift}(B, \neg C) > 1$
+                \end{itemize}
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{}
     \centering
     \Huge End of Chapter 4.
