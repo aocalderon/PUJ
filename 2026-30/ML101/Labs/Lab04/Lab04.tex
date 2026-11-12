@@ -52,13 +52,13 @@
 % Header and Footer
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{Data Mining Lab:} Frequent Patterns \& Association Rules in R}
+\lhead{\textbf{Lab 04:} Frequent Patterns \& Association Rules in R}
 \rhead{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
 % Section styling
-\titleformat{\section}{\large\bfseries\color{accentcolor}}{\thesection.}{0.5em}{}[\titlerule]
-\titleformat{\subsection}{\normalsize\bfseries\color{accentcolor!80!black}}{\thesubsection}{0.5em}{}
+% \titleformat{\section}{\large\bfseries\color{accentcolor}}{\thesection.}{0.5em}{}[\titlerule]
+% \titleformat{\subsection}{\normalsize\bfseries\color{accentcolor!80!black}}{\thesubsection}{0.5em}{}
 
 % Custom Callout Boxes
 \newtcolorbox{missionbox}[1]{
@@ -75,16 +75,15 @@
     title=#1
 }
 
-\title{\vspace{-1cm}\textbf{\LARGE The Supermarket Detective:\\ Uncovering Hidden Shopping Habits with R}\\[0.2cm]
-\large A Hands-On Lab with \texttt{arules} and \texttt{arulesViz}}
-\author{Andrés Oswaldo Calderón Romero}
+\title{ML101 \\ Lab 04: A `gentle' Introduction to Frequent Pattern Mining.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
-\section{Introuduction}
+\section{Introduction}
 Welcome, ML Detective! Every day, thousands of customers walk into supermarkets, toss items into their carts, and leave behind a trail of digital breadcrumbs: \textbf{receipts}.  Store managers want to know what is really going on in those aisles. Do people who buy diapers really buy beer? Are folks buying whole milk out of genuine love for dairy, or just because literally everyone buys milk?
 
 In this lab, you will use R's \texttt{arules} and \texttt{arulesViz} packages to interrogate real point-of-sale transaction data, expose misleading patterns, and rearrange the store shelves for maximum profit.
@@ -226,7 +225,7 @@ plot(clean_rules, method = "grouped")
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/graph.png}
+    \includegraphics[width=0.75\textwidth]{figures/graph.png}
     \caption{\textbf{Directed Network Graph of the Top 15 Association Rules Ranked by Lift.}
     Items are represented as text nodes and association rules as circular intermediate nodes, with directed arrows pointing from the antecedent (LHS) to the consequent (RHS). The size of each rule circle corresponds to its \textbf{Support} (frequency of occurrence in the dataset), while the color shading intensity represents \textbf{Lift} (strength of positive correlation).}
     \label{fig:graph}
